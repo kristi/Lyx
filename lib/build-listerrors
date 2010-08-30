@@ -1,0 +1,45 @@
+#!/bin/sh
+#
+# Attempt to build listerrors (see examples/Literate.lyx) at build-time
+#
+# Author: Kayvan Sylvan <kayvan@sylvan.com>
+#
+# Assume notangle is on the path
+
+if [ $# -eq 1 ]
+then
+    dir=$1
+else
+    dir=.
+fi
+
+if [ -r ../src/lyx ]
+then
+    lyx=../src/lyx
+else
+    # Assumed to be on the path
+    lyx=lyx
+fi
+
+if [ -z "`grep literate-article textclass.lst`" ]
+then
+    touch listerrors
+    exit 0
+fi
+
+$lyx --export literate $dir/examples/Literate.lyx
+# if no literate support stuff is installed nothing will be output
+if [ -f $dir/examples/Literate.nw ]
+then
+   mv $dir/examples/Literate.nw Literate.nw
+   which notangle 2>/dev/null && notangle -Rbuild-script Literate.nw | sh
+else
+   # you don't have noweb installed so we'll produce a dummy file
+   # just so make doesn't keep trying to output it.
+   touch listerrors
+   # tell the user nothing bad happened
+   echo
+   echo "LyX did not detect NoWeb support. Proceeding normally."
+fi
+
+exit 0

@@ -1,0 +1,189 @@
+-*- text -*-
+
+This is a task list/todo list for future LyX releases. There is 
+one (?) major task left to be done:
+
+	o Buffer structure rewrite
+		The main problems with the current structure is that
+		is intended to be viewed by only one window at the
+		time. It also uses characters as the smallest unit, it
+		would probably be better to use something a bit
+		bigger.
+		The LyXText class does not necessarily need to change
+		a lot, it could be per-view. However all the special
+		code in it needs to be (re)moved. Also a lot of the
+		functionality needs to be relocated.
+
+In addition, there are a lot of small tasks that should be performed
+that have no direct bearing on features, but are more geared towards 
+code quality:
+
+	o always try to use POSIX commands.
+	o switch to use POSIX signals
+	o make as much as possible of the code reentrant(?)
+		should make it easier to move to threads later. Albeit
+	        this is not a huge goal we have some parts of the code
+	        that would benefit from threads. (forking is not that
+	        nice...)
+	o signal slot mechanism
+	        We are going to use the signal/slot implementation
+	        found in libsigc++. This will hopefully give us better
+	        interface, leaner code, type-safe "callbacks". I have
+		been using signal/slots for other projects and it works
+		like a charm.
+	o other code rewrites to make multiple buffers/windows
+	  possible, without too much hassle.
+		- get rid of most of the global variables. In
+	          particular current_view is a problem.
+		- non-shared variables in shared structures
+	o make source documentation better. Remember that the better
+	  we document LyX internals, the easier is it for new
+	  developers to begin working on LyX.
+
+Some other things related to structure and services in the code:
+	o class FileInfo does way too much, move the unneeded parts to
+	  a super class or friends.
+	o a process manager class to handle execution of external
+	  commands.
+		- ensure that not too many commands are executed at
+		  the same time.
+		- ensure that no non-compatible commands are running at
+		  the same time.
+		- setup file descriptors where communicating with
+		  the processes can take place.
+	o pass an info receiver around in the object structure.
+	  (this instead of passing minibuffers, and lyxerrors.)
+
+================
+
+Also a lot of new features are thought of:
+
+	o rewrite of table code. 
+		- colortbl  - multirow
+		- hhline    - dcolumn
+	o index support (and multiple indices support)
+		- multind ?
+	o tocs for each section
+		- minitoc
+	o multiple table of contents
+		- multitoc
+	o trivlist?
+	o better version control (both document and file wise)
+		- version.sty
+		- cvs
+		- svn
+		- sccs
+	o character styles (similar to emph and noun)
+		Will make a lot of small things conceptual instead of
+		specific. Will be a lot easier to change the
+		presentation of a filename f.ex. This is actually very
+		important, because this is where the user can't be
+		conceptual in the current version.
+	o macro support. Similar to the math-macro support, but
+	  usable in regular text too.
+	o support for abbreviations (static macros)
+	o add an incremental search function.
+	o change the "Find and Replace" to Query Replace.
+	o better/more search functions:
+		- replace & find next
+		- replace & find previous
+		We should perhaps try to make the interface a bit
+		emacs like, that should at least give us the
+		features we want.
+	o improved template support.
+	o collapse "New" and "New from Template" into one item.
+	o make lyx recognize some file types (i.e. gzipped) and do
+	  the right thing when encountering them.
+	o We should look at all the LyX specific paragraph styles and
+	  check carefully that we really need them. We should also try
+	  to collapse some of them into single items (i.e. chapter and
+	  chapter*)
+	o the "LyX-Code" environment should be removed. Add a verbatim
+	  environment instead.
+	o tabbing support
+		 This would be a special inset that is line-based (no
+	  breaking of lines), where tabstops can be set and used.
+	o picture support
+		 A special insets with some basic drawing
+		 capabilities.
+	o rotating and scaling of text
+	o PSTricks (we should be able to support some of this package)
+	o better reference support
+		- varioref
+	o online configuration
+		So that users should not need to edit lyxrc
+		manually. This has now been "half" done; it is now
+	        possible to save the current configuration with the
+	        lyx command "preferences-save". We need to add code so
+	        that the preferences can be set from inside LyX too.
+	o better fontsupport
+		T1-lib font renderer.
+	o better latex code quality
+		This means reading LaTeX books to get an better idea
+		on how things are done in the latex world.
+	o perhaps find better names for the paragraph styles
+	  "paragraph" and "subparagraph"
+	o support for filecontents
+		This can make a latex document selfcontained, all the
+		needed graphics can be in the document.
+	o support for optional args to latex commands
+		- For sectioning commands I have an idea on how we can
+		  do this: have a popup on RMB to set properties.
+	o references to external documents
+		- xr.sty
+	o title page support
+	o draft copy
+		- draftcopy.sty
+	o better float support (allow user to make its own floats)
+	o support newtheorem (allow user to make its own thorem like envirs)
+	o a bit more wysiwyg where it is appropriate.
+		- show bullets the way they will be on paper
+		- show a few more characters as they will be on paper
+		  (--, ---)
+	o online generation of new paragraph styles (or editing or old
+	  ones)
+	o support for inlined sectioning commands (i.e. \paragraph{} )
+	o we should parse the command line ourselves.
+	o remove support for XResources, with multiple toolkits it
+	  will be impossible to manage. And they are not very needed
+	  either.
+	o the possibility to collapse parts of the document.
+	  (i.e. collapse the contents of a section. Would make moving
+	   parts of the document around very easy)
+	o better LyXServer support
+		- perhaps use UNIX sockets instead of pipes
+		- make a decent protocol with return codes.
+		- make it independent of the GUI
+		- prob: concurrency (locks)
+	o other packages to support:
+		- listings.sty
+		- keyval (we should not use it directly, but know how
+			to parse options for it.)
+		- here.sty
+		- ulem.sty
+		- indentfirst.sty
+		- lscape.sty
+
+I am sure others have a list as long as mine...
+
+
+======================
+
+We should also do some work to enhance the support we already have for
+some packages, I think these packages are already supported:
+	- longtable	- color (papercolor boxes?)
+	- setspace (should support setting spacing on individual paragraphs)
+	- psnffs packages
+	- geometry	- makeidx
+	- verbatim	- algorithm
+	- inputenc	- fancyhdr (we only have _very_ basic support)
+	- fontenc	- graphics
+
+(I am sure I have forgot some, please fill me in.)
+
+
+======================
+
+If you have other wishes for features, or comments, please let us know.
+
+	Lgb

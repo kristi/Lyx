@@ -1,0 +1,126 @@
+Building LyX/Mac-1.5
+Ronald Florence <ron@18james.com>
+Modified by Bennett Helm <bennett.helm@fandm.edu>, Anders
+Ekberg <anek@mac.com> and Jean-Marc Lasgouttes <lasgouttes@lyx.org>.
+
+LyX/Mac is built from the LyX source, the GPL-licensed Trolltech
+Qt/Mac library, and a custom application bundle.
+
+You will need the MacOSX development tools. The procedure described
+here builds LyX linked with a static Qt library. Also note that
+building LyX/Mac requires gcc version 4.0 or higher. (You can check
+your version  by entering "gcc -v" in the Terminal; you can change
+your gcc version to version 4.0, for example, by entering
+"sudo gcc_select 4.0".)
+
+
+PREREQUISITES
+
+Note: Only Qt/Mac is needed for building official LyX releases, and
+so steps 2 and 3 can be skipped in these cases. Those wanting to
+build developmental versions must have automake and gettext as
+well.
+
+1. Qt/Mac Opensource Edition, version 4.
+This library is GPL-licensed and can be downloaded from
+<http://trolltech.com/developer/downloads/qt/mac/>. To compile it,
+create a directory where you want to install QT4. In the following, 
+the full path to this directory is called /path/to/QT4
+Decompress Qt/Mac in a convenient directory, cd to the top of the
+Qt source hierarcy, and enter:
+
+     ./configure -static -no-exceptions -nomake examples -nomake tools -nomake demos -prefix /path/to/QT4
+     make
+     make install
+     rm /path/to/QT4/lib/*.la
+
+	with Qt4.6.2 and snow leopard it becomes:
+
+     CC=gcc-4.0 OBJC=gcc-4.0 CXX=g++-4.0\
+       ./configure -opensource -silent -static -release -universal -fast\
+       -sdk /Developer/SDKs/MacOSX10.4u.sdk\
+       -no-framework -no-exceptions -no-webkit -no-qt3support -no-javascript-jit -no-dbus\
+       -nomake examples -nomake demos -nomake docs\
+       -nomake tools\
+       -prefix /path/to/QT4
+     make
+     make install
+
+2. [Needed only for developmental builds:] automake, version 1.10
+or higher (check with automake --version). Probably the easiest
+way to get this is to use MacPorts (from http://www.macports.org/)
+and install automake using
+
+     sudo port install automake
+
+3. [Needed only for developmental builds:] gettext version >= 0.12
+(check with gettext --version). If the installed version is
+insufficient the easiest way to obtain a later version is to use
+MacPorts (from http://www.macports.org/) and install gettext
+using:
+
+     sudo port install gettext
+
+4. [Useful to simplify detection of Qt:] pkg-config >= 0.9.0. Again,
+the simplest way is through MacPorts:
+
+     sudo port install pkgconfig
+
+
+5. To build with included spell checker (ASpell):
+The aspell library is GPL-licensed and can be downloaded from
+ftp://ftp.gnu.org/gnu/aspell or one of the mirrors.
+At the time of writing aspell-0.60.tar.gz is the current version.
+Unpack the tarball in the same directory where you placed the
+svn checkout or LyX tarball.
+
+BUILD INSTRUCTIONS
+
+In what follows, /path/to/LyX.app is the location where you want LyX
+to create the LyX binary. You should substitute something appropriate,
+like: ~/Desktop/LyX.app. Also, substitute the appropriate path to
+where you installed Qt for /path/to/QT4 (as above).
+
+(a) Official Releases
+
+If you did not install pkg-config, first set the LDFLAGS variable:
+
+     export LDFLAGS="-framework Carbon -framework OpenGL -framework AGL -framework QuickTime -framework Cocoa"
+
+Then, cd to the top of the LyX source hierarchy, and enter:
+
+     ./configure --prefix=/path/to/LyX.app --with-version-suffix=-2.0 --with-qt4-dir=/path/to/QT4 --with-included-gettext --enable-optimization=-O2
+     make
+     make install-strip
+
+(Note that the --with-version-suffix=-2.0 option will result in LyX's
+user's directory being located at ~/Library/Application Support/LyX-2.0)
+
+
+(b) Developmental Versions (svn checkouts)
+
+Building LyX from developmental sources requires a few more steps.
+Instead of the instructions above, do the following:
+
+If you did not install pkg-config, first set the LDFLAGS variable:
+
+     export LDFLAGS="-framework Carbon -framework OpenGL -framework AGL -framework QuickTime -framework Cocoa"
+
+Then, cd to the top of the LyX source hierarchy, and enter:
+
+     ./autogen.sh
+     ./configure --prefix=/path/to/LyX.app --with-version-suffix=-2.0 --with-qt4-dir=/path/to/QT4 --with-included-gettext --enable-optimization=-O2  --disable-stdlib-debug
+     make
+     make install-strip
+
+Note that by default svn versions use some extra debugging code that
+somewhat slows LyX down. If it is a real problem, you can pass the
+option --enable-build-type=release to configure.
+
+The information on this page is believed to be accurate, has been used
+successfully on many systems and sites, and has benefited from the
+comments and suggestions of many users. Due to the variations in
+individual systems, this information is conveyed as is with no
+warranty of any kind.
+
+For more information on LyX/Mac, see <http://wiki.lyx.org/Mac/Mac>.

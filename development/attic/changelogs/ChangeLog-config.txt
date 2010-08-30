@@ -1,0 +1,971 @@
+2006-03-10  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* qt.m4: remove unused QtXml library
+
+2006-03-06  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* qt.m4: add QtCore include directory
+	* qt.m4: search also for libQtCore4 etc.
+
+2006-03-06  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* lyxinclude.m4: Turn exceptions on for gcc (read: don't turn them
+	off)
+
+2006-03-05  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* lyxinclude.m4: Remove support for versions of GCC older than 3.1
+
+2006-02-13  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4 (LYX_USE_PACKAGING): do not set program_suffix for
+	macosx packaging.
+
+2006-02-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4 (LYX_VERSION_SUFFIX): do not alter PACKAGE here.
+	(LYX_USE_PACKAGING): add $version_suffix to PACKAGE here and set
+	program_suffix for posix (bug 2237); provide a custom definition
+	of pkgdatadir for OSX and windows.
+
+2006-01-26  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* ltmain.sh: apply patch for darwin
+
+2005-12-30  Lars Gullik Bjonnes  <larsbj@lyx.org>
+
+	* ltmain.sh: update to newer version
+
+2005-12-27  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* qt.m4: use -nounload with uic if supported (uic can dump core
+	otherwise). 
+
+2005-12-23  Lars Gullik Bjonnes  <larsbj@lyx.org>
+
+	* common.am (AUTOMAKE_OPTIONS): deleted, we now setup am args
+	from configure.ac 
+
+	* lyxinclude.m4: use AC_PACKAGE_VERSION instead of VERSION, use
+	AC_PROG_LIBTOOL instead of AM_PROG_LIBTOOL
+
+2005-10-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4 (LYX_USE_PACKAGING): set PACKAGE depending on
+	packaging setting.
+	(LYX_VERSION_SUFFIX): honor PACKAGE value.
+
+2005-09-29  Angus Leeming  <leeming@lyx.org>
+
+	* lyxinclude.m4: add a new MSYS_AC_CANONICAL_PATH macro that
+	generates a Windows native path on Windows boxes and unix native
+	path on *nix boxes. With thanks to Keith Marshall. Details can
+	be found here: http://thread.gmane.org/gmane.comp.gnu.mingw.msys/2937
+
+2005-09-22  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4 (LYX_PROG_CXX): do not enable stdlib-debug for
+	prereleases.
+
+2005-09-08  Angus Leeming  <leeming@lyx.org>
+
+	* spell.m4: correct grammar describing invocation of the
+	spellchecker.
+
+2005-07-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* common.am (AUTOMAKE_OPTIONS): add dist-bzip2
+
+2005-07-18  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4 (LYX_USE_PACKAGING): use LyX instead of lyx as
+	package name for Windows and OSX packaging.
+
+	* lyxinclude.m4 (LYX_USE_FRONTENDS): require the user to select a
+	frontend. 
+
+	* qt.m4 (QT_DO_IT_ALL): define QT_NO_STL.
+
+2005-07-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* lyxinclude.m4 (enable-optimization): make releases and
+	prereleases have optimization set to -O2
+
+2005-07-16  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4: set profiling off by defqult 
+
+2005-07-15  José Matos <jamatos@lyx.org>
+
+	* py-compile: new file to byte-compile python scripts.
+
+2005-07-15  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* lyxinclude.m4 (lyx_pch_comp): add profiling switch
+
+2005-07-12  Angus Leeming  <leeming@lyx.org>
+
+	* qt.m4 (QT_CHECK_IS_MULTITHREADED): ascertain whether the Qt library
+	has multi-threading support.
+
+2005-07-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* qt.m4 (QT_DO_IT_ALL): mark the QTDIR variable as precious.
+
+2005-05-04  Angus Leeming  <leeming@lyx.org>
+
+	* common.am (*.o *.lo *.obj): make the TARGETS depend on $(PCH_FILE),
+	not the SOURCES.
+	(pch-file): name the generated .pch.h.gch file explicitly.
+	Enables the file to be output to the build directory if different
+	to the source directory.
+	(DISTCLEANFILES): add pch.h.gch.dep
+
+2005-05-03  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: remove [ap]spell.m4 and add spell.m4.
+
+2005-05-02  Angus Leeming  <leeming@lyx.org>
+
+	* spell.m4: test for something that MSVC doesn't have (fork)
+	as opposed to something it does (select, dup2).
+
+2005-05-02  Angus Leeming  <leeming@lyx.org>
+
+	* aspell.m4, pspell.m4: removed.
+	* spell.m4: new. Incorporates the code in [ap]spell but also adds
+	a test for whether the ISpell-handling code should be compiled.
+
+2005-04-22  Angus Leeming  <leeming@lyx.org>
+
+	* qt.m4: Move the Qt-specific preprocessor flags out of the
+	various Makefile.am files to here. Specialise the flags for mingw.
+
+2005-02-17  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* qt.m4: detect Qt Win/Free library
+
+2005-02-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4 (LYX_USE_PACKAGING): remove single quotes around
+	prefix in the windows case; set libdir correctly.
+
+2005-01-20  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* common.am (pch-file): new target, used recursively by target
+	$(PCH_FILE). This avoids bash-isms.
+
+2005-01-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4: fix default win32 prefix
+
+2005-01-06  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4 (LYX_USE_PACKAGING): new macro.
+
+2005-01-05  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4 (enable_stdlib_debug): new switch
+	(enable_concept_checks): new switch
+	(enable_pch): new switch
+	Also some cleanup.
+
+2004-12-28  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4 (LYX_CXX_CHEADERS): remove.
+
+2004-12-15  Angus Leeming  <leeming-0hXrFu2P2+c@public.gmane.org>
+
+	* lyxinclude.m4: define AC_FUNC_MKDIR.
+
+2004-12-05  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* common.am: setup variables for boost
+
+2004-12-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4 (lyx_pch_comp): next gcc version is 4.0 not 3.5
+
+	* common.am ($(PCH_FILE)): do a subst and sed dance to get rid of
+	the PCH_FLAGS from the command line when generating the
+	precompiled header.
+
+	* lyxinclude.m4 (lyx_pch_comp): use CPPFLAGS instead of CXXFLAGS
+	for warning flags. 3.5 -> 4.0 for next gcc version
+
+2004-11-16  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4: next version of gcc will be 4.0 not 3.5
+
+2004-11-16  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4 (enable_debug): Add support for stdlibc++ concept
+	checks on gcc >3.4.
+
+2004-10-23  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* lyxinclude.m4 (LYX_VERSION_SUFFIX): set RPM_VERSION_SUFFIX even
+	if it is empty, otherwise the spec file is broken
+
+2004-10-11  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* lyxinclude.m4: set new variable RPM_VERSION_SUFFIX
+
+2004-10-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude.m4 (LYX_CHECK_VERSION): simplify
+
+2004-09-23  John Spray  <jcs116@york.ac.uk>
+
+	* lyxinclude.m4 (LYX_USE_FRONTENDS): mention gtk as frontend
+
+2004-08-30  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* common.am: improve pch handling a tiny bit
+
+2004-08-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4 (lyx_pch_comp,LYX_BUILD_PCH): set this for
+	precompiled header capable gcc compilers
+
+	* common.am (pch.h.gch,LYX_BUILD_PCH): support for precompiled
+	headers
+
+2004-07-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4: setup for gcc 3.5 use as well
+
+2004-07-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* common.am (AM_ETAGSFLAGS): setup variable
+
+2004-05-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* depcomp.diff: remove file
+	* gettext.m4.patch: remove file
+
+2004-05-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* acconfig.h: remove file
+
+2004-05-26  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* nls.m4: new file
+
+	* Makefile.am: add more m4 files and reformat a bit
+
+2004-05-25  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* config.rpath: new file
+
+2004-05-25  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* add some more m4 files to work around errors with older
+	automake/autoconf versions.
+
+2004-05-25  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* update m4 files from automake 1.8 autoconf 2.59 and update other
+	m4 files to avoid auto warnings.
+
+2004-05-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* lyxinclude.m4 (lyx_warning): change debug mode setup to use
+	AC_DEFINE
+
+2004-05-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4 (enable-debug): Use the libstdc++ debugging mode
+	if configuring with enable-debug.
+
+2004-05-05  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* xforms.m4 (LYX_CHECK_XFORMS_IMAGE_LOADER): rename
+	xforms-image-loader flag to jpeg-image-loader
+
+2004-03-01  Zvezdan Petkovic  <zvezdan@cs.wm.edu>
+
+	* qt.m4 (QT_DO_IT_ALL): if the variables MOC or UIC are set, honor
+	their value
+
+2003-09-16  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4 (LYX_CXX_STL_STRING): remove
+	(LYX_CXX_GOOD_STD_STRING): remove
+
+2003-08-02  Kayvan Sylvan  <kayvan@sylvan.com>
+
+	* Makefile.am (EXTRA_DIST): remove files that are not there anymore
+
+2003-08-02  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* xforms.m4 (XFORMS_DO_IT_ALL): new macro, which calls all the
+	xforms stuff and AC_SUBSTs XFORMS_LIBS with all libraries needed
+	by the xforms frontend
+
+	* lyxinclude.m4 (LYX_USE_FRONTENDS): renamed from
+	LYX_USE_FRONTEND. Can now accept a list of frontends; the
+	variables defines there are now FRONTENDS, FRONTENDS_SUBDIRS and
+	FRONTENDS_PROGS.
+
+2003-07-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4: use AC_HELP_STRING
+
+2003-07-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac:
+	* configure.in:
+	* lyxinclude213.m4:
+	* relyx_configure.ac:
+	* relyx_configure.in: delete
+
+2003-07-25  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.in:
+	* configure.ac: remove frontend directories from FRONTEND_INCLUDES
+
+2003-07-22  John Levon  <levon@movementarian.org>
+
+	* configure.ac:
+	* configure.in: support Aiksaurus 1.0
+
+2003-07-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.in:
+	* configure.ac: only add X libraries to LIBS if --disable-x has
+	not been passed to configure (useful for Qt/Mac)
+
+2003-07-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4: add gcc 3.4
+
+2003-07-15  Angus Leeming  <leeming@lyx.org>
+
+	* lyxinclude.m4: Do not pass the -Winline option to gcc.
+
+2003-06-11  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac: also check for <ios> header
+
+2003-05-26  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* relyx_configure.ac:
+	* relyx_configure.in: add AM_MAINTAINER_MODE here too.
+
+2003-05-20  Angus Leeming  <leeming@lyx.org>
+
+	* xforms.m4 (LYX_CHECK_XFORMS_IMAGE_LOADER): clean-up instigated by
+	Rob Lahaye to ensure that the configure test succeeds with
+	xforms 1.0.2 and, moreover, that this will not break the final
+	linking step under cygwin.
+
+2003-05-15  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* xforms.m4: reverse two tests; do first -ljpeg, then -lflimage
+
+2003-05-14  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* qt.m4: errors are not fatal
+
+2003-05-14  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* xforms.m4 (lyx_cv_xpm_h_location): don't define XPM_H_LOCATION,
+	subst it instead.
+	(lyx_cv_forms_h_location): don't define FORMS_H_LOCATION, subst it
+	instead.
+
+	* configure.in: generate lyx_forms.h and lyx_xpm.h.
+
+	* configure.ac: always check for xforms and qt libs regardless of
+	frontend chosen. Generate lyx_forms.h and lyx_xpm.h.
+
+2003-05-08  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac: better lib building.
+
+2003-05-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4 (LYX_USE_INCLUDED_BOOST): new m4 function
+
+	* configure.ac: allow boost as system lib
+	* common.am: ditto
+
+2003-05-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxinclude213.m4 (AC_HELP_STRING): replace with a hackish but
+	good enough implementation (bug 936)
+
+2003-04-15  Angus Leeming  <leeming@lyx.org>
+
+	* common.am (SIGC_INCLUDES): removed.
+
+2003-04-11  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.in (ALL_LINGUAS):
+	* configure.ac (ALL_LINGUAS): add nn (nynorsk)
+
+2003-04-01  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.in:
+	* configure.ac: move AM_MAINTAINER_MODE later
+
+2003-03-26  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.in:
+	* configure.ac: use AM_MAINTAINER_MODE
+
+2003-03-25  John Levon  <levon@movementarian.org>
+
+	* Makefile.am:
+	* aspell.m4: add
+
+	* pspell.m4: some more fixes
+
+	* configure.in:
+	* configure.ac: prefer new aspell to pspell
+
+2003-03-25  John Levon  <levon@movementarian.org>
+
+	* pspell.m4: fix up the tests again
+
+2003-03-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4 (lyx_warning): add gcc 3.3 as known compiler and
+	make sure that -fno-exceptions is turned on for it.
+
+2003-03-20  Kayvan Sylvan  <kayvan@sylvan.com>
+
+	* configure.ac:
+	* configure.in: Move the RPM_FRONTEND_* stuff and eliminate the
+	value in AC_SUBST. This makes configure work as expected with
+	autoconf-2.5x
+
+2003-03-12  Kayvan Sylvan  <kayvan@sylvan.com>
+
+	* configure.ac:
+	* configure.in: Add the CHECK_WITH_CYGWIN macro call.
+
+	* Makefile.am: add cygwin.m4 to EXTRA_DIST
+
+	* cygwin.m4: Add CHECK_WITH_CYGWIN function to encapuslate
+	some checks for Win32 GCC based on info from the following URL:
+	http://bugzilla.gnome.org/showattachment.cgi?attach_id=12253
+
+	* libtool.m4: TAB to SPACE fixes. Now impgen.c compiles on Cygwin.
+
+2003-03-10  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* pspell.m4: simplify pspell checking even more
+
+2003-03-10  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac:
+	* configure.in: remove special handling of linking order for
+	cygwin
+
+2003-03-05  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude213.m4: add a AC_HELP_STRING
+
+2003-02-26  Albert Chin  <china@thewrittenword.com>
+
+	* relyx_configure.ac: fix application of `chmod' to the reLyX and
+	noweb2lyx scripts
+
+2003-02-21  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* xforms.m4 (LYX_PATH_XPM): move here from lyxinclude.m4
+
+	* lyxinclude.m4 (LYX_FUNC_PUTENV_ARGTYPE): remove, not used
+	anymore
+
+	* configure.in:
+	* configure.ac: do not call LYX_FUNC_PUTENV_ARGTYPE
+
+2003-02-21  André Pönitz <poenitz@gmx.net>
+
+	* configure.ac, configure.in: removed check for setenv and putenv
+
+2003-02-20  Kayvan A. Sylvan <kayvan@sylvan.com>
+
+	* configure.ac, configure.in: add RPM_FRONTEND stuff to
+	automatically generate an xforms or qt specific lyx.spec
+	file.
+
+2003-02-18  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* Makefile.am (EXTRA_DIST): add pkg.m4, relyx_configure.ac and
+	relyx_configure.in.
+
+2003-02-18  John Levon  <levon@movementarian.org>
+
+	* config/qt.m4: prefer -lqt-mt - test this...
+
+2003-02-17  John Levon  <levon@movementarian.org>
+
+	* config/pspell.m4: turn on pspell by default
+
+2003-02-17  John Levon  <levon@movementarian.org>
+
+	* config/configure.ac:
+	* config/configure.in: remove the -isystem fiddling. Let's see
+	  if Solaris people complain...
+
+2003-02-07  John Levon  <levon@movementarian.org>
+
+	* config/configure.ac:
+	* config/configure.in: fix bug 874 by adding strerror check
+
+2003-01-12  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* xforms.m4 (LYX_CHECK_XFORMS_IMAGE_LOADER): include forms.h in
+	the prog that checks for flimage.h header.
+
+	* common.am (AM_INSTALL_DATA_FLAGS): add
+
+2003-01-09  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxinclude.m4:
+	* configure.ac:
+	* configure.in: comment out gnome frontend support
+
+2003-01-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxinclude.m4 (LYX_CHECK_ERRORS): do not delete $cache_file if
+	there has been an error in configuration. With autoconf 2.5x,
+	$cache_file is often set to /dev/null, and deleting that is not a
+	good idea...
+
+2002-12-18  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.ac (AC_CONFIG_FILES): add sourcedoc/Makefile
+	* configure.in (AC_OUTPUT): ditto
+
+2002-12-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac (AC_CONFIG_FILES)): add development/Makefile
+	* configure.in (AC_OUTPUT): ditto
+
+2002-12-17  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac:
+	* configure.in: remove the XOpenIM test as lyxlookup.C has been buried.
+
+2002-12-16  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac: replace LYX_USE_XFORMS_IMAGE_LOADER with
+	LYX_CHECK_XFORMS_IMAGE_LOADER.
+	Remove AM_CONDITIONAL(USE_BASIC_IMAGE_LOADER, ...) test.
+
+	* configure.in: As above. However, I have also found it necessary to
+	comment out some tests from the gnome block of case "$lyx_use_frontend"
+	otherwise they were replicated. No idea what is going wrong here.
+
+	* xforms.m4 (XFORMS_VERSION): update warning/error messages.
+	(LYX_CHECK_XFORMS_IMAGE_LOADER): replaces LYX_USE_XFORMS_IMAGE_LOADER.
+	The function is far simpler as we don't have to worry about
+	xforms < 0.89.5.
+
+2002-11-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* Makefile.am (EXTRA_DIST): add lyxinclude25x.m4 and
+	lyxinclude213.m4
+
+	* lyxinclude25x.m4: new file, containing macros specific to
+	autoconf 2.5x (LYX_CHECK_DECL and LYX_CHECK_DECL_HDRS for now)
+
+	* lyxincludes213.m4: new file, containing macros specific to
+	autoconf 2.13 (LYX_CHECK_DECL and LYX_CHECK_DECL_HDRS for now)
+	(LYX_FUNC_SELECT_ARGTYPES): move here
+
+	* lyxinclude.m4 (LYX_FUNC_SELECT_ARGTYPES): remove
+
+	* configure.ac: use AC_FUNC_SELECT_ARGTYPES (because it works in
+	2.5x)
+
+2002-11-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac: USE_BOOST_FORMAT
+	* acconfig.h: ditto
+
+2002-11-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac: use AH_TOP and AH_BOTTOM instead of
+	AH_VERBATIM
+
+2002-11-05  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.ac (AH_VERBATIM): fix keys to be unique
+
+2002-11-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.ac (AH_VERBATIM): add some lost parts...
+
+2002-10-16  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxinclude.m4: increase template depth for some versions of g++.
+
+2002-10-15  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in,configure.ac: make the AM_CONDITIONAL check a bit
+	more robust.
+
+2002-10-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* xforms.m4 (lyx_use_xforms_image_loader): move the AM_CONDITIONAL
+	USE_BASIC_IMAGE_LOADER from here...
+	* configure.ac: ... here
+	* configure.in: ...to here, and ...
+
+2002-09-13  John Levon  <levon@movementarian.org>
+
+	* qt.m4: tweak sed usage
+
+2002-09-12  John Levon  <levon@movementarian.org>
+
+	* Makefile.am: qt.m4 not qt2.m4
+
+2002-09-12  John Levon  <levon@movementarian.org>
+
+	* configure.ac:
+	* configure.in:
+	* qt.m4: output Qt version
+
+2002-09-12  John Levon  <levon@movementarian.org>
+
+	* qt.m4: make $FATAL actually work
+
+2002-09-12  John Levon  <levon@movementarian.org>
+
+	* configure.ac:
+	* configure.in:
+	* lyxinclude.m4:
+	* qt2.m4:
+	* qt.m4: new Qt configure script
+
+2002-09-10  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* relyx_configure.ac:
+	* configure.ac: only require autoconf 2.52
+
+	* Makefile.am (EXTRA_DIST): distribute also xforms.m4
+
+2002-08-16  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyxinclude.m4 (LYX_PATH_XPM): do not pass XPM_LIB as 5th
+	argument of AC_CHECK_LIB
+
+	* xforms.m4 (LYX_PATH_XFORMS): use 5th argument of AC_CHECK_LIB to
+	make sure that -lXpm is used when linking. Require LYX_PATH_XPM.
+	(LYX_USE_XFORMS_IMAGE_LOADER): use XPM_LIB here
+
+2002-08-14  John Levon  <levon@movementarian.org>
+
+	* configure.in:
+	* configure.ac: no xforms check with Qt
+
+2002-08-13  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in: change AC_LANG(XX) back to the AC_LANG_XX variant.
+
+2002-08-11  Angus Leeming  <leeming@lyx.org>
+
+	* lyxinclude.m4 (LYX_CXX_EXPLICIT): remove trailing semi-colon after
+	definition of c-tor.
+
+2002-08-11  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (EXTRA_DIST): remove sigc++.m4
+
+2002-08-10  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* xforms.m4: switch back to save,restore
+
+	* some more updates and removal of obsolete macros.
+
+2002-08-08  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* further work on 2.53 stuff.
+
+2002-07-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxinclude.m4 (LYX_PROG_CXX): remove the double -Winline
+
+2002-07-17  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyxinclude.m4 (LYX_SCO):
+	(LYX_HPUX):
+	(LYX_SUNOS4): remove macros
+	(LYX_PATH_XPM): add description of XPM_H_LOCATION here
+
+2002-07-10  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyxinclude.m4 (LYX_PROG_CXX): add -Wno-non-template-friend for
+	gcc 2.95.x.
+
+2002-06-20  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyxinclude.m4: add -Wno-non-template-friend
+
+2002-06-20  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* pspell.m4: patch from Garst to help find pspell (bug 428) this
+	code is really tasteless...
+
+2002-06-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyxinclude.m4: remove LYX_REGEX properly
+
+2002-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* lyxinclude.m4 (LYX_STL_STRING_FWD): removed.
+
+2002-06-12  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* xforms.m4 (LYX_USE_XFORMS_IMAGE_LOADER): fix and simplify the
+	check for flimage.h header.
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* qt2.m4: Qt frontend is for Qt 2 OR Qt 3
+
+2002-06-07  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* xforms.m4 (LYX_USE_XFORMS_IMAGE_LOADER): complete rewrite. Now
+	simpler and hopefully better. Please test.
+	(LYX_PATH_XFORMS): move test for flimage.h in
+	LYX_USE_XFORMS_IMAGE_LOADER.
+	(LYX_XFORMS_IMAGE_LOADER_NEEDS_JPEG): killed. Now just a couple
+	lines in LYX_USE_XFORMS_IMAGE_LOADER.
+
+2002-06-10  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxinclude.m4 (lyx_warning): turn off exceptions for 2.96 and 3.1
+
+2002-06-03  John Levon  <moz@compsoc.man.ac.uk>
+
+	* xforms.m4: don't insist on building with flimage linked
+
+2002-06-03  John Levon  <moz@compsoc.man.ac.uk>
+
+	* xforms.m4: don't warn about missing flimage.h
+
+2002-06-02  John Levon  <moz@compsoc.man.ac.uk>
+
+	* xforms.m4: moved out of lyxinclude.m4, some
+	  fixes for 1.0
+
+2002-05-27  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* pkg.m4: new file
+
+2002-05-24  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxinclude.m4 (lyx_warning): enable exceptions and see what
+	happens.
+
+2002-05-22  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxinclude.m4 (lyx_warning): add entry for gcc 3.1
+	(lyx_warning): disable exceptions for gcc 3.1 too
+
+	* kde.m4: remove file
+
+2002-04-17  Rob Lahaye <lahaye@users.sourceforge.net>
+
+	* cvsignore: add Makefile.
+
+2002-04-07  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (EXTRA_DIST): also dist the m4 files
+
+2002-04-06  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am: make distcheck work, new file
+
+	* .cvsignore: new file
+
+2002-04-02  Allan Rae  <rae@lyx.org>
+
+	* lyxinclude.m4 (LYX_WITH_SIGC): fixed typo so now compiling in source
+	directory uses minimum include paths
+
+2002-03-31  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxinclude.m4 (LYX_XFORMS_IMAGE_LOADER_NEEDS_JPEG): new macro
+	testing if libforms contains libjpeg or not.
+
+2002-03-21  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* depcomp: fixed bug in dependency tracking for Tru64 Unix.
+
+	* depcomp.diff: the patch is added to the repository, as Lars wishes...
+
+2002-03-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxinclude.m4 (LYX_CHECK_LDR): deleted; to complex does not give us anything.
+
+2002-03-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxinclude.m4 (LYX_CHECK_LDR): function to test if we can use
+	partial linking or not.
+
+2002-03-18  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* common.am (DISTCLEANFILES): don't be recursive by default.
+	(remove -r)
+
+2002-03-15  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyxinclude.m4 (LYX_PROG_CXX): also look at $CXX when searching
+	for a good C++ compiler
+	(LYX_PATH_XFORMS): small cleanups
+	(LYX_USE_XFORMS_IMAGE_LOADER): override LIBS instead of LDFLAGS;
+	set the conditional USE_BASIC_IMAGE_LOADER here. Add a flag
+	xforsm-image-loader to version info.
+
+2002-03-14  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyxinclude.m4 (LYX_PATH_XFORMS): set XFORMS_NAME to the name of
+	the library.
+
+2002-03-06  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* lyxinclude.m4 (LYX_USE_XFORMS_IMAGE_LOADER): test whether the
+	xforms libraries can be used to load images into LyX.
+
+2002-02-28  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyxinclude.m4 (LYX_PROG_CXX): use -dumpversion instead of
+	--version to get version info from gcc.
+
+2002-01-26  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* qt2.m4: small tweaks to the -lqt recognition stuff..
+
+2002-01-23  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* config.guess: update
+	* config.sub: update
+	* ltmain.sh: update
+
+2002-01-07  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyxinclude.m4: Allow disabling of debug information.
+
+2001-10-17  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* depcomp: new script to handle dependencies, from automake 1.5
+
+	* lyxinclude.m4 (LYX_FUNC_SELECT_ARGTYPES): add description of the
+	SELECT_* defines.
+	(LYX_PROG_CXX_WORKS): change to do the work without
+	AC_TRY_COMPILE, since we do not have a compiler defined yet.
+	(LYX_PROG_CXX): rewritten to be a wrapper around AC_PROG_CXX.
+
+2001-10-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* *.m4: update to gettext 0.10.40
+
+2001-10-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxinclude.m4 (LYX_CHECK_VERSION): renamed from LYX_GET_VERSION.
+
+2001-09-27  John Levon  <moz@compsoc.man.ac.uk>
+
+	* qt2.m4: fix for mis-named -lqt2
+
+2001-08-19  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* libtool.m4: update to latest version
+
+2001-08-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxinclude.m4: fix the help text of --with-frontend
+
+2001-07-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxinclude.m4 (LYX_PROG_CXX): do not handle gcc 2.97. Rename
+	--with-warnings to --enable-warnings.
+
+2001-07-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyxinclude.m4: honour --disable-optimization
+
+2001-07-18  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxinclude.m4 (LYX_PATH_XFORMS): do not warn against xforms
+	0.89.5
+
+2001-07-05  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxinclude.m4: remove LYX_CXX_NAMESPACE, LYX_CXX_MUTABLE
+	(LYX_PROG_CXX_WORKS): check for namespace support, mutable keyword
+	(LYX_PATH_XFORMS): do not warn against xforms 0.89.6
+
+	* pspell.m4 (CHECK_WITH_PSPELL): add the documentation for the
+	USE_PSPELL define.
+
+2001-07-04  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* codeset.m4:
+	* glibc21.m4:
+	* iconv.m4:
+	* isc-posix.m4: new files from gettext 0.10.38
+
+	* lcmessage.m4:
+	* progtest.m4:
+	* gettext.m4: updated to gettext 0.10.38
+
+2001-06-11  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxinclude.m4 (tr_hdr): add LYX_PROG_LIBTOOL and AC_FIND_FILE
+
+2001-05-31  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost.m3: delete file
+
+	* ltconfig: delete file
+	* config.guess: update libtool
+	* config.sub: update libtool
+	* libtool.m4: update libtool
+	* ltmain.sh: update libtool
+
+2001-05-18  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* qt2.m4 (QT2_AC_PATH): fix typo.
+
+2001-05-16  Ruurd Reitsma  <r.a.reitsma@wbmt.tudelft.nl>
+
+	* progtest.m4: added OS2 detection
+
+2001-04-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxinclude.m4: remove support for gcc 2.97 simplify calling for
+	gcc 3.0
+
+2001-03-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* qt2.m4: qt2 port compiles with qt 2.2.1. Changed test to
+	(QT_VERSION < 221).
+
+2001-03-02  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyxinclude.m4: minor changes, --with-lyx-version becomes
+	--with-version-suffix
+
+2001-02-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyxinclude.m4: --with-lyx-version
+
+	* kde.m4: remove cruft that was breaking installs
+
+2001-03-01  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* lyxinclude.m4 (LYX_PROG_CXX): add clause for gcc 3.0
+
+2001-01-22  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxinclude.m4 (LYX_PROG_CXX): do not use -fno-rtti for gcc
+	2.95.3.

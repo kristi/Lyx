@@ -1,0 +1,164 @@
+#LyX 1.6.2svn created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\language romanian
+\inputencoding latin2
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Bine aţi venit în LyX!
+\end_layout
+
+\begin_layout Section*
+Primele N lucruri de ştiut când folosiţi LyX
+\end_layout
+
+\begin_layout Enumerate
+LyX vine cu o documentaţie excelentă — utilizaţi-o! Începeţi cu 
+\family sans
+Help\SpecialChar \menuseparator
+Introduction
+\family default
+, care vă va face o scurtă introducere la documentaţie.
+ Apoi învăţaţi să utilizaţi LyX cu 
+\family sans
+Help\SpecialChar \menuseparator
+Tutorial
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+LyX este ceea ce numim un 
+\begin_inset Quotes eld
+\end_inset
+
+procesor de document
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Prin design, este diferit de procesoarele de texte obişnuite — într-un
+ mod care face scrierea documentelor mai uşoară.
+ Diferenţa este însă minoră, aşa încât nu vă îngrijoraţi.
+ Documentaţia va clarifica pe deplin lucrurile.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+V-am spus oare deja că ar trebui să citiţi documentaţia ?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Rezultatul produs de LyX arată splendid! Selectaţi acum 
+\family sans
+View\SpecialChar \menuseparator
+DVI
+\family default
+ ca să vă convingeţi.
+\end_layout
+
+\begin_layout Enumerate
+Da, LyX poate imita (aproape) întreaga funcţionalitate LaTeX.
+ Şi da, LyX poate importa fişiere LaTeX.
+ Utilizatorii LaTeX experimentaţi ar trebui numai să treacă în revistă restul
+ 
+\emph on
+Tutorialului
+\emph default
+, apoi să citească capitolul 
+\begin_inset Quotes eld
+\end_inset
+
+LyX for LaTeX Users
+\begin_inset Quotes erd
+\end_inset
+
+.
+ (Pentru toţi ceilalţi: nu vă îngrijoraţi, nu e nevoie să ştiţi LaTeX ca
+ să folosiţi LyX).
+\end_layout
+
+\begin_layout Enumerate
+LyX are o mulţime de facilităţi pentru cei care citesc sau scriu într-o
+ altă limbă decât engleza.
+ În plus, asocierile de taste, bara de scule şi multe alte caracteristici
+ sunt extrem de configurabile (în general prin editarea fişierului dumneavoastră
+ 
+\family typewriter
+lyxrc
+\family default
+).
+ Consultaţi 
+\family sans
+Help\SpecialChar \menuseparator
+Customization
+\family default
+ pentru detalii.
+\end_layout
+
+\begin_layout Enumerate
+Pagina web LyX se găseşte la 
+\family typewriter
+
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.lyx.org/
+\end_layout
+
+\end_inset
+
+
+\family default
+.
+ Puteţi să vă informaţi asupra lui LyX, să vă abonaţi la listele de discuţii
+ LyX, să încercaţi Turul Grafic LyX şi altele.
+\end_layout
+
+\end_body
+\end_document

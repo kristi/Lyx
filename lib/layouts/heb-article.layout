@@ -1,0 +1,127 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[article,theorem.sty]{article (Hebrew)}
+# Hebrew article textclass definition file.
+# Author: Dekel Tsur <dekel@math.tau.ac.il>
+# Few changes by Baruch Even <baruch.even@writeme.com>
+
+Format 27
+Input article
+
+Preamble
+	\usepackage{theorem}
+	\theorembodyfont{\upshape}
+	\newtheorem{theorem}{\R{משפט}}[section]
+	\AtBeginDocument{\make@lr\thetheorem}
+EndPreamble
+
+
+Style Theorem
+	Margin                First_Dynamic
+	LatexType             Environment
+	LatexName             theorem
+	NextNoIndent          1
+	LabelSep              xx
+	ParIndent             MMM
+	ParSkip               0.4
+	ItemSep               0.2
+	TopSep                0.7
+	BottomSep             0.7
+	ParSep                0.3
+	Align                 Block
+	AlignPossible         Block, Left
+	LabelType             Static
+	LabelString           "Theorem #."
+	Font
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	LabelFont
+	  Shape               Up
+	  Series              Bold
+	EndFont
+End
+
+
+Style Lemma
+	CopyStyle             Theorem
+	LatexName             lemma
+	LabelString           "Lemma #."
+	Preamble
+		\newtheorem{lemma}[theorem]{\R{למה}}
+	EndPreamble
+End
+
+
+Style Corollary
+	CopyStyle             Theorem
+	LatexName             corollary
+	LabelString           "Corollary #."
+	Preamble
+		\newtheorem{corollary}[theorem]{\R{מסקנה}}
+	EndPreamble
+End
+
+
+Style Claim
+	CopyStyle             Theorem
+	LatexName             claim
+	LabelString           "Claim #."
+	Preamble
+		\newtheorem{claim}[theorem]{\R{טענה}}
+	EndPreamble
+End
+
+
+Style Definition
+	CopyStyle             Theorem
+	LatexName             definition
+	LabelString           "Definition #."
+	Preamble
+		\newtheorem{definition}[theorem]{\R{הגדרה}}
+	EndPreamble
+End
+
+
+Style Remarks
+	CopyStyle             Theorem
+	LatexName             remark
+	LabelString           "Remarks #."
+	Preamble
+		\newtheorem{remark}[theorem]{\R{הערה}}
+	EndPreamble
+End
+
+
+Style Proof
+	Margin                First_Dynamic
+	LatexType             Environment
+	LatexName             proof
+	NextNoIndent          1
+	LabelSep              xx
+	ParIndent             MMM
+	ParSkip               0.4
+	ItemSep               0.2
+	TopSep                0.7
+	BottomSep             0.7
+	ParSep                0.3
+	Align                 Block
+	AlignPossible         Block, Left
+	LabelType             Static
+	LabelString           "Proof:"
+	EndLabelType          Filled_Box
+	Font
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	LabelFont
+	  Shape               Up
+	  Series              Bold
+	EndFont
+	Preamble
+		\newenvironment{proof}%
+			{\R{\textbf{הוכחה:}}}%
+			{\hfill\rule{2mm}{2mm}\par\vspace{2mm}}
+	EndPreamble
+End
+
+Input theorems-refprefix.inc

@@ -1,0 +1,11 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareDocBookClass[article]{DocBook article (SGML)}
+# DocBook textclass definition file.
+# Author : Jose' Matos <jamatos@lyx.org>
+
+Format 27
+Input db_stdclass.inc
+
+# Exclude higher, or equal, sections:
+NoStyle Part
+NoStyle Chapter

@@ -1,0 +1,88 @@
+#
+# Hebrew keyboard definition for LyX
+#
+# (C)2000 by Dekel Tsur, dekelts@tau.ac.il
+#
+\kmap ` ;
+\kmap q /
+\kmap w '
+\kmap e ק
+\kmap r ר
+\kmap t א
+\kmap y ט
+\kmap u ו
+\kmap i ן
+\kmap o ם
+\kmap p פ
+
+\kmap a ש
+\kmap s ד
+\kmap d ג
+\kmap f כ
+\kmap g ע
+\kmap h י
+\kmap j ח
+\kmap k ל
+\kmap l ך
+\kmap ; ף
+\kmap ' ","
+
+\kmap z ז
+\kmap x ס
+\kmap c ב
+\kmap v ה
+\kmap b נ
+\kmap n מ
+\kmap m צ
+\kmap "," ת
+\kmap . ץ
+\kmap / .
+
+# The following lines prevent entering capitals letters in a Hebrew text
+\kmap Q /
+\kmap W '
+\kmap E ק
+\kmap R ר
+\kmap T א
+\kmap Y ט
+\kmap U ו
+\kmap I ן
+\kmap O ם
+\kmap P פ
+
+\kmap A ש
+\kmap S ד
+\kmap D ג
+\kmap F כ
+\kmap G ע
+\kmap H י
+\kmap J ח
+\kmap K ל
+\kmap L ך
+
+\kmap Z ז
+\kmap X ס
+\kmap C ב
+\kmap V ה
+\kmap B נ
+\kmap N מ
+\kmap M צ
+
+# Hebrew points (nikud)
+\kmap E ָ	# Shift+Qof = Qamats
+\kmap R ּ 	# Shift+Resh = Shuruq (= Dagesh)
+\kmap U ֹ	# Shift+Vav = Holam
+\kmap P ַ	# Shift+Pe = Patah
+
+\kmap A ְ	# Shift+Shin = Sheva
+\kmap S ּ 	# Shift+Delat = Dagesh (= Shuruq)
+\kmap G ׂ	# 	Shin dot
+\kmap H ׁ	# 	Sin dot
+\kmap J ִ	# Shift+Het = Hiriq
+
+\kmap X ֶ	# Shift+Samekh = Segol
+\kmap C ֻ 	# Shift+Bet = Qubuts
+\kmap V ֱ	#	Hataf segol
+\kmap B ֲ	#	Hataf patah
+\kmap N ֳ	#	Hataf qamats
+\kmap M ֵ	# Shift+Tsadi = Tsere

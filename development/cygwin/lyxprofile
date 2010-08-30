@@ -1,0 +1,48 @@
+# Set up the home directory if not already set in the system environment.
+if [ -z "${HOME}" ]; then
+  USER=`id -un`
+  HOME=`grep "^${USER}:" /etc/passwd | cut -d: -f6`
+  if [ -z "${HOME}" -o ! -d "${HOME}" ]; then
+    HOME="/home/${USER}"
+    test -d "${HOME}" || HOME=/tmp
+  fi
+fi
+export HOME
+
+# Set up your Language (if you do not want English) by
+# replacing C (for C locale) with your country code in
+# the following line for system-wide settings or in
+# ~/.lyxprofile for per-user settings.
+export LANG=C.UTF-8
+
+# Set up Hostname/IP address where LyX can find an X-server.
+export DISPLAY=localhost:0.0
+
+# ========================================================
+# Below this line you should not change anything if you're
+# not familiar with configuration of an unix application!
+# ========================================================
+export PATH="/usr/local/bin:/usr/bin:/usr/X11R6/bin:$PATH"
+export USER="`id -un`"
+export MAKE_MODE=unix
+export OSTYPE=cygwin
+
+unset DOSDRIVE
+unset DOSDIR
+unset TMPDIR
+unset TMP
+
+for f in /etc/profile.d/*.sh ; do
+  if [ -f "${f}" ]; then
+    . "${f}"
+  fi
+done
+
+if [ ! -z "${CDPATH}" ]; then
+  cd "${CDPATH}"
+  unset CDPATH
+else
+  cd "${HOME}"
+fi
+
+test -f "${HOME}/.lyxprofile" && . "${HOME}/.lyxprofile"

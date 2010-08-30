@@ -1,0 +1,174 @@
+#LyX 1.6.2svn created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\language russian
+\inputencoding koi8-r
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Добро пожаловать в LyX!
+\end_layout
+
+\begin_layout Section*
+Главные N вещей, которые нужно знать при работе в LyX
+\end_layout
+
+\begin_layout Enumerate
+LyX поставляется с прекрасным набором документации — пользуйтесь ей! Начните
+ с выбора пункта меню 
+\family sans
+Помощь\SpecialChar \menuseparator
+Введение
+\family default
+, где вы сможете найти очень краткое введение в систему документации.
+ Затем изучите принципы работы в LyX, выбрав в меню пункт 
+\family sans
+Помощь\SpecialChar \menuseparator
+Самоучитель
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Мы называем LyX 
+\begin_inset Quotes fld
+\end_inset
+
+процессором документов
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Эта программа отличается по замыслу от обычных 
+\begin_inset Quotes fld
+\end_inset
+
+текстовых процессоров
+\begin_inset Quotes frd
+\end_inset
+
+ — с помощью LyX процесс создания документа упрощается.
+ Но не пугайтесь, если этот процесс несколько отличается от того, к которому
+ вы привыкли.
+ Возникшие у вас вопросы может прояснить документация.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Мы, кажется, уже упоминали, что документацию читать очень полезно?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Вывод программы LyX выглядит потрясающе! Чтобы сейчас же в этом убедиться,
+ выберите пункт меню 
+\family sans
+Просмотреть\SpecialChar \menuseparator
+
+\family default
+DVI.
+\end_layout
+
+\begin_layout Enumerate
+LyX может имитировать всю (или почти всю) функциональность системы LaTeX.
+ И, кроме того, LyX может импортировать файлы, созданные для LaTeX.
+ Опытные пользователи LaTeX могут лишь бегло просмотреть остальную часть
+ 
+\emph on
+Самоучителя
+\emph default
+, и приступить к чтению главы 
+\begin_inset Quotes fld
+\end_inset
+
+LyX для пользователей LaTeX
+\begin_inset Quotes frd
+\end_inset
+
+.
+ (Всем остальным: не беспокойтесь, вам необязательно знать LaTeX для работы
+ в LyX.)
+\end_layout
+
+\begin_layout Enumerate
+LyX содержит множество возможностей для чтения или создания документов на
+ языке, отличном от английского.
+ В дополнение к этому, назначения клавиш, набор кнопок панели управления
+ и многие другие свойства программы допускают очень гибкую настройку (в
+ основном, с помощью правки вашего файла 
+\family typewriter
+lyxrc
+\family default
+).
+ Для более подробной информации найдите в меню пункт 
+\family sans
+Помощь\SpecialChar \menuseparator
+Руководство по настройке
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Страница LyX в Internet находится по адресу 
+\family typewriter
+
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.lyx.org/
+\end_layout
+
+\end_inset
+
+
+\family default
+.
+ Вы можете найти информацию о программе LyX, подписаться на списки рассылки,
+ ознакомиться с графическими образами экрана LyX, и многое другое.
+\end_layout
+
+\end_body
+\end_document

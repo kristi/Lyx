@@ -1,0 +1,342 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[ws-ijmpc,amsmath.sty,amssymb.sty,rotating.sty]{article (IJMPC)}
+#
+# Textclass definition file for ws-ijmpc.cls
+# For publications in the International Journal of Modern Physics C
+# (usually abbreviated as IJMPC).
+#
+# Author: Panayotis "PAP" Papasotiriou <papasot@physics.upatras.gr>
+#
+# Version 1  2006-04-09  -  First version, for LyX 1.4.0.
+
+Format 27
+
+Input stdclass.inc
+Input numarticle.inc
+
+NoStyle Chapter
+NoStyle Chapter*
+NoStyle Part
+NoStyle Verse
+
+Sides                   1
+Columns                 1
+SecNumDepth             3
+TocDepth                3
+DefaultStyle            Standard
+
+ClassOptions
+	FontSize              ""
+	PageStyle             ""
+End
+
+Style Title
+	Align                 Center
+	TextFont
+	  Size                Large
+	EndFont
+End
+
+Style Author
+	Align                 Center
+	TextFont
+	  Series              Medium
+	  Size                Normal
+	EndFont
+End
+
+Style Address
+	LatexType             Command
+	InTitle               1
+	LatexName             address
+	ParSkip               0.4
+	BottomSep             0.4
+	Align                 Center
+	LabelType             No_Label
+	TextFont
+	  Series              Medium
+	  Shape               Italic
+	  Size                Normal
+	EndFont
+End
+
+Style Abstract
+	LatexType             Environment
+	ParIndent             ""
+	Align                 Block
+	LabelType             No_Label
+	TextFont
+	  Size                Small
+	EndFont
+End
+
+Style Keywords
+	CopyStyle             Abstract
+	LatexType             Command
+	LatexName             keywords
+	Margin                Dynamic
+	LabelType             Static
+	LabelString           "Keywords:"
+	LabelSep              M
+	LabelFont
+	  Series              Medium
+	  Shape               Italic
+	  Size                Small
+	EndFont
+End
+
+Style Classification_Codes
+	CopyStyle             Abstract
+	LatexType             Command
+	LatexName             ccode
+	Margin                Static
+End
+
+Style Section
+	Align                 Block
+	Font
+	  Size                Normal
+	EndFont
+	TocLevel 1
+End
+
+Style Section*
+	Align                 Block
+	Font
+	  Size                Normal
+	EndFont
+End
+
+Style Subsection
+	Align                 Block
+	TextFont
+	  Shape               Italic
+	  Size                Normal
+	EndFont
+	TocLevel 2
+End
+
+Style Subsubsection
+	Align                 Block
+	LabelFont
+	  Series              Medium
+	EndFont
+	TextFont
+	  Series              Medium
+	  Shape               Italic
+	  Size                Normal
+	EndFont
+	TocLevel 3
+End
+
+Counter definition
+	TocLevel 3
+End
+Style Definition
+	LatexType             Environment
+	LatexName             definition
+	Margin                First_Dynamic
+	TopSep                0.6
+	BottomSep             0.6
+	Align                 Block
+	LabelType             Counter
+	LabelCounter          definition
+	LabelString           "Definition \thedefinition."
+	LabelSep              M
+	NextNoIndent          1
+	LabelFont
+	  Series              Bold
+	EndFont
+End
+
+Counter step
+End
+Style Step
+        CopyStyle             Definition
+	LatexName             step
+	LabelCounter          step
+	LabelString           "Step \thestep."
+	LabelFont
+	  Series              Medium
+	  Shape               Italic
+	EndFont
+End
+
+Counter example
+End
+Style Example
+        CopyStyle             Definition
+	LatexName             example
+	LabelCounter          example
+	LabelString           "Example \theexample."
+End
+
+Counter remark
+End
+Style Remark
+        CopyStyle             Definition
+	LatexName             remark
+	LabelCounter          remark
+	LabelString           "Remark \theremark."
+End
+
+Counter notation
+End
+Style Notation
+        CopyStyle             Definition
+	LatexName             notation
+	LabelCounter          notation
+	LabelString           "Notation \thenotation."
+End
+
+Counter theorem
+End
+Style Theorem
+	LatexType             Environment
+	LatexName             theorem
+	Margin                First_Dynamic
+	TopSep                0.6
+	BottomSep             0.6
+	Align                 Block
+	NextNoIndent          1
+	LabelType             Counter
+	LabelCounter          theorem
+	LabelString           "Theorem \thetheorem."
+	LabelSep              M
+	LabelFont
+	  Series              Bold
+	  Shape               Up
+	EndFont
+	TextFont
+	  Shape               Italic
+	EndFont
+End
+
+Style Proof
+	LatexType             Environment
+	LatexName             proof
+	Margin                First_Dynamic
+	TopSep                0.6
+	BottomSep             0.6
+	Align                 Block
+	LabelType             Static
+	LabelString           "Proof."
+	LabelSep              M
+	LabelFont
+	  Series              Bold
+	EndFont
+	EndLabelType          Box
+End
+
+Counter corollary
+End
+Style Corollary
+        CopyStyle             Theorem
+	LatexName             corollary
+	LabelCounter          corollary
+	LabelString           "Corollary \thecorollary."
+End
+
+Counter lemma
+End
+Style Lemma
+        CopyStyle             Theorem
+	LatexName             lemma
+	LabelCounter          lemma
+	LabelString           "Lemma \thelemma."
+End
+
+Counter proposition
+End
+Style Proposition
+        CopyStyle             Theorem
+	LatexName             proposition
+	LabelCounter          proposition
+	LabelString           "Proposition \theproposition."
+End
+
+Counter prop
+End
+Style Prop
+        CopyStyle             Definition
+	LatexName             prop
+	LabelCounter          prop
+	LabelString           "Prop \theprop."
+End
+
+Counter question
+End
+Style Question
+        CopyStyle             Definition
+	LatexName             question
+	LabelCounter          question
+	LabelString           "Question \thequestion."
+End
+
+Counter claim
+End
+Style Claim
+        CopyStyle             Theorem
+	LatexName             claim
+	LabelCounter          claim
+	LabelString           "Claim \theclaim."
+End
+
+Counter conjecture
+End
+Style Conjecture
+        CopyStyle             Theorem
+	LatexName             conjecture
+	LabelCounter          conjecture
+	LabelString           "Conjecture \theconjecture."
+End
+
+Style Appendices_Section
+	Margin                Static
+	LatexType             Command
+	LatexName             appendix
+	KeepEmpty             1
+	TopSep                0.6
+	BottomSep             0
+	Align                 Block
+	LabelType             Centered_Top_Environment
+	LabelString           "--- Appendices ---"
+	Font
+	  Series              Bold
+	  Size                Normal
+	  Color               Blue
+	EndFont
+End
+
+Counter appendix
+End
+Style Appendix
+	LatexType             Command
+	LatexName             section
+	TopSep                0.6
+	BottomSep             0.6
+	Margin                First_Dynamic
+	Align                 Block
+	NextNoIndent          1
+	LabelType             Counter
+	LabelCounter          appendix
+	LabelString           "Appendix \Alph{appendix}."
+	LabelSep              M
+	LabelFont
+	  Series              Bold
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	TextFont
+	  Series              Bold
+	EndFont
+End
+
+Style Bibliography
+	Align                 Block
+	LabelFont
+	  Size                Normal
+	EndFont
+End
+
+Input theorems-refprefix.inc

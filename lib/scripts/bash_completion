@@ -1,0 +1,59 @@
+# lyx(1) completion 
+# Copyleft 2010 Cengiz Gunay <cengique@users.sf.net>
+
+have lyx &&
+_lyx()
+{
+        local cur g last
+
+	# turn on extglob	
+	shopt -q extglob && g=1
+	test $g -eq 0 && shopt -s extglob
+
+        COMPREPLY=()
+        cur=${COMP_WORDS[COMP_CWORD]}
+
+	local dbg_cmds=( "none info init key gui \
+			parser lyxrc kbmap latex mathed font tclass \
+			lyxvc lyxserver roff action lyxlex depend insets \
+			files workarea insettext graphics changes \
+			external painting debug any" )
+
+	#echo "cmds: '$dbg_cmds'"
+
+	if [[ $COMP_CWORD > 1 ]]; then
+		last=${COMP_WORDS[$(($COMP_CWORD - 1))]}
+	else
+		last=''
+	fi
+
+	case "$last" in
+	+\(--export|-e\))
+		_filedir '+(pdf[1234]|PDF[1234]|pdf|PDF|ps|PS|xhtml|XHTML)';;
+	-dbg)
+		# check for multiple debug commands
+		if [[ $cur == *,* ]]; then #
+			COMPREPLY=( $( compgen -W '$dbg_cmds' \
+					       -P ${cur%,*}, -- ${cur##*,} ) )
+		else
+			COMPREPLY=( $( compgen -W '$dbg_cmds' -- $cur ) )
+		fi;;
+	*)
+          case "$cur" in
+          -*)
+		# LyX command line options
+                COMPREPLY=( $( compgen -W '-help -userdir -sysdir \
+				-geometry -dbg -x --execute -e --export \
+ 				-i --import -version -batch ' -- $cur ) ) ;;
+	  
+          *)
+		# LyX files
+                _filedir '@(lyx)' 
+          esac
+	esac
+
+	# turn it off if necessary
+	test $g -eq 0 && shopt -u extglob
+
+}
+[ "${have:-}" ] && complete -F _lyx $filenames lyx

@@ -1,0 +1,29 @@
+#\DeclareLyXModule{Minimalistic}
+#DescriptionBegin
+# Redefines several insets (Index, Branch, URL) as being Minimalistic. 
+#DescriptionEnd
+
+Format 27
+
+InsetLayout Index
+		Decoration   minimalistic
+		Font
+			Color               Green
+			Size                Small
+		EndFont
+		LabelFont
+			Color               Green
+			Size                Small
+		EndFont
+End
+
+InsetLayout Branch
+  Decoration            minimalistic
+End
+
+InsetLayout URL
+	Decoration            minimalistic
+	LabelString           URL
+End
+
+

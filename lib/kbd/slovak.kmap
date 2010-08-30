@@ -1,0 +1,56 @@
+#
+# Key definition file for Slovak national keyboard for LyX
+#
+# (c)1995 by Ivan Schreter, schreter@ccsun.tuke.sk
+#
+
+\kmod = acute aceilnorsuyzACEILNORSUYZ	# acute is on '='
+\kmod + caron cdelnrstzCDELNRSTZ	# caron is on Shift-'='
+\kmod ` umlaut aeijouyAEIJOUY		# umlaut is on ` - but it's not widely used...
+\kmap 1 +		# map numbers to Slovak letters and
+\kmap ! 1		# Shift-numbers to numbers
+\kmap 2 ľ
+\kmap @ 2
+\kmap 3 š
+\kmap \# 3
+\kmap 4 č
+\kmap $ 4
+\kmap 5 ť
+\kmap % 5
+\kmap 6 ž
+\kmap ^ 6
+\kmap 7 ý
+\kmap & 7
+\kmap 8 á
+\kmap * 8
+\kmap 9 í
+\kmap ( 9
+\kmap 0 é
+\kmap ) 0
+\kmap - =		# map other keys to reflect Slovak keyboard
+\kmap _ %
+\kmap ; ô
+\kmap : \"
+\kmap ' §
+\kmap \" !
+\kmap [ ú
+\kmap { /
+\kmap ] ä
+\kmap } (
+\kmap < ?
+\kmap > :
+\kmap ? _
+\kmap / -
+\kmap \\ ó
+\kmap | )
+\kxmod caron o ô		# mapping exception - generate ^ instead for o
+\kxmod caron O Ô
+\kxmod caron u ů		# generate circle for u - it's a Czech letter
+\kxmod caron U Ů
+\kxmod caron t ť	# use proper caron mark for t, l, d and L
+\kxmod caron l ľ
+\kxmod caron L Ľ
+\kxmod caron d ď
+\kxmod acute i í	# use only root of i for i acute
+\kxmod umlaut i ï	# not really needed
+\kxmod umlaut j ȷ̈	# not really needed

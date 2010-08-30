@@ -1,0 +1,780 @@
+2006-03-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math.C (parse_math): Parse \tag and \tag* correctly
+
+2006-03-10  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): Handle \verb
+
+2005-10-18  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am: rename LINKED_SOURCES to LINKED_FILES.
+
+2005-10-12  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* preamble.C: update format to 245 (do not output \quotes_times).
+
+2005-08-19  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): Output \item in list environments that are
+	unknown to LyX (bug 1979)
+
+2005-07-30  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* text.C (parse_text): add forgotten \` accent.
+
+2005-07-26  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* context.[Ch] (~Context): new, warn about ignored extra stuff
+	* context.[Ch] (operator==, operator!=): new Font comparison operators
+	* context.C (check_layout): simplify logic
+	* context.C (dump): output all members
+	* context.h (new_layout_allowed): new member variable
+	* text.C (parse_text): remove string wrapper since it can lead to
+	invalid .lyx files (begin_layout/end_layout trouble)
+	* text.C (parse_text_snippet): Make sure that we don't create invalid
+	.lyx files
+	* text.C (parse_text_snippet): New string wrapper for simple text
+	* text.C (handle_ert): Always check layout
+	* text.C (parse_environment): Don't allow font changes in unknown
+	environments
+	* text.C (parse_unknown_environment): new, needed for the above
+	* text.C (parse_environment): Only swallo spaces when we know that it
+	does not harm
+	* text.C (parse_comment): Honor context.new_layout_allowed
+	* text.C (parse_text_attributes): Make sure that we have a valid
+	layout
+	* text.C (parse_text): Honor context.new_layout_allowed
+
+2005-07-25  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* tex2lyx.C (main): allow specification of output file name
+	* tex2lyx.C (main): write to infile.lyx if no output file is given
+
+2005-07-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.am (EXTRA_DIST): add tex2lyx.man
+
+2005-07-18  José Matos  <jamatos@fc.up.pt>
+
+	* preamble.C (end_preamble, handle_package): updated format to 243, fix bug 1382, bug 22
+
+2005-07-16  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* .cvsignore: add tex2lyx.1
+	* tex2lyx.C (main): dont search for syntax.default in reLyX dir
+	* test.ltx: new test file
+	* tex2lyx.man: new file
+	* Makefile.am: add man file directives
+
+2005-07-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_environment): handle context of unknown environments
+	correctly (fixes bug 1910)
+	* text.C (parse_environment): output the end of known environments
+	(one line disappeared from yesterdays patch)
+
+2005-07-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math.C (is_math_env): Don't hardcode known math environments anymore
+	* tex2lyx.[Ch] (known_environments, known_math_environments): new
+	* tex2lyx.C (read_command): new, split off from read_syntaxfile
+	* tex2lyx.C (read_environment): new
+	* text.C (parse_arguments): new, split off from parse_command
+	* text.C (parse_environment): handle known environments
+
+2005-07-12  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): output font changes only if needed
+	* context.C (begin_layout): output font if it is not the default one
+	* context.[Ch] (output_font_change): new, needed for the above
+
+2005-06-01  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): eat {} after \ss, \i and \j
+	* tex2lyx.C (tex2lyx): add diagnostic message about created files
+
+2005-05-25  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (fix_relative_filename): new
+	* text.C (parse_text): use fix_relative_filename for included
+	graphics and .tex files
+	* tex2lyx.[Ch] (getParentFilePath): new
+	* tex2lyx.[Ch] (tex2lyx): new overload taking the input filename and
+	output stream
+	* tex2lyx.[Ch] (main): simplify, use the above
+
+2005-05-20  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* tex2lyx.C (main): set correct masterFilePath for files like "subdir/file"
+
+2005-04-18  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_comment): Don't start a new paragraph for "%\n"
+
+2005-04-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (normalize_filename): new, split off from parse_text
+	* text.C (parse_text): Don't convert \verbatiminput files
+	* text.C (parse_text): Interpret relative file names in \include,
+	\input and \verbatiminput correctly and replace \lyxdot and \space
+	* text.C (parse_text): Recognize \input files without extension
+
+2005-03-31  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): Really fix \start_of_appendix output
+
+2005-03-27  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* tex2lyx.C (read_syntaxfile): Don't use racy test with IsFileReadable
+	* tex2lyx.C (tex2lyx): ditto, and don't use fs::is_writable (it
+	returns false if the file does not exist on solaris)
+
+2005-03-18  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): Fix \start_of_appendix output
+
+2005-03-11  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* table.C (parse_table): handle nested tables
+	* texparser.[Ch] (verbatimEnvironment): new
+
+2005-03-07  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* table.C (verbose_valign): new
+	* table.C (string2int): remove, use convert<int>() instead since the
+	default value is always 0 and this is also the default of
+	convert<int>().
+	* table.C (ci2special): new
+	* table.C (handle_colalign): handle b{}, p{} and m{} correctly
+	* table.C (handle_colalign): fix >{\raggedleft} and >{\raggedright}
+	(they were swapped)
+	* table.C (handle_colalign): handle >{\centering}
+	* table.C (handle_colalign): handle <{}, *{}, @{} and !{}
+	* table.C (fix_colalign): new
+	* table.C (handle_tabular): fix multicolumns with vertical lines
+
+2005-03-05  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (output_command_layout): Use parse_text instead of
+	parse_text_in_inset to avoid creating a new context
+	* text.C (parse_text): translate \thanks to footnote in title layouts
+
+2005-02-25  Angus Leeming  <leeming@lyx.org>
+
+	* context.h: declare as "class Font" rather than "struct Font".
+	Ditto "class Context".
+
+	* table.C: declare as "class ColInfo" rather than "struct ColInfo".
+	Ditto "class RowInfo" and "class CellInfo".
+
+	Changes to make MSVC agree to link the code.
+
+2005-02-05  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* context.C (begin_deeper, end_deeper): adjust output to LyX
+	* preamble.C (h_output_changes): new
+	* preamble.C (end_preamble): output paperfontsize without unit
+	* preamble.C (end_preamble): change file format from 237 to 241
+	* text.C (parse_environment, parse_text): adjust paragraph parameters
+	to new file format
+	* text.C (handle_ert, handle_comment): adjust newlines to new file
+	format
+
+2005-02-03  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: make -lz conditional on USE_COMPRESSION.
+
+2005-02-03  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): handle \includegraphics*
+	* Makefile.am: readd -lz library since gcc 3.3 needs it.
+
+2005-02-02  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: remove -lz library from the linker call.
+
+2005-02-02  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): Use '\n' and not '\\n' for a newline ;-)
+
+2005-02-01  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): Only reset font changes if not at the
+	beginning of a new layout
+
+2005-01-31  Angus Leeming  <leeming@lyx.org>
+
+	* tex2lyx.C (main): enable tex2lyx to find the top level
+	build directory when run in-place.
+
+	Also add "fs::path::default_name_check(fs::no_check);"
+
+2005-01-31  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* tex2lyx.C: rewrite to use boost.filesystem
+	* text.C: ditto
+
+	* Makefile.am (BOOST_LIBS): add BOOST_FILESYSTEM
+
+2005-01-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Spacing (set): take double instead of float
+
+	* tex2lyx.C: convert stuff
+
+2005-01-11  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Spacing.h: remove unused parameters
+
+2005-01-10  Angus Leeming  <leeming@lyx.org>
+
+	* tex2lyx.C: use support/package.h to provide the paths to the
+	various directories used by LyX.
+
+2005-01-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* text.C: tostr -> convert
+
+2005-01-06  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* Spacing.h: adapt dummy file to the changes in src/Spacing.h.
+
+2005-01-04  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* preamble.C (parse_preamble): handle second optional arg of
+	\newcommand etc. and add the command to the known commands (fixes
+	bug 1750)
+	* texparser.[Ch] (getFullOpt): new, like getOpt but distinguish
+	between empty arguments and no argument found
+	* tex2lyx.[Ch]: (add_known_command): new
+	* text.C (parse_text): handle \newcommand etc. (see above)
+	* text.C (parse_text): add comment about \underline
+	* text.C (getCiteArguments): use getFullOpt
+
+2004-12-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* table.C (ColInfo, LTRowType, RowInfo, CellInfo, verbose_align):
+	new, extended from math_gridinfo.h and tabular.h
+	* table.C (write_attribute): new, from tabular.C
+	* table.C (read_hlines): remove
+	* table.C (parse_hlines): new
+	* table.C (RowPosition): new
+	* table.C (parse_table): handle comments in hlines
+	* table.C (parse_table, handle_tabular): add longtable support
+	* table.C (handle_tabular): fix "unexpected dummy size" error message
+	* table.C (handle_tabular): fix off by one error for clines
+	* text.C (parse_environment): add longtable support
+
+2004-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* tex2lyx.C (main): no longer pass pointers to os::init.
+
+2004-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (AM_CPPFLAGS): Remove trailing slash from -Ifoo/
+	to overcome bug in the MinGW port of g++ 3.4.2.
+
+2004-12-05  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.am (tex2lyx_LDADD): use boost variables
+
+2004-11-27  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* table.C (handle_colalign): handle comments
+	* table.C (handle_tabular): don't crash on clines with out of range
+	columns
+
+2004-11-09  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* tex2lyx.C: remove format hack
+
+2004-11-07  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* texparser.C (getNewline): new
+	* texparser.C (tokenize): fix bug 1730 by handling MAC line endings
+	correctly
+
+2004-10-29  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* tex2lyx.C (formats): new, needed for libsupport.a
+
+2004-10-20  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): replace newlines with spaces in arguments to
+	known latex commands, fixes bug 1620
+
+2004-10-12  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* preamble.C (end_preamble): change file format from 236 to 237
+	* preamble.C (h_use_geometry, h_use_bibtopic, h_tracking_changes):
+	change from "0" to "false"
+
+2004-08-29  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* preamble.C (end_preamble): change file format from 235 to 236
+	* preamble.C (end_preamble): add \begin_document, \begin_header and
+	\begin_body tags
+	* preamble.C (h_papersize): change from "Default" to "default"
+	* tex2lyx.C (tex2lyx): add end_body tag
+
+2008-08-16  José Matos  <jamatos@lyx.org>
+
+	* context.C (begin_deeper, end_deeper):
+	* preamble.C (end_preamble):
+	* table.C (handle_tabular):
+	* text.C (end_inset, handle_ert, handle_comment):
+	(parse_text_attributes, parse_text): remove space at end of line.
+
+2004-08-10  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* preamble.C (split_options): new, split package options into vector
+	* preamble.C (add_package): new, add a package with options to
+	used_packages
+	* preamble.C, tex2lyx.h (used_packages): new map of used packages
+	and options
+	* preamble.C (handle_package): handle natbib and jurabib package
+	* preamble.C (handle_package): output a message for unhandled options
+	* preamble.C (parse_preamble): handle \jurabibsetup
+	* text.C (known_natbib_commands): new list of known natbib ccommands
+	* text.C (known_jurabib_commands): new list of known jurabib ccommands
+	* text.C (getCiteArguments): new, parse cite command arguments
+	* text.C (parse_text): handle natbib and jurabib citation commands
+
+2004-07-29  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* preamble.C (end_preamble): change file format from 228 to 235
+	* preamble.C (end_preamble): add use_bibtopic flag
+	* preamble.C (end_preamble): replace use_natbib with cite_engine
+	* preamble.C: change the paperpackage default from "default" to
+	"none". The old setting only worked by accident.
+	* tex2lyx.[Ch] (getMasterFilePath): new, needed for included graphics
+	* text.C (parse_environment): add sideways flag for float insets
+	* text.C (parse_text): add graphics file extension if necessary
+	* text.C (find_file): new helper function
+
+2004-07-23  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math.C (parse_math): change tex "\\cr" line ending to "\\\\"
+	* table.C (parse_table): recognize tex "\\cr" line ending
+
+2004-06-28  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math.C, preamble.C, tex2lyx.[Ch], text.C: const fixes
+	* context.[Ch]: new Font struct, and add it to Context
+	* text.C (parse_text): reset size after size change
+	* text.C: handle declaration form of font attribute changes (new
+	and old style)
+	* text.C (parse_text): handle \textmd, \textup and \textnormal
+	* text.C (parse_text_attributes): new
+
+2004-06-23  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (output_command_layout, parse_environment): fix bug 1446
+	by passing parent_context.deeper_paragraph to the child context
+
+2004-06-18  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* preamble.C, text.C: s/wether/whether/g
+	* text.C (eat_whitespace): new method
+	* texparser.C (getArg): use always curr_token().asInput()
+	* texparser.[Ch] (isParagraph): new method
+	* texparser.C (skip_spaces): handle "\n +\n" correctly
+	* texparser.[Ch] (asMode): remove, since it is unused
+
+2004-05-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (BUILT_SOURCES): move lengthcommon.C from here...
+	(tex2lyx_SOURCES): ... to here
+
+	* lengthcommon.C: new file
+
+2004-04-30  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* preamble.C: recognize \lyxdot
+	* text.C (parse_text): translate \lyxdot in graphics file names
+	* text.C (handle_ert): translate '\n' (fixes %-newline combinations
+	in \def commands)
+
+2004-03-26  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C (parse_text): handle vspaces like '1cm' correctly
+
+2004-02-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* text.C (parse_box): "\\" -> '\\' in calls to contains.
+
+2004-01-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* text.C: reorder the using statements.
+	(translate_len): remove usage of a uninitialized variable.
+	(isLayout): make it adaptable and constify operator()
+	(findLayout): reformat slightly and dont use the same var for
+	different things.
+
+2004-01-06  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C: fix status tag output for ERT inset
+
+2003-12-17  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* preamble.C: Change file format from 225 to 228
+	* text.C: Convert minipages and parboxes to box insets
+	* text.C: Changes for format 228 (see ../../development/FORMAT)
+	* text.C: Add lyxgreyedout environment
+	* context.[Ch]: New function Context::add_extra_stuff()
+
+2003-12-08  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* text.C: Use the new VSpace inset (fixes a bug with added_space top)
+	* text.C: Fix \= in tabbing env again
+	* text.C: Fix invocation of parse_command()
+
+2003-11-18  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* tex2lyx.C:
+	* tex2lyx.h:
+	* text.C: Read a list of commands and their arguments from a reLyX
+	compatible syntax file in order to parse optional argumnts correctly.
+	* preamble.C:
+	* table.C:
+	* text.C:
+	* tex2lyx.C:
+	* texparser.C
+	* math.C: change size() to !empty() where it was used as bool
+
+2003-11-03  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math.C:
+	* table.C:
+	* text.C:
+	* context.[Ch]: New functions Context::set_item(),
+	Context::new_paragraph(ostream & os) and Context::atParagraphStart()
+	to make Context usage more explicit
+	* texparser.[Ch]: Rework Parser::tokenize (see comment in texparser.h)
+	* table.C:
+	* math.C:
+	* texparser.C: Don't silently drop comments
+	* texparser.C: Token::asInput() does not append a space anymore
+	* texparser.[Ch]: Renamed Parser::prev_token() to Parser::curr_token().
+	New function Parser::prev_token() returns now really the previous token
+	* Context.[Ch]:
+	* text.C: Convert known vspaces at paragraph start to \\added_space_top
+	* preamble.C: Don't put out newlines twice.
+	* text.C: Fix minipage position bug
+	* text.C: Fix \labelwidthstring bug
+	* text.C: Recognize alignment environments
+	* text.C: Fix a few cases of incorrect context usage, resulting
+	in missing or superflous \begin_layout / \end_laout lines.
+
+2003-10-23  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math.C:
+	* preamble.C:
+	* table.C:
+	* tex2lyx.C:
+	* tex2lyx.h:
+	* texparser.C:
+	* texparser.h:
+	* text.C:
+	- add \text{}, \intertext{} and \fbox{} support in mathmode.
+	- add support for some math environments like displaymath
+	- allow parsing of partial documents (for inclusion with \input).
+	- steal commandline switches -c and -f from reLyX to support the
+		     previous point
+	- add support for lengths with comma (4,5cm instead of 4.5cm) to
+		     minipage environments. Handle \textwidth etc. without factor
+	- rearrange active_environments.[push,pop]back() so that they are always
+	       called in pairs
+	- write an error message if layout file could not be found.
+	- convert \begin{comment}...\end{comment} to comment inset
+	- handle \= correctly inside tabbing environments
+	- fix multicolumn vertical rule bug in tables
+	- add missing \includegraphics options
+	- output minipages with latex lengths as ERT, since lyx cannot handle them
+	- recognize \textsl{}
+	- remove duplicate \ldots
+	- recognize \bibliographystyle and \bibliography
+	- handle \psfrag{ps-text}[ps-pos][tex-pos]{tex-text} correctly
+	- handle environments in table cells correctly
+	- add missing -userdir and -sysdir commandline switches
+	- recognize start of appendix
+	- handle optional arg to \item as ERT in itemize environment, since LyX
+		     does not support it directly
+
+2003-10-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (BUILT_SOURCES): use this instead of "linked_files"
+	and the link_files target. make the BUILT_SOURCES dependency
+	automatically link the needed files.
+
+2003-10-14  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: move boost.C from the linked_files section
+	to the tex2lyx_SOURCES section.
+
+	* boost.C: new file. Simpler than the version in the main lyx source.
+	No reference to the emergencyCleanup stuff.
+
+	* tex2lyx.C: remove emergencyCleanup() stuff.
+
+2003-10-08  Angus Leeming  <leeming@lyx.org>
+
+	Fix doxygen warnings.
+
+	* Spacing.h: \file Spacing.h -> \file tex2lyx/Spacing.h
+	* gettext.C: \file gettext.C -> \file tex2lyx/gettext.C
+	* gettext.h: \file gettext.h -> \file tex2lyx/gettext.h
+	* lyxfont.C: \file lyxfont.C -> \file tex2lyx/lyxfont.C
+	* lyxfont.h: \file lyxfont.h -> \file tex2lyx/lyxfont.h
+	* text.C:    \file text.C    -> \file tex2lyx/text.C
+
+2003-09-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* tex2lyx.C: adjust for new debugstream.
+
+2003-09-08  Angus Leeming  <leeming@lyx.org>
+
+	* math.C:
+	* preamble.C:
+	* table.C:
+	* tex2lyx.C:
+	* texparser.C: remove redundant using directives.
+
+2003-08-19  Angus Leeming  <leeming@lyx.org>
+
+	* most files: add 'standard conformant' header blurb.
+	Also add Jean-Marc as an author where appropriate.
+
+2003-08-08  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (EXTRA_DIST):
+	* test-insets.tex: new file. Describes the insets and special
+	characters that tex2lyx handles.
+
+	* text.C (parse_text): support \vref, \vpageref (only one optional
+	argument), \prettyref; add support for include inset; when \\ has
+	optional arguments, use ERT; support also \listoffigures,
+	\listoftables, and \listof{xxx} for existing float types;
+	translate lenghts properly for graphics inset.
+	(parse_environment): add support for minipages
+
+	* text.C (translate_len): A simple function to translate a latex
+	length to something lyx can understand. Not perfect, but rather
+	best-effort.
+
+2003-08-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* text.C (parse_text): special handling for \item and \bibitem
+	macros
+
+	* context.C (begin_layout, end_layout, begin_deeper, end_deeper):
+	tiny helper functions
+	(check_layout):
+	(check_end_deeper): add special handling for the case of a normal
+	paragraph inside a list-like environment.
+
+	* test-structure.tex: add more stuff there
+
+2003-08-05  Alfredo Braunstein  <abraunst@libero.it>
+
+	* context.h: compile fix
+
+2003-08-05  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* text.C: some tweaks to make nesting work. What still does not
+	work is nesting a standard paragraph in a list.
+
+	* test-structure.tex: update a bit
+
+	* context.C (check_deeper, check_end_deeper): new methods to
+	handle the *_deeper stuff
+
+	* preamble.C (end_preamble): small tweaks
+
+2003-08-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* text.C: update to use Context struct, and more notably:
+	(cap, check_layout, check_end_layout): remove
+	(parse_text_snippet): new thin wrapper around parse_text, used for
+	things like \textrm{...}
+	(parse_environment): remove existing depth handling code, which is
+	handled transparently by the Context struct; make unknown
+	environments work (again?) through ERT
+
+	* test-structure.tex: new test file, used to try out various
+	layouts combinations
+
+	* tex2lyx.C:
+	* tex2lyx.h:
+	* table.C: update to use Context struct
+
+	* context.[Ch]: new helper struct which is passed to parse_*
+	functions and handles *_layout and *_deeper tags output
+
+	* Makefile.am (EXTRA_DIST): new file test-structure.tex
+	(tex2lyx_SOURCES): add context.[Ch]
+
+2003-07-30  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: Hide the fact that we re-generate those symbolic links
+	brainlessly.
+
+2003-07-29  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* text.C (check_layout): \layout -> \begin_layout
+	(parse_text_in_inset): convenience function
+
+	* tex2lyx.C (main): \the_end -> \end_document
+
+	* preamble.C (end_preamble): update version number to 225
+
+	* text.C (parse_text): replace test on "lyxcode" with test on
+	LyXLayout::freespacing.
+	(check_end_layout): new function, used to check whether we need to
+	add an \end_layout
+
+2003-07-28  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* tex2lyx.C (clean_layouts): remove
+
+	* text.C: output lazily the \layout commands using the
+	check_layout function. Remove all explicit \layout tags.
+	(parse_text): pass an optional parameter 'layout'
+	(handle_par): remove
+
+	* text.C (output_command_layout): renamed from output_layout
+	(parse_environment): new method containing a part of parse_text
+
+	* tex2lyx.C:
+	* preamble.C:
+	* table.C: \begin_layout -> \layout. We are not quite ready for
+	that yet
+
+2003-07-28  José Matos  <jamatos@lyx.org>
+
+	* text.C:
+	* tex2lyx.C:
+	* preamble.C:
+	* table.C: \layout -> \begin_layout.
+
+2003-07-28  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* text.C (parse_text): read environment from layout file too. Now,
+	all layout entries are supported (but many hacks remain); note
+	that the nesting support is broken and will have to be completely
+	redone
+	(parse_text): basic support for english double quotes
+
+	* table.C (handle_tabular): make the output more similar to LyX
+	and fix a little
+
+	* text.C (output_layout): fix handling of optional argument
+	(parse_text): small tweaks to make output format closer to lyx
+	format; support \tableofcontents; fix/improve support for various
+	special characters
+
+2003-07-27  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: remove unused graphics_link_files cruft.
+	Thanks, Kayvan!
+
+2003-07-27  Angus Leeming  <leeming@lyx.org>
+
+	* tex2lyx.C: add Debug::ANY hack.
+
+	* text.C: remove hardcoded command layouts.
+
+2003-07-26  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* text.C (parse_text): fix handling of \LaTeXe macro
+
+2003-07-26  Angus Leeming  <leeming@lyx.org>
+
+	* Spacing.h:
+	* lyxfont.[Ch]:
+	* gettext.[Ch]: minimal (near empty) analogues of the real LyX
+	files; enough to get LyXTextClass and LyXLayout to compile without
+	needing to store any real information about Spacing or Font.
+
+	* Makefile.am: add these files above and also include a minimal
+	chunk of the main lyx source tree as soft links in order to add in
+	LyXTextClass and LyXLayout.
+
+	* .cvsignore: add all these soft links.
+
+	* preamble.C (end_preamble): passed a LyXTextClass arg.
+	(parse_preamble): returns the document LyXTextClass.
+
+	* tabular.C (handle_tabular): passed a LyXTextClass arg. In turn
+	pass it to parse_text.
+
+	* tex2lyx.C: add some global vars, build_lyxdir et al. For now,
+	give them some horrible hard-coded value.
+	(main): receive a LyXTextClass var from parse_preamble and pass it
+	on to parse_text.
+
+	* text.C (parse_text): receives a LyXTextClass arg. Use it to
+	remove the hard-coded handling of floats and instead check the
+	textclass for its existence. Also handle wide floats naturally.
+
+	* tex2lyx.h: associated changes to function declarations.
+
+2003-07-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* texparser.C (catInit): same warning avoidance as in math_parser.C
+	(setCatCode): cast to safe type
+	(getCatCode): ditto
+
+2003-05-17  Joao Luis M. Assirati  <assirati@fma.if.usp.br>
+
+	* texparser.C: fix paragraph parsing after comment
+
+2003-04-29  André Pönitz  <poenitz@gmx.net>
+
+	* Makefile.am:
+	  texparser.h: whitespace
+
+2003-04-20  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* table.C: use string::erase(), not string::clear() to enable older
+	versions of gcc to compile the code.
+
+2003-04-17  André Pönitz  <poenitz@gmx.net>
+
+	* math.C:
+	  preamble.C:
+	  table.C:
+	  text.C: new files
+
+	* table.C: better table handling
+
+	* tex2lyx.C: lots of small changes
+
+2003-02-25  Angus Leeming  <leeming@lyx.org>
+
+	* .cvsignore: ignore *.lo and libtexparser.la.
+
+2003-02-20  Angus Leeming  <leeming@lyx.org>
+
+	* tex2lyx.C: swap <sstream> for "Lsstream.h".
+
+2003-02-11  Angus Leeming  <leeming@lyx.org>
+
+	* tex2lyx.C (handle_opt): prevent infinite loop if opts is empty.
+	(handle_package): new function, factoring code out of Parser::parse.
+	(trim): copied across from support/lstrings.C
+	(Parser::parse): handle '\usepackage{foo, bar}'.
+
+2003-02-11  André Pönitz  <poenitz@gmx.net>
+
+	* tex2lyx.C: first shot at real code
+
+2003-02-11  Angus Leeming  <leeming@lyx.org>
+
+	* .cvsignore: new file.
+
+2003-02-10  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: empty, dummy file so that autogen.sh and configure
+	are happy.

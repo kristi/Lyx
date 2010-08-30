@@ -1,0 +1,44 @@
+--- LyXtest ---
+
+This is a program to spam LyX with millions of randomly generated key
+presses, and collect the crash results.
+
+Since the code involves spamming random keypresses, I run it under a special
+user "keytest", well away from my main X windows session.
+
+To use this software, first configure it by editing the 
+configuration parameters in shared_functions.sh and shared_variables.sh
+then run the following:
+
+./setup.sh   # add keytest user and apt-get required files
+sudo -H -u keytest -e xterm # Create a xterm for running keytest in
+. ./initXvfb # sets up a fake X server for keytest to play in
+./main.sh
+
+Note that this bug finding software is itself quite buggy.
+
+CONTENTS:
+
+README: this readme file
+report_html.sh: A quick way of generating bug reports and an overview from the logs.
+make_screen_shots.sh: a script for making screenshots, if they are missing from output of above.
+autolyx: A script to continually restart lyx and collect the bug reports
+maketar.sh: Makes this tar file :)
+keytest.py: Sends randomly generated keypresses to the LyX window.
+killtest: stop the testing
+stock_text: The stock test to add to each bug report.
+watch_keytest.sh: Dumps various info on what keytest is doing, often run as "watch watch_keytest.sh"
+
+OUTPUTS:
+
+autolyx: Outputs out/*.GDB, a log of all output, including backtraces.
+keytest.py: Outputs out/*.KEYCODES, a list of all keycodes sent to LyX
+
+TIPS:
+To reduce the degree to which keytest writes to your HDD, you may want to run 
+   mount -t tmpfs -o size=50m tmpfs /home/keytest/kt.dir
+as root
+
+AUTHOR:
+Copyright (C) 2009 John McCabe-Dansted, gmatht at gmail dot com.
+Published under the Gnu General Public Licence, version 2 or later.

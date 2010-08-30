@@ -1,0 +1,31 @@
+
+Inset 'Xyz' is implemented by 'MathXyzInset' in 'math_xyzinset.[hC]'
+
+
+Inset hierarchy:
+
+                                   MathInset
+                                (abstract base)
+
+                         /            |               \
+
+              Dim                  Char               Symbol, Space, ...
+         (thing that need       (for things formerly
+          the width_/ascent_     known as characters)
+          /descent_ cache)
+
+          /             \
+
+       Nest              Dots,  Func, ...
+  (for thing with
+   nested content)
+
+        |         \
+
+      Grid        Decoration   Delim   Frac  Macro  Root  Script  Sqrt
+
+      /   \
+
+ Array    Hull
+         (base for eqnarray/align/...)
+

@@ -1,0 +1,15 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareDocBookClass[book]{DocBook book (SGML)}
+# DocBook textclass definition file.
+# Author : Jose' Matos <jamatos@lyx.org>
+# hacked for books: Luc Abom <luc@abom.com>
+
+Format 27
+Input report
+Input db_stdclass.inc
+
+Style Title
+	LatexType             Command
+	LatexName             bookinfo
+	CommandDepth          1
+End

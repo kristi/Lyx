@@ -1,0 +1,262 @@
+#LyX 1.6.6svn created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\language ngerman
+\inputencoding latin1
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Willkommen bei LyX!
+\begin_inset Newline newline
+\end_inset
+
+
+\size large
+(Version 1.6.x)
+\end_layout
+
+\begin_layout Section*
+Die wichtigsten Dinge, wenn Sie LyX verwenden 
+\end_layout
+
+\begin_layout Enumerate
+LyX besitzt eine exzellente Dokumentation — bitte machen Sie regen Gebrauch
+ davon! Lesen Sie zunächst 
+\family sans
+Hilfe\SpecialChar \menuseparator
+Einführung
+\family default
+, dies gibt Ihnen einen kurzen Überblick über die vorhandene Dokumentation.
+ Wie Sie mit LyX arbeiten, erläutert Ihnen 
+\family sans
+Hilfe\SpecialChar \menuseparator
+Tutorium
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+LyX kann man am besten als 
+\begin_inset Quotes gld
+\end_inset
+
+Dokumenten-Verarbeitung
+\begin_inset Quotes grd
+\end_inset
+
+ beschreiben.
+ Vom Design her unterscheidet es sich von gängigen Textverarbeitungen und
+ vereinfacht dadurch das Erstellen von komplexen Dokumenten.
+ Aber keine Sorge, die Unterschiede sind nur gering und werden in der Dokumentat
+ion erläutert.
+\end_layout
+
+\begin_layout Enumerate
+Mit LyX erstellte Texte sehen gut aus.
+ Überzeugen Sie sich davon mit 
+\family sans
+Ansicht\SpecialChar \menuseparator
+DVI,
+\family default
+ 
+\family sans
+Strg+D,
+\family default
+ oder klicken Sie auf 
+\begin_inset Graphics
+	filename ../../images/buffer-view_dvi.png
+	scale 70
+	BoundingBox 0bp 4bp 20bp 20bp
+
+\end_inset
+
+, wenn Sie die Werkzeugleiste 
+\family sans
+Ansicht\SpecialChar \menuseparator
+Werk\SpecialChar \-
+zeug\SpecialChar \-
+leis\SpecialChar \-
+ten
+\family default
+\SpecialChar \menuseparator
+
+\family sans
+Ansicht/Aktualisierung
+\family default
+ aktiviert haben.
+\end_layout
+
+\begin_layout Enumerate
+Ja, LyX kann (fast) die gesamte Funktionalität von LaTeX umsetzen.
+ Und, ja, LyX kann vorhandene LaTeX-Dateien importieren.
+ Erfahrene LaTeX-Anwender sollten das 
+\emph on
+Tutorium
+\emph default
+ überfliegen und dann den Abschnitt 
+\begin_inset Quotes gld
+\end_inset
+
+LyX für LaTeX-Benutzer
+\begin_inset Quotes grd
+\end_inset
+
+ lesen.
+ Alle anderen brauchen sich keine Gedanken zu machen: Sie müssen (fast)
+ kein LaTeX lernen, um mit LyX zu arbeiten.
+\end_layout
+
+\begin_layout Enumerate
+LyX bietet ausführliche Unterstützung für all diejenigen, die eine andere
+ Sprache als Englisch lesen und schreiben.
+ Darüberhinaus sind Dinge wie Tastaturbelegung, Werkzeugleiste und viele
+ weitere Charakteristiken frei konfigurierbar (das meiste durch 
+\family sans
+Werkzeuge\SpecialChar \menuseparator
+Einstellungen\SpecialChar \ldots{}
+
+\family default
+).
+ Näheres erläutert 
+\family sans
+Hilfe\SpecialChar \menuseparator
+Anpassung
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Die Internet-Seite von LyX ist 
+\family typewriter
+
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.lyx.org/
+\end_layout
+
+\end_inset
+
+
+\family default
+.
+ Dort bekommen Sie aktuelle Informationen zu LyX, können Mailing-Listen
+ abonnieren, sich einen grafischen Rundgang durch LyX ansehen und vieles
+ mehr.
+\end_layout
+
+\begin_layout Enumerate
+
+\color red
+Installationshinweis für LyX unter Linux
+\color inherit
+: Wenn Ihre Linux-Distribution zusammen mit LyX die LaTeX-Distribution 
+\family typewriter
+Te
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+X
+\begin_inset space ~
+\end_inset
+
+Live
+\family default
+ installiert hat, oder 
+\family typewriter
+Te
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+X
+\begin_inset space ~
+\end_inset
+
+Live
+\family default
+ bereits installiert war, prüfen Sie ob das deutsche Sprachpaket installiert
+ wurde.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+(K,X)Ubuntu stellt dafür das Paket 
+\family typewriter
+texlive-lang-german
+\family default
+ zur Verfügung.
+\end_layout
+
+\begin_layout Standard
+Nach der Installation führen Sie das Menü
+\family sans
+ Werkzeuge
+\family default
+\SpecialChar \menuseparator
+
+\family sans
+Neu
+\begin_inset space \space{}
+\end_inset
+
+konfigurieren
+\family default
+ aus.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

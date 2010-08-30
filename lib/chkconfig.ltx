@@ -1,0 +1,352 @@
+% This is chkconfig.ltx, a script which tries to autodetect and
+%    document your LaTeX configuration.
+% Author: Jean-Marc Lasgouttes (Jean-Marc.Lasgouttes@inria.fr)
+% with minimal changes by Asger Alstrup (alstrup@diku.dk).
+%
+% This script should only be run from the configure script to update
+% the files textclass.lst and doc/LaTeXConfig.lyx
+%
+% This script is in fact a complete rewrite of the original chkconfig
+% script. Expect bugs.
+
+%%% If you want to add new packages/documentclasses to be recognized,
+%%% read the explanation that follow and jump to the section 'Actual
+%%% inspection code' below. You do not need to understand the ugly
+%%% LaTeX code below to help improving chkconfig.ltx :-)
+%%%
+%%% If you want to add the new package <name>, all you need most of
+%%% the times is a two-steps work:
+%%% 1- Add the command \TestPackage{<name>}. The syntax is:
+%%%    \TestPackage[<file>]{<name>}, which  tests whether <name>.sty
+%%%    (or <file>, if this optional parameter is provided) exists.
+%%% 2- Add a description for <name> in doc/LaTeXConfig.lyx,
+%%%    containing in particular a line like
+%%%         Found: [InsetInfo]
+%%%    where [InsetInfo] is obtained by entering in the minibuffer (Alt+X)
+%%%    info-insert package <name>
+%%%    This inset will automatically display a boxed "yes" or "no"
+%%%    depending on the availability of the package.
+%%%
+%%% For document classes, things are even simpler, since you do not
+%%% need to edit this file. Just put your layout file in some place
+%%% where LyX can find it and add if you wish a description in
+%%% LaTeXConfig.lyx, as described above but using
+%%% "info-insert textclass <name>" instead of "info-insert package <name>".
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% Initialization part (skip) %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% we do not want to stop on errors
+\nonstopmode\makeatletter
+
+%%% Some useful macros.
+%   Several commands are defined to test for packages:
+%    \AddLayout{<layout>} adds an entry for <layout> in textclass.lst
+%    \AddVariable{<name>}{<value>} creates a new variable chk_<name>,
+%      and gives it the value <value>.
+%    \TestDocClass{<name>}{<command>} if layout <name> has not already
+%      been tested for, execute <command>. Note that you will
+%      probably not need to use this directly, since the configure
+%      script generates the needed macro calls automatically.
+%    \TestPackage[<file>]{<name>} tests whether <name>.sty (or <file>,
+%      if it is provided) exists.
+%   Both commands call \AddVariable to give value 'yes' or 'no' to
+%   the variable chk_<name>.
+%%%
+
+\newcommand{\prefix}{+} % the character used by grep to filter 'good' output
+
+\newcommand{\AddLayout}[5][\default]{
+  \def\default{#2}
+  \immediate\write\layouts{"#2"   "#1"   "#3"   "#4"   "#5"}}
+
+\newcommand{\AddVariable}[2]{
+  \immediate\write\vars{chk_#1='#2'}}
+
+\newcommand{\AddPackage}[1]{
+  \immediate\write\packages{#1}}
+
+% Tests whether an item is present
+% Syntax: \TestItem[<file>]{<name>}{<type>}{<ext>}{<iftrue>}{<iffalse>}
+\newif\ifexists
+
+\newcommand{\TestItem}[6][\default]{
+  \def\default{#2}
+  \def\files{#1}
+  \message{^^J\prefix checking for #3 #2 [#1]...}
+  \let\firstelement\relax
+  \let\missingelements\empty
+  \existstrue
+  \@for\file:=\files\do{
+    \ifx\firstelement\relax
+       \edef\firstelement{\file}
+    \fi
+    \@expandtwoargs\in@{.}{\file}
+    \ifin@
+      \def\myfile{\file}
+    \else
+      \def\myfile{\file.#4}
+    \fi
+    \IfFileExists{\myfile}
+      {}
+      {
+        \existsfalse
+        \ifx\missingelements\empty
+          \edef\missingelements{\myfile}
+        \else
+          \edef\missingelements{\missingelements,\myfile}
+        \fi
+      }
+  }
+  \ifexists
+    \message{yes^^J}
+    \AddVariable{#2}{yes}
+    #5
+  \else
+    \message{no^^J}
+    \AddVariable{#2}{no}
+    #6
+  \fi}
+
+\newcommand{\TestPackage}[2][\default]{
+  \TestItem[#1]{#2}{package}{sty}{\AddPackage{#2}}{}}
+
+\newcommand{\TestDocClass}[2]{
+   \def\layoutname{#1}  % remember the name of the layout file
+   \@ifundefined{layout@#1}
+     {#2  % execute the command
+      \global\@namedef{layout@#1}{}}
+     {} % we have already tried this one.
+}
+
+\newcommand{\DeclareLaTeXClass}[2][\default]{
+  \TestItem[#1]{\layoutname}{document class}{cls}
+           {\AddLayout[\firstelement]{\layoutname}{#2}{true}{\missingelements}}
+           {\AddLayout[\firstelement]{\layoutname}{#2}{false}{\missingelements}}
+}
+
+% Only for compatibility. Will be removed later.
+\let\DeclareSGMLClass=\DeclareDocBookClass
+
+\newcommand{\DeclareDocBookClass}[2][\default]{
+  \message{^^J\prefix checking for docbook\space\space class \layoutname... }
+  \@ifundefined{hasdocbook}
+    {\message{no^^J}
+     \AddLayout[#1]{\layoutname}{#2}{false}{docbook}}
+    {\message{yes^^J}
+     \AddLayout[#1]{\layoutname}{#2}{true}{}}
+}
+
+% Stolen from article.cls
+\newcommand{\today}{\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\day, \number\year}
+
+% Initializes the files
+\typeout{\prefix Inspecting your LaTeX configuration.}
+\newwrite{\layouts} \immediate\openout \layouts = textclass.lst.tmp
+\newwrite{\vars} \immediate\openout \vars = chkconfig.vars
+\newwrite{\packages} \immediate\openout \packages = packages.lst.tmp
+
+\immediate\write\layouts{%
+# This file declares layouts and their associated definition files.^^J%
+# It has been automatically generated by configure^^J%
+# Use "Tools/Reconfigure" if you need to update it after a^^J%
+# configuration change. Run ./configure manually to update the^^J%
+# system wide version of this file.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% ACTUAL CONFIGURATION INSPECTION CODE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Add any new package or document class here.
+
+%%% First, we want the day on which the test has been run.
+\AddVariable{date}{\today}
+
+%%% Then, the version of LaTeX we are using
+\message{^^J\prefix checking for LaTeX version... \fmtversion}
+\AddVariable{fmtversion}{\fmtversion}
+
+%%% And now, the list of available languages
+% The trick is to know that \the\everyjob contains something like
+%  \typeout{LaTeX2e <2001/06/01>}
+%  \typeout{Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, nohyphenation, loaded.}
+% All we have to do is to extract the list from there:
+% (1) concatenate all the messages that are displayed everytime the
+% format is loaded. The is done by redefining locally \typeout to
+% append its argument to the macro \mesg.
+\def\mesg{}
+{\def\typeout#1{\xdef\mesg{\mesg #1}}
+ \the\everyjob}
+
+% (2) strip the useless parts from \mesg. This uses the fact that TeX
+% allows to define macros with parameters delimited by arbitrary text.
+\def\platexname{pLaTeX2e}
+\ifx\pfmtname\platexname
+  \def\langs{japanese}
+\else
+  \def\strip#1patterns for #2, loaded.#3\endmark{\def\langs{#2}}
+  \expandafter\strip\mesg\endmark
+\fi
+
+% (3) handle the result
+\message{^^J\prefix checking for available hyphenation patterns... \langs}
+\AddVariable{languages}{\langs}
+
+%%% Check for ec fonts. Most of this code has been shamelessely stolen
+%%% from the file ltxcheck.tex in the LaTeX distribution. In particular,
+%%% don't ask me how the macro \ecrm works...
+\def\ecrm{%
+  \begingroup
+    \escapechar-1
+    \xdef\reserved@a{%
+      \noexpand\in@
+        {\expandafter\string\csname ecrm\endcsname}%
+        {\expandafter\expandafter\expandafter
+           \string\csname T1/cmr/m/n\endcsname}}%
+  \endgroup
+  \reserved@a}
+
+\message{^^J\prefix checking for default encoding (this may take a long time)^^J}
+\font\test=ecrm1000\relax
+
+\ifx\test\nullfont
+  \message{^^J\prefix\prefix checking for ec fonts... no^^J}
+  \AddVariable{ec}{no}
+  \AddVariable{fontenc}{default}
+\else
+  \message{^^J\prefix\space\space checking for ec fonts... yes^^J}
+  \message{^^J\prefix\space\space checking for ec support in LaTeX format...}
+  \ecrm
+  \ifin@
+    \message{yes^^J}
+    \AddPackage{ec}
+    \AddVariable{fontenc}{T1}
+    \message{^^J\prefix\space\space default encoding will be set to T1^^J}
+  \else
+    \message{no^^J}
+    \AddVariable{fontenc}{default}
+  \fi
+\fi
+
+
+%%% Document classes
+% The list of layout files has been put in this file here by the
+% configure script.
+\input{chklayouts}
+\input{chkmodules}
+
+
+%%% Packages
+\TestPackage{accents}
+\TestPackage{algorithm}
+\TestPackage{amstext}
+\TestPackage[arabic.ldf]{arabi}
+\TestPackage{array}
+\TestPackage{babel}
+\TestPackage{bibtopic}
+\TestPackage{bm}
+\TestPackage{booktabs}
+\TestPackage{braille}
+\TestPackage{CJKutf8}
+\TestPackage{color} % this one should be there if graphics.sty is there.
+\TestPackage{covington}
+\TestPackage{csquotes}
+\TestPackage{dvipost}
+\TestPackage{endnotes}
+\TestPackage{enumitem}
+\TestPackage{esint}
+\TestPackage{ifsym}
+\TestPackage{ifthen}
+\TestPackage{fancybox}
+\TestPackage{fancyhdr}
+\TestPackage{float}
+\TestPackage{framed}
+\TestPackage{geometry}
+\TestPackage{graphicx}
+\TestPackage{hyperref}
+\TestPackage{hyphenat}
+\TestPackage[japanese.ldf]{japanese}
+\TestPackage{jurabib}
+\TestPackage{latex8}
+\TestPackage{lettrine}
+\TestPackage{listings}
+\TestPackage[lithuanian.ldf]{lithuanian}
+\TestPackage{longtable}
+\TestPackage{mathdots}
+\TestPackage{mathrsfs}
+\TestPackage{mhchem}
+\TestPackage[mongolian.ldf]{mongolian}
+\TestPackage{natbib}
+\TestPackage{nicefrac}
+\TestPackage{nomencl}
+\TestPackage{pdfcolmk}
+\TestPackage{pdfpages}
+\TestPackage{prettyref}
+\TestPackage{preview}
+\TestPackage{rotating}
+\TestPackage{rotfloat}
+\TestPackage{setspace}
+\TestPackage{slashed}
+\TestPackage{soul}
+\TestPackage{splitidx}
+\TestPackage{subfig}
+\TestPackage{Sweave}
+\TestPackage{textcomp}
+\TestPackage[turkmen.ldf]{turkmen}
+\TestPackage{ulem}
+\TestPackage{units}
+\TestPackage{url}
+\TestPackage{varioref}
+\TestPackage{wasysym}
+\TestPackage{wrapfig}
+\TestPackage{xargs}
+\TestPackage{xcolor}
+
+% psnfss is in fact the name of a set of style files, among which
+% times.sty. If times.sty is here, we will assume that everything is fine.
+\TestPackage[times.sty]{psnfss}
+% test the following fonts in case they are not in all versions of psnfss
+\TestPackage{avant}
+\TestPackage{bookman}
+\TestPackage{chancery}
+\TestPackage{charter}
+\TestPackage{courier}
+\TestPackage{helvet}
+\TestPackage{mathpazo}
+\TestPackage{mathpple}
+\TestPackage{mathptm}
+\TestPackage{mathptmx}
+\TestPackage{newcent}
+\TestPackage{pifont}
+\TestPackage{utopia}
+% Other font packages
+\TestPackage{ae}
+\TestPackage{bera}
+\TestPackage{ccfonts}
+\TestPackage{cmbright}
+\TestPackage{eco}
+\TestPackage{fourier}
+\TestPackage{lmodern}
+\TestPackage{luximono}
+\TestPackage{tipa}
+% necessary to get correct size for InstantPreview images created by dvipng
+\TestPackage[c70fs.fd]{zhmetrics}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% END ACTUAL CONFIGURATION INSPECTION CODE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% End of the LaTeX job
+\immediate\closeout\layouts
+\immediate\closeout\vars
+\immediate\closeout\packages
+\typeout{\prefix Inspection done.}
+\typeout{\prefix Read the file doc/LaTeXConfig.lyx for more information.}
+
+% Get the real \end command, that has been hidden by LaTeX
+\@@end

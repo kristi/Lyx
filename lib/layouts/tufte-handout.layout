@@ -1,0 +1,68 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[tufte-handout,bibentry.sty,fancyhdr.sty,multicol.sty,natbib.sty,optparams.sty,paralist.sty,placeins.sty,ragged2e.sty,setspace.sty,textcase.sty,titlesec.sty,titletoc.sty,xcolor.sty,xifthen.sty,xkeyval.sty]{handout (Tufte)}
+# tufte-handout textclass definition file.
+# Juergen Spitzmueller <juergen@spitzmueller.org>, 2008/10/22
+# Modified by Uwe Stöhr <uwestoehr@web.de>, 2009/11/15
+
+Format 27
+
+# import other layouts
+Input stdlayouts.inc
+Input article.layout
+Input tufte-book.layout
+
+Sides		1
+PageStyle	plain
+
+NoStyle Part
+NoStyle Chapter
+NoStyle Chapter*
+
+Style Part
+	Category	Section
+	Margin		Dynamic
+	LabelType	No_Label
+	TocLevel	0
+	LabelCounter	part
+	LatexType	Command
+	LatexName	part
+	NeedProtect	1
+	NextNoIndent	1
+	Labelsep	xxx
+	ParSkip		0.4
+	TopSep		4
+	BottomSep	4
+	ParSep		0.8
+	Align		Center
+	Alignpossible	Center
+	Font
+	  Series	Bold
+	  Size		Huge
+	EndFont
+End
+
+Style Abstract
+	Margin		Static
+	LatexType	Environment
+	LatexName	abstract
+	Category	FrontMatter
+	NextNoIndent	1
+	LeftMargin	MMM
+	RightMargin	MMM
+	ParIndent	MM
+	ItemSep		0
+	TopSep		0.7
+	BottomSep	0.7
+	ParSep		0
+	Align		Block
+	LabelType	Centered_Top_Environment
+	LabelString	"Abstract"
+	LabelBottomSep	0.5
+	Font
+	  Size		Small
+	EndFont
+	LabelFont
+	  Series	Bold
+	  Size		Large
+	EndFont
+End

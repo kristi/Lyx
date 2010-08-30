@@ -1,0 +1,11 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[extarticle]{article (more font sizes)}
+# Herbert Voss <voss@lyx.org>
+
+Format 27
+Input article.layout
+
+# change available fontsizes
+ClassOptions
+	FontSize              8|9|10|11|12|14|17|20
+end

@@ -1,0 +1,241 @@
+# -*- text -*-
+
+# file sciword.bind
+# This file is part of LyX, the document processor.
+# Licence details can be found in the file COPYING.
+
+# author Serge Winitzki
+
+# Full author contact details are available in file CREDITS.
+
+# LyX keyboard definitions similar to those of Scientific Word.
+
+#\bind "C-b"                    "font-bold"
+
+# Copy, paste, etc.: more familiar keys
+\bind "C-c"	"copy"
+
+# Display equation toggle: type it in a displayed equation to convert it
+# back to an inline equation
+# Sciword mnemonic.
+\bind "C-d"	"math-display"
+
+#\bind "C-e"	"------"
+# Sciword mnemonic.
+\bind "C-f"	"math-insert \frac"
+
+# Since the toggles don't work in 1.2.0, let's define all letters.
+# lowercase math Greek
+\bind "C-g a" "math-insert \alpha"
+\bind "C-g b" "math-insert \beta"
+\bind "C-g g" "math-insert \gamma"
+\bind "C-g d" "math-insert \delta"
+\bind "C-g e" "math-insert \varepsilon"
+\bind "C-g C-e" "math-insert \epsilon"
+\bind "C-g z" "math-insert \zeta"
+\bind "C-g h" "math-insert \eta"
+\bind "C-g q" "math-insert \theta"
+\bind "C-g C-q" "math-insert \vartheta"
+\bind "C-g i" "math-insert \iota"
+\bind "C-g k" "math-insert \kappa"
+\bind "C-g l" "math-insert \lambda"
+\bind "C-g m" "math-insert \mu"
+\bind "C-g n" "math-insert \nu"
+\bind "C-g x" "math-insert \xi"
+\bind "C-g p" "math-insert \pi"
+\bind "C-g C-p" "math-insert \varpi"
+\bind "C-g r" "math-insert \rho"
+\bind "C-g s" "math-insert \sigma"
+\bind "C-g C-s" "math-insert \varsigma"
+\bind "C-g t" "math-insert \tau"
+\bind "C-g v" "math-insert \upsilon"
+\bind "C-g f" "math-insert \phi"
+\bind "C-g c" "math-insert \chi"
+\bind "C-g y" "math-insert \psi"
+\bind "C-g w" "math-insert \omega"
+
+# uppercase math Greek
+\bind "C-g S-G" "math-insert \Gamma"
+\bind "C-g S-D" "math-insert \Delta"
+\bind "C-g S-Q" "math-insert \Theta"
+\bind "C-g S-L" "math-insert \Lambda"
+\bind "C-g S-X" "math-insert \Xi"
+\bind "C-g S-P" "math-insert \Pi"
+\bind "C-g S-S" "math-insert \Sigma"
+\bind "C-g S-V" "math-insert \Upsilon"
+\bind "C-g S-F" "math-insert \Phi"
+\bind "C-g S-Y" "math-insert \Psi"
+\bind "C-g S-W" "math-insert \Omega"
+
+
+# Do we need this?
+#\bind "C-h"	"specialchar-insert hyphenation"
+
+# Sciword mnemonic.
+\bind "C-i"	"math-insert \int"
+
+#\bind "C-j"	"------"
+
+\bind "C-k"	"line-delete-forward"
+\bind "C-l"	"screen-recenter"
+\bind "C-S-I"			"info-insert"
+
+# Toggle: in text mode, switch to math, and vice versa. Also C-t.
+\bind "C-m"	"math-mode"
+\bind "C-n"	"math-number-toggle"
+\bind "S-C-N"	"math-number-line-toggle"
+
+\bind "C-o"	"file-open"
+
+# Insert a quote character. Do I need this?
+# Probably, since we need a way to get a raw quote
+\bind "C-q"	"self-insert \""
+
+# Sciword mnemonic.
+\bind "C-r"	"math-insert \sqrt"
+\bind "S-C-R"	"math-insert \root"
+
+# This combination is now a gateway to math symbols (C-s ...)
+#\bind "C-s"	"------"
+
+# Sciword mnemonic for going between text and math modes.
+\bind "C-t"	"math-mode"
+
+\bind "C-u"	"font-underline"
+\bind "C-v"	"paste"
+\bind "C-S-v"	"clipboard-paste"
+\bind "C-M-v"	"primary-selection-paste"
+\bind "C-w"	"buffer-close"
+\bind "C-x"	"cut"
+\bind "C-z"	"undo"
+\bind "S-C-Z"	"redo"
+\bind "C-a"	"command-sequence buffer-begin ; buffer-end-select"   # select all
+
+
+# This combination makes an umlaut accent now.
+#\bind "S-C-quotedbl"           "quote-insert"
+\bind "S-M-quotedbl"           "quote-insert single"
+
+# Bracket delimiters. Sciword mnemonic is to press Control-<bracket key>
+
+\bind "C-9"	"math-delim ( )"
+\bind "S-C-parenleft"	"math-delim ( )"
+\bind "C-0"	"math-delim ( )"
+\bind "S-C-parenright"	"math-delim ( )"
+
+\bind "C-bracketleft"		"math-delim [ ]"
+\bind "C-bracketright"	"math-delim [ ]"
+\bind "C-S-less"		"math-delim langle rangle"
+\bind "C-S-greater"		"math-delim langle rangle"
+
+# The bar bracket: on some keyboards, e.g. British, the bar character is
+# bound to an Alt-something and on some wayward Unices to "brokenbar".
+\bind "C-S-bar"		"math-delim | |"
+\bind "C-S-brokenbar"	"math-delim | |"
+\bind "C-M-bar"		"math-delim | |"
+
+\bind "S-C-braceleft"		"math-delim { }"
+\bind "S-C-braceright"		"math-delim { }"
+
+# Accents by Sciword mnemonics. Mostly press Ctrl-<accent key>
+# e.g. Ctrl-. for overdot, Ctrl-' for acute accent, Ctrl-~ for tilde etc.
+# Some of them work only in math mode
+
+\bind "C-period"	"accent-dot"
+\bind "C-comma"	"math-insert \dot"
+\bind "S-C-colon"	"math-insert \ddot"
+\bind "C-quoteleft"	"accent-grave"
+\bind "S-C-asciitilde"	"accent-tilde"
+\bind "S-C-quotedbl"	"accent-umlaut"
+\bind "C-apostrophe"	"accent-acute"
+\bind "S-C-asciicircum" "accent-circumflex"
+# accent-vector has been changed?
+#\bind "C-equal"		"accent-vector"
+# Why is it not "accent-bar"?
+\bind "C-minus"	"math-insert \bar"
+# What is "accent-underbar"?
+#\bind "S-C-underscore"	"accent-underbar"
+
+# Function keys.
+
+#\bind "F1"	"help"	# Not yet implemented!
+#\bind "C-F1"                   "help-context"                  # Not yet implemented!
+\bind "F2"                     "buffer-write"
+\bind "S-F2"                     "buffer-export latex"
+\bind "F3"                     "dialog-show findreplace"
+
+\bind "C-F4"                   "buffer-close"
+\bind "M-F4"                   "lyx-quit"
+# F4 to F8 are used to switch fonts. Sciword mnemonic.
+\bind "F4"                     "font-default"
+\bind "F5"                     "font-bold"
+\bind "F6"                     "font-emph"
+\bind "F7"                     "font-typewriter"
+\bind "F8"                     "font-noun"
+# F9 bound below as meta-prefix (useful e.g. if the keyboard doesn't have a working ALT).
+#\bind "F9"                     "------"
+#\bind "F10"                    "------"
+
+
+# Sciword mnemonics for math editing:
+
+\bind "M-apostrophe"	"math-insert \prime"
+\bind "C-Up"		"math-superscript"
+\bind "C-Down"		"math-subscript"
+\bind "C-s d"		"math-insert \partial"
+\bind "C-s e"		"math-insert \sum"
+\bind "C-s p"		"math-insert \prod"
+\bind "C-s i"		"math-insert \infty"
+\bind "C-s x"		"math-insert \times"
+\bind "C-s m"		"math-matrix 3 3"
+\bind "C-s v"		"math-matrix 1 2"
+
+# My own embellishments for symbols I use often.
+
+#I'd like to combine math-insert ^ and math-insert prime, but don't know how.
+
+\bind "C-s apostrophe"	"command-sequence math-superscript; math-insert \prime;"
+\bind "C-s S-plus"	"math-insert \dagger"
+\bind "C-s equal"	"math-insert \equiv"
+\bind "M-equal"		"math-insert \approx"
+\bind "M-minus"		"math-insert \sim"
+\bind "C-minus"		"math-insert \rightarrow"
+# here is how to make a vector accent:
+\bind "C-equals"    "math-insert \overrightarrow"
+\bind "S-M-less"	"math-insert \leq"
+\bind "S-M-greater"	"math-insert \geq"
+\bind "C-s S-less"	"math-insert \ll"
+\bind "C-s S-greater"	"math-insert \gg"
+
+# usual bindings
+\bind_file math.bind
+\bind_file menus.bind
+\bind_file latinkeys.bind
+\bind_file cyrkeys.bind
+\bind_file greekkeys.bind
+
+
+\bind "M-Up"			"paragraph-move-up"
+\bind "M-Down"			"paragraph-move-down"
+\bind "S-KP_Right"  			"char-right-select"
+\bind "S-KP_Left"				"char-left-select"
+\bind "S-KP_Up" 				"up-select"
+\bind "S-KP_Down"				"down-select"
+\bind "S-C-KP_Right"			"word-right-select"
+\bind "S-C-KP_Left" 			"word-left-select"
+\bind "S-C-KP_Up"				"paragraph-up-select"
+\bind "S-C-KP_Down" 			"paragraph-down-select"
+\bind "S-KP_Home"				"line-begin-select"
+\bind "S-KP_End"				"line-end-select"
+\bind "S-KP_Prior"  			"screen-up-select"
+\bind "S-KP_Next"				"screen-down-select"
+\bind "S-C-KP_Home" 			"buffer-begin-select"
+\bind "S-C-KP_End"  			"buffer-end-select"
+\bind "S-C-KP_Prior"			"buffer-begin-select"
+\bind "S-C-KP_Next" 			"buffer-end-select"
+\bind "C-KP_Insert" 			"copy"
+\bind "S-KP_Insert" 			"paste"
+\bind "S-KP_Delete" 			"cut"
+
+
+\bind "M-x" "command-execute"

@@ -1,0 +1,76 @@
+#
+# Arabic keyboard definition for LyX
+#
+# Generated automatically from kikbd map by Adil Alsaid <alsaid@bigfoot.com>
+#
+# reviewed and fixed by Isam Bayazidi <bayazidi@arabeyes.org>, Mohamed Kebdani <kebdani1@iam.net.ma>
+
+\kmap q ض
+\kmap w ص
+\kmap e ث
+\kmap r ق
+\kmap t ف
+\kmap y غ
+\kmap u ع
+\kmap i ه
+\kmap o خ
+\kmap p ح
+\kmap a ش
+\kmap s س
+\kmap d ي
+\kmap f ب
+\kmap g ل
+\kmap h ا
+\kmap j ت
+\kmap k ن
+\kmap l م
+\kmap z ئ
+\kmap x ء
+\kmap c ؤ
+\kmap v ر
+\kmap b لا
+\kmap n ى
+\kmap m ة
+\kmap ; ك
+\kmap ' ط
+\kmap "," و
+\kmap . ز
+\kmap / ظ
+\kmap ` ذ
+\kmap [ ج
+\kmap ] د
+
+# shifted keyboard
+
+\kmap Q ?
+\kmap W ?
+\kmap E ?
+\kmap R ?
+\kmap T لإ
+\kmap Y إ
+\kmap U `
+\kmap I ه
+\kmap O ?
+\kmap P ؛
+\kmap A ?
+\kmap S ?
+\kmap D [
+\kmap F ]
+\kmap G لأ
+\kmap H أ
+\kmap J ـ
+\kmap K ،
+\kmap L /
+\kmap Z ~
+\kmap X ?
+\kmap C {
+\kmap V }
+\kmap B لآ
+\kmap N آ
+\kmap M '
+\kmap < ","
+\kmap > .
+\kmap ? ؟
+\kmap { <
+\kmap } >
+\kmap ~ ?

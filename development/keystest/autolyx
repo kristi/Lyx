@@ -1,0 +1,5 @@
+#!/bin/bash
+DIRNAME0=`dirname "$0"`
+. $DIRNAME0/shared_variables.sh
+. $DIRNAME0/shared_functions.sh
+autolyx_main "$@"

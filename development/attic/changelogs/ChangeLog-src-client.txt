@@ -1,0 +1,89 @@
+2005-12-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (lyxclient_LDADD): link against SOCKET_LIBS (needed
+	for solaris).
+
+2005-07-17  Michael Schmitt  <michqel.schmitt@teststep.org>
+
+	* debug.C: fix typo
+
+2005-04-25  Angus Leeming  <leeming@lyx.org>
+
+	* client.C:
+	* pch.h:
+	include <config.h> in .C files, not .h ones.
+	add licence blurb.
+	protect headers inside preprocessor guards.
+
+2005-02-25  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (man_MANS): clean generated files
+
+2005-01-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* debug.C: use convert<> instead of atoi,strToXXX and friends
+
+2005-01-20  Asger Ottar Alstrup  <aalstrup@laerdal.dk>
+
+	* pch.h: use the HAVE_UNISTD_H preprocessor guard.
+
+2005-01-19  Asger Ottar Alstrup  <aalstrup@laerdal.dk>
+
+	* client.C: use the HAVE_UNISTD_H preprocessor guard.
+
+2005-01-10  Angus Leeming  <leeming@lyx.org>
+
+	* messages.C: use support/package.h to provide the paths to the
+	various directories used by LyX.
+
+2004-12-16  Angus Leeming  <leeming@lyx.org>
+
+	* messages.C: remove redundant "using lyx::support::GetEnvPath;"
+
+2004-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (AM_CPPFLAGS): Remove trailing slash from -Ifoo/
+	to overcome bug in the MinGW port of g++ 3.4.2.
+
+2004-12-05  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.am (BOOST_LIBS): use boost variables
+
+2004-11-09  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* client.C: remove format hack
+
+2004-10-29  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* client.C (formats): new, needed for libsupport.a
+
+2004-09-17  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* client.C (connect): don't use SUN_PATH, just use sizeof instead.
+	* client.C: include <cerrno>
+	* pch.h: new file
+	* .cvsignore: update
+
+2004-09-09  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (BOOST_LIBS): fix when using already installed boost.
+	(lyxclient_LDADD): add $(BOOST_LIBS) and $(INTLLIBS)
+
+2004-09-06  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (INCLUDES): add ${srcdir}/.. to INCLUDES (needed
+	when building outside of source tree)
+
+2004-09-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* messages.h: new file
+	* messages.C: new file
+	* lyxclient.man: new file
+	* gettext.h: new file
+	* gettext.C: new file
+	* debug.h: new file
+	* debug.C: new file
+	* client.C: new file
+	* boost.C: new file
+	* Makefile.am: new file
+	* .cvsignore: new file

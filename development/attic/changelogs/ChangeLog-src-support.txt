@@ -1,0 +1,2137 @@
+2006-03-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* filename.C (mangledFilename): truncate filename to 140 characters
+	for MiKTeX's pdflatex
+
+2006-03-07  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* debugstream.h: fix nullstream.hpp location for boost 1.33.0
+	* pch.h: ditto
+
+2006-03-05  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* filetools.C (NormalizePath): Change to use boost::filesystem and
+	alter regex usage in preparation for boost 1.33.1.
+
+2006-02-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* package.C.in (relative_system_support_dir): fix for win32 and
+	OSX packaging.
+
+2005-11-02  Angus Leeming  <leeming@lyx.org>
+
+	* path.C: trivial fix to a MSVS warning.
+
+2005-10-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* package.C.in (get_default_user_support_dir): do not play tricks
+	with PACKAGE value.
+
+2005-09-30  Angus Leeming  <leeming@lyx.org>
+
+	* os_win32.h: new file, providing a public and portable interface
+	to the SHGetFolderPath function for older flavours of Windows.
+	* os_win32.C: tighten up code. Define the ShGetFolder class. Make
+	use of Microsoft's NewAPIs.h if available to provide us with
+	runtime support for Windows 95.
+	(internal_path): always pass the path through GetLongPathName.
+
+	* package.C.in: move lots of stuff out and into os_win32.C.
+
+2005-09-29  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: use the Windows-friendly LYX_ABS_INSTALLED_LOCALEDIR
+	et al rather than the unix-centric $(localedir) when compiling
+	package.C.in.
+
+2005-09-10  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (EXTRA_DIST): add os_cygwin.C to the distribution.
+
+2005-08-31  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* filetools.C (MakeDisplayPath): fix bug when HOME is empty.
+
+	* lstrings.C (subst): the string to be replaced should not be empty.
+
+2005-07-17  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* package.C.in:
+	* package.h: change environment variable to LYX_USERDIR_14x
+	
+2005-07-14  Angus Leeming  <leeming@lyx.org>
+
+	* filename.[Ch] (mangledFilename): add an optional "dir" parameter
+	that is used to help determine the length of the mangled file
+	name. Do this because MiKTeX's YAP (version 2.4.1803) will crash
+	if the string referencing the file name in the .dvi file is "too
+	long". MikTeX bug:
+	http://sourceforge.net/tracker/index.php?func=detail&aid=1238065&group_id=10783&atid=110783
+
+2005-07-10  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* filetools.[Ch] (latex_path): convert boolean exclude_extension
+	argument to an enum and add argument to replace dots
+
+2005-07-08  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* filetools.[Ch] (latex_path): add exclude_extension argument
+
+2005-07-05  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* lyxtime.[Ch]: two new functions formatted_time, which return
+	the strftime-formatted localized date/time.
+
+2005-06-24  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* FileName.C (mangledFilename): replace spaces with _
+
+2005-06-21  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* filetools.C (latex_path): protect " with \string since it may be
+	active
+
+2005-05-07  Rob Bearman  <robbear@hyperfine.com>
+
+	* fs_extras.C (copy_file): noclobber and CopyFile's bFailIfExists
+	are the same as each other.
+
+2005-05-03  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.C (RunCommand): protect calls to popen() and pclose()
+	with preprocessor guards.
+
+	* tempname.C: protect calls to close(), getpid() and open()
+	with preprocessor guards.
+
+2005-05-02  Angus Leeming  <leeming@lyx.org>
+
+	* socktools.C: make compilation dependent on HAVE_FCNTL rather
+	than HAVE_SOCKET.
+
+2005-05-02  Angus Leeming  <leeming@lyx.org>
+
+	* socktool.C (listen, accept): provide stub versions for Windows.
+
+	* os_win32.h: removed.
+
+2005-04-29  Angus Leeming  <leeming@lyx.org>
+
+	* os_win32.C (init): Merge changes from Asger's win32_kludge.diff
+	file, primarily checking that GetConsoleTitle succeeded.
+
+2005-04-25  Angus Leeming  <leeming@lyx.org>
+
+	* abort.C:
+	* atexit.c:
+	* forkedcall.[Ch]:
+	* forkedcontr.[Ch]:
+	* fs_extras.[Ch]:
+	* gzstream.[Ch]:
+	* kill.C:
+	* lyxsum.C:
+	* os2_defines.h:
+	* pch.h:
+	* tempname.C:
+	* userinfo.C:
+	include <config.h> in .C files, not .h ones.
+	add licence blurb.
+	protect headers inside preprocessor guards.
+
+2005-04-25  Angus Leeming  <leeming@lyx.org>
+
+	* globbing.[Ch]: removed to frontends/xforms.
+
+	* Makefile.am: associated change.
+
+2005-04-24  Angus Leeming  <leeming@lyx.org>
+
+	* userinfo.C (user_name): add Windows-specific code.
+
+2005-04-22  Angus Leeming  <leeming@lyx.org>
+
+	* package.C.in (get_binary_path): on prompting from Rob Bearman,
+	ensure that the name of the executable, as input at the command
+	line has a ".exe" suffix so that various file interogations
+	work on Windows.
+
+2005-04-22  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcontr.h:
+	* forkedcall.h: remove pid_t definition to config.h.
+
+2005-04-21  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcontr.h:
+	* forkedcall.h: define pid_t for MSVC.
+
+	* forkedcall.C (kill): work around evil MSVC max macro.
+
+2005-04-21  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcontr.C: add #include <csignal>.
+
+	* filetools.C (RunCommand): remove the signal blocking stuff
+	now that we no longer use a signal handler on unix.
+
+2005-04-19  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.C: remove unnecessary #include of forkedcontr.h.
+
+	* forkedcall.C: protect system-specific headers with preprocessor
+	guards.
+	(running): don't call waitpid() on Windows.
+	(waitForChild): add Windows-specific code to wait for a child process
+	to finish.
+	(generateChild): add Windows-specific code to spawn the child in the
+	first place.
+
+	* forkedcontr.[Ch]:Revert back to the LyX 1.3.x version of the code
+	to spawn a child process asynchronously. Do this because 'issues'
+	remain with the SIGCHLD handling code on *nix and because there's no
+	easy way to implement such a monitor on Windows. Explicit polling,
+	as in Lyx 1.3.x, is safe, robust and works on both platforms.
+
+2005-04-19  Angus Leeming  <leeming@lyx.org>
+
+	* package.C.in (get_temp_dir): call GetLongPathName on Windows.
+
+2005-04-19  Angus Leeming  <leeming@lyx.org>
+
+	* pch.h: protect unix-specific headers from breaking compilation
+	on Windows.
+
+2005-04-17  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.C (MakeDisplayPath): invoke os::external_path before
+	returning path.
+
+	* os_win32.C (external_path): convert '/' chars to '\'.
+
+	* filetools.[Ch] (latex_path): new function which modifies
+	an input path containing space and '~' characters into something that
+	LaTeX can understand.
+
+2005-04-17  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcall.C (generateChild): do not strip quotes from args on
+	Windows.
+	Wrap lyxerr output inside an if (lyxerr.debugging(Debug::FILES))
+	block.
+
+2005-03-23  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (build_package): Solaris sed does not like
+	spaces bewteen the ;-delimited commands.
+
+2005-02-25  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (CLEANFILES): clean generated files
+
+2005-02-17  Angus Leeming  <leeming@lyx.org>
+
+	* copy.C (copy): Pass the ios::in flag to the ifstream constructor.
+	Enables copying to work when the code is compiled with the gcc 2.95
+	compiler and stdlib.
+
+2005-02-15  Angus Leeming  <leeming@lyx.org>
+
+	* environment.C: add missing #include.
+	(setEnvPath): compare iterators rather than use tellp().
+
+2005-02-15  Angus Leeming  <leeming@lyx.org>
+
+	* environment.[Ch]: new files. Move the environment setter/getter
+	functions here from filetools.[Ch]. In the process:
+	rename GetEnv as getEnv.
+	rename putEnv as setEnv. Change the signature of the function
+	to take a pair of arguments (a name and a value) rather than the
+	existing coded "name=value" single argument. Merge the putenv.C
+	code into setEnv.
+
+	* lyxlib.h (putenv): remove declaration.
+	* putenv.C: removed.
+
+	* Makefile.am: add environment.[Ch]. Remove putenv.C.
+
+	* filetools.[Ch]: remove environment setter/getter functions.
+
+	* os_os2.C (init): s/GetEnvPath/getEnvPath/. Left over from an
+	earlier change.
+
+	* package.C.in (get_home_dir, extract_env_var_dir):
+	* userinfo.C (user_email): s/GetEnv/getEnv/.
+
+2005-02-03  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcall.C (running): call the lyx::kill wrapper function
+	rather than the system kill.
+
+2005-02-02  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcall.C (generateChild): overhaul the code to split a string
+	into an argv array of words. Now respects simple quoting reasonably
+	well.
+
+2005-02-01  Angus Leeming  <leeming@lyx.org>
+
+	* fs_extras.C: #include <windows.h>
+
+2005-01-31  Angus Leeming  <leeming@lyx.org>
+
+	* package.[Ch] (init_package, c-tor): define and use an enum to
+	specify explicitly the location of the top level build directory
+	when the executable is run in-place.
+
+2005-01-31  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* fs_extras.C: add changes from Asger's Win32 patch.
+
+2005-01-31  Asger Ottar Alstrup  <aalstrup@laerdal.dk>
+
+	* chdir.C (chdir):
+	* getcwd.C (l_getcwd):
+	* kill.C (kill):
+	* mkdir.C (mkdir): add Win32 specializations.
+
+	* os_win32.h: remove cruft.
+
+2005-01-31  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (libsupport_la_SOURCES): remove rmdir.C
+
+	* rmdir.C: delete file
+
+	* lyxlib.h: remove rmdir decl
+
+2005-01-31  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* .cvsignore: add package.C
+
+	* FileInfo.C, FileInfo.h: delete files
+
+	* fs_extras.C, fs_extras.h: new files
+
+	* FileMonitor.C, filetools.C: rewrite to use boost.filesystem
+
+	* Makefile.am (libsupport_la_SOURCES: delete FileInfo.[Ch], add
+	fs_extras.[Ch]
+
+	* filetools.C: make destroydir return true if something was
+	deleted. adjust callers.
+	(IsFileWritable): replace with is_readonly in fs_extras, adjust
+	callers
+
+	* package.C.in: rewrite to use boost.filesystem
+
+2005-01-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* tests: add some code for automatic regression testing, can be
+	improved or removed as we see fit
+
+	* lyxlib.h (atoi): delete func
+
+	* lstrings.[Ch] (strToInt): delete func
+	(strToUnsignedInt): delete func
+	(strToDbl): delete func
+
+	* Makefile.am: add subdir tests, delete atoi.C
+
+	* atoi.C: delete file
+
+	* convert.C: add specializations for converting to int, unsigned
+	int, double from string, and for converting to int and double from
+	char const *
+
+	* convert.h: remove commented code
+
+2005-01-22  Angus Leeming   <leeming@lyx.org>
+
+	* path.C (Path): revert the patch since the if statement has side
+	effects that are needed for the code to work :-(
+
+2005-01-21  Angus Leeming   <leeming@lyx.org>
+
+	* os_cygwin.C, os_win32.C: strip the Cygwin-specific stuff out of
+	os_win32.C and give it its own file.
+
+	* os.C: #include "os_cygwin.C" if building on Cygwin.
+
+2005-01-20  Angus Leeming  <leeming@lyx.org>
+
+	* lyxlib.h (float_equal): promote parameters to double.
+
+	* path.C (Path): silence MSVC warning about block of code that
+	does nothing.
+
+2005-01-20  Asger Ottar Alstrup  <aalstrup@laerdal.dk>
+
+	* FileInfo.h, chdir.C, forkedcall.C, forkedcontr.C, getcwd.C,
+	mkdir.C, os_defines.h, pch.h, rmdir.C, unlink.C:
+	use the HAVE_UNISTD_H preprocessor guard.
+
+2005-01-20  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.[Ch] (LibScriptSearch): modify the code that replaces
+	the $$s placeholder with a path, so that it now inserts the path
+	of the lyx support directory, not the scripts subdirectory.
+
+2005-01-19  Asger Ottar Alstrup  <aalstrup@laerdal.dk>
+
+	* lyxsum.C, socktools.C, tempname.C, userinfo.C: use the
+	HAVE_UNISTD_H preprocessor guard.
+
+2005-01-17  Angus Leeming  <leeming@lyx.org>
+
+	* os_win32.C (init): Add Ruurd's original code to close the
+	console window that Windows opens for us, together with a note
+	explaining the alternative approach.
+
+2005-01-17  Angus Leeming  <leeming@lyx.org>
+
+	* package.C.in (get_binary_path): convert relative paths stored
+	in the PATH environment variable to absolute ones.
+
+2005-01-16  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.[Ch] (prependEnvPath): prepend a list of paths to
+	that returned by the environment variable. Identical paths occurring
+	later in the list are removed.
+
+2005-01-16  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.C (createLyXTmpDir): add some missing brackets to the
+	if-block. OS/2 users will be happier.
+
+2005-01-02  Kayvan Sylvan  <kayvan@sylvan.com>
+
+	* os_win32.C (external_path): Check the new cygwin_path_fix_ bool
+	before translating external paths to Win32 paths.
+
+2005-01-13  Angus Leeming  <leeming@lyx.org>
+
+	* os.h, os_os2.C, os_unix.C, os_win32.C (cygwin_path_fix): new
+	function flagging whether LyX should output native Win32 paths
+	or cygwin paths. Obviously operative only under Cygwin.
+
+2005-01-13  Angus Leeming  <leeming@lyx.org>
+
+	* package.C.in: use "%n$s" rather than "%n%" for n=1,2,3... when
+	calling bformat so that the substitutions work for the non
+	boost::format users too.
+
+2005-01-12  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.[Ch] (setEnvPath): new function to create a PATH-style
+	string from a vector of paths and to use it to set an environment
+	variable.
+	(putEnv): resurrect this from the grave.
+
+	* os.h, os_os2.C, os_unix.C, os_win32.C (path_separator): new
+	function returning the character used to separate paths returned
+	by the PATH environment variable.
+
+	* os_win32.C: add #include "lstring.h" back in.
+
+	* package.C.in (package): comment out the ASSERT for now.
+	(check_env_var_dir): write one of the strings to be translated
+	(any one, doesn't matter) on a single line so that the
+	gettext search mechanism in po/Makefile.in.in will register
+	package.C.in as a file containing strings that need translation.
+
+2005-01-10  Angus Leeming  <leeming@lyx.org>
+
+	* os.h:
+	* os_os2.C:
+	* os_unix.C:
+	* os_win32.C (binpath, binname, homepath, setTmpDir, getTmpDir, warn):
+	removed. Remove also all code to set the associated data variables.
+
+	* package.{C.in,h}: new files to ascertain the paths to the
+	various directories used by LyX. Does nothing with these paths,
+	just determines the strings themselves.
+
+	* path_defines.{C.in,h}: removed.
+
+	* Makefile.am: remove path_defines.{C.in,h}. Add package.{C.in,h}.
+
+	* filetools.[Ch] (GetEnvPath): remove.
+	(getEnvPath): replacement. Returns a vector<string> of paths.
+
+	* filetools.C:
+	* tempname.C: use support/package.h to provide the paths to the
+	various directories used by LyX.
+
+2005-01-07  Angus Leeming  <leeming@lyx.org>
+
+	* convert.C (string>): add specialization for long.
+
+2005-01-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* convert.h: remove the specializations, don't included unneeded
+	headers
+	* convert.C: add specialization for unsigned long
+
+2005-01-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* tostr.[Ch]: renamed to convert[ch]
+
+2005-01-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lstrings.[Ch]: change bformat to be a template
+
+	* tostr.[Ch]: tostr -> convert, convert is a template
+
+	* tempname.C:
+	* filetools.C (createBufferTmpDir): tostr -> convert
+
+2005-01-05  Angus Leeming  <leeming@lyx.org>
+
+	* os_win32.C (external_path, internal_path): s/MAX_PATH/PATH_MAX/.
+
+2005-01-04  Angus Leeming  <leeming@lyx.org>
+
+	* os_win32.C (current_root): use _getdrive on Win32.
+
+	* FileInfo.C (FileInfo, newFile): strip the trailing '/' from
+	the stored file name as it breaks Window's version of stat().
+	(isLink): protect the code with #ifdef S_ISLNK.
+	(dostat): protect the code with #ifdef HAVE_LSTAT.
+	(typeIndicator): remove code testing the file's executable status.
+
+	* filetools.C (LyXReadLink): protect the code with
+	#ifdef HAVE_READLINK.
+
+2005-01-01  Kayvan Sylvan  <kayvan@sylvan.com>
+
+	* os_win32.C (internal_path): remove the call to MakeLatexName as
+	it is (1) unnecessary and (2) leads to an infinite loop as
+	MakeLatexName calls AddName which calls internal_path...
+
+2004-12-19  Angus Leeming  <leeming@lyx.org>
+
+	* path_defines.C.in (setLyxPaths): on a Windows build,
+	remove the ".exe" extension from the name of the LyX binary when
+	trying to ascertain the name of the LyX system directory.
+	(Usually, <path to binary>/../share/<name of binary>/).
+
+	* os.h, os_os2.C, os_unix.C, os_win32.C (slashify_path): remove.
+
+	* os_win32.C (init): ensure that the name of the lyx executable is
+	stored internally with a unix-style path.
+
+	* os_win32.C (internal_path, external_path): differentiate between
+	cygwin and windows builds.
+
+	* filetools.C (FileOpenSearch, GetEnvPath, createDirectory,
+	MakeAbsPath, AddName, MakeRelPath, ChangeExtension):
+	* filename.C (mangledFilename):
+	s/slashify_path/internal_path/.
+
+2004-12-16  Angus Leeming  <leeming@lyx.org>
+
+	* filename.C (mangledFilename): Given a Windows-style path, don't
+	forget to mangle the drive letter too when generating a unique
+	temporary file name.
+
+2004-12-16  Angus Leeming  <leeming@lyx.org>
+
+	* mkdir.C: move the HAVE_MKDIR conditional code out of config.h
+	and into here.
+
+2004-12-15  Angus Leeming  <leeming@lyx.org>
+
+	* FileInfo.[Ch] (getNumberOfLinks): removed.
+
+2004-12-15  Angus Leeming  <leeming@lyx.org>
+
+	* tempname.C: #include fcntl.h and sys/stat.h if creating a temp
+	file using mktemp and open.
+
+2004-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* os.h, os_os2.C, os_unix.C, os_win32.C:
+	(binpath, binname, getTmpDir): return a const reference rather than
+	a copy of the data.
+	(homepath, nulldev): new functions returning the name of "HOME" and
+	the null device, respectively.
+
+	* filetools.C: (ExpandPath, MakeDisplayPath):
+	* path_defines.C.in (setLyxPaths): use os::homepath(), not
+	GetEnvPath("HOME").
+
+2004-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* os.h, os_{os2,unix,win32}.C (init): change interface to no longer
+	pass the addresses of the parameters received by main.
+
+2004-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* copy.C (copy): open the ifstream with ios::binary.
+
+2004-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* os.C: Add _WIN32 to the #define.
+
+	* systemcall.C (startscript): remove trailing '/n' from request to
+	start the command in a minimized window under DOS.
+
+2004-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (AM_CPPFLAGS): Remove trailing slash from -Ifoo/
+	to overcome bug in the MinGW port of g++ 3.4.2.
+
+2004-11-26  Angus Leeming  <leeming@lyx.org>
+
+	* globbing.[Ch] (glob): change API to:
+	1. Append matches to the input container.
+	2. Require a working_dir parameter. The function invokes chdir
+	internally (through use of Path).
+
+2004-11-26  Angus Leeming  <leeming@lyx.org>
+
+	* filefilterlist.C (convert_brace_glob): moved here from
+	globbing.[Ch].
+
+	* filefilterlist.[Ch]: clean-up FileFilterList API.
+
+	* globbing.[Ch] (convert_brace_glob): moved to filefilterlist.C.
+	(expand_globs): moved to xforms/FormFiledialog.C.
+
+2004-11-25  Angus Leeming  <leeming@lyx.org>
+
+	* filefilterlist.[Ch]:
+	* globbing.[Ch]: split FileFilterList into its own .[Ch] files.
+
+	* Makefile.am: add filefilterlist.[Ch].
+
+2004-11-16  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* textutils.h (isKommaChar): remove
+
+2004-11-16  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* forkedcontr.C (find_pid): simplify and also make pass concept
+	checks.
+	(handleCompletedProcesses): make sure that we do not slice the
+	object and satisfy concept checks.
+
+2004-11-09  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* filetools.[Ch] (getFormatFromContents): don't guess format from
+	extension, return string() instead of "user" if the format could
+	not be determined
+
+2004-11-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Make it clearer where include files are coming from.
+
+2004-11-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* translator.h: use bind, equal_to instead of equal_1st_in_pair
+	and equal_2nd_in_pair
+
+	* Makefile.am (libsupport_la_SOURCES): remove lyxfunctional.h
+	* lyxfunctional.h: delete file
+
+	* lyxfunctional.h: delete compare_memfun and helper classes
+
+	* forkedcontr.C (find_pid): use bind, equal_to instead of
+	compare_memfun
+
+	* lyxfunctional.h: delete back_inserter_fun functions and helper
+	classes.
+
+2004-11-04  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* snprintf.[ch]: removed
+
+	* Makefile.am (libsupport_la_SOURCES): remove snprintf
+
+2004-10-29  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* filetools.[Ch] (getExtFromContents): rename to
+	getFormatFromContents and return always a format
+
+2004-10-25  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcall.C (generateChild): strip quotes from each argument
+	of argv.
+
+2004-09-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: use proper signal include
+
+	* forkedcallqueue.C: remove unused include
+
+	* FileMonitor.h: Use the preferred calling for Boost.Signal
+	* forkedcall.h: ditto
+
+	* FileMonitor.C: use the new signal typedef
+
+2004-09-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* forkedcall.h: remove include of <boost/function/funtion0.hpp>
+	* pch.h: ditto
+
+2004-09-10  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* textutils.h (IsLetterCharOrDigit): remove
+
+2004-09-10  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* filetools.C (LibScriptSearch): quote the path of the script, in
+	case it contains spaces
+
+2004-09-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* tostr.C: reimplement using lexical_cast
+
+2004-08-30  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: do not use include boost/format.hpp, multiple symbols
+	will result (gcc bug)
+
+2004-08-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: new file
+
+	* Makefile.am: support pch
+
+2004-08-09  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* globbing.C (FileFilterList): make sure that "All files (*)" is
+	always part of the filters list
+
+2004-07-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* tostr.C, lstrings.C, globbing.C, filetools.C: change
+	"support/std_sstream.h" to <sstream>
+
+	* Makefile.am (libsupport_la_SOURCES): delete std_sstream.h and
+	sstream.h
+	(std_sstream.h): delete file
+	(sstream.h): delete file
+
+2004-06-29  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* filetools.C (i18nLibFileSearch): honor case where LANGUAGE
+	specifies a list of locales (thanks to Pablo Saraxtaga for the
+	initial patch).
+
+2004-05-04  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* path_defines.C.in (setLyxPaths): make sure that LyX/Mac can find
+	its po files when moved around; set default user directory to
+	~/Library/Preferences/LyX/ for LyX/Mac.
+	(lyx_localedir): return the value that may have been computed in
+	setLyXPaths
+
+2004-05-27  Kayvan Sylvan <kayvan@sylvan.com>
+
+	* Makefile.am (libsupport_la_SOURCES): remove reference to
+	nt_defines.h
+
+2004-05-20  Angus Leeming  <leeming@lyx.org>
+
+	* debugstream.h: wrap the definition of debug_trait::DEBUG with
+	preprocessor guards that protect against a name clash with a
+	macro DEBUG. Such a macro is defined by the Qt library...
+
+2004-04-27  Angus Leeming  <leeming@lyx.org>
+
+	* path_defines.{h,C.in}: expose top_srcdir, renamed from
+	lyx_top_srcdir.
+
+2004-04-05  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.C:
+	wrap #warning calls inside #ifdef WITH_WARNINGS blocks.
+
+2004-04-05  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* filetools.C (RunCommand): block SIGCHLD during popen/pclose
+	(actually Angus' fix).
+
+2004-04-01  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* filetools.C (DeleteAllFilesInDir): delete directories with
+	rmdir(), unlink() does not work
+
+2004-03-27  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcontr.C (child_handler): squash warning about a
+	signed/unsigned comparison.
+	(handleCompletedProcesses): only output a warning about an error
+	waiting for the child if it is indeed an error ;-)
+
+2004-03-26  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcall.[Ch] (run): new function, replacing runBlocking,
+	runNonBlocking.
+
+	* forkedcall.C (generateChild): ensure that the code that splits
+	the command up into an array of words won't leak in the event of an
+	exception.
+
+	* forkedcontr.C: make it a little more robust.
+
+2004-03-24  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcontr.[Ch]: get rid of the timer that we use to poll the list
+	of child proccesses and ascertain whether any have died. Instead use
+	the SIGCHLD signal emitted by the system to reap these zombies in the
+	maximally efficient manner. The subsequent emitting of the signal
+	associated with each child process *is* performed within the main
+	lyx event loop, thus ensuring that the code remains safe.
+
+	A detailed description of the design is to be found in forkedcontr.C.
+
+2004-03-24  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* filetools.C (i18nLibFileSearch): simplify the logic a bit
+
+2004-03-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* filetools.C (i18nLibFileSearch): fix the logic to match closely
+	what gettext does
+
+2004-03-23  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcall.h (ForkedProcess, Forkedcall): change the signature of
+	clone to return a boost::shred_ptr rather than a std::auto_ptr.
+
+	* forkedcontr.[Ch]: store the forked calls as boost::shared_ptrs rather
+	than raw pointers.
+
+2004-03-22  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcontr.[Ch] (childrenChanged, getPIDs, getCommand): remove
+	cruft left over from the removal of the Forks dialog.
+
+2004-03-09  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* filename.[Ch] (mangledFilename): make sure that mangled names are
+	unique
+
+2004-02-21  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* filetools.[Ch] (CreateBufferTmpDir): rename to createBufferTmpDir,
+	remove pathfor argument
+	* filetools.[Ch] (CreateLyXTmpDir): rename to createLyXTmpDir, try
+	harder to create a usable temp dir
+	* filetools.C (CreateTmpDir): rename to createTmpDir
+	filetools.[Ch] (unzipFile): add argument for output filename
+	* filename.h: fix doxygen warning
+
+2004-02-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lstrings.h (contains_functor): delete
+	(contains): change into template, simplify
+
+	* lstrings.C (contains): remove both functions
+
+2004-01-31  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxalgo.h (eliminate_duplicates): reimplement with sort and the
+	unique-erase idom.
+
+	* lstrings.h (contains_functor): inherit from
+	std::binary_function, remove typedefs.
+
+2004-01-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* globbing.C: add using statement for std::distance, remove std::
+	from string.
+
+2004-01-08  Angus Leeming  <leeming@lyx.org>
+
+	* globbing.[Ch]: add a new class FileFilterList to parse a Qt-style
+	list of available file filters and generate the corresponding vector.
+
+2003-12-14  Ronald Florence <ron@18james.com>
+
+	* tostr.[hC]: added tostr(long unsigned int i).
+
+	* path_defines.C.in: determine system directory and set PATH for
+	relocatable LyX/Mac bundle.
+
+2004-01-06  Angus Leeming  <leeming@lyx.org>
+
+	* globbing.C (glob): compilation fix for cygwin.
+
+2004-01-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (libsupport_la_SOURCES): remove BoostFormat.h and
+	boost-inst.C
+	* BoostFormat.h: delete file
+	* boost-inst.C: delete fil
+
+	* lstrings.C: include boost/format.hpp
+
+2004-01-05  Angus Leeming  <leeming@lyx.org>
+
+	* globbing.[Ch]: new files containing some globbing utilities.
+
+2003-11-05  João Luis M. Assirati  <assirati@fma.if.usp.br>
+
+	* putenv.C: allocate the string before putting it into the
+	environment.
+
+	* lyxlib.h: adjust.
+
+2003-11-03  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* tempname.C (tempName): use scoped_array for exception safety
+
+	* os_os2.C (init): use scoped_array for exception safety
+
+	* getcwd.C (getcwd): use scoped_array for exception safety
+
+	* forkedcontr.C (addCall): adjust
+
+	* forkedcall.h: make clone return a auto_ptr
+
+2003-11-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* debugstream.h: add a default constructor that does not setup a
+	streambuf here.
+
+2003-10-14  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* socktools.C: honor CXX_GLOBAL_CSTD
+
+2003-10-16  André Pönitz  <poenitz@gmx.net>
+
+	* filetools.C (ReplaceEnvironmentPath): set up patterns just once
+	using static variables.
+
+2003-10-13  João Luis Meloni Assirati  <assirati@fma.if.usp.br>
+
+	* socktools.[Ch]: New files. Wrapper around socket system calls.
+
+2003-10-13  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* socktools.C (SUN_LEN): add this MACRO definition for platforms
+	that do not define it themselves.
+
+2003-10-08  Angus Leeming  <leeming@lyx.org>
+
+	* copied_ptr.h: get rid of the swap member function.
+
+2003-10-08  Angus Leeming  <leeming@lyx.org>
+
+	Fix doxygen warnings.
+
+	* debugstream.h: \file debugStream.h -> \file debugstream.h
+
+	* os.h: move comment so that doxygen is not confused.
+
+2003-10-07  Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+
+	* Makefile.am: fix typo.
+
+2003-10-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* std_string.h: delete file
+
+2003-10-06  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* lstrings.C: Small fixes to build using STLport
+
+2003-09-29  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.C (ReplaceEnvironmentPath): make it work for both
+	${HOME}/foo and $HOME/foo.
+
+2003-09-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* debugstream.h: add file, updated version of the DebugStream
+
+	* DebugStream.C,DebugStream.h: delete files
+
+2003-09-25  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.C (ReplaceEnvironmentPath): rewrite to use boost::regex.
+	* lstrings.[Ch]: (regexMatch): removed.
+
+2003-09-25  Angus Leeming  <leeming@lyx.org>
+
+	* translator.h (add): new member function.
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* textutils.h: remove #include "paragraph.h". Remove functions
+	IsInsetChar and IsWordChar.
+
+2003-09-15  Angus Leeming  <leeming@lyx.org>
+
+	* copied_ptr.h: re-jig to something that resembles Herb Sutter's
+	HolderPtr --- see http://www.gotw.ca/gotw/062.htm. Also known in
+	his book as ValuePtr.
+	Use a memory_traits template parameter to create/destroy memory in a
+	flexible manner.
+
+2003-09-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* tostr.C:
+	* lstrings.C:
+	* filetools.C: Remove usage of STRCONV
+
+	* Makefile.am (libsupport_la_SOURCES): remove lyxstring.C and
+	lyxstring.h
+
+	* std_string.h: modify to always work with std::string, but if
+	with-included-string then use it through namespace lyx. Remove
+	STRCONV.
+
+	* lyxstring.[Ch]: remove files
+
+2003-09-15  Angus Leeming  <leeming@lyx.org>
+
+	* translator.h: add #include <boost/assert.hpp>, so that the
+	template is self-contained.
+
+2003-09-11  Angus Leeming  <leeming@lyx.org>
+
+	* cow_ptr.h:
+	* copied_ptr.h: added to the repository. Maybe temporarily.
+
+2003-09-09  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.am (libsupport_la_SOURCES): remove LAssert.C and LAssert.h
+
+	* several files: change Assert to BOOST_ASSERT
+
+	* LAssert.C:
+	* LAssert.h: remove files
+
+2003-09-08  Angus Leeming  <leeming@lyx.org>
+
+	* filename.C:
+	* filetools.C: tell the world where to find author contact details.
+
+2003-09-08  Angus Leeming  <leeming@lyx.org>
+
+	* boost-inst.C:
+	* filetools.C:
+	* forkedcallqueue.C:
+	* lstrings.C:
+	* lyxsum.C: remove redundant using directives.
+
+2003-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* lstrings.C: small bformat fix
+
+2003-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* std_istream.h: new file Just renaming of LIstream.h
+	* std_ostream.h: new file Just renaming of LIstream.h
+	* std_sstream.h: new file Just renaming of Lsstream.h
+	* std_string.h:  new file Just renaming of LString.h
+
+2003-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* lyxmanip.h:
+	* textutils.h:
+	ensure that the header file can be compiled stand-alone.
+
+2003-09-04  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* lstrings.[Ch] (bformat): add a variant taking two ints.
+
+2003-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.h:
+	* filename.C:  move #include "os.h" out of the header file.
+
+2003-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* path.C (ctor, dtor): move out of line.
+
+2003-09-03  Angus Leeming  <leeming@lyx.org>
+
+	* filename.[Ch] (FileName): new c-tor takes abs_filename arg.
+	(mangledFilename): new function, returning a mangled version of the
+	absolute file name, suitable for use in the temp dir when, for example,
+	converting an image file to another format.
+	(isZipped, unzippedFilename): wrappers to global functions.
+
+	* filetools.[Ch] (copyFileToDir): removed.
+	(compare_timestamps): new function.
+
+2003-09-03  Angus Leeming  <leeming@lyx.org>
+
+	* translator.h: Assert is in namespace lyx::support...
+
+2003-08-02  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Makefile.am: do not install path_defines.C in includes
+	(COMPRESSION): mention gzstream.h here
+
+2003-08-01  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* path_defines.C.in (setLyxPaths): re-introduce the code to check
+	whether lyx is run in place
+	(build_dir): renamed from build_lyxdir
+	(build_lyxdir): give this better semantics compatible with what
+	LibFileSearch expects.
+
+2003-07-29  Angus Leeming  <leeming@lyx.org>
+
+	* filename.[Ch] (relFilename, outputFilename): the 'path' arg
+	defaults to string() because MakeRelPath can accept that.
+
+2003-07-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am: conditionalize USE_COMPRESSION.
+
+2003-07-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* filetools.C (getExtFromContents): correct magic for gzip and
+	compress.
+
+	* path_defines.[Ch]: move lyx_localedir out of anon namespace
+
+	* gzstream.h: new fileq
+
+	* gzstream.C: new file
+
+2003-07-27  Angus Leeming  <leeming@lyx.org>
+
+	* path_defines.{h,C.in} (build_lyxdir, system_lyxdir,
+	user_lyxdir): are now functions, not global vars.
+
+	* Makefile.am: set build_lyxdir at make time.
+
+2003-07-27  Angus Leeming  <leeming@lyx.org>
+
+	* path_defines.{h,C.in}: new files. Store/set the various lyx
+	paths, lyx_dir, top_srcdir, localedir, system_lyxdir, build_lyxdir
+	user_lyxdir.
+
+	* Makefile.am: add some magic to enable the user to set the path to
+	the system-level lyx support files, the top of the lyx build tree
+	and the system-level lyx locale directory at _make_ time rather
+	than configure time.
+
+	* .cvsignore: add path_defines.C.
+
+2003-07-26  Angus Leeming  <leeming@lyx.org>
+
+	* os.h: remove irrelevant discussion of system_tempdir.
+
+2003-07-21  Angus Leeming  <leeming@lyx.org>
+
+	* filename.[Ch]: new files implementing class FileName.
+	* Makefile.am: add filename.[Ch].
+
+2003-07-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* BoostFormat.h (boost): remove one extern template. Gcc 3.4. does
+	not allow it (at least not in this form.)
+
+2003-07-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* os_win32.C: put namespace os in lyx::support.
+
+	* lstrings.C (bformat): call Assert from correct namespace.
+
+	* introduce namespace lyx::support
+
+2003-06-30  André Pönitz  <poenitz@gmx.net>
+
+	* filetools.C:
+	* lstrings.C: re-enable --with-included-string
+
+2003-06-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* filetools.h: fix some \param issue
+
+	* boost-inst.C: fix \file
+
+	* LAssert.h: fix \file
+
+2003-06-20  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.[Ch] (NormalizePath): also change /foo//bar ==> /foo/bar.
+
+2003-06-18  Angus Leeming  <leeming@lyx.org>
+
+	* many files: add the standard blurb, "This file is part of LyX" etc
+
+2003-06-17  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* limited_stack.h: make it have a const_iterator, add begin, and
+	end as interface.
+
+2003-06-10  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.C (copyFileToDir): ensure that temp files have unique names.
+
+2003-06-04  André Pönitz  <poenitz@gmx.net>
+
+	* limited_stack.h (top): return reference instead of value
+
+2003-06-02  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.[Ch] (copyFileToDir): new helper function.
+
+	* os.h: remove trailing semi-colon from end of namespace os block.
+
+2003-06-01  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.h (LibScriptSearch): give the function a meaningful
+	description of what it now does.
+
+2003-05-30  Angus Leeming  <leeming@lyx.org>
+
+	* filetools.C (LibScriptSearch): make it search for "$$s/" and replace
+	this with the path to the script. If the script is not found, the "$$s/"
+	string is removed.
+
+2003-05-22  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lstrings.[Ch] (prefixIs,suffixIs,subst): remove variants taking
+	char const *.
+
+2003-05-19  André Pönitz  <poenitz@gmx.net>
+
+	* lstrings.C: add missing implementation of three-arg bformat
+
+	* lstrings.C: change rest of char * fmt -> string const & fmt
+
+
+2003-05-15  André Pönitz  <poenitz@gmx.net>
+
+	* lstrings.[Ch]: use string const & instead of char const * for format
+
+2003-05-12  André Pönitz  <poenitz@gmx.net>
+
+	* tostr.[Ch]: add long int overload
+
+2003-05-12  Alfredo Braunstein  <abraunst@libero.it>
+
+	* lstrings.[Ch]: compile fix
+
+2003-05-12  André Pönitz  <poenitz@gmx.net>
+
+	* lstrings.[Ch]: bformat() as wrapper around boost::format
+
+	* lyxstring.h: enable templatized constructor
+
+2003-05-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* limited_stack.h: Change some comments, simplify a couple of
+	class functions.
+
+2003-02-21  André Pönitz <poenitz@gmx.net>
+
+	* limited_stack.h: change underlying container to deque to
+	  make this re-usable in mathed
+
+2003-04-08  John Levon  <levon@movementarian.org>
+
+	* filetools.C: fix MakeDisplayPath() to not
+	lie (bug 993)
+
+2003-03-30  John Levon  <levon@movementarian.org>
+
+	* Makefile.am:
+	* BoostFormat.h:
+	* boost-inst.C: moved from src/
+
+2003-03-29  John Levon  <levon@movementarian.org>
+
+	* filetools.h:
+	* filetools.C: never call Alert directly from here
+
+2003-03-12  John Levon  <levon@movementarian.org>
+
+	* textutils.h: remove META_NEWLINE
+
+2003-02-27  Ling Li  <ling@caltech.edu>
+
+	* lyxalgo.h (eliminate_duplicates): re-written to avoid the initial
+	sort.
+
+2003-02-25  Alfredo Braunstein <abraunst@libero.it>
+
+	* forkedcontr.C (timer): remove bogus continue
+
+2003-02-25  Alfredo Braunstein <abraunst@libero.it>
+
+	* forkedcallqueue.[Ch]: added
+
+2003-02-25  Alfredo Braunstein <abraunst@libero.it>
+
+	* forkedcontr.C (timer): Start the loop afresh if an item is deleted.
+	Emiting the signal can result in an arbitrary change to the list.
+
+2003-02-25  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcontr.C (timer): Use a while loop rather than for; makes it
+	easier to erase an element.
+
+2003-02-25  Alfredo Braunstein <abraunst@libero.it>
+
+	* forkedcontr.C (timer): don't start a running timer.
+
+2003-02-21  André Pönitz <poenitz@gmx.net>
+
+	* filetools.C (PutEnv): removed (unused)
+
+2003-02-17  John Levon  <levon@movementarian.org>
+
+	* forkedcall.h:
+	* forkedcall.C: add running()
+
+2003-02-08  John Levon  <levon@movementarian.org>
+
+	* Makefile.am:
+	* lyxtime.h:
+	* lyxtime.C: add typedef for time_t, add current_time
+
+	* Makefile.am:
+	* userinfo.h:
+	* userinfo.C: add
+
+2002-12-04  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* filetools.C (getExtFromContents): remove detection of epsi
+
+2002-12-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* several files: ws changes
+
+2002-11-27  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* filetools.C (DirList): remove all ugly hacks and do it nice
+
+2002-11-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxsum.C: an ugly hack to compile with non-gnu linkers
+
+2002-11-12  Angus Leeming  <aleem@pneumon.bg.ic.ac.uk>
+
+	* lstrings.C (getVectorFromString): #if 0 -> #if 1 until Lars devises
+	a solution that he likes and which actually works.
+
+2002-11-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lstrings.h (tostr): STRCONV
+
+	* lstrings.C (regexMatch): STRCONV
+	(getVectorFromString): STRCONV, manual copy into vector
+
+	* filetools.C (GetFileContents): STRCONV
+
+	* os.C: include config.h
+
+	* lstrings.C (getVectorFromString): rewrite to use
+	boost::tokenizer
+
+2002-10-31  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcall.C (generateChild): clean it up further.
+
+2002-10-25  Angus Leeming  <leeming@lyx.org>
+
+	* forkedcall.[Ch]: split ForkedCall up into a base class ForkedProcess
+	and a minimal ForkedCall daughter class.
+
+	* forkedcontr.[Ch]: minimal changes reflecting the use of a
+	ForkedProcess base class responsible for launching all child proceses.
+
+2002-09-25  Angus Leeming  <leeming@lyx.org>
+
+	* LIstream.h:
+	* LOstream.h: doxygen fixes.
+
+2002-09-24  Angus Leeming  <leeming@lyx.org>
+
+	* most files: clean-up the license info.
+
+2002-09-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (INCLUDES): loose SIGC_INCLUDES
+
+2002-09-16  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* os.h, os_os2.C, os_win32.C, os_unix.C: Added popen_read_mode(),
+	since at least for Cygwin, the "rb" read_mode acceptable for
+	fopen() is illegal for popen(), whose mode argument *must* be "r"
+	or "w".
+
+	* filetools.C (RunCommand): Uses os::popen_read_mode() instead
+	of os::read_mode()
+
+2002-08-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (libsupport_la_SOURCES): delete smart_ptr.h and
+	utility.h
+
+	* smart_ptr.h: remove file
+	* utility.h: ditto
+
+2002-08-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyxfunctional.h: remove class_fun_t, void_class_fun_t,
+	class_fun and void_class_fun
+
+2002-08-20  John Levon  <levon@movementarian.org>
+
+	* Makefile.am:
+	* fmt.C: remove
+
+2002-08-14  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* textutils.h: formatting.
+
+2002-08-08  John Levon  <levon@movementarian.org>
+
+	* limited_stack.h: default to 100 not 10
+
+2002-08-01  John Levon  <levon@movementarian.org>
+
+	* forkedcall.C: more details on error
+
+2002-07-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lstrings.[hC]: rename stip to rtrim and frontStrip to ltrim,
+	also add a trim function that is the equiv of
+	strip(frontStrip(...)), also reimplement the functions
+	(improvements still possible.)
+
+	* filetools.C: strip,frontStrip -> trim,ltrim,rtrim
+	* forkedcall.C (generateChild): ditto
+	* lstrings.C: ditto
+
+
+2002-07-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* filetools.C (GetEnvPath): modify because of strip changes
+	(createDirectory): ditto
+	(findtexfile): ditto
+	* lstrings.[Ch] (isStrInt): ditto
+	(isStrUnsignedInt): ditto
+	(strToInt): ditto
+	(strToUnsignedInt): ditto
+	(isStrDbl): ditto
+	(contains): removed unneeded version of contains
+	(containsOnly): removed uneeded versions of containsOnly
+	(strip, frontStrip): removed unneded versions, changed argument types.
+
+2002-07-22  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* filetools.C (RunCommand): Made public
+
+2002-07-22  John Levon  <moz@compsoc.man.ac.uk>
+
+	* limited_stack.h: fix comment, remove un-needed header
+
+2002-07-21  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lstrings.h: correct comments for token and tokenPos
+
+2002-07-20  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyxstring.C (operator>>): replace code which works only with
+	_some_ versions of GNU STL with generic one
+
+2002-07-18  Angus Leeming  <leeming@lyx.org>
+
+	* FileMonitor.[Ch]: new files. Monitor a file for any change and emit a
+	signal should it do so.
+
+	* Makefile.am: add FileMonitor.[Ch].
+
+2002-07-18  André Pönitz <poenitz@gmx.net>
+
+	* filetools.C (LibScriptSearch): bug fix
+
+2002-07-17  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* filetools.C (LyXReadLink): add bool 'resolve' to return link
+	contents as an absolute path
+
+2002-07-15  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* filetools.C (IsLyXFilename):
+	(IsSGMLFilename): use ascii_lowercase instead of lowercase
+
+	* lstrings.[Ch] (ascii_lowercase): new function
+
+2002-07-16  André Pönitz <poenitz@gmx.net>
+
+	* FileInfo.Ch: remove unneeded code
+
+2002-06-20  Herbert Voss  <voss@perce.de>
+
+	* filetools.[C] (readExtFromContents): add support for
+	(x)fig format images
+
+2002-06-26  André Pönitz <poenitz@gmx.net>
+
+	* filetools.[Ch]: small whitespace, more compact 'return' statement
+
+2002-06-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyxalgo.h: add eliminate_duplicates
+
+2002-06-17  Herbert Voss  <voss@perce.de>
+
+	* filetools.[C]: (readBB_from_PSFile) add a helperfunc
+	(readBB_lyxerrMessage) to get better lyxerr messages
+	(getExtFromContents) test epsi files in the right way
+
+	* DestroxLyXTmpDir.C: changed to true, to delete the
+	temporary unzipped files, too.
+
+2002-06-10  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* putenv.C (putenv): putenv should never be found in std::
+
+	* kill.C (kill): kill should never be found in std::
+
+	* filetools.C: pclose and popen should never be found in std::
+
+2002-06-07  Angus Leeming  <leeming@lyx.org>
+
+	Fixes needed to compile with Compaq cxx 6.5.
+	* lyxfunctional.h: rename lyx::class_fun(C & c, void(C::*f)(A)) as
+	lyx::void_class_fun to avoid compiler problems with Compaq cxx 6.5:
+	more than one instance of overloaded function "lyx::class_fun" matches
+	the argument list.
+
+	* filetools.C:
+	* kill.C:
+	* lstrings.C:
+	* putenv.C:
+	* snprintf.h:
+	* systemcall.C:
+	* utility.h:
+	all c-library variables have been moved into namespace std.
+	Wrap using std::xyz declarations inside a #ifndef CXX_GLOBAL_CSTD block.
+
+	* kill.C: rename signal.h as csignal.
+
+	* putenv.C: rename stdlib.h as cstdlib
+
+2002-06-05  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lxtl.h: remove unused file
+
+2002-05-30  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* date.C:
+	* getUserName.C:
+	* fileblocks.c:
+	* StrPool.h:
+	* StrPool.C: remove unused files
+
+	* lyxalgo.h:
+	* lyxlib.h:
+	* mkdir.C:
+	* path.h:
+	* path.C:
+	* systemcall.C:
+	* textutils.h:
+	* translator.h:
+	* types.h: document and small cleanups
+
+2002-05-29  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* switch from SigC signals to boost::signals.
+
+2002-05-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* limited_stack.h: new template for limited-size
+	  stacks
+
+2002-05-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* filetools.C: do not include LSubstring.h
+
+	* lstrings.C: change include order
+	(regexMatch): use boost regex get rid of LRegex and LSubstring
+
+	* Makefile.am (libsupport_la_SOURCES): delete regex and substring
+	stuff.
+
+	* LSubstring.h: remove file
+	* regex.c: ditto
+	* lyxregex.h: ditto
+	* LRegex.C: ditto
+	* LRegex.h: ditto
+	* LSubstring.C: ditto
+
+2002-05-24  Juergen Vigna  <jug@sad.it>
+
+	* lyxsum.C: include local includes first (self containment)
+
+2002-05-22  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* forkedcall.h: use more specific smart_ptr header.
+
+	* lyxsum.C: move some using declarations around.
+
+2002-05-03  Herbert Voss  <voss@perce.de>
+
+	* filetools.C (getExtFromContents): only print the first 60 chars of
+	the scanned-string when debugging.
+
+2002-05-02  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxstring.C: close to typo fix.
+
+2002-05-02  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* filetools.C: add a using std::getline directive.
+
+2002-05-02  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxstring.C (operator>>): try a new version of the operator>>
+
+2002-04-14  Herbert Voss  <voss@perce.de>
+
+	* lstrings.[Ch]: move the getVectorFromString and the vice versa
+	from frontends/controllers/helper_funcs for better use in other
+	programs
+
+2002-04-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* tempname.C (make_tempfile): simplify the #ifdef block by using
+	#if defined and re-write the #warning as a #error because it's terminal.
+
+2002-04-08  Herbert Voss  <voss@perce.de>
+
+	* filetools.C (getExtFromContents): get tgif run
+
+2002-04-08  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* filetools.C (getExtFromContents): re-format a little and remove
+	replicated "sgi" entry.
+
+2002-04-07  Herbert Voss  <voss@perce.de>
+
+	* filetools.[Ch]: add readBB_from_PSFile() to make bb available
+	for the lyx-view in graphics (moved from ControlGraphics)
+
+2002-04-07  Herbert Voss  <voss@perce.de>
+
+	* filetools.C: fix bug for eps. scans now a whole line
+
+2002-04-06  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxstring.C (operator>>): use the better solution, this fixes a
+	"not able to read '\0'" bug.
+
+2002-04-05  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* translator.h: add missing typename
+
+2002-03-27  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* filetools.C (LibScriptSearch): new command. Searches for scripts
+	in lyx data directories.
+	(LibScriptSearch): try to use split() correctly.
+
+2002-03-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* most files: ws cleanup
+
+	* Makefile.am: remove ld -r stuff
+
+2002-03-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (libsupport.la): special rules if partial linking
+
+2002-03-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* forkedcontr.C: turn the timer off when their are no longer any
+	child processes running.
+
+2002-03-11  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* forkedcall.h: docy fix
+	change SignalType second type to be const ref.
+
+	* forkedcall.C: doxy fix
+
+2002-03-11  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* lyxsum.C: compilation fix
+
+2002-03-02  Herbert Voss  <voss@perce.de>
+
+	* filetools.C: fix bug for xbm format and added some more debug
+	infos
+
+2002-03-02  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* forkedcontr.h: make constructor public
+
+	* types.h: remove layout_type
+
+2002-03-01  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* filetools.C (getExtFromContents): cleanup.
+
+	* forkedcontr.h (d-tor): make it public for Dekel's crappy compiler.
+
+2002-02-27  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Makefile.am (SIGC_INCLUDES): add a -I directive for when
+	building outside of source tree.
+
+2002-02-19  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* forkedcall.[Ch]:
+	* forkedcontr.[Ch]: new files. Asger's forked call controller is
+	re-born, with a working timer and a modified interface. The
+	startscript method is now passed a Signal rather than a pointer
+	to a callback function. This enables us to connect to the method of
+	a C++ class, if we so desire.
+
+	* Makefile.am: add forkedcall.[Ch], forkedcontr.[Ch].
+
+2002-02-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* os2_defines.h:
+	* os2_errortable.h:
+	* nt_defines.h: moved from src/
+
+2002-02-23  Herbert Voss  <voss@perce.de>
+
+	* filetools.C: added more graphic formats
+
+2002-02-18  Herbert Voss  <voss@perce.de>
+
+	* filetools.C: (getExtFromContents) return the fileextension
+	if no format is detected.
+
+2002-02-18  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* syscall.[Ch]: renamed as systemcall.[Ch]. class Systemcalls renamed
+	as class SystemCall because one Systemcall instance represents a
+	single child process.
+
+	* filetools.C:
+	* Makefile.am: associated changes.
+
+2002-02-18  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* syscall.C (Systemcalls): include <cstdlib>
+
+2002-02-08  Herbert Voss  <voss@perce.de>
+
+	* filetools.C: (getExtFromContents) adding Grace-format
+	for filetypes
+
+2002-02-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* syscontr.[Ch]:
+	* syssingleton.C: files removed.
+
+	* syscall.[Ch]: remove the forked calls interface, as nothing, nowhere
+	uses it. Strip down the Systemcalls interface to make it brutally
+	obvious how unsophisticated it is.
+
+2002-02-08  Herbert Voss  <voss@perce.de>
+
+	* filetools.C: (getExtFromContents) adding TGIF-format
+	and return type "user" when no type is detected
+
+2002-02-13  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* textutils.h: remove IsLineSeparatorChar(char, Inset *)
+
+2002-02-10 Kayvan Sylvan <kayvan@sylvan.com>
+
+	* os_win32.C: Add "using std::endl" to fix compilation for GCC 3.X.
+
+2002-02-08  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* FileInfo.h: remove special cygwin code.
+
+	* filetools.C (do_popen): use os::read_mode().
+
+	* os_win32.C (read_mode):
+	* os_os2.C (read_mode):
+	* os_unix.C (read_mode): new method
+
+	* filetools.C (do_popen): fix for cygwin compatibility (from Claus
+	Hentschel). This code should maybe be moved to os:: class.
+
+2002-02-08  Herbert Voss  <voss@perce.de>
+
+	* filetools.C: (unzipFile) fix typo
+
+2002-02-06  Herbert Voss  <voss@perce.de>
+
+	* filetools.[Ch]: fix some bugs for detecting zipped files
+	adding unzipFile()
+
+2002-02-04  Herbert Voss  <voss@perce.de>
+
+	* filetools.[Ch]: add ifZippedFile() for zipped
+	graphic files
+
+2002-02-04  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* filetools.C (FileOpenSearch): remove duplicated line, probably
+	resulting from bad cut-and paste.
+
+2002-01-31  Herbert Voss  <voss@perce.de>
+
+	* filetools.[Ch]: add getExtFromContents(), which returns
+	the type of the (graphic) file
+
+2002-01-30  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* copy.C (copy): open file in binary mode (for cygwin)
+
+2002-01-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyxsum.C: remove #warnings and replaced them with runtime debug
+	info.
+
+2002-01-14  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyxalgo.h: include <algorithm>
+
+2002-01-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* lyx_algo.h: add a standard-conforming count to namespace lyx.
+
+	* lstrings.[Ch] (countChar): removed. Use lyx::count.
+
+2002-01-05  John Levon  <moz@compsoc.man.ac.uk>
+
+	* filetools.C: fix use of FileInfo
+
+	* FileInfo.h:
+	* FileInfo.C: add Asserts and documentation
+
+2001-12-20  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* os_win32.C: compilation fixes
+
+2001-12-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lstrings.h: do not include <cctype>
+
+2001-12-12  Ben Stanley  <bds02@uow.edu.au>
+
+	* lyxsum.C: portability fix for mmap patch
+
+2001-12-05  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* filetools.C:
+	* lstrings.C:
+	* lyxstring.C: change "while(" to "while ("
+
+2001-12-03  Ben Stanley <bds02@uow.edu.au>
+
+	* lyxsum.C: Added mmap version of CRC and made it selected
+	by default where available. Used process_block for crc for speedup.
+
+2001-12-01  John Levon  <moz@compsoc.man.ac.uk>
+
+	* filetools.C: more robust failure for DirList()
+
+2001-11-29  André Pönitz <poenitz@gmx.net>
+
+	* types.h: introduce types for textclass numbers and layout numbers
+
+2001-11-28  André Pönitz <poenitz@gmx.net>
+
+	* Makefile.am: put types.h in
+
+2001-11-26  André Pönitz <poenitz@gmx.net>
+
+	* types.h: introduce types for paragraph positions and layout numbers
+
+2001-11-04  John Levon  <moz@compsoc.man.ac.uk>
+
+	* filetools.C: remove dead code
+
+	* syscall.C: show prog in fail case
+
+2001-10-24  Andre Poenitz  <poenitz@HTWM.De>
+
+	* filetools.C: code style cleanup
+
+2001-10-23  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* os.h: remove spurious punctuation.
+
+2001-10-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* LAssert.h:
+	* LAssert.C: use new emergencyCleanup()
+
+2001-10-12  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* filetools.C (i18nLibFileSearch): check also LANGUAGE and LC_ALL,
+	like GNU gettext does.
+
+2001-10-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* filetools.C (AbsolutePath): Use os::is_absolute_path() (also in
+	several methods)
+	(findtexfile): oops! the change from last friday was wrong...
+
+	* os_win32.C (is_absolute_path):
+	* os_unix.C (is_absolute_path):
+	* os_os2.C (is_absolute_path): new method
+
+2001-10-05  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* filetools.C (findtexfile): apply os::internal_path to the result.
+
+2001-07-02  Claus Hentschel  <claus.hentschel@mbau.fh-hannover.de>
+
+	* os_win32.C:
+	* os_unix.C:
+	* os_os2.C:
+	* os.h: add internal_path method, which converts a unix-type file
+	name to the type known to the underlying file system (currently
+	only useful on cygwin) [from Ruurd A. Reitsma and Claus Hentschel]
+
+2001-08-18  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* smart_ptr.h: new file
+
+	* utility.h: new file
+
+2001-08-01  John Levon  <moz@compsoc.man.ac.uk>
+
+	* filetools.h:
+	* filetools.C (IsDirWriteable): fix this
+
+2001-07-26  Baruch Even  <baruch@lyx.org>
+
+	* lyxlib.h (float_equal): Added function to compare floats almost equal
+	(see function comment).
+
+2001-07-13  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	Consistent use of Lsstream.h:
+	* filetools.C (GetFileContents): std::ostringstream -> ostringstream.
+
+2001-07-12  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* translator.h: (*it). -> it->
+
+2001-06-26  The LyX Project  <lyx@violet.home.sad.it>
+
+	* filetools.C (DeleteAllFilesInDir): send debug output to
+	Debug::FILES instewad of Debug::ANY.
+
+	* DebugStream.h: remove gcc 2.8.x hack.
+
+2001-06-26  The LyX Project  <jug@sad.it>
+
+	* lstrings.h:
+	* lstrings.C (escape): move method to escape non ascii characters
+	from insets label and ref to here.
+
+2001-06-25  The LyX Project  <jug@sad.it>
+
+	* filetools.C (IsLyXFilename):
+	(IsSGMLFilename): do case insensitive name matching
+
+2001-06-24  The LyX Project  <jug@sad.it>
+
+	* lstrings.C (compare_ascii_no_case): version of compare_no_case
+	which only considers case of ascii characters
+
+	* lyxstring.C (replace): added for compatibility with gcc 2.95.3+
+	sstream header.
+
+2001-06-23  The LyX Project  <jug@sad.it>
+
+	* textutils.h (IsPrintable): take into account unprintable spaces
+	above 127.
+	(IsDigit): new function
+	(IsLetterCharOrDigit): use IsDigit
+
+2001-06-20  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* filetools.C (findtexfile): strip final \r if necessary (for
+	cygwin)
+
+2001-06-19  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* FileInfo.C:
+	* StrPool.C: removed // -*- C++ -*- as first line.
+
+2001-06-01  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxsum.C (do_crc): switch to use boost::crc for generating the
+	checksum.
+
+2001-06-01  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lstrings.C:
+	* syscall.C:
+	* syscontr.C:
+	* LSubstring.C: bring C functions in global namespace if
+	necessary.
+
+	* lstrings.h (compare): use the std:: version of str[n]cmp only
+	when it exists.
+
+2001-05-31  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* syscontr.C: add std::
+
+	* syscall.C: add std::
+
+	* lstrings.h (compare): add std::
+
+	* lstrings.C (prefixIs): add std::
+	(suffixIs): ditto
+	(subst): ditto
+
+	* LSubstring.C (LSubstring): add std::
+
+2001-05-30  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxsum.C (sum): use istreambuf_iterator when available.
+
+2001-05-29  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxsum.C (sum): don't use sstream anymore, use istream_iterator
+	directly instead.
+
+	* lyxstring.C (operator): make const operator[] behave as
+	non-const and at.
+
+2001-05-22  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* Makefile.am (EXTRA_DIST): add the os_*.C files.
+
+2001-05-21  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* filetools.C (MakeAbsPath): remove debugging statement
+
+2001-05-16  Ruurd Reitsma  <r.a.reitsma@wbmt.tudelft.nl>
+
+	* FileInfo.h: X_OK workaround for cygwin
+
+	* Makefile.am:
+	* os.C:
+	* os.h:
+	* os_os2.C:
+	* os_unix.C:
+	* os_win32.C:
+	* filetools.C:
+	* filetools.h: Added os:: class.
+
+	* rename.C:
+	* syscall.C:
+	* tempname.C: OS/2 fixes
+
+2001-05-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* textutils.h: remvoe !NEW_INSETS cruft
+
+2001-05-02  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fmt.C:
+	* atoi.C: add using directives when needed for C functions
+	declared in std:: namespace.
+
+2001-04-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lstrings.C : add two helper structs, local_lowercase and
+	local_uppercase.
+	(lowercase): change to use std::transform
+	(uppercase): change to use std::transform
+
+2001-04-25  Allan Rae  <rae@lyx.org>
+
+	* lyxstring.C : Assert got moved and Lars missed a few.
+
+2001-04-24  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* LAssert.h (Assert): put into namespace lyx
+
+	* lyxfunctional.h: put into namespace lyx
+	* translator.h: adjust
+
+2001-04-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* lyxalgo.h: put into namespace lyx, add firster and copy_if
+
+	* FileInfo.h: inherit privately from noncopyable
+	* path.h: ditto
+
+2001-04-16  Allan Rae  <rae@lyx.org>
+
+	* tempname.C (make_tempfile): #warning triggers an error on Sun CC 6.0
+	as an unrecognised preprocessor directive.  So ensure they're wrapped.
+
+2001-03-15  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* several files: remove CXX_WORKING_NAMESPACES
+
+	* FileInfo.h: noncopyable is in namespace boost
+	* path.h: ditto
+
+2001-02-16  John Levon  <moz@compsoc.man.ac.uk>
+
+	* syscontr.h: fix header include
+
+2001-02-28  Baruch Even  <baruch@ev-en.org>
+
+	* filetools.C: Removed dependency on syscall.h
+
+	* syscall.h:
+	* syscall.C: Minor cleanings before I start to touch this code.
+
+2001-02-27  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* filetools.C (CreateTmpDir): change umask to 0700.
+
+2001-02-27  José Matos  <jamatos@fep.up.pt>
+
+	* filetools.h (BasePath):
+	* filetools.C (BasePath): removed since it is a duplicate of OnlyPath.
+
+	* filetools.C (IsLyXFilename):
+	* filetools.C (IsSGMLFilename): test if extension is suffix and not
+	only contained.
+
+2001-02-14  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* fmt.C:
+	* filetools.C:
+	* atoi.C: remove cruft
+
+2001-02-06  albert chin  <china@thewrittenword.com>
+
+	* snprintf.h:
+	* fmt.C: use HAVE_DECL_SNPRINTF
+
+2001-01-26  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyxstring.C: Fix some assertions.
+
+2001-01-23  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lstrings.C (strip): Add a fix for compilers with broken
+	string::find_last_not_of.
+
+	* filetools.C (AddPath): Simplify by using strip and frontStrip.
+
+2001-01-20  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyxstring.C (rfind): Fix broken functions.
+	(find): Few optimizations.

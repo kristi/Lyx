@@ -1,0 +1,29 @@
+#
+# brazil.kmap
+# Brazilian keymap for american style keyboards
+#
+
+# (C)1998 by Rubens Ramos, rubens_ramos@yahoo.com
+#
+# Obs.:
+
+# 1. I had to use "font_encoding T1"in
+# lyxrc file to view cedillas in dvi output.
+# 2. You should select brazil in your lyxrc file.
+#    (bogus)
+#
+
+\kmod ` grave aeiouAEIOU
+\kmod ~ tilde aoAO
+\kmod ^ circumflex eaoEAO
+\kmod ' cedilla cC
+\kxmod cedilla a á
+\kxmod cedilla A Á
+\kxmod cedilla e é
+\kxmod cedilla E É
+\kxmod cedilla i í
+\kxmod cedilla I Í
+\kxmod cedilla o ó
+\kxmod cedilla O Ó
+\kxmod cedilla u ú
+\kxmod cedilla U Ú

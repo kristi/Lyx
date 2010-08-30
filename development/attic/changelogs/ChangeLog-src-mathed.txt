@@ -1,0 +1,3291 @@
+2006-03-14  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_parser.C (parse1): Parse \tag and \tag* correctly
+
+2006-03-14  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_data.C (x2pos): Fix to bug 2325: Mouse click to right of last
+	nestinset in a cell will position cursor to its left
+
+2006-03-11  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_scriptinset.C (notifyCursorLeaves): Fix to bug 2362: Deleting
+	superscript also deletes subscript
+
+2006-02-28  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_nestinset.C (doDispatch): fix (properly) insertion of
+	fonts/decorations around selection
+
+2006-02-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_data.C (x2pos): Place cursor correctly in the case of
+	MathNestInset; this avoids misplaced cursor (and subsequent crash)
+	when placing the mouse near a symbol inset.
+
+2006-02-17  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_xymatrixinset.[Ch]: Readd
+	* Makefile.am: Readd math_xymatrixinset.[Ch]
+	* math_factory.C (createMathInset): Readd xymatrix
+	* math_parser.C (parse1): Readd xymatrix
+
+2006-02-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_macro.C (editXY): Prevent crash (fix by Andrew Beck)
+
+2006-01-28  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* math_hullinset.C (getStatus): get rid of a compiler warning
+
+2006-01-27  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_nestinset.C (drawSelection): do not draw anything when
+	there is no selection; when drawing, do it with the null painter,
+	since only the metrics matter (fixes bug1934).
+
+2006-01-18  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_factory.C (initMath): set initialized to true early to
+	avoid recursive invokation.
+
+	* math_macrotemplate.C (MathMacroTemplate): make sure math
+	structures are initialized.
+
+2006-01-11  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_nestinset.C (doDispatch/LFUN_SELFINSERT): when inserting a
+	space and macromode is on, try to put the cursor inside the newly
+	created inset (bug 2034).
+
+2006-01-10  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_hullinset (doDispatch): fix default label setting (eq:)
+
+2006-01-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* command_inset.C (editXY): unused parameters
+
+2005-12-15  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_hullinset.C: initialize Math (symbol fonts and parser) if not
+	aleady done. 
+
+2005-12-02  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_nestinset.C (script): always ensure that the cell we want to go
+	to exists (bug 2139).
+
+2005-11-30  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_nestinset.C (lfunMousePress): use mouseSetCursor (bug 2109).
+
+	* math_hullinset.C (doDispatch): comment out some annoying debug
+	messages. 
+
+2005-11-28  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_deliminset.h: 
+	* math_scriptinset.h: fix bug 2117, matrix inside delimeters or in
+	sub- or superscript
+
+2005-11-25  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_hullinset.[Ch]: new method textString (fix bug 2089)
+
+2005-11-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* command_inset.[Ch] (editXY): implement, since MathNestInset::editXY
+	loops through the cells and that is not possible here because they are
+	not visible
+	* math_hullinset.C (getStatus): allow reference and label in
+	LFUN_INSET_INSERT
+	* math_hullinset.C (doDispatch): create ref inset in LFUN_INSET_INSERT
+	* math_nestinset.C (doDispatch): allow references
+	* math_nestinset.C (doDispatch): remove never reached code for
+	LFUN_INSET_APPLY
+	* ref_inset.[Ch] (getStatus): implement, otherwise we'll trigger an
+	assertion in LyXFunc::getStatus
+
+2005-11-08  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_parser.C (delEmptyLastRow): Don't delete the dummy row, but
+	the last full row, since the dummy row has only rowinfo
+
+2005-11-02  Angus Leeming  <leeming@lyx.org>
+
+	* math_nestinset.C: trivial fix to a MSVS warning.
+
+2005-11-02  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_kerninset.[Ch]: fix 2074: kern width wrong
+
+2005-10-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_gridinset.[Ch] (eolString, write): Output \\ at the end of
+	the last line if it is empty (fixes bug 2067)
+	* math_hullinset.[Ch] (eolString): Adjust to the changes above
+	* math_hullinset.C (delRow): Allow to delete the last dummy row
+	* math_parser.C (delEmptyLastRow): Delete the last dummy row.
+	The last hline appears in the wrong row otherwise.
+	* math_parser.C (parse1): Call delEmptyLastRow for all matrix like
+	insets. This fixes bug 2067 and avoids data loss on load/save cycles.
+	* math_parser.C (parse1): Ignore the number of columns of alignedat
+	* math_splitinset.C (write): Write the number of column of alignedat.
+	This prevents data loss together with the math parser change above.
+
+2005-10-09  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_gridinset.C (doDispatch): adjust paste to match paste in text
+	and math nest inset
+	* math_nestinset.C (doDispatch): implement paste (bug 2059)
+
+2005-10-09  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_nestinset.C (doDispatch): Don't record undo steps when
+	inserting characters of a macro name (see comment)
+
+2005-10-04  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_macro.C (editXY): new, fix crash (bug 2060)
+	* math_macro.C (cursorPos): new, fix potential crash
+	* math_macro.C (drawSelection): new, fix potential crash
+	* math_nestinset.C (doDispatch): fix crash when inserting math macros
+	with 0 arguments
+
+2005-09-30  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_nestinset.C (doDispatch): do not leave the inset after
+	LFUN_DELETE. (part of bug 2057)
+
+2005-10-02  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_kerninset.C (write): write width, not 0 (fixes bug 2050)
+
+2005-10-03  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_nestinset.C (doDispatch): use recordUndoInset when deleting
+	whole cell via LFUN_BACKSPACE (fixes bug 2058).
+
+2005-09-27  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_nestinset.C (doDispatch): leave inset to the right when
+	hitting ESC.
+
+2005-09-27  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_nestinset.C (doDispatch): record LFUN_CUT in undo stack
+	(fixes bug 2041).
+	
+	* math_data.C (draw): add nested insets to the coord cache
+	(fixes the major part of bug 1918).
+
+2005-09-19  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_nestinset.C (cursorPos): parameter `boundary' is unused.
+
+2005-09-15  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_nestinset.C (doDispatch): use cur.normalize() to prevent crash
+	when cutting in math array (bugs 1960, 1981).
+
+2005-08-19  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_nestinset.C (doDispatch): fix crash when deleting across rows
+	in math array, and block multi-cell cut/copy leading to data loss
+
+2005-07-26  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_factory.C (initSymbols): Don't require wasysym for the wasy
+	font (bug 1942)
+
+2005-07-15  Stephan Witt <stephan.witt@beusen.de>
+
+	* math_nestinset.C (getStatus): handle font change requests
+
+2005-07-15  Stephan Witt <stephan.witt@beusen.de>
+
+	* math_hullinset.C (getStatus): don't allow insert of label for
+	inlined eq
+
+2005-07-15  André Pönitz  <poenitz@lyx.org>
+
+	* math_inset.C (write): don't output too many spaces
+
+2005-07-15  Andreas Vox  <vox@arcor.de>
+
+	* math_hullinset.C (editXY): partial fix for #622
+
+2005-07-14  André Pönitz  <poenitz@lyx.org>
+
+	* math_hullinset.C (BREAKLINE): choose between eqnarray and
+	align according to user preference
+
+2005-07-14  André Pönitz  <poenitz@lyx.org>
+
+	* math_charinset.C (mathmlize): escape <, >, and & on export
+
+2005-07-14  André Pönitz  <poenitz@lyx.org>
+
+	* math_gridinset.C (doDispatch): cur.undispatched on LFUN_ESCAPE
+
+2005-07-14  André Pönitz  <poenitz@lyx.org>
+
+	* math_gridinset.C (doDispatch): cur.undispatched on LFUN_NEXT/PRIOR
+
+2005-07-10  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_gridinset.C (doDispatch): add comment about jumping cursor
+
+2005-07-07  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_gridinset.C (doDispatch): use recordUndoInset when more than
+	one cell is changed
+
+2005-07-06  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_gridinset.C (doDispatch): better fix for the assertion
+
+2005-06-29  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_gridinset.C (doDispatch): fix assert copying row or
+	column in math
+
+2005-06-24  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_nestinset.C (doDispatch): use text font attributes in text mode.
+	* math_nestinset.C (getStatus): allow text font attributes in math mode.
+
+2005-06-24  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_fontinset.C (validate): require amsmath for \text
+
+2005-06-16  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_colorinset.C (normalcolor): remove ...
+	* math_colorinset.C (latexcolor): ... and use this new function instead
+	* math_colorinset.C (metrics, draw): Don't draw cell(0), because it
+	is horrible UI
+	* math_colorinset.C (write): Don't write invalid colors
+	* math_colorinset.C: Store always the LaTeXName in cell(0)
+	* math_hullinset.C (handleFont2): adjust to the change above
+	* math_nestinset.C (handleFont2): ditto
+	* math_parser.C (parse): handle \textcolor and \normalcolor
+	* math_factory.C (createMathInset): ditto
+
+2005-06-08  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_hullinset.C (label): avoid warning when assertions are
+	disabled. 
+
+2005-06-07  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_parser.h (latexkeys): new member requires
+	* math_factory.C (initSymbols): fill the requires field for fonts
+	* math_symbolinset.C (validate): use sym_->requires instead of
+	sym_->inset (fixes bug 1665)
+
+2005-05-07  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* ref_inset.C: rename LFUN_REF_GOTO to LFUN_LABEL_GOTO
+
+2005-05-01  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_nestinset.C (getStatus): suppress math/text fonts,
+	subscripts etc. to prevent lyx access to latex-illegal stuff
+	in text-inside-math (mbox)
+
+2005-04-25  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_gridinset.C (doDispatch):
+	* math_hullInset.C (doDispatch):
+	* math_nestInset.C (doDispatch): fix handling of alignment
+
+2005-04-11  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_nestinset.C (doDispatch): make insert-around-selection
+	of root inset take the base, not the exponent
+
+2005-04-10  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_deliminset.Ci (isParenthesis):
+	* math_extern.C: Spelling
+
+2005-04-09  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_gridinset.C (doDispatch):
+	* math_nestinset.C (doDispatch): enable HOME/END keys to skip
+	out of inset (adding cur.undispatched())
+
+2005-04-09  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_colorinset.C (draw): fix crash and cursor positioning.
+
+2005-04-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_nestinset.C (doDispatch): Fix arrow up/down inside
+	macro crashing bug (Helge Hafting report)
+
+2005-04-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_gridinset.C (getStatus): allow C-Tab to split cell
+
+2005-04-06  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_nestinset.C (doDispatch): fix cursor positioning in
+	non-grid nestinsets, and selection enclosure when inserting
+	font or deco insets.
+
+2005-04-05  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_amsarrayinset.C:
+	* math__arrayinset.C:
+	* math_decorationinset.C:
+	* math_deliminset.C:
+	* math_nestinset.C:
+	* math_tabularinset.C: Final touch on various corner marker
+	positions and inset clickability in math
+
+2005-04-04  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_splitinset.[Ch]: add draw method calling setPosCache,
+	to make split-type insets clickable.
+
+2005-04-04  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_amsarrayinset.C:
+	* math_casesinset.C:
+	* math_gridinset.C:
+	* math_gridinset.h: Add drawWithMargin method for use by
+	AMSArray and Cases, to position corner markers right
+
+2005-03-31  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_amsarrayinset.[Ch], math_tabularinset.[Ch],
+	math_splitinset.[Ch] (infoize): implement
+	* math_casesinset.C (getStatus, doDispatch): use cmd.argument directly
+	* math_gridinset.C (getStatus): ditto
+	* math_arrayinset.C (infoize): generalize
+
+2005-03-30  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_amsarrayinset.[Ch] (getStatus):
+	* math_splitinset.[Ch] (getStatus):
+	* math_substackinset.[Ch]: suppress output of vertical gridlines
+	where appropriate
+
+2005-04-03  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_fontinset.[Ch] (draw): add call to setPosCache,
+	fixes bug 1796
+
+2005-04-01  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_data.C (x2pos): fix math cursor positioning bug
+
+2005-03-27  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_amsarrayinset.[Ch] (validate): new, require amsmath
+	* math_substackinset.[Ch] (validate): ditto
+	* math_arrayinset.[Ch] (validate): ditto (in the case of subarray)
+
+2005-03-24  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_hullinset.C:
+	* math_casesinset.[Ch]: more precise conditioning of
+	output of vertical grid lines
+
+2005-03-22  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_hullinset.C (getStatus): intercept and suppress the
+	adding of grid lines in case of a plain equation hull
+
+2005-03-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_nestinset.C (doDispatch): create a MathBoxInset for mbox
+	rather than a MathMBoxInset, since the latter is not usable yet.
+	Fixes bug 1823.
+	* math_factory.C (createMathInset): Don't hardwire mbox, but read it
+	from lib/symbols again. This makes it possible to create other
+	"mbox-like" boxes.
+
+2005-03-02  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_parser.C (parse1): Don't parse "\|" following a "\left" or
+	"\right" as "|"
+
+2005-02-28  André Pönitz  <poenitz@lyx.org>
+
+	* math_nestinset.C (lfunMouseRelease, lfunMouseMotion, lfunMousePress):
+	remove ancient hack and get mouse actions inside nested mathed insets
+	working again.
+
+2005-02-23  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_parinset.[Ch] (doClone): Implement, avoids triggering the
+	assert in InsetBase::clone()
+	* ref_inset.[Ch] (clone): rename to doClone
+
+2005-02-14  Angus Leeming  <leeming@lyx.org>
+
+	* math_rootinset.C (idxUpDown): Silence an MSVC compiler warning
+	by making the code more transparent.
+
+2005-02-12  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_gridinset.C (halign): fix '|' to the right of the last column
+	* math_gridinset.[Ch]: remove unused leftline_ and rightline_
+	* math_gridinset.[Ch]: change type of lines_ to unsigned int to
+	prevent check for <= 0
+	* math_gridinset.C: add more facilities for adding/deleting
+	partition lines in matrix.
+	* math_gridinset.C (getStatus): implement missing LFUN_TABULAR_FEATURE
+	* math_parser.C (delEmptyLastRow): new
+	* math_parser.C (parse1): Store active environment and use it to
+	detect nonmatching \end{} and removing superflous rows with
+	delEmptyLastRow()
+	* math_hullinset.C (getStatus): remove now superflous tests
+
+2005-02-12  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_nestinset.C (doDispatch): normalize() cursor after moving up/down
+	(fixes assert and bug 1598).
+
+2005-02-10  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_gridinset.[hC]: add facilities for drawing/deleting partition
+	lines in matrix.
+
+2005-02-08  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_data.C (isInside): size() -> depth()
+
+2005-01-31  Asger Ottar Alstrup  <aalstrup@laerdal.dk>
+
+	* math_data.C:
+	* math_diminset.C:
+	* math_nestinset.C: Use new cursor accessors.
+
+2005-01-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_parser.C,math_sizeinset.C: use convert<> instead of
+	atoi,strToXXX and friends
+
+2005-01-20  Angus Leeming  <leeming@lyx.org>
+
+	* math_spaceinset.C (validate):
+	latex_mathspace[space_] == "negmedspace" is unsafe because both
+	operands are of type "char const *". Performing comparison on
+	the address of the string literal therefore. Fix is to explicitly
+	convert one operand to a string.
+	With thanks to MSVC ;-)
+
+2005-01-19  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_symbolinset.C (validate): require wasysym as needed
+
+	* math_decorationinset.C (ams): remove again \overleftarrow and
+	\overrightarrow, which do not require amslatex (although amslatex
+	redefines them).
+
+2005-01-09  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_parser.C (parse1): handle style commands that are not inside
+	a {} pair, fixes bug 1459 (from André)
+
+2005-01-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_decorationinset.C (ams, validate): new methods. Require
+	amsmath when using AMS-LaTeX over and under arrows.
+
+2005-01-04  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* math_nestinset.C: reintroduce LFUN_{SUB|SUPER}SCRIPT.
+	* math_colorinset.C: fix handling of color "none".
+
+2004-12-22  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_parser.C (addRow, addCol): new, try to add a row or column to
+	a MathGridInset
+	* math_parser.C (parse1): use addRow and addCol, fixes bug 1542
+
+2004-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (AM_CPPFLAGS): Remove trailing slash from -Ifoo/
+	to overcome bug in the MinGW port of g++ 3.4.2.
+
+2004-11-29  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_charinset.C: use support::contains instead of strchr
+
+2004-11-26    André Pönitz  <poenitz@gmx.net>
+
+	* math_nestinset.C (getCursorPos): implement.
+
+2004-11-26  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_hullinset.C (getStatus): add status messages
+
+2004-11-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Most insets: rename priv_dispatch to doDispatch
+
+2004-11-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_hullinset.C (operator): use common semantics
+
+2004-11-23  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_atom.C (operator): use common semantics
+
+	* Adjust for clone changes
+
+2004-11-22  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_hullinset.[Ch] (rowChangeOK): new
+	* math_hullinset.C (addRow, delRow): check wether rows can be changed
+	* math_hullinset.C (addCol, delCol): remove lyxerr warning since we
+	should never come here if colChangeOK() is false
+	* math_hullinset.C (delCol): don't delete if this is the only column
+	* math_hullinset.C (getStatus): fix LFUN_TABULAR_FEATURE
+
+2004-11-16  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_inset.h: include math_data.h to satisfy concept checks.
+
+2004-11-15  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_hullinset.C (getStatus): typo in lfun argument
+
+2004-11-11  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* Makefile.am: add math_tfracinset.[Ch]
+
+2004-11-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_parser.C (parse1): change to use lyx::support::atoi
+	* math_sizeinset.C (MathSizeInset): ditto
+
+2004-08-12  André Pönitz  <poenitz@gmx.net>
+
+	* math_overset.[Ch] (validate):
+	* math_underset.[Ch] (validate): require ams
+
+	* math_tfracinset.[Ch]: new \tfrac support
+
+2004-11-02  José Matos  <jamatos@lyx.org>
+
+	* ref_inset.[Ch] (docbook):
+	* math_hullinset.C (docbook): remove useless comment. Escape the
+	id to always be valid.
+
+2004-10-29  Andreas Vox  <vox@isp.uni-luebeck.de>
+
+	* math_hullinset.C (docbook):
+	* ref_inset.C (docbook): sanitize ids, clean exported docbook.
+
+2004-10-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_hullinset.C (mutate): fix endless loop for unknown types
+
+2004-10-05  Andreas Vox  <vox@isp.uni-luebeck.de>
+
+	* math_hullinset.C (docbook): write additional <alt role="tex" >
+	tag for	Docbook XML
+
+2004-09-21  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_hullinset.C (plaintext): remove extraneous spaces
+
+2004-09-16  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_parser.C (tokenize): c_str fix
+	(mathed_parse_cell): c_str fix
+	(mathed_parse_normal): c_str fix
+
+	* math_nestinset.C (priv_dispatch): c_str fix
+	(priv_dispatch): c_str fix
+
+	* math_hullinset.C (doExtern): c_str fix
+
+	* math_extern.C (extractNumber): c_str fix
+	(pipeThroughMaxima): c_str fix
+	(pipeThroughMaple): c_str fix
+	(pipeThroughOctave): c_str fix
+
+2004-09-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_binominset.h (MATH_BINOMINSET_H): fix include guard.
+
+2004-09-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* math_hullinset.[C,h] (splitTo2Cols): new
+	* math_hullinset.[C,h] (splitTo3Cols): new
+	* math_hullinset.[C,h] (changeCols): new
+	* math_hullinset.C (mutate): implement missing mutations
+
+2004-08-16  José Matos  <jamatos@lyx.org>
+
+	* formulamacro.C (write):
+	* math_macrotemplate.C (write): remove space at end of line.
+
+2004-08-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: new file
+
+	* Makefile.am: support pch
+
+2004-08-13  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_nestinset.C (editXY): constify
+
+2004-08-13  José Matos  <jamatos@lyx.org>
+
+	* math_hullinset.C (docbook): add awareness of the distinction
+	between the sgml and xml versions of docbook.
+
+2004-08-12  André Pönitz  <poenitz@gmx.net>
+
+	* math_nestinset.C: Fix #1249
+
+	* math_parser.C: Fix: #928
+
+2004-07-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_support.C, math_parser.C, math_nestinset.C, math_macrotable.C:
+	* math_hullinset.C, math_gridinset.C, math_factory.C: math_extern.C,
+	* math_autocorrect.C, math_arrayinset.C: formulamacro.C,
+	* command_inset.C: change "support/std_sstream.h"
+	to <sstream>
+
+2004-07-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_macrotable.C (expand): n is now size_t
+
+	* math_macroarg.h (number): return size_t
+	(number_): make it a size_t
+
+	* math_macroarg.[Ch] (MathMacroArgument): take size_t as arg
+
+2004-05-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (EXTRA_DIST): add formulamacro.C
+
+2004-05-17  José Matos  <jamatos@lyx.org>
+
+	* math_hullinset.C (docbook): add support for label.
+
+2004-04-29  Angus Leeming  <leeming@lyx.org>
+
+	* math_hullinset.C:
+	* math_kerninset.C:
+	* math_nestinset.C: wrap a bunch of #warning statements
+	inside #ifdef WITH_WARNINGS blocks.
+
+2004-04-20  Angus Leeming  <leeming@lyx.org>
+
+	* math_nestinset.C (notifyCursorLeaves): squash warning about
+	unused var.
+
+2004-04-20  Angus Leeming  <leeming@lyx.org>
+
+	* math_hullinset.C (addPreview): Add the preview only if
+	previewing of math insets is active.
+
+2004-04-19  Angus Leeming  <leeming@lyx.org>
+
+	* math_hullinset.C: changes due to changes to LyXRC::preview.
+
+2004-04-19  Angus Leeming  <leeming@lyx.org>
+
+	* math_hullinset.C (metrics, draw): changes due to the changed
+	RenderPreview interface.
+
+2004-04-13  Angus Leeming  <leeming@lyx.org>
+
+	* math_hullinset.[Ch]: add a RenderPreview variable.
+	(copy c-tor, copy assignment operator, d-tor, notifyCursorLeaves,
+	addPreview): new member functions. The copy c-tor and assignment op
+	could be replaced by the compiler-generated defaults if preview_
+	was stored as a RenderPreview var rather than a scoped pointer.
+	(metrics, draw): use the preview renderer if previewing is turned on.
+
+2004-04-05  Angus Leeming  <leeming@lyx.org>
+
+	* math_scriptinset.C (up, down, notifyCursorLeaves): ensure that
+	accessor index is valid.
+
+2004-04-05  Angus Leeming  <leeming@lyx.org>
+
+	* formulamacro.C:
+	* math_binaryopinset.C:
+	* math_nestinset.C:
+	wrap #warning calls inside #ifdef WITH_WARNINGS blocks.
+
+2004-03-31  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* math_hullinset.C: s/DocumentIterator/DocIterator/g
+
+2004-02-04  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_nestinset.C: workaround gcc 2.95 pointer comparison bug,
+	reverse below
+
+2004-02-03  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_nestinset.C: use const_cast to get to compile for stlport
+
+2004-01-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_hullinset.C: add using statements for std::ostream,
+	std::swap and std::vector
+
+	* math_gridinset.C (idxDelete): remove std:: from swap.
+	(priv_dispatch): ditto
+
+	* math_extern.C: add using statement for std::swap and std::vector
+
+	* math_cursor.C: remove std:: from string
+	(openable): use nucleus instead of operator->
+
+	* math_atom.h: add a const variant of nucleus
+
+	* math_atom.C: add using statement for std::swap
+
+2004-01-15  André Pönitz  <poenitz@gmx.net>
+
+	* *.[Ch]: Part of IU. Shift stuff from MathCursor and InsetFormula
+	to Cursor and InsetBase.
+
+2004-01-15  André Pönitz  <poenitz@gmx.net>
+
+	* *.[Ch]: change signature of priv_dispatch to prepare
+	inset unification
+
+2003-12-15  Ronald Florence <ron@18james.com>
+
+	* math_symbolinset.C: fixed "ugly" patch for Qt/Mac fonts.
+
+2003-12-15  André Pönitz  <poenitz@gmx.net>
+
+	* math_pos.[Ch]: remove (it's now cursor_slice.[Ch])
+
+	* Makefile.am:
+	* math_cursor.[Ch]:
+	* math_iterator.[Ch]: adjust
+
+2003-11-21  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* formulabase.C (getCursorDim): squash unused variable
+
+2003-11-20  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.C (getCursorDim): squash warning about unused variable.
+
+2003-11-13  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* formulabase.[Ch] (getCursorDim): add
+
+2003-11-10  André Pönitz  <poenitz@gmx.net>
+
+	* formula.C:
+	* formulabase.C:  adjust to removed inset locking
+
+2003-11-05  José Matos  <jamatos@lyx.org>
+
+	* formula.[Ch] (ascii, linuxdoc, docbook):
+	* formulamacro.[Ch] (ascii, linuxdoc, docbook):
+	* math_inset.[Ch] (ascii, linuxdoc, docbook):
+	* ref_inset.[Ch] (ascii, linuxdoc, docbook):
+	rename ascii to plaintext and LatexRunParams to OutputParams.
+
+2003-11-03  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Adjust for new DispatchResult semantics.
+
+2003-11-03  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_parser.C (parse1): exception safety
+
+	* math_extern.C (splitScripts): exception safety
+	(extractFunctions): exception safety
+	(extractIntegrals): exception safety
+	(extractSums): exception safety
+	(extractDiff): exception safety
+
+	* formulamacro.C (read): exception safety
+
+2003-11-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* adjust for DispatchResult changes
+
+2003-10-31  José Matos  <jamatos@lyx.org>
+
+	* formula.[Ch] (ascii, linuxdoc, docbook):
+	* formulamacro.[Ch] (ascii, linuxdoc, docbook):
+	* math_inset.[Ch] (ascii, linuxdoc, docbook):
+	* ref_inset.[Ch] (ascii, linuxdoc, docbook):
+	add LatexRunParams argument.
+
+2003-10-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_scriptinset.C (priv_dispatch):
+	* math_nestinset.C (priv_dispatch):
+	* math_hullinset.C (priv_dispatch):
+	* math_gridinset.C (priv_dispatch):
+	* math_cursor.C (dispatch):
+	* formulabase.C (lfunMouseRelease, lfunMousePress)
+	(lfunMouseMotion, priv_dispatch):
+	* command_inset.C (priv_dispatch): explict DispatchResult ctor fallout.
+
+2003-10-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_hullinset.C (priv_dispatch):
+	* math_gridinset.C (priv_dispatch):
+	* math_cursor.C (dispatch): FINISHED_POP -> FINISHED
+
+2003-10-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_hullinset.C (priv_dispatch):
+	* math_gridinset.C (priv_dispatch):
+	* math_cursor.C (dispatch): DISPATCHED_POP -> FINISHED_POP
+	(dispatch):
+
+	* math_scriptinset.h: change dispatch to priv_dispatch and make it
+	protected
+
+	* math_nestinset.h: make priv_dispatch protected
+
+	* math_hullinset.h: make priv_dispatch protected
+
+	* math_gridinset.h: make priv_dispatch protected
+
+	* command_inset.[Ch]: change dispatch to priv_dispatch and make it
+	protected.
+
+	* several files: dispatch_result -> DispatchResult
+
+2003-10-22  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (generatePreview): changes due to the changed
+	RenderPreview interface.
+
+2003-10-20  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* formula.[Ch]: re-introduce display() for insets, fixing the
+	various bugs (stretch of line above, math inset
+	positioning, ...)
+
+2003-10-17  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ref_inset.C (priv_dispatch): take the code from localDispatch
+	into this
+	(localDispatch): delete
+
+	* math_nestinset.C (dispatch):
+	* math_hullinset.C (dispatch):
+	* math_gridinset.C (dispatch):
+	* formulabase.C (openNewInset, priv_dispatch, mathDispatch):
+	* command_inset.C (dispatch): adjust for localDispatch -> dispatch and
+	priv_dispatch
+
+2003-10-14  Angus Leeming  <leeming@lyx.org>
+
+	* insetformulabase.[Ch] (view, cache, view_): remove the BufferView cache.
+
+	* insetformula.C (statusChanged): call LyX::cref().updateInset.
+
+2003-10-14  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (metrics, draw): only draw the preview when previews
+	are activated.
+
+2003-10-13  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (editing_inset): pass a pointer rather than a reference.
+
+2003-10-13  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C: remove #include "PreviewImage.h".
+	(draw, metrics): some simplification of the editing_inset check.
+	Also make it compile with g++2.95.
+
+2003-10-12  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.[Ch] (cache): added.
+	(view): make protected.
+	(view_): store as a boost::weak_ptr.
+	(generatePreview): added this virtual function. Moved from inset.h.
+
+	* math_inset.[Ch] (view): removed.
+
+2003-10-10  Angus Leeming  <leeming@lyx.org>
+
+	* command_inset.h:trivial changes ButtonRenderer -> RenderButton.
+
+	* formula.[Ch]: get rid of InsetFormula::PreviewImpl entirely. Use
+	RenderPreview and some free-standing functions in its place.
+
+2003-10-10  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (draw): don't try and generate the previews from draw.
+	insetUnlock is already doing a fine job...
+
+2003-10-09  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (metrics, draw): no longer need to pass a Buffer arg
+	to PreviewedInset::previewReady because it no longer has the side
+	effect of secretly starting preview generation.
+	(draw): call PreviewedInset::generatePreview explicitly if the
+	inset is no longer being edited.
+
+2003-10-09  Angus Leeming  <leeming@lyx.org>
+
+	* formula.[Ch]: mods to PreviewImpl due to the changes to
+	PreviewedInset.
+
+2003-10-09  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (metrics, draw): pass a buffer arg to PreviewedInset's
+	previewReady and removePreview member functions.
+
+2003-10-07  André Pönitz  <poenitz@gmx.net>
+
+	* math_dfracinset.[Ch]: support for \dfrac
+	* math_colorinset.[Ch]: support for colors in formulas
+
+2003-10-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_macrotable.h: add <string> and other small fixes to make
+	Lars' std::string patch compile with STLport.
+
+2003-10-06  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* math_cursor.C:
+	* math_parser.C:
+	* math_sizeinset.C:
+	* math_streamstr.C: Small fixes to build using STLport
+
+2003-09-22  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_symbolinset.C (metrics): apply a different hack to metrics
+	when running under OSX. Hopefully this will not break the X11
+	version under darwin (or hopefully nobody cares :)
+
+2003-09-19  Angus Leeming  <leeming@lyx.org>
+
+	* formula.[Ch] (previewWanted, generatePreview): now passed a
+	'Bufer const &' arg.
+
+	* formalabase.C (insetUnlock): pass a buffer arg to generatePreview.
+
+2003-09-18  Angus Leeming  <leeming@lyx.org>
+
+	* matheformula.[Ch] (getLabelList):
+	* mathemath_hullinset.[Ch] (getLabelList):
+	receive a Buffer const & arg.
+
+2003-09-18  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (latexString): add a Buffer const & arg.
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (PreviewImpl::parent): return a const reference.
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C:
+	* formulamacro.C:
+	add #include "LColor.h".
+
+	* math_cursor.C: add #include <boost/assert.hpp>.
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* math_braceinset.C, math_data.C, math_fboxinset.C, math_frameboxinset.C,
+	math_gridinset.C, math_hullinset.C, math_macrotemplate.C, math_nestinset.C,
+	math_rootinset.C, math_spaceinset.C, math_sqrtinset.C, math_support.C:
+	add #include "LColor.h".
+	* math_data.C, math_scriptinset.C: add #include <boost/assert.hpp>
+	* math_exintinset.C: add #include <boost/scoped_ptr.hpp>
+
+2003-09-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* command_inset.C
+	* formula.C
+	* formulabase.C
+	* formulamacro.C
+	* math_arrayinset.C
+	* math_autocorrect.C
+	* math_cursor.C
+	* math_extern.C
+	* math_factory.C
+	* math_gridinset.C
+	* math_support.C: remove usage of STRCONV
+
+2003-09-15  Angus Leeming  <leeming@lyx.org>
+
+	* math_gridinset.C (draw): explicitly define the color to draw the
+	line.
+
+2003-09-12  André Pönitz  <poenitz@gmx.net>
+
+	* math_boldsymbolinset.[Ch]: preliminary support
+
+	* Makefile.am: adjust
+
+2003-09-05  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* math_kerninset.h:
+	* math_gridinset.h: include "lyxlength.h", not "vspace.h"
+
+	* math_cursor.C: "lyxrc.h", not <lyxrc.h>
+
+2003-09-08  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.C:
+	* formulamacro.C:
+	* math_charinset.C:
+	* math_cursor.C:
+	* math_data.C:
+	* math_diminset.C:
+	* math_hullinset.C:
+	* math_support.C:
+	* math_tabularinset.C: remove redundant using directives.
+
+2003-09-07  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.h: remove #includes "dimension.h", <boost/weak_ptr.hpp>,
+	<iosfwd>.
+
+	* math_decorationinset.h: remove #include "support/std_string.h".
+
+	* math_envinset.h:
+	* math_fboxinset.h: remove #include "metricsinfo.h".
+
+	* math_kerninset.h: remove #include "math_nestinset.h".
+
+	* math_macro.h: remove #include "math_macroarg.h".
+
+	* math_nestinset.h: remove #include "math_data.h".
+
+	Ensuing changes to .C files.
+
+2003-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* math_binaryopinset.[Ch]:
+	* math_gridinfo.h:
+	* math_xyarrowinset.[Ch]:
+	ensure that the header file can be compiled stand-alone.
+
+2003-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* *.C: strip out redundant #includes. (168 in total.)
+
+2003-09-02  Alfredo Braunstein  <abraunst@libero.it>
+
+	* formulamacro.C (prefix): replace %s by %1$s to make bformat happy
+
+2003-09-01  Alfredo Braunstein  <abraunst@libero.it>
+
+	* formulabase.C (InsetFormulaBase): initialize view_
+
+2003-08-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* most files: change to use const buffer refs
+
+2003-08-19  Angus Leeming  <leeming@lyx.org>
+
+	* most files: 'standardise' the header blurb.
+
+2003-08-12  Michael Schmitt  <michael.schmitt@teststep.org>
+
+        * math_gridinset.C: rename valign-center to valign-middle
+
+2003-08-02  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* always use std::endl with lyxerr, and <config.h> in some places.
+
+2003-07-25  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* rename Inset to InsetOld
+
+	* all inset files (clone) return a auto_ptr<InsetBase>
+
+2003-07-21  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (c-tor, addPreview): use namespace lyx::graphics rather
+	than grfx shortcut.
+
+2003-07-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_parser.C (catInit): dont use unprintable control chars in
+	source.
+
+2003-07-17  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.C (localDispatch): return UNDISPATCHED for all
+	LFUN_DIALOG_SHOW.
+
+2003-07-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* introduce namespace lyx::graphics
+
+2003-07-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* introduce namespace lyx::support
+
+2003-06-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_symbolinset.C (MathSymbolInset): fix type const order
+
+	* math_support.C (mathed_draw_deco): fix type const order
+
+	* math_gridinset.C (GrinInsetMailer::name): fix type const order
+
+	* math_extern.C (testString): fix type const order
+
+	* math_data.C (operator[]): fix arg type
+
+	* math_binaryopinset.C (metrics): comment out
+
+	* formula.h: fix type const order
+
+2003-06-19  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.C (localDiapatch): replace LFUN_MATH_PANEL with
+	LFUN_DIALOG_SHOW "mathpanel".
+
+2003-06-17  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.C (lfunMouseRelease): s/showMathPanel/show("mathpanel")/
+
+2003-06-13  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* formulabase.C (mathDispatchCreation): fix call to cutSelection
+
+2003-06-16  André Pönitz  <poenitz@gmx.net>
+
+	* math_*inset.[Ch]: IU of clone()
+
+	* math_cursorpos.[Ch]:
+	* math_cursor.[Ch]: rename MathCursorPos -> CursorPos, par_ -> inset_
+
+2003-05-28  André Pönitz  <poenitz@gmx.net>
+
+	* math_*.[Ch]: prepare unified two-stage drawing
+
+2003-05-27  André Pönitz  <poenitz@gmx.net>
+
+	* *.C: dim.w -> dim.wid etc
+
+2003-05-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* remove same_id from function signatures, adjust
+
+2003-05-19  André Pönitz  <poenitz@gmx.net>
+
+	* formulamacro.C: avoid multiple metrics computation
+
+2003-05-23  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (latex):
+	* formulamacro.C (latex): rename fragile as moving_arg.
+
+2003-05-22  Angus Leeming  <leeming@lyx.org>
+
+	* formula.[Ch] (latex):
+	* formulamacro.[Ch] (latex):
+	no longer have a free_spacing arg. Data is now passed through the
+	LatexRunParams arg.
+
+2003-05-22  Angus Leeming  <leeming@lyx.org>
+
+	* formula.[Ch] (latex):
+	* formulamacro.[Ch] (latex):
+	 no longer has a fragile arg. Data is now passed through the
+	 LatexRunParams arg.
+
+2003-05-22  Angus Leeming  <leeming@lyx.org>
+
+	* formula.[Ch] (latex):
+	* formulamacro.[Ch] (latex):
+	passed a LatexRunParams parameter.
+
+2003-05-19  André Pönitz  <poenitz@gmx.net>
+
+	* Makefile.am:
+	* dimension.[Ch]: promote files to src/dimension.[Ch[
+
+	* formula.[Ch]:
+	* formulamacro.[Ch]:
+	* formulamacro.h:
+	* math_inset.h: replace ascents/descent/witdh with dimension()
+
+2003-05-14 André Pönitz <poenitz@gmx.net>
+
+	* math_substack.[Ch]: add markers
+
+2003-05-12 André Pönitz <poenitz@gmx.net>
+
+	* formula.C:
+	* math_parser.C:
+	* math_cursor.C: boost::format -> bformat  all over the place
+
+2003-05-06  Ling Li  <ling@caltech.edu>
+
+	* Makefile, math_makeboxinset.[Ch]:
+	* math_factory.C (createMathInset):
+	* math_parser.C (parse1): New support for \makebox.
+
+	* math_nestinset.C (drawMarkers, drawMarkers2):
+	* math_boxinset.C, math_frameboxinset.C (draw):
+	Fix spacing and marker length.
+
+2003-05-03  John Levon  <levon@movementarian.org>
+
+	* formula.C:
+	* formulabase.C:
+	* formulabase.h:
+	* formulamacro.C:
+	* math_cursor.C: remove showInsetCursor(),
+	isCursorVisible(), hideInsetCursor(), toggleInsetCursor(),
+	explicit cursor hides. Add getCursor()
+
+2003-05-02  André Pönitz <poenitz@gmx.net>
+
+	* math_arrayinset.[Ch]: add markers
+
+2003-04-30  André Pönitz <poenitz@gmx.net>
+
+	* math_gridinset.C: fix transition to new Col/Row/CellInfo scheme
+
+2003-04-14  Angus Leeming  <leeming@lyx.org>
+
+	* math_fboxinset.C:
+	* math_frameboxinset.C: s/\(LColor::\)black/\1foreground/
+	* math_macrotemplate.C: s/\(LColor::\)blue/\1mathline/
+	* math_support.C: s/\(LColor::\)mathcursor/\1cursor/
+
+2003-04-02  John Levon  <levon@movementarian.org>
+
+	* formulabase.C:
+	* math_gridinset.C: tab lfuns changed name
+
+2003-03-28  John Levon  <levon@movementarian.org>
+
+	* formulabase.C: remove LFUN_GREEK - does nothing
+
+2003-03-19  John Levon  <levon@movementarian.org>
+
+	* formulabase.h:
+	* formulabase.C:
+	* math_gridinset.C:
+	* math_hullinset.C:
+	* ref_inset.C: updateInset() doesn't take a bool
+	anymore
+
+2003-03-17  John Levon  <levon@movementarian.org>
+
+	* formula.h:
+	* formula.C:
+	* formulabase.h:
+	* formulamacro.h:
+	* formulamacro.C: draw() prototype changed
+
+2003-03-10  Angus Leeming  <leeming@lyx.org>
+
+	* math_gridinset.[Ch] (d-tor): added to ensure that the tabular
+	dialog is hidden when the inset is deleted and the two are connected.
+
+2003-03-05  Ling Li <ling@caltech.edu>
+
+	* math_casesinset.[Ch] (validate): request feature "amsmath"
+
+2003-03-04  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* math_braceinset.C (metrics): fix computation of descent
+
+2003-03-04  Angus Leeming  <leeming@lyx.org>
+
+	* command_inset.[Ch] (createDialogStr): a new function to generate
+	something that the frontend Dialogs will understand.
+	(c-tor): the string passed to the c-tor is now understood to be
+	simply the inset's name, not some strange beast containing "|++|".
+
+	* math_factory.[Ch] (createMathInset_fromDialogStr): new function
+	parses the string passed from the frontends.
+
+	* formulabase.C (localDiapatch):
+	* ref_inset.C (dispatch): use createDialogStr and
+	createMathInset_fromDialogStr rather than the current hard-coded
+	stuff.
+
+	* ref_inset.[Ch] (string2RefInset): goes the way of the dodo.
+
+2003-03-04  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.C (localDispatch): if an inset is found on
+	LFUN_INSET_APPLY, send LFUN_INSET_MODIFY to the inset's localDispatch.
+
+	* ref_inset.C (localDispatch): handle LFUN_INSET_MODIFY, not
+	LFUN_INSET_APPLY.
+
+2003-03-03  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* formulabase.h: adjust for boost 1.30.0
+
+2003-02-27  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.C (localDispatch): collapse LFUN_REF_APPLY to
+	LFUN_INSET_APPLY.
+
+	* ref_inset.C (changes due to the change to LFUN_INSET_APPLY.
+
+2003-02-26  Angus Leeming  <leeming@lyx.org>
+
+	* ref_inset.C (localDispatch): act only on receipt of LFUN_REF_APPLY.
+
+2003-02-26  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (draw): cache the BufferView* using cache not
+	PreviewImpl::setView
+
+2003-02-26  Alfredo Braunstein <abraunst@libero.it>
+
+	* formula.C (draw): strip also the other argument (the owner inset) in
+	the call to PreviewImage::image
+
+2003-02-26  Angus Leeming  <leeming@lyx.org>
+
+	* ref_inset.[Ch]: add a localDispatch method to RefInset.
+	add a string2RefInset function to 'translate' the string passed to the
+	LyX core from the Reference dialog.
+
+	* formulabase.C (localDispatch): factor the code for LFUN_REF_APPLY
+	to use these new functions and so avoid a dynamic cast.
+
+2003-02-25  Alfredo Braunstein <abraunst@libero.it>
+
+	* formula.C (draw): eliminate BufferView argument in call to
+	PreviewImage::image
+
+2003-02-25  Angus Leeming  <leeming@lyx.org>
+
+	* ref_inset.C (dispatch): add an '\end_inset' to the string passed to
+	the dialog.
+
+	* math_inset.h:
+	* ref_inset.h (asRefInset): new method, replacing asInsetRef.
+
+2003-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.C (localDispatch): retire LFUN_REF_INSERT. Add
+	LFUN_DIALOG_SHOW_NEW_INSET "ref" and LFUN_REF_APPLY. The latter
+	is not yet safe. Posted some ideas to the list for further discussion.
+
+	* ref_inset.C (dispatch): a first stab at activating the code
+	to display the reference dialog from within mathed. Not yet working.
+
+2003-02-14  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_parser.C (parse1): Do not remove braces for {<expr>}^
+
+2003-02-13  Bo Peng <bpeng@rice.edu>
+
+	* math_cursor.h:
+	* math_cursor.C (backspace, erase): return false for empty mathboxes.
+
+	* formulabase.C: When LFUN_DELETE, LFUN_BACKSPACE return false, delete
+		the empty mathbox. Fix Bug 686.
+
+2003-01-12  Michael Schmitt <michael.schmitt@teststep.org>
+
+	* formula.C (draw, width): Fix spacing around previewed formula.
+
+2003-01-13  Michael Schmitt <Michael.Schmitt@teststep.org>
+
+	* formulabse.C (localDispatch): make CTRL-Pos1/End behave a little
+	bit more intuitive. (Patch suggested by André.)
+
+2003-01-07  João Luis Meloni Assirati <assirati@fma.if.usp.br>
+
+	* math_hullinset.C: fix numbering problem of AMS gather and
+	  multline environments. Treat gather the same
+	  way as eqnarray and multline as a special case.
+
+2002-12-18  John Levon  <levon@movementarian.org>
+
+	* math_factory.C: do not assume symbol font is present
+
+2002-12-17  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_parser.C (tokenize): Fix macro reading.
+
+2002-12-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* several files: ws changes
+
+2002-11-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_inferinset.C: remove unused "using std::max"
+
+2002-11-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* formulamacro.C (prefix): use boost::format
+
+2002-11-04  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* formulabase.C (lfunMouseRelease): Do not make the buffer dirty
+	when releasing the first mouse button.
+
+2002-11-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_inset.C (asString): STRCONV
+
+	* math_factory.C (initSymbols): do not std:: qualify getline, use
+	empty() to check for empty string, STRCONV
+
+	* math_extern.C: STRCONV
+
+	* math_diminset.C (drawT): STRCONV
+
+	* math_cursor.C (info): STRCONV
+
+	* math_autocorrect.C (initAutoCorrect): STRCONV
+
+	* formulamacro.C (InsetFormulaMacro): STRCONV
+
+	* formulabase.C (localDispatch): STRCONV
+
+	* formula.C (latexString): STRCONV
+
+	* math_factory.C: add using std::endl
+	(math_font_available): use it
+	(initSymbols): use it
+	(createMathInset): use it
+
+	* math_cursor.C (MathCursor): reindent
+
+2002-10-28  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* many files: Add support for Maxima.
+
+	* math_scriptinset.C (dispatch): Change handling of LFUN_MATH_LIMITS.
+
+	* math_symbolinset.C (metrics): Compute em with the default font.
+
+	* math_charinset.C (draw): Use math symbol fonts for <,> & =
+
+2002-10-21  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_factory.C (initSymbols): Support "else" token.
+
+	* math_symbolinset.C (metrics): Remove special case for \not.
+
+2002-10-18  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (latexString): Revert yesterday's change. It's going to
+	be too complicated to deal with nasty surprises.
+
+2002-10-17  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (latexString): change "\[ ... \]" to "$ \displaystyle ... $"
+	for nicer previews.
+
+2002-10-17  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_kerninset.C (metrics): Use LyXLength::inPixels.
+
+2002-10-14  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_factory.C (initSymbols): iffont.
+
+2002-10-14  André Pönitz <poenitz@gmx.net>
+
+	* math_cursor.C: remove code to fix crash
+
+2002-10-14  André Pönitz <poenitz@gmx.net>
+
+	* formulabase.C: support pasting stuff into formulas using button3
+
+	* math_parser.C:
+	  math_hullinset.C: Herbert's patch to support flalign
+
+2002-10-10  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* formulabase.C (localDispatch): make LFUN_WORDLEFTSEL and
+	LFUN_WORDRIGHTSEL coherent with their non-SEL counterparts
+
+2002-09-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (INCLUDES): loose SIGC_INCLUDES
+
+2002-09-11  John Levon  <levon@movementarian.org>
+
+	* dimension.C: compile fix
+
+2002-09-11  Angus Leeming  <leeming@lyx.org>
+
+	* preview.[Ch]: cruft. Removed.
+
+2002-08-29  André Pönitz <poenitz@gmx.net>
+
+	* math_framboxinset.[Ch]: new (partial) support for \framebox
+
+	* math_parser.C: generalization for reading optional arguments
+
+2002-08-26  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_parinset.C: add support/LOstream.h and config.h
+
+2002-08-14  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_hullinset.C: add using std::pair
+
+2002-08-13  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.C:
+	* ref_inset.C:
+	changes due to the changed LyXView interface that now returns references
+	to member variables not pointers.
+
+	* math_inset.[Ch] (getDialogs, getLyXFunc): return a reference, not a
+	pointer, reflecting this change.
+
+2002-08-02  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C: pass the BufferView to the PreviewedInset so that it can
+	cache it.
+
+2002-08-02  Angus Leeming  <leeming@lyx.org>
+
+	* formulabase.[Ch]: store the BufferView as a weak_ptr.
+	(updatePreview): removed.
+	(insetUnlock): invoke generatePreview().
+
+	* formula.C (InsetFormula): pass the shared_ptr to view_, not the raw
+	BufferView.
+	(read, localDispatch): remove those calls to updatePreview().
+
+	* math_metricsinfo.[Ch]: store the BufferView as a weak_ptr.
+
+	* math_nestinset.C (notifyCursorLeaves): empty, because
+	generatePreview() is now called from InsetFormulaBase::insetUnlock.
+
+2002-08-01  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C: move code into the new PreviewedInset class.
+
+	* formula.[Ch] (generatePreview): renamed as addPreview.
+	(generatePreview): new method invoking PreviewedInset::generatePreview.
+
+	* math_nestinset.C (notifyCursorLeaves): simplify. Now just calls
+	Inset::generatePreview.
+
+2002-07-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* formula.C (localDispatch): strip,frontStrip -> trim,ltrim,rtrim
+
+2002-07-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* math_nestinset.C: add using std::vector
+
+2002-07-23  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (descent): add an arbitrary 12 pixels to the descent when
+	previewing a display mode equation, analogous to André's code elsewhere.
+
+	* math_nestinset.C (notifyCursorLeaves): generate the preview only
+	when leaving an inset with depth() == 1.
+
+2002-07-22  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* math_support.C (mathed_draw_deco): fix rounding bug for rotated
+	decorations
+
+2002-07-17  Angus Leeming  <leeming@lyx.org>
+
+	* math_parboxinset.C: add using std::vector directive.
+
+	* formula.C (PreviewImpl's generate): bind to the PreviewLoader
+	through a method rather than to the signal directly.
+
+2002-07-16  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C (ascent, descent, draw): remove the extra pixels
+	required to accommodate the mathed active frame when in Preview mode.
+
+2002-07-12  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C: use the new smart loading capabilities of the image
+	loader.
+
+2002-07-14  John Levon  <moz@compsoc.man.ac.uk>
+
+	* mathformula.C: use Lsstream.h not sstream
+
+2002-07-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* math_support.C:
+	* math_factory.C: use lyx_gui::font_available()
+
+2002-07-09  Angus Leeming  <leeming@lyx.org>
+
+	* math_braceinset.h:
+	* math_scriptinset.h: remove class:: from method declaration.
+
+	* math_braceinset.C:
+	* math_envinset.C: #include "LOstream.h"
+
+2002-07-05  Angus Leeming  <leeming@lyx.org>
+
+	* formula.[Ch] (generatePreview): instantiate new virtual method.
+	Strip out the preliminary preview code and replace with code that
+	makes full use of the graphics/Preview* files. Hide all the
+	shenanigans behind a PreviewImpl firewall.
+
+	* math_nestinset.C (notifyCursorLeaves): update the preview using the
+	new graphics/Preview* code.
+
+2002-07-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* formulabase.C: ws changes
+	* formula.C: ws changes
+
+2002-07-01  Geof Piroux
+
+	* math_ex*.[Ch] et al: support for Mathematica as CAS backend
+
+2002-06-28  Angus Leeming  <leeming@lyx.org>
+
+	* preview.h (preview): don't pass grfx::GraphicPtr & anymore.
+
+2002-06-24  André Pönitz <poenitz@gmx.net>
+
+	* math_parser.C: remove "remove seemingly unneeded {} hack"
+
+2002-06-26  Angus Leeming  <leeming@lyx.org>
+
+	* formula.C: use lyxerr, not cerr.
+
+2002-06-24  André Pönitz <poenitz@gmx.net>
+
+	* *.[Ch]: left over changes from Porto
+
+	* math_gridinset.C (eolString): fix #456
+
+2002-06-21  John Levon  <moz@compsoc.man.ac.uk>
+
+	* formula.C: use repaint()
+
+2002-06-16  André Pönitz <poenitz@gmx.net>
+
+	* math_factory.C:
+	* math_support.C: fix font fall-back
+
+	* math_specialcharinset.[Ch]:
+	* math_funcliminset.[Ch]: remove, it's now done by MathSymbolInset
+
+	* math_funcinset.[Ch]: remove, it's not used
+
+2002-06-16  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_extern.C: add using std::endl
+
+2002-06-15  LyX Development team <lyx@rilke>
+
+	* formula.[Ch]:
+	* macroformula.[Ch] (docbook): Added argument to care about the
+	pernicious mixed content.
+
+2002-05-30  André Pönitz <poenitz@gmx.net>
+
+	* math_parser.C:
+	* formulabase.C: parser changes to 'everything might be a table'
+
+2002-05-31  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_hullinset.C (ams): Do a real check.
+
+2002-05-30  André Pönitz <poenitz@gmx.net>
+
+	* *.[Ch]: "fonts as inset"
+
+2002-05-29  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* switch from SigC signals to boost::signals.
+
+2002-05-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* formulabase.C:
+	* formulabase.h:
+	* math_inset.h: use mouse_state. Kill insetKeyPress
+
+2002-05-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* math_support.C: font loader moved
+
+2002-05-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* formulabase.C:
+	* formulamacro.C:
+	* math_charinset.C:
+	* math_funcinset.C:
+	* math_support.C:
+	* math_unknowninset.C: new name for font metrics
+
+2002-05-24  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_autocorrect.C: include vector and add a using statement.
+
+2002-05-23  André Pönitz <poenitz@gmx.net>
+
+	* math_autocorrect.[Ch]: new "auto correction" feature
+	* math_cursor.[Ch]: subsequent changes
+	* math_parser.C: somewhat better error reporting
+
+2002-05-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* formula.C:
+	* formulabase.C: LyXView moved into frontends/
+
+2002-05-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* formula.C:
+	* formulabase.C:
+	* formulamacro.C:
+	* math_binaryopinset.C:
+	* math_casesinset.C:
+	* math_charinset.C:
+	* math_cursor.C:
+	* math_fracinset.C:
+	* math_funcinset.C:
+	* math_gridinset.C:
+	* math_hullinset.C:
+	* math_macro.C:
+	* math_macrotemplate.C:
+	* math_rootinset.C:
+	* math_spaceinset.C:
+	* math_sqrtinset.C:
+	* math_stringinset.C:
+	* math_support.C:
+	* math_unknowninset.C:
+	* math_xdata.C:
+	* math_xyarrowinset.C: move Painter to frontends/
+
+2002-05-22  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_exintinset.C: use more specific smart_ptr header.
+
+2002-05-15  John Levon  <moz@compsoc.man.ac.uk>
+
+	* math_cursor.C: clear selection on paste (bug 393)
+
+2002-05-15  André Pönitz <poenitz@gmx.net>
+
+	* formulabase.[Ch]: mark buffer as (Changed) after font changes
+
+2002-05-13  André Pönitz <poenitz@gmx.net>
+
+	* math_cursor.[Ch]: honor lyxrc setting for auto_delete_region
+
+2002-05-13  André Pönitz <poenitz@gmx.net>
+
+	* math_cursor.C: fix crash on paste as reported by Piroux Geoffroy
+
+2002-04-24  Juergen Vigna  <jug@sad.it>
+
+	* formulabase.C (insetButtonPress): set the mathcursor in case we
+	don't have one. This happens when clicking on a non locked mathed
+	inset with any button != 1.
+	(insetButtonPress): Forgot about this the Panel should NEVER be
+	opened in a Press event ONLY in the Release event!
+
+2002-04-22  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* formulabase.C (localDispatch): merge the cases for
+	LFUN_PROTECTEDSPACE and LFUN_MATH_SPACE, since they were identical.
+
+2002-04-16  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* formulabase.C (localDispatch): handle arguments of
+	LFUN_MATH_DELIM better.
+
+2002-04-04 Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* formulabase.C: remove unused variables hack_x, hack_y, hack_button.
+
+2002-04-02  Allan Rae  <rae@lyx.org>
+
+	* math_cursor.C (info): make it work with lyxstring and std::string
+
+2002-03-12  André Pönitz <poenitz@gmx.net>
+
+	* math_cursor.C: fix some Up/Down "issues"
+
+2002-03-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* most files: ws cleanup
+
+	* Makefile.am: remove ld -r stuff
+
+2002-03-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am: special rules if partial linking
+
+2002-03-18  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_charinset.C: wrap the std::strchr declaration inside a
+	check for CXX_GLOBAL_CSTD.
+
+2002-03-18  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_biginset.[Ch] (size): return size_type, not int.
+
+	* math_inset.C (metrics): parameter "mi" is never referenced. Removed.
+	* math_hullinset.C (metrics): ditto.
+
+
+2002-03-12  André Pönitz <poenitz@gmx.net>
+
+	* math_xarray.[Ch] et al: really use metrics cache if possible...
+
+2002-03-07  Martin Vermeer <martin.vermeer@hut.fi>
+
+	* math_decorationinset.C: add leftrightarrows to the displayable
+	symbols.
+
+2002-02-18  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* formula.C Changes due to the renaming of support/syscall.[Ch] as
+	support/systemcall.[Ch] and of class Systemcalls as class
+	SystemCall.
+
+2002-02-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* formula.C: change Systemcalls::System to Systemcalls::Wait and
+	No change of functionality, just reflects the stripped down
+	Systemcalls class.
+
+2002-02-08  André Pönitz <poenitz@gmx.net>
+
+	* math_support.[Ch]: some support for \dddot
+
+2002-02-08  Otto Tronarp <otttr440@student.liu.se>
+
+	* math_decorationinset.C:
+
+	* math_support.C:
+
+	* math_hash.C: Added \underrightarrow and \underleftarrow
+
+2002-02-08  Martin Vermeer <martin.vermeer@hut.fi>
+
+	* formulabase.C (localDispatch): fix umlaut handling
+
+	* formulabase.C: pop up math panel on right mouse click
+
+2002-02-01  André Pönitz <poenitz@gmx.net>
+
+	* math_xarrowinset.[Ch]: support for \xrightarrow and \xleftarrow
+
+2002-02-01  André Pönitz <poenitz@gmx.net>
+
+	* math_xymatrixinset.[Ch]: some support for \xymatrix
+
+2002-02-01  André Pönitz <poenitz@gmx.net>
+
+	* math_undersetinset.[Ch]: implement direct support for \underset
+
+2002-01-28  Martin Vermeer <martin.vermeer@hut.fi>
+
+	* math_support.C: removed the arrays latex_mathstyle[] and
+	latex_mathfontcmds[] to the frontends.
+
+2002-01-26  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_macrotable.C (builtinMacros): Add macros for \models and \Join.
+
+2002-01-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* math_factory.C (createMathInset): add a default: label in switch
+
+2002-01-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* formulabase.[Ch] (searchForward, searchBackward): change the
+	bool const & params to bool.
+
+2002-01-14	Martin Vermeer <martin.vermeer@hut.fi>
+	* math_macrotable.C: added macros for Blackboard Bold,
+	Calligraphic symbols support in mathed. Kludge.
+
+2002-01-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_mathmlstream.C (operator<<): use lyx::count rather than
+	countChar.
+
+	* math_streamstr.C (operator<<): ditto.
+
+2002-01-10  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* math_support.C: change latex_mathfontcmds to an array of
+	kb_action.
+
+2002-01-11  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_exfuncinset.C: remove using std::ostream declaration.
+
+	* math_kerninset.C: whitespace change, consistent with other files.
+
+	* math_mathmlstream.C (operator<<):
+	* math_streamstr.C (operator<<): use countChar rather than std::count.
+
+	* math_parser.C (operator==): comment out. Not used.
+
+2002-01-10  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* formulabase.C (localDispatch): handle LFUN_FRAK and LFUN_ITAL.
+
+	* math_support.C: separate  string arrays for math style and for
+	font commands.
+
+2002-01-10  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_parser.C (parse_normal): Support for \begin{math}
+
+2002-01-09  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* math_hullinset.C (validate): rename feature "amsstyle" to
+	"amsmath".
+
+2002-01-09  Martin Vermeer <martin.vermeer@hut.fi>
+
+	* math_support.C: modified to support  a mathed pop-up for math
+	size "styles" and font types.
+
+2002-01-07  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_defs.h: remove trailing comma from enum MathTextCodes.
+
+2002-01-03  André Pönitz <poenitz@gmx.net>
+
+	* formulabase.[Ch]: implement simple search
+
+	* math_sizeinset.[Ch]: support for \displaystyle etc
+
+2001-12-18  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_macrotable.C (builtinMacros): Adjust kern values.
+
+2001-12-18  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_atom.C:
+	* math_binaryopinset.C:
+	* math_binominset.C:
+	* math_casesinset.C:
+	* math_charinset.C:
+	* math_data.C:
+	* math_diminset.C:add missing config.h
+
+	* math_cursor.C:
+	* math_parser.C: move inludes around a bit.
+
+	* math_extinset.C: user boost::scoped_ptr
+
+	* math_parser.C: user std::fill to fill the catcodes. (please
+	check this one...), and some consts.
+
+2001-12-11  André Pönitz <poenitz@gmx.net>
+
+	* math_cursor.C: allow cut&paste of rectangular regions of cells
+
+2001-12-15  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_kerninset.C (metrics): Consider lyxrc.zoom
+
+2001-12-14  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_support.C: Fix handling of \mathfrak font.
+
+2001-12-10  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_iterator.C (nextInset): compilation fix.
+
+2001-12-11  André Pönitz <poenitz@gmx.net>
+
+	* math_defs.h:
+	* math_parser.C:
+	* math_hash.C: support for \mathfrak
+
+2001-12-12  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_streamstr.C: #include <iostream> to compile with DEC cxx
+
+2001-12-05  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_arrayinset.C:
+	* math_boxinset.C:
+	* math_decorationinset.C:
+	* math_deliminset.C:
+	* math_dotsinset.C:
+	* math_exfuncinset.C:
+	* math_exintinset.C:
+	* math_funcinset.C:
+	* math_funcliminset.C:
+	* math_hullinset.C:
+	* math_kerninset.C:
+	* math_limopinset.C:
+	* math_sizeinset.C:
+	* math_stringinset.C:
+	* math_symbolinset.C:
+	* math_unknowninset.C: include math_streamstr.h and remove
+	unneeded c_str()
+
+	* math_symbolinset.[Ch]: add constructor taking string
+
+	* math_mathmlstream.C: move includes around
+
+	* math_streamstr.[Ch]: add operator<<(Stream, string) for
+	NormalStream, MapleStream, MathMLStream and OctaveStream
+
+	* math_gridinset.C: user LyXLength::zero
+
+2001-11-19  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* formula.C:
+	* math_arrayinset.C: add using std::getline directive.
+
+2001-11-20 André Pönitz  <poenitz@gmx.net>
+
+	* formulabase.C: fix mouse positioning using the cursor
+
+2001-11-19  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_mathmlstream.C (operator<<): Count '\n' chars
+
+2001-11-11  Michael A. Koziarski <michael@koziarski.org>
+
+	* math_macro.C
+	* math_hullinset.C:  Fixes to use the new LaTeXFeatures
+	correctly.
+
+2001-11-07  André Pönitz  <poenitz@gmx.net>
+
+	* math_extern.C: support for integrals, sums, e^x, and d/dx
+
+2001-11-15  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_extern.C (extractNumber):
+	(extractDiffExponent): add ugly .c_str()
+
+2001-11-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_arrayinset.C (MathArrayInset):
+	* formula.C (pipeThroughMaple):
+	(pipeThroughOctave): add ugly .c_str() to help compile
+	with lyxstring
+
+2001-11-07  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_inset.C: compilation fix
+
+2001-11-07  André Pönitz  <poenitz@gmx.net>
+
+	* math_*inset.[Ch]:
+	* array.[Ch]: start native C++ support for Octave, Maple and MathML
+
+2001-10-31  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_defs.h: remove non-standard trailing comma from MathSymbolTypes.
+
+2001-10-24  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_nestinset.C: added using std::max, min directives.
+	* math_scriptinset.C: added using std::ostream directive.
+	* math_scriptinset.h: replaced ostream with std::ostream.
+
+2001-10-17  André Pönitz  <poenitz@gmx.net>
+
+	* math_*inset.[Ch]: remove MathStyles cache from insets that
+	  don't need it
+
+	* support.C:
+	  formulabase.C: fix math font sizes in headings etc
+
+	* math_inset.[Ch]:
+	  formula.C: remove unused static member int MathInset::workwidth
+
+	* math_gridinset.[Ch]: implement idxHome() and idxEnd()
+
+2001-10-17  André Pönitz  <poenitz@gmx.net>
+
+	* math_inset.h:
+	* *.[Ch]: make output more stream-like
+
+2001-10-17  André Pönitz  <poenitz@gmx.net>
+
+	* formula.C:
+	* array.C: add missing/broken  writeNormal()
+
+	* math_lefteqn.[Ch]: some visual support for \lefteqn
+
+
+2001-10-10  André Pönitz  <poenitz@gmx.net>
+
+	* math_cursor.C: introduce dummy "inner" position "between"
+	nucleus and scripts for smoother cursor movement
+
+	* math_cursor.C: use red dot to indicate empty nucleus
+
+
+2001-10-02  André Pönitz  <poenitz@gmx.net>
+
+	* math_cursor.C: leave red backslash as visual clue
+	in formula when typing macro names
+
+	*	math_macrotemplate.C: sanity check
+
+2001-10-01  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_cursor.C:
+	* formula.C (localDispatch): fix a few of local variable sizes
+
+	* math_fracbase.C: change parameter types to match MathInset
+
+2001-10-01  André Pönitz  <poenitz@gmx.net>
+
+	* math_cursor.[Ch]: remove local parInset() method
+
+	* math_macro.C: add a static_cast
+
+2001-09-27  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_cursor.C: fix type mismatches with what was declared in
+	math_cursor.h.
+
+2001-09-28  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_matrixinset.C (header_write): Add \n after \begin{align}
+
+2001-09-19  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_macrotable.C (builtinMacros): Add some macros if latex
+	fonts are available.
+
+2001-09-14  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* formula.C (insetAllowed): disallow label insertion in inline
+	formula
+
+2001-09-12  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* formulabase.C (mathDispatchCreation): pass second argument
+	'false' (no label) to selectionAsString
+
+2001-09-11  André Pönitz  <poenitz@gmx.net>
+
+	* math_atom.[Ch]: new basic item in the MathArray
+
+	* array.[Ch]: move code over to math_atom
+
+	* math_scriptinset.[Ch]:
+	  math_parser.C:
+	  math_cursor.C: try to do with super- and subscripts what TeX does
+
+2001-09-04  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_parser.C (tokenize): add a .c_str() (needed with lyxstring)
+
+2001-09-04  André Pönitz  <poenitz@gmx.net>
+
+	* math_defs.h:
+	* math_parser.C:
+	* math_matrixinset.C: some support for the AMS 'alignat', 'xalignat',
+	    'xxalignt', 'gather' and 'multiline' environments
+
+	* math_cursor.C: fix handling of | and \|
+
+2001-09-04  José Matos  <jamatos@fep.up.pt>
+
+	* formulabase.C
+	* formulabase.h
+	* formula.C
+	* formula.h
+	* formulamacro.C
+	* formulamacro.h (docbook): rename docBook method to docbook.
+
+2001-09-03  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_hash.C (ReadSymbols): Check for duplicate symbols
+
+2001-09-02  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* support.C: added a using std::map directive.
+
+2001-08-17  André Pönitz  <poenitz@gmx.net>
+
+	* math_hash.C: Use std::map instead of faking it
+
+	* symbol_def.h: remove unneeded symbol definitions
+
+	*	support.C: use the decorations' name for drawing
+
+2001-09-02  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_hash.C (in_word_set): Initialize symbol table even when
+	symbols file was not found.
+
+2001-09-02  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_hash.C: added a using std::endl directive.
+
+2001-09-01  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* support.C (whichFont): Add support for cmr font.
+	Add support for \mathbb.
+
+	* math_notinset.C (draw, metrics): Use cmsy symbol if available.
+
+	* math_macrotable.C (builtinMacros): Add 3 builtin macros
+
+2001-08-31  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_hash.C: Read symbols information from external file
+	many files: Add support for latex symbol fonts
+
+2001-08-18  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_parser.C (Parser): Eat spaces after \end_inset
+
+2001-08-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_parser.C (tokenize): fix typo
+
+2001-08-17  André Pönitz  <poenitz@gmx.net>
+
+	* math_parser.C: new "lexxer"
+
+	* array.C: write sequences of chars with same code as a unit
+
+2001-08-13  André Pönitz  <poenitz@gmx.net>
+
+	* math_factory.[Ch]: new files for the creation of math insets
+
+	* math_parser.C:
+		math_cursor.C:
+		math_hash.C: simplifications
+
+	* math_binom.[Ch]: new files for "native" \binom/\choose inset
+
+	* math_parser.C:
+		math_cursor.C: reading support for TeX style \over and \choose
+
+	* formulabase.C: re-enabling the "selected text gets converted to
+	math when pressing C-m" feature.
+
+2001-08-13  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_parser.C (lexArg): remove default argument from the .C file
+	as it causes DEC cxx to complain about a redefinition.
+
+2001-08-10  André Pönitz  <poenitz@gmx.net>
+
+	*	math_scopeinset.[Ch]: new inset for {} blocks
+
+	*	math_accentinset.[Ch]: removed unneeded files
+
+	* math_grid.[Ch]:
+	  math_matrix.[Ch]: start support for "interrow spacing"
+
+	* all over the place: rework of parser stuff
+
+2001-08-08  André Pönitz  <poenitz@gmx.net>
+
+	*	math_fracbase.[Ch]:
+	* math_fracinset.[Ch]: new hierarchy
+
+	*	math_stackrelbase.[Ch]: native \stackrel support
+
+	* math_inset.[Ch]: removal of the name_ member
+
+	* math_deliminset.[Ch]: rework
+
+2001-08-06  André Pönitz  <poenitz@gmx.net>
+
+	* formulamacro.C: fix nasty bug due to missing copy constructor
+
+	* math_bigopinset.[Ch]: revival for things like \int, \sum
+
+	* math_funcliminset.[Ch]: dedicated new inset for \lim, \max, \min...
+
+	* math_diminset.h: make cache variables mutable, remove const_cast
+
+	* formulabase.[Ch]: remove unneeded convertFont()
+
+	* math_funcinset.[Ch]: bring red color back
+
+	* math_macro*.[Ch]: move ownership of the templates from the formulamacro
+	inset to the mcaro table
+
+2001-08-01  André Pönitz  <poenitz@gmx.net>
+
+	* math_cursor.C:
+		formulamacro.C: fix memory leaks
+
+	* math_matrixinset.C: fix mis-alignment of eqnarray columns
+
+	*	formula*.[Ch]: seperation of the "pimpl" MathInset * into
+	MathMatrixInset * and MathMacroTemplate * to save a few casts
+
+	* all over the place: everything is an inset now
+
+	* math_nestinset.[Ch]: new abstract base class for insets containing
+	other insets.
+
+	* math_diminset.[Ch]: new abstract base class for insets that need
+	the width_/ascent_/descent_ cache
+
+2001-07-25  André Pönitz  <poenitz@gmx.net>
+
+	* formulabase.C: re-enable 'space enlargement' feature
+
+	* math_scriptinset.C:
+		math_bigopinset.C: rework of script insets
+
+2001-07-22  André Pönitz  <poenitz@gmx.net>
+
+	* math_cursor.C: fix "pullArg" behaviour
+
+	* math_cursor.C: keep empty super/subscript a bit longer
+
+	* math_cursor.C: do not move into insets that don't have inner cells yet
+
+	* formulabase.C: fix memory leak
+
+	* math_cursor.C: ^ now copies selection into new srriptinset
+
+	* xarray.C: less crude MathXArray::x2pos for preciser cursor positioning
+	  using the mouse
+
+	* math_updowninset.C: fix drawing glitches
+
+	* math_cursor.C: paste to correct position
+
+2001-07-22  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* formula.C (insetAllowed): allow insertion of label
+
+2001-07-20 André Pönitz  <poenitz@gmx.net>
+
+	* math_macrotable.C: support for \land and \vee
+
+2001-07-16 André Pönitz  <poenitz@gmx.net>
+
+	* math_grid.[Ch] -> math_gridinset.[Ch]
+	  math_root.[Ch] -> math_rootinset.[Ch]: more consistent names
+
+	* formulabase.C: fix 'buffer set to (Changed) when moving in math',
+	  fix 'mathed reports wrong width', cosmetics
+
+2001-07-16  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_cursor.C (operator==): moved ouf of struct
+	(operator<): ditto
+	(normalAnchor): reversed one test (but shouldn't it really be >= ?)
+
+2001-07-16 André Pönitz  <poenitz@gmx.net>
+
+	* math_cursor.[hC]: multicell selection (multicell pasete still defunct)
+
+	* several files: supporting changes
+
+2001-07-13  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	Consistent use of Lsstream.h:
+	* formula.C: removed using std::ostringstream directive.
+
+	* math_cursor.C: std::istringstream -> istringstream.
+
+2001-07-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_decorationinset.h: add std:: qualifier
+
+2001-07-12 André Pönitz  <poenitz@gmx.net>
+
+	* math_updowninset.[hC]: new base class for script and bigop insets
+		*.[hC]: subsequent changes to all Metric() functions
+
+	* math_parser.C: small changes (\sqrt0 is read properly now)
+
+2001-07-10 André Pönitz  <poenitz@gmx.net>
+
+	* math_accentinset.[hC]: rewrite
+
+	* math_parser.C:
+		math_cursor.C: subsequent changes
+
+	* math_grid.C: <Delete> in the first cell of a completely empty row
+	  deletes that row, <C-Return> places the cursor in the first of the
+	  new empty cells.
+
+	* math_grid.C: try to split cell nicely when mutating from single-cell
+	  to multi-cell environment
+
+2001-07-09  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_matrixinset.C (mutate): Use only the first label when
+	mutating eqnarray to display formula.
+
+2001-07-09  Juergen Vigna  <jug@sad.it>
+
+	* formulabase.C (mathDispatchCreation): don't do anything with the
+	inset if it cannot be inserted!
+
+2001-07-09  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* formulabase.C (mathDispatchInsertMath): remove bogus return
+	statement.
+
+2001-07-09 André Pönitz  <poenitz@gmx.net>
+
+	* math_*inset.C: Change order of arguments in MathInset constructor
+
+	* math_cursor.C: Remove broken "increase space" feature for a while
+
+2001-07-07  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* formulabase.C (mathDispatchInsertMath): Create an inline formula.
+
+2001-07-04 André Pönitz  <poenitz@gmx.net>
+
+	* math_parser.C: fix reading of "unusual" alpha chars
+
+	* xarray.[hC]: fix debug output of xarray
+
+2001-07-03 André Pönitz  <poenitz@gmx.net>
+
+	* math_parser.C: fix bug where equations did not get their labels
+
+	* formulabase.C: new feature: changing font on selection
+
+	* several files: subsequent changes
+
+	* array.C: fix bug when insets have not been cloned properly
+	This should fix quite a few "random" crashes...
+
+2001-06-29  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* formulabase.C (localDispatch): use .c_str() on istringstream
+	constructor argument.
+
+2001-06-27  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_grid.C (addCol): add second argument to cellinfo_.insert.
+	Cleanup a bit the code.
+	(appendRow): do not call push_back without argument.
+
+	* *.C: remove all "using namespace std" directives (not
+	good!!) and replaced it with relevant "using" directives.
+
+	* math_macrotemplate.C (Clone): change return type to MathInset*
+
+2001-06-27  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_sizeinset.C: include support/LOstream.h
+
+	* math_scriptinset.C (Metrics): std:: qualify max
+
+	* math_root.C (Metrics): std:: qualify max
+	(Write): std:: qualify ostream
+	(WriteNormal): ditto
+
+	* math_matrixinset.C (getLabelList): std:: qualify vector
+	include vector
+	(Metrics): std:: qualify max
+	(header_write): std:: qualify ostream
+	(footer_write): ditto
+
+	* math_macrotemplate.C (Write): std:: qualify ostream
+
+	* math_bigopinset.C (Metrics): std:: qualify max, and include
+	functional
+
+	* math_matrixinset.h: include vector and std:: qualify it.
+
+	* array.C (GetInset): get a pointer to the first element of bf_
+	not an iterator.
+
+2001-06-25  The LyX Project  <Asger>
+
+	* math_scriptinset.C: Fix for entering with cursor up/down.
+
+	* math_fracinset.C: We can enter fractions with cursor up and
+	down.
+
+	* math_cursor.C (Right): Fixes for cursor movement.
+
+	* formula.C (draw): New background color for math.
+
+	* math_cursor.C: Fixes for toggling labels on/off in math.
+	Fixes for infinity and other symbols that didn't appear in
+	LaTeX.
+
+2001-06-24  The LyX Project  <Asger>
+
+	* math_inset.C: Cursor movement is better in square roots, among
+	other things.
+
+	* math_cursor.C (Interpret): Improved subscript bullshit. Improved
+	cursor up/down movement. What not.
+
+2001-06-24  The LyX Project  <Asger>
+
+	* math_matrixinset.C: Hidden labels are hidden, unless a small
+	dragon jumps out of the screen, and pronounce them to the entire
+	world.
+
+2001-06-24  The LyX Project  <Easter egg>
+
+	* math_cursor.C: Cursor improvements after a few dead-ends
+	in the evolution of cursor movement were tested and scrapped.
+
+2001-06-24  The LyX Project  <Asger>
+
+	* math_cursor.C: Renamed stack to path.
+
+2001-06-24  The LyX Project  <André>
+
+	* *.[Ch]:
+	  Makefile.am: The Big Patch
+	  (rewrite of MathArray, MathCursor, MathMatrixInset, MathBigopInset;
+     new MathScriptInset for up/down stuff;
+	   delete MathIter/MatXIter, MathParInset, MathRowSt
+     Changes to the inset inheritance tree, reunification of abstract math
+     inset base classes;
+     label/numbering handling back to life;
+     major changes to the parser(s);
+     new base class FormulaBase for the two math LyXInsets;
+	   general cleanup and cosmetic changes)
+
+2001-06-19  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_macro.C:
+	* math_root.C: removed // -*- C++ -*- as first line.
+
+2001-05-31  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* array.C: bring memmove into main namespace if necessary
+
+2001-05-31  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_parser.C (yylex): use contains instead of strchr
+	(parse_align): remove last arg, change to take string const & as
+	first arg.
+	(mathed_parse): use string for ar2 and ar, adjust
+
+	* math_decorationinset.C (Write): use compare instead of strcmp
+
+	* formula.C (LocalDispatch): change arg2 to string, adjust for this
+	(LocalDispatch): add std::
+	(LocalDispatch): use contains instead of strchr
+
+	* array.C (move): add std::
+
+2001-05-02  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* matriz.C: add using directives when needed for C functions
+	declared in std:: namespace.
+
+	* math_macrotemplate.h: do not use explicitely std::string, but
+	string.
+
+	* math_macroarg.C: avoid bringing the whole std:: namespace in
+	global-land. When you do that, there is an ambiguity between
+	lyxstring and std::string (which may be defined at the same time).
+
+	* formula.C (HandleExtern): add .c_str() to .str() (useful when
+	using lyxtring)
+
+2001-04-27 André Pönitz  <poenitz@gmx.net>
+
+	* math_parser.C: fix \frac handling bug introduced on 04-24
+	* math_xiter.C: hotfix for merging "shared" insets
+	* formula.C: fixing display after using math-insert
+
+2001-04-25 André Pönitz  <poenitz@gmx.net>
+
+	* math_*.[Ch]: WriteNormal
+	* formula.C: Support for new "math extern" command
+	* math_parser.C: fix \frac handling bug introduced on 04-24
+	* math_xiter.C: hotfix for merging "shared" insets
+
+2001-04-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_macrotable.C: include <iostream>
+
+2001-04-24 André Pönitz  <poenitz@gmx.net>
+
+	* math_macro.[Ch]:
+	* math_macrotable.[Ch]:
+	* math_macroarg.[Ch]: restructuring of macro handling
+	* several files:
+
+2001-04-25  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* array.h (operator<<):
+	* math_macro.h (dump, operator<<): added std:: qualifier to ostream.
+
+	* math_macrotable.C: added using std::make_pair directive.
+	(dump): added using std::cerr directive here as I guess that this is
+	temporary.
+
+2001-04-20  Allan Rae  <rae@lyx.org>
+
+	* formula.C (LocalDispatch): fixed another #warning.  Guess who.
+
+2001-04-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* math_macrotemplate.h: inherit privately from noncopyable
+
+	* math_macro.C (Metrics): reindent, use unsigned int as loop var
+	(setArgumentIdx): change test to avoid unsigned warning
+
+	* formula.C (LocalDispatch): use LFUN_MESSAGE
+
+2001-04-16  Allan Rae  <rae@lyx.org>
+
+	* formula.C (Latex, getLabelList, LocalDispatch):
+	* math_parser.C (mathed_parse):
+	* math_parinset.C (Write): #warning triggers an error on Sun CC 6.0 as
+	an unrecognised preprocessor directive.  So ensure they're wrapped.
+
+2001-04-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* formula.C (draw): adjust for cursor_visible
+	(ToggleInsetCursor): adjust for cursor_visible and constify asc
+	and desc
+	(ShowInsetCursor): adjust for cursor_visible and constify asc and desc
+	(HideInsetCursor): adjust for cursor_visible
+	(LocalDispatch): constify default_label and res
+
+2001-03-16  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_rowst.C: add missing #include <config.h>.
+
+2001-03-16  André Pönitz  <poenitz@gmx.net>
+
+	* math_matrixinset.h:
+	* math_parinset.[Ch]:
+	* math_rowst.[Ch]: move MathedRowContainer::row_ to the base
+
+2001-03-13  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* formula.C:
+	* math_forms.h:
+	* math_forms.C:
+	* math_panel.h:
+	* math_panel.C:
+	* math_symbols.C: maths panel moved to GUII
+
+2001-03-16  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* math_cursor.C: use lyxerr instead of cerr.
+
+2001-03-15  André Pönitz  <poenitz@gmx.net>
+
+	* math_cursor.C: fix bug (cursor was leaving two insets at a time
+	   instead of one)
+
+2001-03-15  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* math_macrotable.h: noncopyable is in namespace boost
+	* math_macrotemplate.h: ditto
+
+	* math_rowst.h: make MathedRowContainer::iterator public.
+
+2001-03-15  André Pönitz  <poenitz@gmx.net>
+
+	* math_parser.C: read '\nonumber' again (was broken)
+
+	* math_rowst.C: new file
+
+2001-03-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* math_cursor.C: added using directive.
+
+2001-03-15  André Pönitz  <poenitz@gmx.net>
+
+	* math_rowst.h: Finally remove MathedRowSt
+
+	* math_parser.C:
+	  math_xiter.C: changed accordingly
+
+2001-03-12  André Pönitz  <poenitz@gmx.net>
+
+	*	math_rowst.h: replace MathedRowSt with MathedRowStruct,
+	    more robust MathedRowSt::[gs]etTab (to get rid of the constructor arg)
+
+2001-03-10  André Pönitz  <poenitz@gmx.net>
+
+	* math_xiter.[Ch]:
+	  math_matrixinset.C: move adjustVerticalSt to the only place where
+      it is used. Fix a small bug where the cached row structure and the
+	    actual data get out of sync after the deletion of whole rows
+
+2001-03-09  André Pönitz  <poenitz@gmx.net>
+
+	* math_cursor.C: use std::vector<> in MathStackXIter
+		change selstk from a pointer to the "real thing"
+
+	* math_rowst.h: new MathedRowContainer::erase method
+
+	* math_xiter.C: use MathedRowContainer::erase
+
+	* math_parser.C: use MathedRowContainer::insert_after
+
+2001-03-08  André Pönitz  <poenitz@gmx.net>
+
+	* math_rowst.h: give MathedRowContainer an 'insert' method.
+
+	* math_xiter.C: new 'container()' method to encapsulated access to
+	  the MathParInset's MathedRowContainer
+
+	* math_rowst.h: proper copy constructor and destructor for
+	  MathedRowContainer
+
+	* math_matrixinset.[hC]: remove copy constructr and destructor. Those
+	  automatically created by the compiler are ok now.
+
+2001-03-06  André Pönitz  <poenitz@gmx.net>
+
+	* array.[Ch]: factor out deep_copy,
+	  remove third argument from raw_pointer_insert
+
+	* math_iter.[Ch]: remove unused function Clear()
+
+	* math_cursor.C: change signature of MathStackXIter:push()
+	  whitespace changes
+
+	* math_rowst.h: introduction of MathRowContainer
+	  several files: corresponding changes
+
+2001-03-04  André Pönitz  <poenitz@gmx.net>
+
+  * math_macrotemplate.[Ch]:
+    math_macro.C: move update() functionality to the macro
+
+	* math_rowst.h: split MathedRowSt into "data" and "list"
+
+2001-03-01  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* math_macrotemplate.C (update): use MathMacro::getArg, and
+	receive a const reference.
+	(getMacroPar): add an Assert
+
+	* math_macrotemplate.h: make MathMacro a friend, make update take
+	a const reference.
+
+	* math_macro.[hC]: get rid of getRowSt, remove MacroArgumentBase
+	and store a MathMacroArgument in the vector
+	* math_macro.C: changes because of the above.
+	(getArg): new method
+
+	* math_parser.C (mathed_parse): plug potential leak
+
+	* math_iter.h: add comment on virtual destructor
+
+	* math_iter.C (Delete): make c const
+
+	* math_parinset.C (Metrics): cleanup indent. make one string const.
+
+	* math_inset.C (size): move out of line
+	(incSize): ditto
+
+	* math_macroarg.h: remove default constructor
+
+	* math_macroarg.C: include Lsstream.h instead of debug.h
+	(MathMacroArgument): remove default constructor
+	(Write): add std:: on ostream arg
+
+2001-02-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* math_parser.C:
+	* formula.C: make DEBUG into lyxerr
+
+2001-03-01  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* math_macrotemplate.h: make noncopyable, remove last arg to
+	constructor, remove flags_ add edit_
+	(flags): remove method
+
+	* math_macrotemplate.C (setArgument): delete method
+	(update): make idx const
+	(Metrics): use edit_, remove flags_
+	(draw): use edit_, remove flags_
+	(setEditMode): set edit_, remove flags_
+	(MathMacroTemplate): initialize edit_, remove flags_
+
+	* math_macro.h: remove x,y from MacroArgumentBase, make tmplate_ a
+	shared_ptr, let constructor take a shared_ptr
+
+	* math_macro.C (MathMacro): take shared_ptr as arg, remove double
+	initialization.
+	(draw): remove unneded update, remove removed update of x,y
+	(GetXY): call tmplates GetMacroXY directly
+	(SetFocus): call Metrics() instead of update()
+	(Write): remove support for math macro environments, simplifications.
+
+	* math_macrotable.h: make class noncopyable, change getMacro to
+	createMacro, change vector to map store a
+	shared_ptr<MathMacroTemplate> in it., remove unneeded typedef
+
+	* math_macrotable.C: add pragma
+	(createMacro): change name from getMacro, use shared_ptr
+	(getTemplate): Use map lookup to get macro, return shared_ptr
+	(addTemplate): assert that m containse a valid pointer, use map[]
+	insert.
+	(builtinMacros): by using shared_ptr fix the mem leak, remove
+	commented out unsupported macros
+
+	* math_cursor.C: changes because of the above
+	* math_parser.C: changes because of the abobe
+
+	* formulamacro.h: change tmacro_ to be a shared_ptr, remove
+	default arg on constructor.
+	* formulamacro.C: changes because of the above
+
+	* math_parinset.h: add pragma
+	(SetAlign): move inline out of class def
+	(GetColumns): ditto
+	(GetRows): ditto
+	(isMatrix): ditto
+	(setArgumentIdx): ditto
+	(setNextArgIdx): ditto
+	(getArgumentIdx): ditto
+	(getMaxArgumentIdx): ditto
+	(setRowSt): ditto
+	(xo): ditto
+	(yo): ditto
+
+	* math_parinset.C: add pragma
+	(Write): change the else clause, lessen depth
+
+	* math_macroarg.h: small whitespace change
+
+	* array.C: include support/LOstream.h add using ostream and endl
+
+	* array.h (dump): add std:: on ostream
+
+2001-02-28  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* math_macrotemplate.h: remove default arg on update
+
+	* math_macrotemplate.C (update): add assert and remove noop case.
+
+	* formulamacro.C (Read): add comment.
+	(ascent): remove noop call to MathMacroTemplate
+	(descent): ditto
+	(width): ditto
+	(draw): ditto
+
+	* math_parser.C (mathed_parse): fix another potential problem by
+	passing a freestanding mathedarray.
+
+	* math_root.C (GetData): add const version
+
+	* math_parinset.C (~MathParInset): delete
+	(GetData): add const version
+
+	* math_matrixinset.C (MathMatrixInset): delete pointer version,
+	make it a proper copy constructor instead
+	(Clone): change acc.
+	(MathMatrixInset): remvoe default val for m and n
+
+	* math_macro.C (GetData): add const version
+
+	* math_fracinset.C (GetData): add const version
+
+	* math_cursor.C (SelCopy): make p1 and p2 const
+	(SelCut): make p1 and p2 const
+
+	* formula.h: add '_' on priv vars. Cnages in formula.C acc. to this
+	(LyxCode): move inline out of class
+	(ConvertFont): ditto
+	(display): ditto
+
+	* array.[Ch] (dump): method added for debugging purposes
+
+	* math_parser.C (mathed_parse): pass a freestanding mathedarray to
+	mathed_parse when reading a matrix.
+
+	* math_spaceinset.[Ch]: add pragma, make variables private add
+	'_', change order of method definitions.
+
+	* math_root.h (~MathRootInset): delete
+	Change uroot_ to be a real object instead of a pointer
+	* math_root.C: changes because of the above
+
+	* math_macro.C (MathMacro(MathMacro*)): delete constructor
+	(MathMacro(MathMacro const &)): new copy constructor
+
+	* math_inset.h: delete constructor taking a pointer to MathedInset
+	(size, incSize): move inline method
+
+	* math_funcinset.h: add pragma, remove class vars ln and fname,
+	change protected to private, add '_' to priv vars.
+	(~MathFuncInset): remove
+
+	* math_fracinset.h: make MathParInset den_ a real object and not a
+	pointer.
+
+	* math_fracinset.C (MathFracInset): clean up, move initalization
+	to initialization list
+	(~MathFracInset): remove
+	(Clone): remove leak
+
+	* math_draw.C: delete file
+
+	* math_dotsinset.[Ch]: add pragma
+
+	* math_bigopinset.h: make protected variables private add '_' to vars.
+
+	* math_bigopinset.C: move methods to follow class definition order
+
+	* math_accentinset.h (getAccentCode): move inline here
+
+	* math_accentinset.C (MathAccentInset): cleanup
+	(draw): constify dw
+
+2001-02-27  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* math_inset.[Ch] (MathedInset): remove method
+
+	* Makefile.am (libmathed_la_SOURCES): correct typo
+
+	* math_parinset.C (draw): move MathedXiter data(this) up. and
+	remove it two other places.
+
+	* math_macro.C (MathMacro): use array directly, don't use
+	setArgumentIdx and GetData
+
+2001-02-26  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* math_macroarg.C (MathMacroArgument): delete
+	* math_macro.C (~MathMacro): delete
+	* math_macrotemplate.C (~MathMacroTemplate): delete
+
+	* math_decorationinset.[Ch]: add pragma
+	* math_deliminset.[Ch]: likewise
+	* math_fracinset.[Ch]: likewise
+	* math_macroarg.[Ch]: likewise
+	* math_macrotemplate.[Ch]: likewise
+	* math_matrixinset.[Ch]: likewise
+
+	* formulamacro.C (Read): set contents of tmacro_ to ar.
+
+	* formulamacro.h: add '_' to private variables.
+	* formalamacro.C: changes because of this.
+
+2001-02-23  Juergen Vigna  <jug@sad.it>
+
+	* formula.C (LocalDispatch):  changed action to be a kb_action (as it
+	should be) and not an int.
+
+	* formulamacro.C (LocalDispatch): ditto.
+
+2001-02-14  André Pönitz  <poenitz@gmx.net>
+
+	* math_parinset.[Ch]: make array a real MathArray, not just a
+	  pointer to one.
+
+	* move MathIter::Copy(int, int) to MathArray::shrink(pos, pos)
+
+	* several files: subsequent changes
+
+	* math_cursor.C: make selarray a proper MathArray
+
+	* several files: Change "MathedArray *" to "MathedArray &"
+
+
+2001-02-19  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* array.C (MathedArray): Fix compilation problem.
+
+2001-02-14  André Pönitz  <poenitz@gmx.net>
+
+	* array.[Ch]: "deep" copy constructor and assignment operator for
+	MathArray
+
+	* math_iter.[Ch]: seperate Copy() from Copy(int, int)
+
+	* math_iter.[Ch]: remove SetData
+	  several files: subsequent changes
+
+2001-02-14  André Pönitz  <poenitz@gmx.net>
+
+	* array.[Ch]: remove constructor and  enums ARRAY_MIN_SIZE and
+	ARRAY_STEP
+
+	* math_iter.C: default-construct and resize array
+
+2001-02-17  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* math_xiter.h: move ipush and ipop to public, add _ on private
+	variables, move protected var to private, remove friend.
+
+	* math_cursor.C (insertInset): rename method from Insert also
+	remove default arg val. Call the public methods of xiter instead
+	of private variables.
+
+	* changes to several files because of the above.
+
+2001-02-14  André Pönitz  <poenitz@gmx.net>
+
+	* math_iter.[Ch]: hide fcode_
+	* math_xiter.C:
+	* math_parinset.C: subsequent changes
+
+
+2001-02-16  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.am (libmathed_la_SOURCES): remove math_write.C, add
+	math_utils.h
+
+	* math_write.C: delete file
+	* math_delim.C: delete file
+	* marh_sqrtinset.h: delete file
+
+	* move funcs to more localized files, more general cleanup.
+	Constify several local vars. Doxygen changes. Formatting.
+
+2001-02-15  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* support.C: add some consts
+
+	* matriz.C: clean up a bit.
+	(matmat): remove the for loop.
+
+	* several files: changes so that several friends can be removed
+
+2001-02-14  André Pönitz  <poenitz@gmx.net>
+
+	* formula.C: reformatting
+
+	* math_cursor.[Ch]:
+	  math_iter.[Ch]:
+	  math_xiter.[Ch]: remove unneeded members
+
+2001-02-14  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* math_parser.C:
+	* math_panel.C:
+	* formula.C: remove cruft
+
+	* array.C (begin): new method
+	(end): ditto
+
+2001-02-14  André Pönitz  <poenitz@gmx.net>
+
+	* math_iter.[Ch]: remove 'insert', 'maxsize' and 'ARRAY_SIZE'
+
+	* math_cursor.C: reformatting
+
+2001-02-14  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_spaceinset.C:
+	* math_root.C:
+	* math_matrixinset.C:
+	* math_macrotemplate.C:
+	* math_funcinset.C:
+	* math_fracinset.C:
+	* math_dotsinset.C:
+	* math_deliminset.C:
+	* math_decorationinset.C:
+	* math_bigopinset.C:
+	* math_accentinset.C:
+	* math_sqrtinset.C: include LOstream.h and add using directive.
+
+2001-02-14  André Pönitz  <poenitz@gmx.net>
+
+	* math_iter.C: reformatting
+
+2001-02-13  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* math_spaceinset.C (GetSpace): move here
+
+	* math_parinset.C: add debug.h, move several prev. inlined methods
+	here.
+
+	* math_macrotable.C math_xiter.C support.C: add debug.h
+
+	* math_macro.h: remove debug.h, remove typedefs
+
+	* math_macro.C: remove FORMS_H_LOCATION, and LString.h, remove
+	extern decls.
+
+	* math_hash.C: change some defines to int const. change use of
+	LM_TC_NORMAL to LM_TC_VAR
+
+	* math_draw.C: delete file
+
+	* math_defs.h (MATH_DEFS): dont define byte here, remove unneded
+	forward decls. remove LM_TC_NORMAL, move inline methods to
+	support.C (and support.h)
+
+	* math_cursor.C: move several previous inlined methods here
+
+	* math_bigopinset.h math_dotsinset.h math_funcinset.h
+	math_parinset.h math_spaceinset.h: add math_defs.h
+
+	* math_accentinset.h: add support.h and math_defs.h
+
+	* formulamacro.C math_cursor.C math_iter.h math_write.C: add support.h
+
+	* formula.h: remove unused func decl: OpenMathInset
+
+	* formula.C math_inset.h: get rid of math_defs.h
+
+	* array.h: switch to support.h instead of math_defs.h
+
+	* array.C: remove one include
+
+	* Makefile.am (libmathed_la_SOURCES): remove math_draw.C
+
+	* math_panel.C (deco_cb): move the sizeof/sizeof to a const int.
+
+	* math_parser.C: include macrotable and macrotemplate
+
+	* math_macrotemplate.[Ch]: new files
+
+	* math_macrotable.[Ch]: new files
+
+	* math_macroarg.[Ch]: new files
+
+	* math_macro.C: move stuff to the new files.
+
+	* math_cursor.C: include math_macrotable.h
+
+	* macro_support.[Ch]: new files
+
+	* formulamacro.C: add more includes
+
+	* Makefile.am (libmathed_la_SOURCES): add new files.
+
+2001-02-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* Makefile.am (libmathed_la_SOURCES): remove duplicate
+	math_sqrtinset.
+
+	* support.C:
+	* math_xiter.C:
+	* math_parinset.C: add a bunch of "using" directives.
+
+	* math_funcinset.h:
+	* math_decorationinset.h:
+	* math_bigopinset.h:
+	* math_spaceinset.h: remove more couples of inline.
+
+2001-02-13  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* math_xiter.h: remove a couple of "inline"
+
+	* array.C (strange_copy): fix bug (hopefully)
+	* many files: add a lot of new files and move methods to the class
+	files they belong to. Only first attempt at cleanup more will
+	follow.
+
+2001-02-12  André Pönitz  <poenitz@gmx.net>
+
+	* math_macro.[hC]: replace MathMacroArgument[] with
+	  std::vector<MathMacroArgument>
+	* math_defs.h:
+	  math_inset.C: replace int[] with std::vector<int>
+	* math_panel.h:
+	* math_symbols.C: replace FL_OBJECTP[] with
+	std::vector<FL_OBJECT*>
+
+2001-02-12  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* math_defs.h (struct MathedRowSt): make all private variables end
+	with '_', initialize in initializer list instead of in function
+	body.
+
+2001-02-12  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* formula.C (LocalDispatch): Change the default action of
+	break-line to create an align* environment instead of eqnarray*.
+
+	* math_inset.C (Metrics): Correct drawing of the multline
+	environment.
+
+2001-02-12  André Pönitz  <poenitz@gmx.net>
+
+	* array.[hC]: replace private variable maxsize_ with call to
+	bf_.size()
+	* math_defs.h: replace int[] by std::vector<int> for
+	MathedRowSt::widths
+
+2001-02-09  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* array.h: made all variables private, removed friend, added new
+	methods: raw_pointer_insert, raw_pointer_copy, strange_copy, added
+	non const operator[] added setter for last and getter for maxsize.
+	changed name from LyxArrayBase to MathedArray.
+	changed name of some methods to start with lowerchar.
+	moved inline methods to array.C
+
+	* math_iter.C + several file: changes because of the above.
+
+	* array.C: new file with the prev inline methods.
+
+2001-02-10  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* Many files: add support for the align environment from amsmath.
+
+2001-02-09  André Pönitz  <poenitz@gmx.net>
+
+	* array.h: replace array buffer  'byte bf[]'  by 'std::vector<byte> bf'
+	* several files: subsequent changes
+	* math_iter.h: remove unused prototype
+	* array.h: ditto.
+
+2001-02-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* math_macro.C (draw): add .c_str() to .str() (useful when
+	compiling with lyxstring, but STL sstream).
+	(Metrics): ditto.
+
+2001-02-08  André Pönitz  <poenitz@gmx.net>
+
+	* several files: get rid of reinterpret_cast.
+
+2001-02-04  Allan Rae  <rae@lyx.org>
+
+	* math_parser.C (mathed_parse): I'm sure Lars has a better fix than
+	just casting the variable.
+
+2001-02-02  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* Many files: Add support for multline and alignat environments from
+	amsmath.
+
+2001-02-02  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_symbols.C (math_insert_greek): Move cursor right when
+	unlocking the math inset.
+
+2001-01-26  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_parser.C (LexGetArg): Fix crash when loading corrupt files.
+
+	* formula.C (LocalDispatch): Before inserting a label in an
+	eqnarray, move the cursor to the top level.
+
+	* math_iter.C (getLabel): Test if crow == 0.
+
+2001-01-15  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* math_draw.C (Metrics): Use the correct GetString.

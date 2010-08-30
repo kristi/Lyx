@@ -1,0 +1,100 @@
+### This file is part of
+### ========================================================
+###          LyX, The Document Processor
+###
+###          Copyright 1995 Matthias Ettrich
+###          Copyright 1995-2001 The LyX Team.
+###
+### ========================================================
+
+# This file is written by LyX, if you want to make your own
+# modifications you should do them from inside LyX and save
+
+\bind_file "mac"
+
+#
+# MISC SECTION ######################################
+#
+
+\path_prefix "/usr/texbin:/usr/local/gwTeX/bin/powerpc-apple-darwin-current:/usr/local/gwTeX/bin/i386-apple-darwin-current:/usr/local/teTeX/bin/powerpc-apple-darwin-current:/usr/local/teTeX/bin/i386-apple-darwin-current:/sw/bin:/sw/sbin:/opt/local/teTeX/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/usr/X11R6/bin:/usr/sbin:/sbin"
+\serverpipe "~/Library/Application Support/LyX@version_suffix@/.lyxpipe"
+\preview on
+
+#
+# SCREEN & FONTS SECTION ############################
+#
+
+\screen_font_roman "Times"
+\screen_font_sans "Helvetica"
+\screen_font_typewriter "Courier"
+\open_buffers_in_tabs false
+\mac_like_word_movement true
+
+\scroll_wheel_zoom "off"
+
+#
+# COLOR SECTION ###################################
+#
+
+
+#
+# PRINTER SECTION ###################################
+#
+
+
+#
+# EXPORT SECTION ####################################
+#
+
+
+#
+# TEX SECTION #######################################
+#
+
+
+#
+# FILE SECTION ######################################
+#
+
+\template_path "~/Library/Application Support/LyX@version_suffix@/templates"
+
+#
+# PLAIN TEXT EXPORT SECTION ##############################
+#
+
+
+#
+# SPELLCHECKER SECTION ##############################
+#
+
+\spell_command "native"
+
+#
+# LANGUAGE SUPPORT SECTION ##########################
+#
+
+
+#
+# 2nd MISC SUPPORT SECTION ##########################
+#
+
+
+#
+# FORMATS SECTION ##########################
+#
+
+\format "fig" "fig" "FIG" "" "open -a X11; export DISPLAY=:0.0; xfig" "open -a X11; export DISPLAY=:0.0; xfig" "vector"
+
+
+#
+# CONVERTERS SECTION ##########################
+#
+
+\converter "rtf" "latex" "rtf2latex2e $$i" ""
+\converter "latex" "rtf" "latex2rtf $$i" ""
+\converter "latex" "lyx" "$$s/../MacOS/tex2lyx -f $$i $$o" ""
+
+#
+# COPIERS SECTION ##########################
+#
+

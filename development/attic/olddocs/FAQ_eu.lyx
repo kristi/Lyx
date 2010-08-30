@@ -1,0 +1,1958 @@
+#LyX 1.6.0svn created this file. For more info see http://www.lyx.org/
+\lyxformat 340
+\begin_document
+\begin_header
+\textclass scrartcl
+\begin_preamble
+\usepackage{multicol}
+\end_preamble
+\language basque
+\inputencoding latin1
+\font_roman times
+\font_sans helvet
+\font_typewriter courier
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+LyX Maiz Eginiko Galderak
+\end_layout
+
+\begin_layout Author
+egilea: LyX taldea.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Bidali iradokizunak edo erroreei buruzko zuzenketak LyX dokumentazioko posta-zer
+rendara: <lyx-docs@lists.lyx.org>.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Itzulpena: Iñaki Larrañaga Murgoitio, <dooteo@euskalgnu.org>, 2004.
+\begin_inset Newline newline
+\end_inset
+
+Zuzenketak: Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+Hau LyX-i dagokion Maiz Egindako Galderen (MEG) zerrenda da.
+ LyX-ek kalitate goreneko dokumentuak sortzeko 
+\begin_inset Quotes eld
+\end_inset
+
+Ikusten duzuna esan nahi duzu" (WYSIWYM) ingurunea eskaintzen duen testu-prozesa
+dore bat du, eta software librea da.
+ Laguntza gehiagorako, jarri harremanetan LyX-eko erabiltzaile taldearen
+ posta-zerrendarekin; hori bai, eskuliburu guztiak irakurri ondoren.
+ Posta-zerrenda hau da: 
+\family typewriter
+lyx-users@lists.lyx.org
+\family default
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sarrera eta informazio orokorra
+\end_layout
+
+\begin_layout Subsection
+Zer da LyX? 
+\end_layout
+
+\begin_layout Standard
+LyX ordenagailuen bitartez dokumentazioa idazteko tresna eraginkorra da,
+ markatze-hizkuntza darabil, "idazmakina" kontzeptu zaharkitua apurtuz.
+ Ahalegin gutxirekin eta denbora oso labur batean dokumentu profesionalak
+ sortu nahi dituztenentzako diseinatua dago, eta "maketazio" arloko aditua
+ izan gabe.
+ Maketazio-lanetaz ordenagailua arduratzen da, ez egilea; LyX-ekin egilea
+ dokumentuaren edukian kontzentratzen da.
+\end_layout
+
+\begin_layout Standard
+LyX-ek dokumentuaren 
+\begin_inset Quotes eld
+\end_inset
+
+ia-WYSIWYG" ikuspegia eskaintzen du.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Ia
+\begin_inset Quotes erd
+\end_inset
+
+ hitzak lerro- eta orri-jauziak inprimatutako dokumentuan berdin-berdina
+ ez direla bistaratuko esan nahi du.
+ Hala ere, ez da beharrezkoa, zeren eta LyX-ek zure testuaren amaierako
+ formatua lantzeko konposatze-lanak egiten dituen beste programa (LaTeX
+ izenekoa) bat erabiltzen baitu.
+ LyX-ek erabiltzailearen interfaze eroso bat eskaintzeko osagai guztiak
+ dituen bitartean, konposaketa lanak egiteko programak testuaren formatua
+ lantzeko gauza guztiak ditu, eta bien artean oso-oso ongi moldatzen dira.
+\end_layout
+
+\begin_layout Standard
+Beraz, lerro- eta orri-jauziekin ez duzu inolako arazorik izango.
+ Azpiatal zehatz batek zein zenbatzaile duen gogoratu beharrik ez duzu izango.
+ Atalen izenburuek zein letra-tipo eta tamaina erabiltzen duten ere ahaztu.
+ LyX-i (eta LaTeX-i) esan behar diozun gauzan bakarra da zein 
+\emph on
+dokumentu-klase
+\emph default
+ editatzen ari zaren eta testua dagoen paragrafoa zein 
+\emph on
+motakoa
+\emph default
+ den; hori eginez gero ordenagailuak dokumentuari dagokion konposatze-lanak
+ egokiro egingo ditu.
+ Argi dago dokumentua fintzeko maila sakonagoetan aritzeko aukera duzula.
+ Hala ere, LyX-ek ordenagailuari testua zer den adierazten dio, eta ez nolako
+ itxura eduki behar duen.
+ Horregatik, LyX testu-prozesadoreak WYSIWYM ("What You See Is What You
+ 
+\emph on
+Mean"
+\emph default
+ edo "Ikusten duzuna 
+\emph on
+esan
+\emph default
+ 
+\emph on
+nahi
+\emph default
+ duzu") moduko edizioa eskaintzen dizula esatea atsegin dugu.
+\end_layout
+
+\begin_layout Subsection
+Oso polita, baina erabilgarria da?
+\end_layout
+
+\begin_layout Standard
+Erabat.
+ LyX-ekin honako dokumentu-mota hauek sor daitezke:
+\end_layout
+
+\begin_layout Itemize
+Memoriak
+\end_layout
+
+\begin_layout Itemize
+Gutunak
+\end_layout
+
+\begin_layout Itemize
+Tesiak (dokumentu batean 260 orrialde, luzeagoak beste fitxategi batzuk
+ gehituz lortzen dira)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+adibidez, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.fee.uva.nl/scholar/mdw/leuven/thesis.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Klaseak emateko apunteak (133 orrialde eta 27 irudi, 33 MHz 486 motako ordenagai
+lu batean ekoiztuta!) 
+\end_layout
+
+\begin_layout Itemize
+Mintegietako koadernoak (500+ orrialde)
+\end_layout
+
+\begin_layout Itemize
+Konferentzietako txostenak ("Proceedings of the Second Continental Workshop
+ on the Geoid in Europe", (Finlandiako Geodesia Institutuaren txostena 98:4),
+ 292 orrialde)
+\end_layout
+
+\begin_layout Itemize
+Softwarearen dokumentazioa (LyX Erabiltzailearen Gidak 120 bat orrialde
+ ditu) 
+\end_layout
+
+\begin_layout Itemize
+Liburuak
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+PostgreSQL-ren liburua 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.postgresql.org/docs/awbook.html
+\end_layout
+
+\end_inset
+
+ gunean aurki dezakezu.
+\end_layout
+
+\begin_layout Itemize
+Donnay, J-P., Barnsley, M.J., eta Longley, P.A., eds., 2001, "Remote Sensing and
+ Urban Analysis" (Taylor eta Francis: Londres).
+\end_layout
+
+\begin_layout Itemize
+Herbert Voss: "Praktische Kryptologie mit Java" 286 orrialde, ekuazio, taula
+ eta irudi pila bat.
+ ISBN 3-8311-1458-7.
+\end_layout
+
+\begin_layout Itemize
+Yann Collette eta Patrick Siarry, "Optimisation multiobjectifs", 2002, Eyrolles.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Ondoren zerrendatzen diren aldizkarietarako artikuluak:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Astronomy & Astrophysics (Suetterlin, P.
+ 1998, A&A, 333, 305; Suetterlin, P.
+ & Wiehr, E.
+ 1998, A&A, 336, 367)
+\end_layout
+
+\begin_layout Itemize
+Astronomical Journal (Ressler, M.
+ E.
+ & Barsony, M.
+ 2001, AJ, 121, 1098)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Eleberriak (2000.
+ urtean kaleratu zen 400 orrialde baino gehiago zituen eleberri bat; une
+ hauetan 836 orrialdeko eleberri bat prestatzen ari dira)
+\end_layout
+
+\begin_layout Itemize
+Antzezlanak eta zinemarako gidoiak.
+\end_layout
+
+\begin_layout Itemize
+Negozio proposamenak: 1 milioi dolar (US) baino gehiagokoak.
+\end_layout
+
+\begin_layout Subsection
+Nondik hasiko naiz? 
+\end_layout
+
+\begin_layout Standard
+LyX-ekin zerikusia duena aurkitzeko, lehenbizi joan 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.lyx.org
+\end_layout
+
+\end_inset
+
+ web gunera.
+ Albisteak, adibideak, iturburuak, kode bitarrak eta beste gauza asko gune
+ horretan eskuragarri dituzu.
+ LyX instalatu ondoren eta lehen aldiz erabiltzerako, irakurri Tutoretza
+ (
+\family sans
+\bar under
+L
+\bar default
+aguntza\SpecialChar \menuseparator
+
+\bar under
+T
+\bar default
+utoretza
+\family default
+).
+ Bai, horitxi esan nahi dut.
+\end_layout
+
+\begin_layout Standard
+Beste sarrerako gida bat aurkituko duzu hemen: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.bilkent.edu.tr/~robin/lyxguide.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Zein ordenagailutan erabil dezaket?
+\end_layout
+
+\begin_layout Standard
+Une honetan, LyX exekutatzeko X leiho-sistema behar duzu.
+ OS/2, MacOS X eta Win32 sistementzako bihurketak prestatuta daude, baina
+ sistema horietan X zerbitzaria instalatuta eta lanean eduki beharko duzu.
+ LyX honako sistema eragile hauetan (eta beste askotan) erabiltzen dela
+ badakigu:
+\end_layout
+
+\begin_layout Itemize
+Linux: Debian, RedHat, SUSE, Mandrake edo YellowDogLinux beste batzuen artean.
+\end_layout
+
+\begin_layout Itemize
+SparcLinux: RedHat 6.0
+\end_layout
+
+\begin_layout Itemize
+Sun Solaris 2.6, 2.7
+\end_layout
+
+\begin_layout Itemize
+Tru64 Unix 4.0f
+\end_layout
+
+\begin_layout Itemize
+HP-UX
+\end_layout
+
+\begin_layout Itemize
+OSF1 flore V4.0 1091 alpha
+\end_layout
+
+\begin_layout Subsection
+LyX-ek zenbat leku behar du disko gogorrean? 
+\end_layout
+
+\begin_layout Standard
+Nire sisteman, LyX-en kode bitarrak disko gogorrean 2 MB betetzen ditu,
+ eta euskarriko fitxategiek beste 12.6 MB betetzen dute, horietatik 9.1 MB
+ dokumentuek osatzen dute, eta diskoan leku gehiago edukitzeko, axola ez
+ zaizkizun hizkuntzetakoak ezaba ditzakezu.
+ Gogoratu behar dugu LyX-ek LaTeX-en oinarritzen dela, eta teTeX bezalako
+ banaketa bat instalatuta 115 MB inguru betetzen dituela, eta ghostscript-ek
+ beste 10 MB eskatzen dituela!
+\end_layout
+
+\begin_layout Subsection
+LyX benetako software askea da? 
+\end_layout
+
+\begin_layout Standard
+Bai, noski.
+ Hori galdetzea ere! Inor txikikerietan sakontzen hasten bada, LyX-ek erabiltzen
+ duen XForm liburutegi grafikoa nahiz eta dohainik eskuragarri egon jabedun
+ motako softwarea dela esan beharra dugu.
+ Horren ondorioz LyX ez da hain Garbia eta Santua.
+ Zentzugabekeria hutsa.
+ LyX-en iturburua pitin bat moldatutako GPL lizentzian oinarrituta dago,
+ eta beraz LyX bera software askea da eta horrelaxe bermatzen da.
+ Gainera, LyX-eko garatzaileek menpekotasunik ez duen tresna-jokoa lantzen
+ ari dira.
+ Beraz, 1.3.0 bertsiotik aurrera Qt 2 edo 3 liburutegi askearen 3.
+\begin_inset space ~
+\end_inset
+
+bertsioa onartzen du.
+ LyX-en 1.0 bertsioa baino zaharragoak (LGPL lizentziapean kaleratutakoak)
+ eskuratzeko, joan gune honetara: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+ftp://ftp.lyx.org/pub/xforms/OpenSource/
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\emph on
+Itzultzailearen
+\begin_inset space ~
+\end_inset
+
+oharra
+\emph default
+: eskuliburu hau euskaratu zen garaian, 2004.
+ urteko hasieran, LyX 1.3.3 bertsioa GPL lizentziarekin banatuta zegoen.
+ Honek LyX erabat askea dela bermatzen du.
+\end_layout
+
+\begin_layout Section
+Interneteko euskarriak
+\end_layout
+
+\begin_layout Subsection
+LyX-i buruzkoak interneteko zein gunetan aurki ditzaket?
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.lyx.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+bugzilla.lyx.org
+\end_layout
+
+\end_inset
+
+, LyX-eko errore bati buruzko txostena bidaltzeko.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.devel.lyx.org
+\end_layout
+
+\end_inset
+
+, LyX-en hesteak eta odolkien artean murgiltzea nahi baduzu.
+\end_layout
+
+\begin_layout Itemize
+Ezagutzen diren ispilu-guneak, beste batzuen artean:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.mx.lyx.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.no.lyx.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.it.lyx.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+LyX-eko materiala zein FTP-tik eskura dezaket?
+\end_layout
+
+\begin_layout Itemize
+ftp.lyx.org in /pub/lyx (ftp.via.ecp.fr bezala ere ezaguna)
+\end_layout
+
+\begin_layout Subsection
+Zein posta-zerrenda daude?
+\end_layout
+
+\begin_layout Description
+* lyx-announce@lists.lyx.org (mezu kopuru txikia), LyX-en albisteak zabaltzeko.
+\end_layout
+
+\begin_layout Description
+* lyx-users@lists.lyx.org (mezu kopuru ertaina), erabilera orokorrari buruzkoak.
+\end_layout
+
+\begin_layout Description
+* lyx-devel@lists.lyx.org (mezu kopuru handia), garapen eta araztatze buruzkoak.
+\end_layout
+
+\begin_layout Description
+* lyx-docs@lists.lyx.org (ikaragarrizko mezu kopuru txikia), dokumentazio
+ buruzkoak.
+\end_layout
+
+\begin_layout Standard
+Orokorrean posta-zerrenda hauetariko batean Harpidetzeko, bidali mezu bat
+ lyx-lelo-subscribe@lists.lyx.org helbidera; edo harpidetza amaitzeko, lyx-lelo-un
+subscribe@lists.lyx.org helbidera, non "lelo" hauetariko bat adierazi nahi
+ duen: "announce", "users", "devel", edo "docs".
+ Xehetasun gehiagorako, ikusi 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.lyx.org/internet/mailing.php3
+\end_layout
+
+\end_inset
+
+ gunea.
+\end_layout
+
+\begin_layout Subsection
+Posta-zerrendak nonbaiten gordetzen dira?
+\end_layout
+
+\begin_layout Standard
+Nola ez ba? :-)
+\end_layout
+
+\begin_layout Subsection
+Ederto, hi bai hi jatorra! Eta non gorde dituzue?
+\end_layout
+
+\begin_layout Itemize
+Albisteak: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.mail-archive.com/lyx-announce@lists.lyx.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Erabiltzaileak: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.mail-archive.com/lyx-users@lists.lyx.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Garapena: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.mail-archive.com/lyx-devel@lists.lyx.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beste testu-prozesadore batzuekiko bateragarritasuna
+\end_layout
+
+\begin_layout Subsection
+LaTeX fitxategiak irakur/idatz ditzaket?
+\end_layout
+
+\begin_layout Standard
+Bai horixe.
+ LyX-ek dokumentuen irteera sortzeko LaTeX fitxategietara bihurtzen (inprimatzek
+o erabili behar bada) edo esportatzen (gizakiok irakurtzeko bada) ditu.
+ reLyX programak, LyX-ekin datorrenak, LaTeX motako fitxategiak LyX formatura
+ bihurtzen lan dotorea egiten du.
+ Perfektua ez izan arren, zuretzat %95 lantzen du.
+\end_layout
+
+\begin_layout Subsection
+Word fitxategiak irakur/idatz ditzaket?
+\end_layout
+
+\begin_layout Standard
+Ez da hain erraza.
+ Erabiltzaileek neurri batean arrakasta lortu izan dute honako sekuentzia
+ hauek landuta: LyX
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+LaTeX
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+RTF
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Word, eta alderantziz.
+ Hala ere, Word-ek ez du LyX-ek eta LaTeX-ek duten markatze-hizkuntza erabiltzen
+, horren ondorioz bihurketak nahiko zailak eta zentzugabekoak dira.
+\end_layout
+
+\begin_layout Standard
+Dena den, hona iradokizun batzuk:
+\end_layout
+
+\begin_layout Description
+word2x Honek LaTeX, HTML eta testu soileko irteerak sortzen ditu.
+ Hasiera batean LaTeX formatura bihur dezake (eta nahiko garbi gainera),
+ baina nik nahiago izaten dut testu soilera bihurtu, eta azken honi LyX-ekin
+ formatua eman.
+ Horretarako, jatorrizko dokumentuaren formatua (zein diren atalen izenburuak,
+ zerrendak eta bestelakoak) ezagutzea eskatzen du.
+ Egin nuen azken saiakeran Office 2000-ko Word-ekin ez zebilen.
+ 
+\end_layout
+
+\begin_layout Description
+wvware (www.wvware.com gunean aurkituko duzu, edo azken bertsioa eskuratzeko,
+ joan CVS gordeleku-sistemara).
+ Garai batean msWordView izena zuen.
+ Oso ona, LaTeX/HTML formatua sortzeko balio du.
+ Oso konfigurakorra da: 
+\family typewriter
+wvLaTeX.xml
+\family default
+ fitxategiak bihurketa prozesua bideratzen du.
+ Office-ren azken bertsioetako formatuekin lan egiteko gaitasuna dauka.
+\end_layout
+
+\begin_layout Description
+Ted Norbaitek Word-ekin sortutako RTF fitxategia bidaltzen dizunean, fitxategi
+ mota horren editorea da.
+ Produktu fina benetean.
+ Erabili bihurtzailearen bertsioa (testu soila edo HTML).
+ 
+\end_layout
+
+\begin_layout Standard
+Azkenik, guzti hauek huts egiten dutenean, erabili Word formatua ulertzen
+ duten edozein testu-prozesadore (OpenOffice.org, WordPerfect, StarOffice,...).
+ Gero, bihurtu fitxategia testu soil gisa, eta inportatu LyX-era (ASCII
+ gisa).
+ Ondoren, jarri dokumentuari dagokion formatuan.
+ Niretzat, eta hau iritzi pertsonala da, bihurketa horiek guztiak egin ordez,
+ azken bide hau jorratzea askoz ere azkarragoa eta garbiagoa da, horrela
+ ez baitaukazu atzera egin eta gauzak konpontzen denbora galtzen ibili beharrik.
+\end_layout
+
+\begin_layout Subsection
+HTML fitxategiak irakur/idatz ditzaket?
+\end_layout
+
+\begin_layout Standard
+Fitxategiak HTML formatuan idazteko, beste batzuen artean, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+tth
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ bihurtzailea erabili.
+ Hortik HTML
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+LaTeX bihurketa lantzen duen programaren bat egon beharko luke.
+\end_layout
+
+\begin_layout Section
+LyX eskuratzea eta konpilatzea
+\end_layout
+
+\begin_layout Subsection
+4.1 Zer behar dut?
+\end_layout
+
+\begin_layout Itemize
+LyX-eko iturburuak: lyx-1.x.x.tar.gz
+\end_layout
+
+\begin_layout Itemize
+XForms edo Qt liburutegia.
+ XForms-en kasuan xforms-0.88 edo garatuagoa (dagoen azken bertsioa erabiltzea
+ aholkatzen da) eskuratu.
+ Bestela Qt 3.1 edo garatuagoa.
+\end_layout
+
+\begin_layout Itemize
+LaTeX banaketa bat instalatuta edukitzea: teTeX-1.0 edo bertsio garatuagoa
+ eskuratzea aholkatzen dizugu.
+\end_layout
+
+\begin_layout Itemize
+PostScript® interpretatzailea: ghostscript 7.0 edo garatuagoa.
+\end_layout
+
+\begin_layout Itemize
+C++ konpilatzaile moderno bat.
+ Gcc erabiltzen baduzu, LyX-ek 2.95.2 edo 3.2 eskatuko dizu.
+ Saiatu dagoen azken bertsioarekin lan egiten.
+\end_layout
+
+\begin_layout Subsection
+Nola konpilatzen dut?
+\end_layout
+
+\begin_layout Standard
+Terminal batean, eta LyX-en iturburuak dauden direktorioan kokatuta, landu
+ komando hauek:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+./configure
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Qt liburutegiak erabiltzea nahi baduzu, honako konfigurazio honetako aukerak
+ erabili beharko dituzu:
+\end_layout
+
+\begin_layout Itemize
+--with-frontend=qt 
+\end_layout
+
+\begin_layout Itemize
+--with-qt-dir=<Qt_instalatuta_dagoen_direktorioa>.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+make
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+make install
+\family default
+ (komando hau supererabiltzaile edo root gisa landu beharko duzu, landu
+ duzun 
+\family typewriter
+configure
+\family default
+ komandoan bestelako bandera edo aukerarik ez badiozu ezarri bederen)
+\end_layout
+
+\begin_layout Standard
+Xehetasun gehiagorako, irakurri iturburuko INSTALL fitxategia.
+\end_layout
+
+\begin_layout Subsection
+Konpilatzea gorrotatzen dut.
+ Aurrekonpilatutako kode bitarrak non aurki ditzaket?
+\end_layout
+
+\begin_layout Standard
+Arestiko pakete gehienak aurrekonpilatutako bitar formatuan Linux sistema
+ anitzetarako eskuragarri daude.
+ LyX-en kode bitarrak RPMS eta beste formatu batzuetan aurrekonpilatuta
+ daude eta gune honetatik eskura dezakezu:
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+ftp://ftp.lyx.org/pub/lyx/bin/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Windows-entzako prestatutakoa hemendik jaitsi beharko duzu:
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.fh-hannover.de/mbau/tim/hentschel/lyx/index.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Inpernuko Testu Gorriari buruzkoak (GARRANTZITSUA!)
+\end_layout
+
+\begin_layout Subsection
+Zer da Inpernuko Testu Gorria (edo ERT)?
+\end_layout
+
+\begin_layout Standard
+ERT (Inpernuko Testu Gorria) LaTeX-eko komando gordinei deitzen zaie, eta
+ LyX dokumentuan txerta ditzakezu.
+ Garapen-taldeko basapizti batzuei, ERT-ek LyX dokumentuei ematen zien itxura
+ zela eta, horrela izendatzea bururatu zitzaien.
+ Gutariko batzuek.
+ ordea, politikoki askoz ere zuzenagoak omen garenez, URT (Testu Gorri Itsusia)
+ deitu arren, arbasoengandiko ohitura hedatuz terminoa ERT bezala finkatu
+ zen.
+ 
+\end_layout
+
+\begin_layout Subsection
+Nola sartzen dut Inpernuko Testu Gorri bat?
+\end_layout
+
+\begin_layout Standard
+Itxurari buruzko eztabaida alde batera utziz, MEG honetan aurkitu dituzun
+ erantzun askok ERT erabiltzea eskatuko dizute; beraz, 
+\begin_inset Quotes eld
+\end_inset
+
+txertatu LaTeX kode hau" edo antzeko zerbait agintzen dizugunean, zuk honako
+ hau egin beharko zenuke (aginduei jaramonik ez egitea nahi baduzu, batzuek
+ esaten duten bezala "egin zerorrek!
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+Tresna-barrako TeX botoian klikatu, edo 
+\family sans
+\bar under
+T
+\bar default
+xertatu\SpecialChar \menuseparator
+
+\bar under
+T
+\bar default
+eX
+\family default
+ menua erabili.
+\end_layout
+
+\begin_layout Enumerate
+Idatzi komandoa, beste edozein testu bezala.
+\end_layout
+
+\begin_layout Subsection
+ERT multzo berria nahiko astuna da!
+\end_layout
+
+\begin_layout Standard
+Erabiltzaile asko LyX 1.2.0 bertsioan sartu zen eta ERT txertatzeari buruzko
+ kexa azaldu zen.
+ Hala ere, LaTeX zaharra berpizteko itxaropen txiki bat egon arren (eta
+ hori bai zela akerren
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I
+\emph on
+tzultzailearen oharra
+\emph default
+: "hack" hitza berez, beste esanahi batzuen artean, "aizkorakada" da, eta
+ ondorioz "hacker"-ak "aizkolariak" dira.
+ Fonema-kontua dela eta, "hacker" euskaraz ahoskatzerakoan "aker" entzuten
+ denez, "akerra" hitza erabiltzea bururatu zait.
+\end_layout
+
+\end_inset
+
+ lana!), hemen hausnarketa batzuk zerrendatu ditugu:
+\end_layout
+
+\begin_layout Standard
+* ERT beste edozein mugikor bezala tolesta dezakezu; horretarako, klikatu
+ dokumentuan txertatu duzun ERT botoiaren gainean edo erabili 
+\family sans
+\bar under
+E
+\bar default
+ditatu\SpecialChar \menuseparator
+Ireki/Itxi
+\begin_inset space ~
+\end_inset
+
+
+\bar under
+m
+\bar default
+ugikorra
+\family default
+ menua (lehenespenez 
+\family sans
+C-i
+\family default
+ lasterbideari esleituta dago).
+\end_layout
+
+\begin_layout Standard
+* ERT bat 
+\emph on
+lerro-barnean
+\emph default
+ ezar dezakezu; horretarako, klikatu ERT txertatze-kutxaren barruan (LaTeX
+ kodea idazten den lekuan) saguaren eskuin-botoiarekin eta elkarrizketa-koadro
+ batean bere propietateak azalduko zaizkizu.
+ "Barnean" hautatu.
+ 
+\end_layout
+
+\begin_layout Subsection
+Badago beste aukerarik?
+\end_layout
+
+\begin_layout Standard
+LaTeX komandoak 
+\begin_inset Quotes eld
+\end_inset
+
+LaTeX hitzaurrean" ere txerta daitezke, gune horretan idazten den guztia
+ prozesuan zehar sortzen den LaTeX fitxategian hitzez hitz txertatzen da.
+ Hau LaTeX-eko pakete ez-estandarrak gehitzeko (dokumentuan erabiliko diren
+ lasterbide orokorrak definitu, eta bestelakoak egiteko) oso erabilgarria
+ izaten da.
+\end_layout
+
+\begin_layout Section
+LyX-en erabilerari buruzkoak
+\end_layout
+
+\begin_layout Standard
+Atal honetan maiz egin ohi diren galderei erantzuna aurkitzen saiatuko gara.
+ Oso gutxitan egin diren galderak Herbert Voss-ek egindako 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.educat.hu-berlin.de/~voss/lyx
+\end_layout
+
+\end_inset
+
+ bilduma ikusgarrian aurkituko dituzu.
+ Beraz, posta zerrendetan zerbait galdetu aurretik gune horretara joan eta
+ irakurri, merezi du eta!
+\end_layout
+
+\begin_layout Subsection
+Galdera orokorrak
+\end_layout
+
+\begin_layout Subsubsection
+Nola ezabatu titulu azpiko data?
+\end_layout
+
+\begin_layout Standard
+Irtenbiderik egokiena 
+\family sans
+Dokumentu-ezarpenak
+\family default
+ leihoko 
+\family sans
+Hitzaurrea
+\family default
+ gunean ondorengo lerroa sartzea da:
+\end_layout
+
+\begin_layout LyX-Code
+
+\backslash
+date{}
+\end_layout
+
+\begin_layout Description
+
+\emph on
+Itzultzailearen
+\begin_inset space ~
+\end_inset
+
+oharra
+\emph default
+: beste aukera bat da egilea izena sartzen duzunean, liburu batean adibidez,
+ ondorengo lerroan zuriune babestu bat sartu eta hau 
+\family sans
+Data
+\family default
+ ingurunearekin ezartzea (horrela hitzaurrea ez duzu zer ukitu beharrik).
+\end_layout
+
+\begin_layout Subsubsection
+Nola alda ditzaket Elementua/\SpecialChar \-
+Zenbatua/\SpecialChar \-
+Azalpena zerrenda inguruneko tarteak?
+\end_layout
+
+\begin_layout Standard
+Hori eskuz egin behar duzu: adibidez, idatzi zerrenda berezi baten hasieran
+ LaTeX kode hau:
+\end_layout
+
+\begin_layout LyX-Code
+
+\backslash
+setlength{
+\backslash
+itemsep}{0mm}
+\end_layout
+
+\begin_layout Subsubsection
+Nola zenbatzen dira ekuazioak atalekiko?
+\end_layout
+
+\begin_layout Standard
+Gehitu dokumentuko LaTeX hitzaurrean ondorengo bi lerroak:
+\end_layout
+
+\begin_layout LyX-Code
+
+\backslash
+@addtoreset{equation}{section} 
+\end_layout
+
+\begin_layout LyX-Code
+
+\backslash
+renewcommand{
+\backslash
+theequation}{
+\backslash
+thesection.
+\backslash
+arabic{equation}}
+\end_layout
+
+\begin_layout Subsubsection
+Gauza bera irudi eta taulekin egiterik ba ote?
+\end_layout
+
+\begin_layout Standard
+Ordeztu 
+\family typewriter
+
+\backslash
+theequation
+\family default
+ esaldia 
+\family typewriter
+
+\backslash
+thetable
+\family default
+ edo 
+\family typewriter
+
+\backslash
+thefigure
+\family default
+ bategatik; gero ordeztu 
+\family typewriter
+equation
+\family default
+ hitza 
+\family typewriter
+table
+\family default
+ edo 
+\family typewriter
+figure
+\family default
+ hitzagatik.
+ Ez ahaztu 
+\family typewriter
+
+\backslash
+@addtoreset
+\family default
+ komandoa egokitzea ere, hor ere 
+\family typewriter
+equation
+\family default
+ agertzen baita, eta egokitu beharra duzu.
+\end_layout
+
+\begin_layout Subsubsection
+Oin-oharren zenbakiak ikurretara (izartxoa, daga, e.a.) nola aldatu?
+\end_layout
+
+\begin_layout Standard
+Zure LaTeX hitzaurrean
+\family typewriter
+
+\backslash
+renewcommand{
+\backslash
+thefootnote}{
+\backslash
+fnsymbol{footnote}}
+\family default
+ gehitu.
+\end_layout
+
+\begin_layout Subsubsection
+Nola hil ditzaket alargun eta umezurtzak?
+\end_layout
+
+\begin_layout Standard
+Beno, hemen ez gara Duke Nukem-ekin jolasten ari! Alargunak eta umezurtzak
+ (paragrafo baten aurreneko lerroa orrialde baten behean eta paragrafo baten
+ azken lerroa beste orrialde baten goian) kentzeko, gehitu hau LaTeX hitzaurrean
+:
+\end_layout
+
+\begin_layout LyX-Code
+
+\backslash
+widowpenalty=10000 
+\end_layout
+
+\begin_layout LyX-Code
+
+\backslash
+clubpenalty=10000 
+\end_layout
+
+\begin_layout Standard
+eta agian beste hau ere bai:
+\end_layout
+
+\begin_layout LyX-Code
+
+\backslash
+raggedbottom
+\end_layout
+
+\begin_layout Subsubsection
+Nola egituratu zerrenda bat 1.a bezalakoarekin hasteko?
+\end_layout
+
+\begin_layout Standard
+Honelako zerrenda bat eduki nahi baduzu
+\end_layout
+
+\begin_layout LyX-Code
+1.
+ a) Lehen aukera
+\end_layout
+
+\begin_layout LyX-Code
+   b) Bigarren aukera
+\end_layout
+
+\begin_layout LyX-Code
+   c) Hirugarren aukera
+\end_layout
+
+\begin_layout Standard
+probatu hau egiten:
+\end_layout
+
+\begin_layout LyX-Code
+1.
+ {} 
+\end_layout
+
+\begin_layout LyX-Code
+a) Lehen aukera
+\end_layout
+
+\begin_layout LyX-Code
+b) Bigarren aukera
+\end_layout
+
+\begin_layout LyX-Code
+c) Hirugarren aukera
+\end_layout
+
+\begin_layout Standard
+{} kortxete bikotea ERT barruan dago.
+ Hau da, edukitzaileak ez dira inprimatzen.
+ Egin hau zehatz-mehatz: sortu paragrafo bat 
+\begin_inset Quotes eld
+\end_inset
+
+zenbatua" ingurunearekin, sartu ERT batean kortxete bikoitza, sartu lerro
+ berri bat eta habiaratze-sakonera gehitu, gero idatzi hiru elementuak.
+ LyX-ek autoetiketatuko ditu.
+\end_layout
+
+\begin_layout Subsubsection
+Nola zenbatu hitz-kopurua?
+\end_layout
+
+\begin_layout Standard
+Exekutatu zuzentzaile ortografiko bat; egiaztatu duen hitz-kopuru osoa erakutsik
+o du.
+ Zuzentzailea abiatu baino lehenago, eta hitz guztiak zenbatzeko, ziurtatu
+ kurtsorea dokumentuaren hasieran dagoela.
+\end_layout
+
+\begin_layout Subsubsection
+Nola finkatu tarte horizontal zehatz bat?
+\end_layout
+
+\begin_layout Standard
+Erabil ditzakezun ERT komando batzuk daude: 
+\family typewriter
+
+\backslash
+enspace
+\family default
+ (1/2 em), 
+\family typewriter
+
+\backslash
+thinspace
+\family default
+ (1/6 em), 
+\family typewriter
+
+\backslash
+negthinspace
+\family default
+ (-1/6 em), 
+\family typewriter
+
+\backslash
+quad
+\family default
+ (1 em), 
+\family typewriter
+
+\backslash
+qquad
+\family default
+ (2 em), 
+\family typewriter
+
+\backslash
+hspace{
+\emph on
+luzera
+\emph default
+}
+\family default
+, e.a.
+ Komandoetan agertzen diren 
+\begin_inset Quotes eld
+\end_inset
+
+em" horiek uneko letra-tipoko "m"hizkiaren zabalera da.
+ 
+\family typewriter
+
+\backslash
+hspace
+\family default
+ komandoko luzeraren argumentua edozein TeX luzera baliagarria da; unitateak
+ 
+\family typewriter
+mm
+\family default
+ (milimetroak), 
+\family typewriter
+cm
+\family default
+ (zentimetroak), 
+\family typewriter
+in
+\family default
+ (hatzak), 
+\family typewriter
+pt
+\family default
+ (puntuak = 1/72 hatz), 
+\family typewriter
+em
+\family default
+ ("m" hizkiaren zabalera), edo 
+\family typewriter
+ex
+\family default
+ ("x" hizkiaren luzera) izan daitezke.
+ Adibidez: 
+\family typewriter
+
+\backslash
+hspace{1in}
+\family default
+, 
+\family typewriter
+
+\backslash
+hspace{2.5em}
+\family default
+, e.a.
+\end_layout
+
+\begin_layout Subsubsection
+Zer egin zitazioek [1][2][3][6] ordez [1,2,3,6] edo [1-3,6] erakusteko?
+\end_layout
+
+\begin_layout Standard
+Txertatu 
+\family typewriter
+
+\backslash
+usepackage{cite}
+\family default
+ LaTeX hitzaurrean.
+ LaTeX banaketa gehienek pakete hori edukitzen dute.
+ LyX-ek pakete hori onartzen du, eta horrela komaz bereiztuta hainbat aipu
+ zitazioaren elkarrizketa-koadroan txerta ditzakezu: adib.
+ [Ziggy_TokiAlai][Ansel_Etxetxo] ordez [Ziggi_TokiAlai, Ansel_Etxetxo] bata
+ bestearen jarraian erabil dezakezu.
+\end_layout
+
+\begin_layout Subsection
+Irudiei buruzkoak
+\end_layout
+
+\begin_layout Subsubsection
+Zein ezberdintasun dute 
+\begin_inset Quotes eld
+\end_inset
+
+irudia
+\begin_inset Quotes erd
+\end_inset
+
+k eta 
+\begin_inset Quotes eld
+\end_inset
+
+irudi mugikorra
+\begin_inset Quotes erd
+\end_inset
+
+k?
+\end_layout
+
+\begin_layout Standard
+Hau terminologia ez-egoki baten adibidea da.
+ "Irudia" batek "grafiko" bat adierazten du, eta fitxategian argazki bat
+ txertatuko dela esaten du.
+ Irudi mugikorra batek artikulu bateko irudi batek adierazten duena baino
+ gehiago da: honek grafikoak, epigrafeak, irudiaren etiketak eta bestelakoak
+ baititu.
+ Lehenbizi irudi mugikor bat txertatzen da, eta gero berroren barruan irudi
+ bat jartzen zaio.
+\end_layout
+
+\begin_layout Standard
+Taulak antzera lantzen dira.
+ Txertatu taula mugikor bat , eta gero bertan sartu taula bat.
+\end_layout
+
+\begin_layout Subsubsection
+Nola kokatu dezaket irudi bat nahi dudan lekuan?
+\end_layout
+
+\begin_layout Standard
+Hautatu 
+\family sans
+\bar under
+D
+\bar default
+iseinua\SpecialChar \menuseparator
+
+\bar under
+D
+\bar default
+okumentua
+\family default
+ menua.
+ 
+\family sans
+Diseinua
+\family default
+ fitxako 
+\family sans
+Mugikor-kokapena
+\family default
+ eremuan 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+!htp
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ idatzi.
+ Horrek LaTeX-i irudia txertatu duzun lekuan jartzen buru-belarri saiatzeko,
+ ezin badu orrialde baten gainean, eta bestela orrialde bat beretzako bereziki
+ jartzea esaten dio.
+ Hau ezarpen orokor bat da: irudi guztiek ezarri den arau honi jarraituko
+ diote.
+\end_layout
+
+\begin_layout Standard
+Irudi bakoitzaren jokaera kontrolatu nahi baduzu, klikatu irudi mugikorraren
+ gainean saguaren eskuineko botoiarekin, eta horrek irudiaren jokaera kontrolatz
+eko leihoa bistaratuko dizu.
+\end_layout
+
+\begin_layout Subsubsection
+Zer adierazten du 
+\begin_inset Quotes eld
+\end_inset
+
+Too many unprocessed floats
+\begin_inset Quotes erd
+\end_inset
+
+ errore-mezuak?
+\end_layout
+
+\begin_layout Standard
+LaTeX-ek une batean batera mugitu ditzakeen elementu mugikor kopuru mugatu
+ batekin lan egin dezake.
+ 
+\end_layout
+
+\begin_layout Standard
+Adibidez, 4.
+ irudia ezin bada leku egoki batean jarri (lehenetsitako arauak jarraituz,
+ orrialdearen goian, gero behean, eta gero beretzako orrialde berezi batean)
+ eta gero 5.
+\begin_inset space ~
+\end_inset
+
+irudia badator, biak, kokapen egokia lortu arte, dokumentuaren amaiera arte
+ mugitzen joango dira.
+ Ezer onik ez bada gertatzen, dokumentuaren amaieran kokatuko dira.
+ Horrelako gehiegi egonez gero, LaTeX-i buruko mina jartzen zaio eta "too
+ many unprocessed floats
+\begin_inset Quotes erd
+\end_inset
+
+ errore-mezua igortzen du.
+ Hau ez da LaTeX-en errorea, irudi gehiegi eta testu gutxiegi dagoela baizik
+ :-)
+\end_layout
+
+\begin_layout Standard
+Honen inguruan lan egiteko biderik errazena hau da: txertatu 
+\family typewriter
+
+\backslash
+clearpage
+\family default
+ komandoa dokumentuan orri-jauzia ongi letorkeen leku batean.
+ Orri-jauzi batek orrialde berri bat hasten duen bitartean, 
+\family typewriter
+
+\backslash
+clearpage
+\family default
+ komandoak ordura arte finkatu gabe dauden mugikor guztiak prozesatu, eta
+ gero orrialde berri bat hasten du.
+ Honek dokumentu erdian irudi pila bat batera jarri eta dokumentua itsusi
+ konposatuko du: beraz, irudiak dokumentuan zehar banatzeko hainbat 
+\family typewriter
+
+\backslash
+clearpage
+\family default
+ erabili beharko dituzu.
+\end_layout
+
+\begin_layout Subsection
+Matematikako gauzak
+\end_layout
+
+\begin_layout Subsubsection
+Nola sartu testu arrunta matematikako ekuazio batean?
+\end_layout
+
+\begin_layout Standard
+Kurtsorea matematikako gunean kokatuta dagoela, sakatu 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+M-m m
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+, eta gero idatzi "mat.
+ testu arrunta".
+\end_layout
+
+\begin_layout Subsubsection
+6.3.2 Nola egiten da erro kubiko bat (edo handiagoa)?
+\end_layout
+
+\begin_layout Standard
+Kurtsorea matematikako gunean kokatuta dagoela, sakatu 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+M-m m
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+; honek "erroaren kutxa" txertatuko du.
+ Ondoren, eraibli teklatuko geziak sarrerako kutxetan zehar ibiltzeko.
+\end_layout
+
+\begin_layout Section
+7LyX-en exekuzioari buruzkoak
+\end_layout
+
+\begin_layout Subsection
+Nola bihurtu LyX fitxategiak LaTeX-era komando lerroarekin?
+\end_layout
+
+\begin_layout Standard
+Fitxategia esportatzeko gaitasun hau 1.1.6 bertsioan garatu zen.
+ Landu hau komando-lerroan:
+\end_layout
+
+\begin_layout LyX-Code
+lyx --export latex <zure_fitxategia>.lyx
+\end_layout
+
+\begin_layout Standard
+eta egina duzu!
+\end_layout
+
+\begin_layout Standard
+LyX-eko bertsio zaharragoa baduzu, X exekutatzen ari bazina bezalako sintaxia
+ erabil dezakezu; horrek LyX leihoa pantailan agertzea dakar.
+ 
+\family typewriter
+Xvfb
+\family default
+ komandoa erabilgarri baduzu, landu hau itsu-itsu (bash komando lerroan)
+\end_layout
+
+\begin_layout LyX-Code
+(Xvfb :1 -once -terminate &); rm <fitxat>.tex; 
+\end_layout
+
+\begin_layout LyX-Code
+lyx -display :1 --export latex <fitxat>.lyx
+\end_layout
+
+\begin_layout Standard
+csh/tcsh motako komando-lerroan berriz:
+\end_layout
+
+\begin_layout LyX-Code
+Xvfb :1 -once -terminate &; rm <fitxat>.tex; 
+\end_layout
+
+\begin_layout LyX-Code
+lyx -display :1 --export latex <fitxat>.lyx
+\end_layout
+
+\begin_layout Standard
+Honek edozein lekutan funtzionatu beharko luke, eta berdin dio une horretan
+ LyX exekutatzen ari den edo ez.
+\end_layout
+
+\begin_layout Subsection
+Nola sortu LyX dokumentuaren PDF fitxategia?
+\end_layout
+
+\begin_layout Standard
+Irakurri 
+\emph on
+Ezaugarri Hedatuak
+\emph default
+ eskuliburuko 5.3.6 atala.
+\end_layout
+
+\begin_layout Subsection
+Dokumentuaren letra-tipo itsusiak acroread-en?
+\end_layout
+
+\begin_layout Standard
+Arazo hau eta konponbidea 
+\emph on
+Ezaugarri Hedatua
+\emph default
+k eskuliburuko 5.3.6 atalean ere azaltzen dira.
+\end_layout
+
+\begin_layout Subsection
+Zergatik nire Ghostscript-en azken bertsioak ezin ditu egokiro marraztu
+ lerro-barneko EPSak?
+\end_layout
+
+\begin_layout Description
+
+\emph on
+Oharra
+\emph default
+: honek LyX 1.2.0 bertsioa baino zaharragoak direnei eragiten die, bertsio
+ horretan marrazteko kodea erabat berridatzi baitzen.
+\end_layout
+
+\begin_layout Standard
+Erabiltzaile batzuek ohartarazi zuten LyX-eko lerro-barneko EPS irudiak
+ Ghostscript-en azken bertsioak ezin zituela marraztu.
+ Hori Ghostscript programaren akatsa da:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://sourceforge.net/bugs/?func=detailbug&bug_id=124957&group_id=1897
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Akats honek Ghostscript 6.22 eta goranzkoei eragiten die.
+ Arestian aipatutako txaplata aplikatu ondoren, LyX-en marrazketa ongi lantzen
+ da berriro.
+ GNU Ghostscript 6.53 eta gainekoek arazoa konponduta dute.
+\end_layout
+
+\begin_layout Section
+LyX Windows-en 
+\end_layout
+
+\begin_layout Subsection
+Zergatik egiten dute dardar tresna-barra eta menuak?
+\end_layout
+
+\begin_layout Standard
+Ziurrenik XWin32 X zerbitzaria erabiltzen ariko zara.
+ Hau XWin32-ren akats bat da: arazoa konpontzeko, desgaitu XWin32-ren "Use
+ Reserved Colors" aukera, eta saiatu SasiKolorea ez den beste kolore modu
+ bat erabiltzen.
+\end_layout
+
+\begin_layout Section
+Laguntza gehiago nola lortu
+\end_layout
+
+\begin_layout Subsection
+Oraindik ez diezu nire galderei erantzun!
+\end_layout
+
+\begin_layout Standard
+Zer, tiporta?! Orduan IEPAAAH
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\emph on
+Itzultzailearen oharra
+\emph default
+: ingelesez RTFM deitzen zaio, hots "Read The Fucking Manual".
+ Euskaratutakoaren esanahia neuretzako gordetzen dut, ingelesezkoa baino
+ askoz ere bortitzagoa baita, baina antzeko zerbait esan nahi du, gutxi
+ gorabehera.
+ Egunen batean, ardo beltza edanez txikiteoan gabiltzala, agian orduan,
+ esango dizuet ;-)
+\end_layout
+
+\end_inset
+
+ , Tutoretza bereziki! Dokumentazioa oso ona da (azken finean zenbait zati
+ idazten lagundu bainuen :-).
+ Zure arazoa LaTeX-ekin bada, orduan irakurri Leslie Lamport-en 
+\emph on
+LaTeX, A Document Preparation System, 2nd Ed.
+ (1994)
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+LyX-ek ere hainbat adibide-fitxategi dakartza.
+ Hautatu 
+\family sans
+\bar under
+F
+\bar default
+itxategia\SpecialChar \menuseparator
+
+\bar under
+I
+\bar default
+reki
+\family default
+ menua eta klikatu 
+\family sans
+\bar under
+A
+\bar default
+dibideak
+\family default
+ botoian, egin esandakoa eta ulertuko duzu.
+\end_layout
+
+\begin_layout Subsection
+Nire arazoa norbaiti azaldu nahi diot
+\end_layout
+
+\begin_layout Standard
+Ummmm...Hemen erabiltzaileen bizitza sentimenalei buruz ez gara aritzen.
+ Horretarako telebistan nahikoa programa daude.
+ Arazoak LyX-ekin badituzu, orduan idatzi LyX-en erabiltzaileen zerrendara:
+ lyx-users@lists.lyx.org.
+ LyX izorratzen bada, edota bestelako funtzio batzuk hondatuta baditu, garatzail
+een posta-zerrendarekin saia zintezke: lyx-devel@lists.lyx.org.
+\end_layout
+
+\begin_layout Subsection
+Laguntza-eskaeran zer jarri.
+\end_layout
+
+\begin_layout Standard
+LyX-en zein bertsio erabiltzen ari zaren, deskribatu hondatzerakoan zer
+ egiten ari zinen, eta nabarmendu dokumentazioa irakurri duzula.
+\end_layout
+
+\begin_layout Standard
+LyX izorratu bada, idatzi LyX-en bertsioa, sistema eragilea, XForms (pantailan
+ marrazteko arazo batzuk izan ohi ditu) edo Qt bertsioa, eta zertan ari
+ zinen hori izorratzeko.
+ Garatzaileek zenbat eta azkarrago antzeman non izorratu den, orduan eta
+ lehenago konponduko dute arazoa.
+ Zeure burua akertzat baduzu, erabili gdb eta sortu atzeko-aztarnak (backtrace),
+ eta gehitu emaitzak zure gutunari.
+ Diodana ez baduzu aditzen, deskribatu gertatutakoa ahal duzun moduan.
+ Zure mezua ongi etorria izango dela jakinarazi nahi dizugu.
+\end_layout
+
+\begin_layout Section
+Informazio administratiboa eta aitorpenak
+\end_layout
+
+\begin_layout Subsection
+Ohartarazpenei ongi etorria
+\end_layout
+
+\begin_layout Standard
+Idatzi 
+\emph on
+mike.ressler@alum.mit.edu
+\emph default
+ helbidera iradokizunak, aholkuak, hobekuntzak, eta zure dokumentuarekin
+ munduko marka hautsi duzula ohartaraziz edo bestelako ipuin batzuekin.
+ Hemendik entzun dugu gure Mikik (
+\emph on
+vos ça grande, miki!
+\emph default
+) neskatan lepo egiten duela, mutila jatorra da.
+ Ausartzen?
+\end_layout
+
+\begin_layout Subsection
+MEG honen formatu eskuragarriak
+\end_layout
+
+\begin_layout Standard
+Jatorrizko LyX fitxategia LyX-en banaketako iturburuekin batera dator, HTML
+ eta ASCII formatuetara bihurtutakoak laster web gunean eskuragarri egongo
+ dira.
+ Banaketan alemanezko bertsio bat ere badago.
+ Eta noski, euskarazkoa ere bai, irakurtzen ari zaren hau.
+\end_layout
+
+\begin_layout Subsection
+Errudunak eta aitorpenak
+\end_layout
+
+\begin_layout Standard
+LyX-0.10.7 betetzen zuen MEG 0.2.2 bertsioaren egileak Bernhard Iselborn, David
+ Johnson, eta Paul Evans izan ziren.
+ MEG 0.3.0 bertsio bezala hutsetik idazten hasi zen eta LyX-1.0 edo garatuagoak
+ betetzen ditu.
+ Pertsona askok lagundu dute uneko bertsioan; Dokumentazio-taldeko Mike
+ Ressler-ek guztiak bildu eta fitxategi honetan gorde zituen.
+\end_layout
+
+\begin_layout Subsection
+Ezespena eta Copyright-a.
+ 
+\end_layout
+
+\begin_layout Standard
+Ez dut ziurtatzen dokumentu honetako edozer 
+\begin_inset Formula $\pi$
+\end_inset
+
+-ren faktore barrutian koka daitekeenik; azken finean, ni astronomo bat
+ naiz, eta 
+\begin_inset Formula $c=h=k=\pi=1$
+\end_inset
+
+ ezartzea atsegin dut.
+ Emaitza okerra denean, unitatean birdefinitzen ditugu.
+\end_layout
+
+\begin_layout Standard
+Fitxategi hau erabilgarria izango delakoan banatzen da, baina INOLAKO BERMERIK
+ GABE; era berean, ez da bermatzen beraren EGOKITASUNA MERKATURATZEKO edo
+ HELBURU PARTIKULARRETARAKO ERABILTZEKO.
+ Argibide gehiago nahi izanez gero, ikus GNU Lizentzia Publiko Orokorra.
+ Beste era batera mintzatuz, ez da nire errua zure doktoretzako aurkezpenaren
+ bezperako gauean tesia gorde ez zenuelako, zeren eta oinarrizko fisikako
+ konstantea 
+\begin_inset Formula $\textrm{m s}^{-1}$
+\end_inset
+
+ unitateetan neurtuz nola izan zitekeen 
+\begin_inset Formula $\textrm{kg m s}^{-2}\textrm{ K}^{-1}$
+\end_inset
+
+bezalako adierazpen baten berdina pentsatzen ari zinen bitartean argi indarra
+ joan bazen tesia galdu eraziz.
+ Fitxategi honen Copyright © 2000, egilea Michael E.
+ Ressler, LyX Dokumentazio Taldearen izenean.
+\end_layout
+
+\end_body
+\end_document

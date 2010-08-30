@@ -1,0 +1,73 @@
+#\DeclareLyXModule{Logical Markup}
+#DescriptionBegin
+#Defines some character styles for logical markup: noun, emph, strong, and code.
+#DescriptionEnd
+#Category: charstyles
+
+# Author : Martin vermeer <martin.vermeer@hut.fi>
+
+Format 27
+
+InsetLayout CharStyle:Noun
+	LyxType               charstyle
+	LabelString           noun
+	LatexType             command
+	LatexName             noun
+	Font
+	  Shape               Smallcaps
+	EndFont
+	Requires              noun
+	InToc                 true
+	HTMLTag               span
+	HTMLAttr              class='noun'
+	HTMLStyle
+		span.noun {
+			font-family: sans-serif;
+		}
+	EndHTMLStyle
+End
+
+
+InsetLayout CharStyle:Emph
+	LyxType               charstyle
+	LabelString           emph
+	LatexType             command
+	LatexName             emph
+	Font
+	  Shape               Italic
+	EndFont
+	InToc                 true
+	HTMLTag               em
+End
+
+
+InsetLayout CharStyle:Strong
+	LyxType               charstyle
+	LabelString           strong
+	LatexType             command
+	LatexName             strong
+	Font
+	  Series              Bold
+	EndFont
+	Preamble
+	\newcommand{\strong}[1]{\textbf{#1}}
+	EndPreamble
+	InToc                 true
+	HTMLTag               strong
+End
+
+
+InsetLayout CharStyle:Code
+	LyxType               charstyle
+	LabelString           code
+	LatexType             command
+	LatexName             code
+	Font
+	  Family              Typewriter
+	EndFont
+	Preamble
+	\newcommand{\code}[1]{\texttt{#1}}
+	EndPreamble
+	InToc                 true
+	HTMLTag               code
+End

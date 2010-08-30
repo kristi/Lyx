@@ -1,0 +1,158 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass{book (AMS)}
+# AMS-Article textclass definition file. Taken from initial LyX source code
+# and from the Article textclass definition file, following the AMS sample
+# paper "testmath.tex" of January, 1995
+# Author : David L. Johnson <dlj0@lehigh.edu>
+# Probably broken by Jean-Marc Lasgouttes <Jean-Marc.Lasgouttes@inria.fr>
+# modified and modularized by Emmanuel GUREGHIAN <gureghia@boston.bertin.fr>
+# Tinkered with Sep. '07 by Paul Rubin <rubin@msu.edu>
+# Modularized Jan '08 by Richard Heck <rgheck@brown.edu>
+# Moved "number within sections" to modules Aug '09 (Paul Rubin <rubin@msu.edu>)
+
+
+Format 27
+Columns                 1
+Sides                   2
+PageStyle               Headers
+
+
+ClassOptions
+	FontSize   8|9|10|11|12
+End
+
+DefaultModule theorems-ams
+DefaultModule eqs-within-sections
+DefaultModule figs-within-sections
+
+Style Standard
+	Category              MainText
+	Margin                Static
+	LatexType             Paragraph
+	LatexName             dummy
+	ParIndent             MM
+	ParSkip               0.4
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	LabelType             No_Label
+End
+
+
+Preamble
+	\numberwithin{section}{chapter}
+EndPreamble
+
+
+Input stdsections.inc
+Input stdinsets.inc
+Input numreport.inc
+
+
+Style Section
+	Align                 Center
+	Font
+	  Series              Bold
+	  Size                Large
+	EndFont
+	TocLevel 1
+End
+
+
+Style Subsection
+	Font
+	  Series              Bold
+	  Size                Normal
+	EndFont
+	TocLevel 2
+End
+
+
+Style Subsubsection
+	Font
+	  Shape               Italic
+	  Size                Normal
+	EndFont
+	TocLevel 3
+End
+
+
+Input stdstarsections.inc
+
+
+Style Section*
+	Align                 Center
+	Font
+	  Series              Bold
+	  Size                Large
+	EndFont
+End
+
+
+Style Subsection*
+	Font
+	  Series              Bold
+	  Size                Normal
+	EndFont
+End
+
+
+Style Subsubsection*
+	Font
+	  Shape               Italic
+	  Size                Normal
+	EndFont
+End
+
+
+Input lyxmacros.inc
+Input stdlayouts.inc
+Input stdlists.inc
+Input stdfloats.inc
+Input stdcounters.inc
+Input amsdefs.inc
+
+# Unwanted styles from the includes
+NoStyle Address
+NoStyle Verse
+
+# Chapter is _not_ prepended
+# JSpitz: this seems to be not true (anymore?)
+#Style Section
+#	LabelString          "\arabic{section}"
+#	LabelStringAppendix  "\arabic{section}"
+#End
+
+
+Style Paragraph
+	Font
+	  Series Medium
+	EndFont
+	TocLevel 4
+End
+
+
+# End-of Chapter exercises  I need a way to do this.
+Style Chapter_Exercises
+	Margin                First_Dynamic
+	LatexType             Item_Environment
+	LatexName             lyxxcb
+	NextNoIndent          1
+	LeftMargin            MMN
+	LabelSep              xx
+	ParSkip               0.0
+	ItemSep               0.2
+	TopSep                0.7
+	BottomSep             0.7
+	ParSep                0.3
+	Align                 Block
+	AlignPossible         Block, Left
+	LabelType             Counter
+	LabelFont
+	  Shape               Up
+	  Series              Bold
+	EndFont
+	Preamble
+	  \newenvironment{lyxxcb}{\begin{xcb}{Exercises}\begin{enumerate}}
+	                     {\end{enumerate}\end{xcb}}
+	EndPreamble
+End

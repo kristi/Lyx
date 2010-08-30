@@ -1,0 +1,57 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[svjour,svprobth.clo]{article (Springer svjour/PTRF)}
+# svjour/probth (article) textclass definition file.
+# for Springer Verlag Journal of Geodesy.
+# --------
+#
+# Taken from initial LyX source code
+# Author : Matthias Ettrich <ettrich@informatik.uni-tuebingen.de>
+# Transposed by Pascal André <andre@via.ecp.fr>
+# Heavily modified and enhanced by serveral developers.
+#
+# --------
+# ejour2 made originally by Martin Vermeer based on article.layout.
+# Modified for LyX 12 by Jean-Marc Lasgouttes and MV.
+#
+# Adapted to svjour/jog (new 1999 Springer LaTeX2e classes) by
+# MV in 2000.
+#
+# Adapted to Probability Theory and Related Fields by JMarc
+#
+# General textclass parameters
+# (jog) ?
+#
+# see www.springer.de/author/tex/help-journals.html for class files
+
+
+Format 27
+Input svjour.inc
+
+ClassOptions
+	Other         probth
+End
+
+
+Style Title
+	Font
+	  Family              Roman
+	  Series              Bold
+	  Size                Larger
+	EndFont
+End
+
+
+Style Subtitle
+	Font
+	  Family              Roman
+	  Series              Bold
+	  Size                Large
+	EndFont
+End
+
+Style Author
+	Font
+	  Series              Medium
+	  Shape               Up
+	EndFont
+End

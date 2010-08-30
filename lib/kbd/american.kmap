@@ -1,0 +1,52 @@
+\kmod ' acute native
+\kmod ` grave native
+\kmod ~ tilde native
+\kmod . dot native
+\kmod _ underbar native
+\kmod - macron native
+\kmod "," cedilla native
+\kmod ; underdot native
+\kmod ^ circumflex native
+\kmod < tie native
+\kmod > breve native
+\kmod + caron native
+\kmod / hugarian_umlaut native
+\kmod : umlaut native
+\kmod ? circle native
+# \kxmod acute i í
+# \kxmod grave i ì
+# \kxmod tilde i ĩ
+# \kxmod dot i ı̇
+# \kxmod macron i ī
+# \kxmod circumflex i î
+# \kxmod breve i ĭ
+# \kxmod caron i ǐ
+# \kxmod hugarian_umlaut i ı̋
+# \kxmod umlaut i ï
+# \kxmod circle i ı̊
+# \kxmod acute j ȷ́
+# \kxmod grave j ȷ̀
+# \kxmod tilde j ȷ̃
+# \kxmod dot j ȷ̇
+# \kxmod macron j ȷ̄
+# \kxmod circumflex j ĵ
+# \kxmod breve j ȷ̆
+# \kxmod caron j ǰ
+# \kxmod hugarian_umlaut j ȷ̋
+# \kxmod umlaut j ȷ̈
+# \kxmod circle j ȷ̊
+# \kxmod acute ' '
+# \kxmod grave ` `
+# \kxmod tilde ~ ~
+# \kxmod dot . .
+# \kxmod underbar _ _
+# \kxmod macron - -
+# \kxmod cedilla "," ","
+# \kxmod underdot ; ;
+# \kxmod circumflex ^ ^
+# \kxmod tie < <
+# \kxmod breve > >
+# \kxmod caron + +
+# \kxmod hugarian_umlaut / /
+# \kxmod umlaut : :
+# \kxmod circle ? ?

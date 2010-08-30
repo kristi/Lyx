@@ -1,0 +1,76 @@
+Eran Tromer:
+
+- When selecting, maybe give a visual indication of the "original"
+  anchor, when it differs from the "actual" one.
+
+
+Álvaro Tejero Cantero <alvaro@antalia.com>
+
+- I suggest creating a different "kewybinding namespace" for the formulas,
+ since you could put to good use all those keybindings from the menu (M-?,
+ C-?) thath currently do their job PLUS getting you out of the formula.
+ Seriously, it'd be great to have more keys free, so M-d t would be time
+ derivative and M-d ? derivative with respect to the variable ?. And so on.
+
+   Flattening macros. Sometimes it's annoying the fact that once you have
+ written a macro, you can't touch at it's "constant parts". I call flattening
+ to the process of substituting all macros with LaTeX code.
+
+   Task: designing a macro substitution system that reads from a file
+ (possibly the same file as the document's) the macros and parses the document
+ doing the appropriate replacements
+
+  This is very useful, because sometimes you have a big expression in a macro
+ and you want to change an index only. What do you do then?. You retype
+ everything (perhaps several times in the document) or you create extremely
+ generic and parametrizable macros that aren't very fast to fill in the
+ majority of cases.
+
+
+
+Jules Bean:
+
+The number of characters which need to be typed
+is the confusing nature of the command. 'M-c m', typed once, puts you into
+math-mode. However, typing 'M-c m' again doesn't put you out of math-mode
+--- it puts you into math-text mode. Then hitting it again puts you back
+into normal math-mode.  IMO, 'modal' keys should either be idempotent (so
+hitting it the second time does nothing) or self-inverting. In fact, the
+inverse to 'M-c m' is either 'ESC' or simply a space typed at the end of
+the block --- which is confusing, since they're not of the same 'shape' as
+the command that got you in there.
+
+Now, I'm not saying that 'space' shouldn't be allowed as a short-cut to get
+you out of math-mode; it's a most useful and natural one, I like it a lot.
+However, on balance I think M-c m should also have that effect.
+
+3) Math-mode inconsistencies
+
+Sometimes 'the same action' has the same keystroke both within and
+without math-mode. This is very sensible. However, it is very annoying when
+they don't behave the way you're expecting them to.
+
+For example, 'M-c e' puts you into 'emphasise' mode.  Ignoring the fact
+that in text mode this is italics, and in math-mode it stands for the
+calligraphic character set, I think of these as the same action, so I like
+the fact that they have the same keys. However, in math-mode, 'M-c e' is
+idempotent, (and you need 'M-c space' to get back into normal) whereas in
+text-mode 'M-c e' is self-inverse. These are the two possibilities I listed
+as acceptable before, but consistency would be nice ;-) IMO, self-inverse
+would be best for both.
+
+6) Scope macros:
+
+The current macro system is clever, but could be neater. One improvement
+I'd like is to let LyX know about TeX's scoping rules...
+
+
+Yves Bastide:
+
+- use AMS's \text instead of \mbox.  It supports accented characters,
+  among others...  (selected via validate()?)
+
+
+Angus:
+
+- make math lables editable

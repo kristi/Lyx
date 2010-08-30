@@ -1,0 +1,1484 @@
+2006-03-15  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Painter.h (fillPolygon): mark as unused.
+
+	* Painter.C (buttonFrame): draw lines instead of trapezoids; it is
+	simpler and fixes drawing with Qt frontend (bug 2328).
+
+2005-08-02  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* LyXView.C (updateInset): scroll bar fix
+
+2005-05-31  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* screen.[hC]: better fix, processEvents -related screen update
+	bug
+
+2005-05-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Move the gnome subdir to the Attic
+
+2005-04-17  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* Dialogs.C (Dialogs): (re-)connect hide() and hideSlot()
+
+2005-05-11  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* screen.[hC]: fix processEvents -caused screen update recursion
+	bug
+
+2005-04-25  Angus Leeming  <leeming@lyx.org>
+
+	* LyXView.C:
+	* nullpainter.[Ch]:
+	* pch.h:
+	include <config.h> in .C files, not .h ones.
+	add licence blurb.
+	protect headers inside preprocessor guards.
+
+2005-04-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* Dialogs.[Ch] (checkStatus): new
+	* LyXView.C (updateToolbars): call Dialogs::checkStatus
+
+2005-03-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (DIST_SUBDIRS): remove gnome
+
+2005-02-21  Andreas Vox  <vox@isp.uni-luebeck.de>
+
+	* Dialogs.[hC] (show): prevent show() from getting called
+	recursively.
+
+2005-02-11  John Levon  <levon@movementarian.org>
+
+	* screen.C: clarify comment about event queue magic
+
+2005-02-08  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* LyXView.C (updateLayoutChoice): minor change to some comments
+
+2005-01-20  Asger Ottar Alstrup  <aalstrup@laerdal.dk>
+
+	* pch.h: use the HAVE_UNISTD_H preprocessor guard.
+
+2005-01-19  Asger Ottar Alstrup  <aalstrup@laerdal.dk>
+
+	* LyXView.C: use the HAVE_UNISTD_H preprocessor guard.
+
+2005-01-10  André Pönitz  <poenitz@gmx.net>
+
+	* screen.C (showCursor): use new function Cursor::getFont
+
+2004-12-06  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* screen.C (showCursor): draw half cursors
+
+2004-11-26  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* Painter.C: adjust
+	* screen.[Ch] (fitCursor): remove,
+	(showCursor): adjust, (redraw): adjust
+
+2004-11-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Dialogs.h: include <map> since it is used in this file, fixes
+	compilation with boost 1.32.0.
+
+2004-11-17  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Painter.h: include LColor.h to satisfy concept checks.
+
+2004-11-15  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* LyXView.h (hasFocus): new abstract virtual function
+
+2004-11-08  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Toolbars.C (layoutSelected): new method, which was triplicated
+	in the frontends.
+
+2004-09-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* LyXView.h: fix typo
+
+2004-09-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: include proper signal include
+
+	* Dialogs.[Ch]: User preferred calling of Boost.Signal
+	* LyXView.h: ditto
+	* Timeout.h: ditto
+	* WorkArea.h: ditto
+
+2004-08-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: new file
+
+	* Makefile.am: support pch
+
+2004-07-22  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyx_gui.h (set_read_callback,remove_read_callback): remove
+	declaration
+
+2004-06-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* screen.C (fitCursor): Use Debug::DEBUG
+	(redraw): ditto
+
+2004-05-25  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* Alert.C: make text output more readable
+
+2004-05-19  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.[Ch]:
+	* LyXView.[Ch]: small changes due to the introduction of namespace
+	lyx::frontend and the moving of namespace biblio to lyx::biblio.
+
+2004-04-28  Angus Leeming  <leeming@lyx.org>
+
+	* LyXView.[Ch]:
+	s/Toolbar.h/Toolbars.h/
+	s/toolbar_/toolbars_/
+	s/getToolbar()/getToolbars()/
+	s/updateToolbar()/updateToolbars()/
+	Make the toolbars_ private.
+
+	* Toolbar.[Ch]: removed.
+	* Toolbars.[Ch]: new files. The old Toolbar class is split into
+	three new classes, LayoutBox, Toolbar and Toolbars.
+
+2004-04-28  Angus Leeming  <leeming@lyx.org>
+
+	* WorkAreaFactory.h (create): passed a LyXView &.
+	No longer passed x, y data.
+
+2004-04-27  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: add myself as author.
+
+2004-04-21  John Levon  <levon@movementarian.org>
+
+	* Toolbar.h:
+	* Toolbar.C: add display()
+
+2004-04-19  John Levon  <levon@movementarian.org>
+
+	* screen.C: re-show the cursor after a full expose
+
+2004-04-13  Angus Leeming  <leeming@lyx.org>
+
+	* LyXView.[Ch] (updateInset): pass it an InsetBase pointer rather
+	than an InsetOld one.
+
+2004-04-07  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* Makefile.am: adjust
+
+	* Painter.[Ch]: remove Painter & return value everywhere, make
+	virtual all remaining nonvirtual methods
+
+	* nullpainter.[Ch]: add no-op painter
+
+2004-04-05  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove #included header file. Clean up comments.
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.[Ch]: remove all the cruft needed by the original
+	MVC dialog code.
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h (showPreamble):
+	* guiapi.[Ch] (gui_Preamble): removed.
+
+	* Dialogs.[Ch] (build): return a boost::shared_ptr rather than
+	a raw Dialog*. Nicer, but also enables the Qt frontend to
+	re-use the document dialog.
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h (showSpellchecker):
+	* guiapi.[Ch] (gui_Spellchecker): removed.
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h (showPreferences):
+	* guiapi.[Ch] (gui_ShowPreferences): removed.
+
+2004-03-30  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h (showDocument): removed.
+
+	* guiapi.[Ch] (gui_ShowDocument): removed.
+
+2004-03-28  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h (showPrint): removed.
+
+	* guiapi.[Ch] (gui_ShowPrint): removed.
+
+2004-03-27  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h (showSendto): removed.
+
+	* guiapi.[Ch] (gui_ShowSendto): removed.
+
+2004-03-17  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h (showFoks): removed.
+
+	* guiapi.[Ch] (gui_ShowForks): removed.
+
+2004-01-25  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h (showSearch):
+	* guiapi.[Ch] (gui_ShowSearch): removed.
+
+2004-01-08  Angus Leeming  <leeming@lyx.org>
+
+	* FileDialog.h (open, save): the file filter mask is now passed
+	as a FileFilterList rather than as a string.
+
+2003-11-13  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* screen.[Ch] (fitCursor): use Cursor::getDim, simplify
+	(fitManualCursor): remove
+	(topCursorVisible): remove
+
+
+2003-11-11  Alfredo Braunstein  <abraunst@libero.it>
+
+	* screen.C (showCursor): use absolute coords form Cursor
+
+2003-11-10  André Pönitz  <poenitz@gmx.net>
+
+	* screen.C: adjust to removed inset locking
+
+2003-10-14  Angus Leeming  <leeming@lyx.org>
+
+	* LyXView.[Ch] (updateInset): invoke BufferView::updateInset, returning
+	a pointer to the Buffer owning the inset.
+
+2003-10-13  Joao Luis Meloni Assirati <assirati@fma.if.usp.br>
+
+	* lyx_gui.h (set_datasocket_callback, set_serversocket_callback,
+	remove_datasocket_callback, remove_serversocket_callback):
+	new function declarations, implemented in the various frontends.
+
+2003-10-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* lyx_gui.h: add <string> and other small fixes to make Lars'
+	std::string patch compile with STLport.
+
+2003-09-21  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* LyXView.C (updateToolbar): adjust
+
+2003-09-18  Angus Leeming  <leeming@lyx.org>
+
+	* Painter.C:
+	* Painter.h:
+	* lyx_gui.h: rename EnumLColor as LColor_color.
+
+2003-09-18  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.[Ch] (find): renamed as find_or_build.
+	(update, hideSlot): don't call find_or_build to find the requested dialog.
+	Instead, search dialogs_, the list of already constructed dialogs. If it
+	ain't found, do nothing.
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* screen.C: add #include "LColor.h".
+
+2003-09-15  Angus Leeming  <leeming@lyx.org>
+
+	* Painter.C: add #include "LColor.h".
+	(rectText): pass EnumLColor args, rather than LColor::color ones.
+
+	* Painter.h:
+	* lyx_gui.h: remove #include "LColor.h". Forward declare EnumLColor.
+
+	* Painter.h (line, lines, rectangle, fillRectangle, fillPolygon, arc,
+	point, rectText):
+	* lyx_gui.h (hexname, update_color):
+	pass EnumLColor args, rather than LColor::color ones.
+
+2003-09-09  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Timeout.C: change Assert to BOOST_ASSERT
+
+2003-09-07  Angus Leeming  <leeming@lyx.org>
+
+	* Alert.h: remove #include <algorithm>.
+	* Dialogs.h: remove #include <boost/scoped_ptr.hpp>.
+	* WorkArea.h: remove #include <boost/signals/signal3.hpp>, <utility>.
+	* guiapi.h: remove #include "support/std_string.h".
+
+2003-09-06  Angus Leeming  <leeming@lyx.org>
+
+	* LyXKeySym.h: remove LyXKeySymPtr typedef.
+	* WorkArea.h: forward declare LyXKeySym rather than
+	#include "frontends/LyXKeySym.h".
+
+2003-09-05  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* Alert_pimpl.h: re-add missing system headers, needed for 2.95.2.
+
+2003-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* WorkArea.C: removed. It was entirely empty.
+	* Makefile.am: remove WorkArea.C
+
+	* *.C: rearranged #includes in alphabetical and directory order.
+
+2003-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* Alert_pimpl.h: move out #include "debug.h".
+	* LyXView.h: move out #include "types.h".
+	* WorkArea.h: move out #include "funcrequest.h".
+	* screen.h: move out #include "RowList.h".
+
+2003-09-02  John Levon  <levon@movementarian.org>
+
+	* screen.C: remove cursor.i[xy]()
+
+2003-09-02  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Alert.C (prompt, warning, error, information, askForText): Make
+	them output the alert to stderr if debugging is turned on.
+
+2003-08-27  John Levon  <levon@movementarian.org>
+
+	* screen.C: fix cursor in ERT (bug 1341)
+
+2003-08-26  Alfredo Braunstein  <abraunst@libero.it>
+
+	* screen.C (redraw): remove an uneeded updateRowPositions
+
+2003-08-19  André Pönitz  <poenitz@gmx.net>
+
+	* screen.[Ch]: use new rowpainter interface
+
+2003-08-18  André Pönitz  <poenitz@gmx.net>
+
+	* screen.[Ch]: remove draw()
+
+2003-08-15  André Pönitz  <poenitz@gmx.net>
+
+	* screen.[Ch]: remove toggleSelection()
+
+2003-08-02  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Makefile.am (SUBDIRS): use FRONTENDS_SUBDIRS
+
+	* Toolbar.C (clearLayoutList): new methods, which resets
+	last_textclass_. The derived methods should call that.
+
+2003-08-01  André Pönitz  <poenitz@gmx.net>
+
+	* screen.[Ch]: merge update() and repaint()
+
+2003-07-29  André Pönitz  <poenitz@gmx.net>
+
+	* screen.[Ch]: remove toggleToggle.
+
+2003-07-25  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Menubar.h: do not use a pimpl, but rather an abstract class
+
+	* Menubar.C: removed
+
+2003-07-25  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Toolbar.h: do not use a pimpl, but rather an abstract class
+
+2003-07-21  Angus Leeming  <leeming@lyx.org>
+
+	* screen.C (c-tor, greyOut): use namespace lyx::graphics
+	rather than the grfx shortcut.
+
+2003-07-15  André Pönitz  <poenitz@gmx.net>
+
+	* screen.[Ch]: refresh_status tristate -> need_update bool
+
+2003-07-15  André Pönitz  <poenitz@gmx.net>
+
+	* screen.C: collapse REFRESH_ROW and REFRESH_AREA handling
+
+2003-07-14  André Pönitz  <poenitz@gmx.net>
+
+	* screen.C: use slimmed down rowpainter interface
+
+2003-07-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* introduce namespace lyx::graphics
+
+2003-06-27  André Pönitz  <poenitz@gmx.net>
+
+	* screen.[Ch]: take care of removed LyXCursor::row_ member
+
+2003-06-19  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: (showTexinfo):
+	* guiapi.[Ch] (gui_ShowTexinfo):  removed.
+
+2003-06-17  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: (showMathPanel):
+	* guiapi.[Ch] (gui_ShowMathPanel):  removed.
+
+2003-06-06  Alfredo Braunstein  <abraunst@libero.it>
+
+	* Dialogs.[Ch] (visible): added.
+
+2003-06-03  John Levon  <levon@movementarian.org>
+
+	* lyx_gui.h: add sync_events()
+
+	* screen.C: sync events before showing the cursor
+
+2003-05-08  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am: better lib building
+
+2003-05-03  John Levon  <levon@movementarian.org>
+
+	* screen.h:
+	* screen.C: replace cursor code with simpler variant
+	that calculates the cursor pos via inset inspector. Hide
+	the cursor before a paint. Make Cursor_Shape protected.
+
+2003-04-27  John Levon  <levon@movementarian.org>
+
+	* Alert.h:
+	* Alert.C:
+	* Alert_pimpl.h: ::prompt() takes cancel_button
+
+2003-04-16  Alfredo Braunstein  <abraunst@libero.it>
+
+	* screen.C (redraw): added a missing call to updateRowPositions
+
+2003-04-15  John Levon  <levon@movementarian.org>
+
+	* LyXView.C: toolbar flags changed
+
+2003-04-11  Alfredo Braunstein  <abraunst@libero.it>
+
+	* screen.C (update): add calls to updateRowPositions() before
+	drawOneRow and drawFromTo.
+
+2003-04-10  John Levon  <levon@movementarian.org>
+
+	* Toolbar.h:
+	* Toolbar.C: handle on/off etc. for toolbars
+
+	* LyXView.C: update toolbar on/off etc.
+
+2003-04-09  John Levon  <levon@movementarian.org>
+
+	* Toolbar.C: handle multiple toolbars
+
+2003-04-08  John Levon  <levon@movementarian.org>
+
+	* Toolbar.C: handle tooltip
+
+2003-04-07  John Levon  <levon@movementarian.org>
+
+	* LyXView.h: add clearMessage()
+
+2003-04-01  John Levon  <levon@movementarian.org>
+
+	* Toolbar.h:
+	* Toolbar.C: ToolbarDefaults got renamed
+
+2003-04-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	screen.[Ch]: adjust
+
+2003-04-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* screen.C (topCursorVisible): adjust
+	(drawFromTo): adjust
+	(drawOneRow): adjust
+
+2003-03-31  John Levon  <levon@movementarian.org>
+
+	* lyx_gui.h: add new font name helpers, move
+	use_gui to here.
+
+	* Alert.C: from above
+
+2003-03-31  John Levon  <levon@movementarian.org>
+
+	* Alert_pimpl.h:
+	* Alert.h:
+	* Alert.C: finally kill alert()
+
+2003-03-30  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* screen.C (drawFromTo): adjust for RowList.
+	(update): adjust.
+
+2003-03-29  John Levon  <levon@movementarian.org>
+
+	* Alert.h:
+	* Alert.C:
+	* Alert_pimpl.h: kill err_alert. Add information(),
+	warning(), error()
+
+2003-03-29  John Levon  <levon@movementarian.org>
+
+	* Alert.h:
+	* Alert.C:
+	* Alert_pimpl.h: fix up askQuestion/askConfirmation
+	into prompt, to discourage Yes/No questions.
+
+2003-03-26  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showThesaurus.
+	* guiapi.[Ch]: remove the gui_ equivalents.
+
+2003-03-25  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showFile, showLogFile, showVCLogFile.
+	* guiapi.[Ch]: remove the gui_ equivalents.
+
+2003-03-22  John Levon  <levon@movementarian.org>
+
+	* screen.C:
+	* screen.h: LyXText refresh renamings
+
+2003-03-17  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* adjust for BufferView* arg removal from lyxtext.
+
+2003-03-17  John Levon  <levon@movementarian.org>
+
+	* screen.h:
+	* screen.C: remove cleared/background painting code,
+	update() was taking a pointless LyXText parameter
+
+2003-03-13  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showParagraph and updateParagraph.
+	* guiapi.[Ch]: remove gui_ShowParagraph and gui_UpdateParagraph.
+
+2003-03-12  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.[Ch] (hide): rejig as a static method. Hide the signal
+	away.
+	(show): add a string arg.
+
+	* Dialogs.h: remove showCharacter and setUserFreeFont.
+	* guiapi.[Ch]: remove gui_ShowCharacter and gui_SetUserFreeFont.
+
+2003-03-10  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h (hide): make it a static method that returns a
+	boost::signal2<> & (takes 'name' and 'inset' args).
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showMergeChanges.
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showAboutlyx.
+	* guiapi.[Ch]: remove gui_showAboutlyx.
+
+	* Dialogs.[Ch] (show): new method for non-inset dialogs.
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showTabularCreate.
+	* guiapi.[Ch]: remove gui_showTabularCreate.
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showTabular, updateTabular.
+	* guiapi.[Ch]: remove gui_updateTabular, gui_updateTabular.
+
+2003-03-07  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showGraphics.
+	* guiapi.[Ch]: remove gui_showGraphics.
+
+2003-03-07  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showMinipage, updateMinipage.
+	* guiapi.[Ch]: remove gui_showMinipage, gui_updateMinipage.
+
+2003-03-06  Alfredo Braunstein  <abraunst@libero.it>
+
+	* screen.C: use LyXText::top_y() instead of LyXText::first_y
+
+2003-03-05  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showWrap.
+	* guiapi.[Ch]: remove gui_ShowWrap.
+
+2003-03-05  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showFloat.
+	* guiapi.[Ch]: remove gui_ShowFloat.
+
+2003-03-05  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showInclude.
+	* guiapi.[Ch]: remove gui_ShowInclude.
+
+2003-03-05  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove showExternal.
+	* guiapi.[Ch]: remove gui_ShowExternal.
+
+2003-02-27  Angus Leeming  <leeming@lyx.org>
+
+	* screen.C (redraw, greyOut): ensure that the painter is started
+	before attempting to paint.
+
+2003-02-26  John Levon  <levon@movementarian.org>
+
+	* screen.C: use RowPainter
+
+2003-02-26  Angus Leeming  <leeming@lyx.org>
+
+	* screen.[Ch]: ensure that the LyX splash screen is drawn if desired.
+
+2003-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.[Ch]: simplify the dialog interface by using a few
+	methods to do generic things like 'show' a dialog. Individual
+	dialogs are invoked through a string 'name'.
+	Use methods 'hideAll' etc to replace signals of the same name: more
+	transparent code.
+
+	* guiapi.[Ch]: provide a C-interface to the new Dialogs::show
+	method. Retire the old functions that called dead Dialogs methods.
+
+2003-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* Timeout.[Ch]: define a Timeout::Impl abstract base class from
+	which the GUIs will derive their implementations. Means that
+	we no longer have to look into the GUIs to write the class.
+	Store the implementation in a boost::scoped_ptr, not a raw pointer.
+
+2003-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.h: remove forward declarations of InsetBibKey, InsetBibtex.
+
+	* FileDialog.h: don't pass LyXView to the c-tor.
+	Don't store a LyXView &.
+
+2003-02-14  John Levon  <levon@movementarian.org>
+
+	* LyXView.h: prohibit/allowInput() -> busy(bool)
+
+2003-02-08  John Levon  <levon@movementarian.org>
+
+	* Dialogs.h: add showMergeChanges()
+
+2003-01-11  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* FileDialog.h: implement opendir (browse directory) [bug 824]
+
+2003-01-12  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (LIBS): delete
+	(libfrontends_la_LDFLAGS): add with same as LIBS
+
+2003-01-11  Angus Leeming  <leeming@lyx.org>
+
+	* screen.C (SplashScreen): load up banner.ppm rather than banner.xpm.
+
+2003-01-05  John Levon  <levon@movementarian.org>
+
+	* LyXKeySym.h: pass Encoding to getISOEncoded
+
+2002-12-17  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyx_gui.h: add new function lyx_gui::getStatus, which can be
+	used by a frontend to indicate that some lfun is not implemented.
+
+2002-12-12  John Levon  <levon@movementarian.org>
+
+	* LyXKeySym.h: add isText()
+
+2002-12-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* screen.C (fitCursor): remove usleep thingie
+	(fitManualCursor): ditto
+
+2002-12-03  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* screen.C (fitManualCursor): add delay if we have a selection
+	going
+	(fitCursor): ditto
+
+2002-12-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* several files: ws changes
+
+2002-11-17  John Levon  <levon@movementarian.org>
+
+	* FileDialog.h: split Select() into open()/save() for
+	  benefit of Qt
+
+2002-11-01  Herbert Voss  <voss@perce.de>
+
+	* ControlGraphics.C: "Default" is now a part of the rotate-list
+
+2002-11-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyx_gui.h: do not use std:: on string
+
+2002-11-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* lyx_gui.h: reindent a bit, change signeture on lyx_gui::start.
+
+2002-10-24  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* PrinterParams.h (to): default value changed to 0 (from 1).
+
+	* Liason.[Ch]: removed. Code moved into ControlPrint.[Ch].
+
+	* makefile.am: remove Liason.[Ch].
+
+2002-10-21  Angus Leeming  <aleem@pneumon.bg.ic.ac.uk>
+
+	* LyXKeySym.h (operator==): compilation fix. The two args should have
+	different names...
+
+2002-10-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* LyXKeySym.h: move operator== out of class. Separate
+	implementations for xforms and qt.
+
+	* Liason.[Ch]: get rid of setMinibuffer, where used call message
+	directly through LyXView::message instead.
+
+2002-09-25  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.C: doxygen fix.
+
+2002-09-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (INCLUDES): loose SIGC_INCLUDES
+
+2002-09-12  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* Liason.C: implement new printer parameters with new xforms dialog
+
+2002-09-11  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* LyXView.C (LyXView::updateWindowTitle): change the minimised icon
+	to show an asterix if the buffer has changed.
+
+2002-09-11  John Levon  <levon@movementarian.org>
+
+	* Painter.C: draw frame after background. This is needed
+	  on Qt but not xforms ??
+
+2002-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* all files: modify the headers as discussed on the list.
+
+2002-08-28  André Pönitz <poenitz@gmx.net>
+
+	* WorkArea.h: replace bunch of mouse event handler by 'dispatch' handler
+
+2002-08-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Dialogs.h (noncopyable): ws changes only
+
+2002-08-16  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Makefile.am: use $(variables) instead of @substitutions@
+
+2002-08-15  Angus Leeming  <leeming@lyx.org>
+
+	* Dialogs.[Ch]:
+	* guiapi.[Ch]: the brave new world of Dialog creation.
+
+	* LyXView.C: associated change.
+
+	* Makefile.am: add new file guiapi.C.
+
+2002-08-13  Angus Leeming  <leeming@lyx.org>
+
+	* DialogBase.h: removed.
+
+	* Dialogs.h: rearrange #includes, forward declarations and some
+	functions. Remove commented out, historical code.
+
+	* Dialogs.[Ch] (showInfo): removed.
+
+	* guiapi.h (gui_ShowInfo): removed.
+
+2002-08-13  André Pönitz <poenitz@gmx.net>
+
+	* LyXView.[Ch]: new member dispatch();
+
+2002-08-13  Angus Leeming  <leeming@lyx.org>
+
+	* LyXView.[Ch]:
+	(getLyXFunc, getToolbar, getMenubar, getDialogs, getIntl): all now
+	return a reference not a pointer.
+	(controlcommand_, intl_, autosave_timeout_): employ the
+	const scoped_ptr idiom.
+
+2002-08-12  Angus Leeming  <leeming@lyx.org>
+
+	* DialogBase.h: no longer derive from boost::signals::trackable.
+
+	* Toolbar.[Ch] (c-tor): no londer passed a Dialogs &.
+
+2002-08-08  John Levon  <levon@movementarian.org>
+
+	* Toolbar.C:
+
+2002-08-06  André Poenitz  <poenitz@gmx.net>
+
+	* Screen.C: Honor \show_banner lyxrc setting
+
+2002-08-04  John Levon  <levon@movementarian.org>
+
+	* LyXView.C: isLyxClean->isClean
+
+2002-08-02  Edwin Leuven <leuven@fee.uva.nl>
+
+	* Dialogs.[Ch] (updateParagraph): converted back to a signal again.
+
+2002-08-02  Angus Leeming  <leeming@lyx.org>
+
+	* LyXView.[Ch] (view): now returns shared_ptr<BufferView> const &
+	so that anything wanting to cache the buffer view can do so safely
+	using a boost::weak_ptr.
+
+	* LyXView.h: store bufferview_ as a shared_ptr, not as a scoped_ptr.
+	Spell Bjønnes correctly.
+
+2002-08-01  John Levon  <levon@movementarian.org>
+
+	* Dialogs.h:
+	* Dialogs.C:
+	* guiapi.h: remove options from spell dialog
+
+2002-07-30  John Levon  <levon@movementarian.org>
+
+	* lyx_gui.h: add remove_read_callback()
+
+2002-07-22  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyx_gui.h: add exit()
+
+2002-07-22  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Toolbar.h:
+	* Toolbar.C: remove other unused code
+
+2002-07-22  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Toolbar.h:
+	* Toolbar.C: remove ->push()
+
+2002-07-21  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* LyXView.C: use BufferParams::getLyXTextClass
+
+2002-07-21  John Levon  <moz@compsoc.man.ac.uk>
+
+	* LyXView.C: move autosave connect here
+
+2002-07-20  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* LyXView.C (updateMenubar): remove code to set different menubars
+
+	* Menubar.C (set): remove
+
+2002-07-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* LyXView.h:
+	* LyXView.C: use ControlCommandBuffer, related
+	  cleanup
+
+	* MiniBuffer.h:
+	* MiniBuffer.C: remove
+
+2002-07-18  John Levon  <moz@compsoc.man.ac.uk>
+
+	* LyXView.h:
+	* LyXView.C:
+	* MiniBuffer.h:
+	* MiniBuffer.C: remove messagePush/Pop, addSet
+
+2002-07-17  John Levon  <moz@compsoc.man.ac.uk>
+
+	* LyXView.h:
+	* LyXView.C: change showState to view_state_changed signal
+
+2002-07-14  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyx_gui.h: add set_read_callback()
+
+2002-07-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyx_gui.h: remove init_graphics()
+
+2002-07-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Toolbar.h:
+	* Toolbar.C: remove unused (de)activate()
+
+2002-07-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* font_loader.h: remove
+
+	* lyx_gui.h: add update_fonts(), font_available()
+
+2002-07-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* lyx_gui.h: add update_color
+
+2002-07-09  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Painter.C:
+	* Painter.h: make frame/background painting optional
+	  for rectText
+
+2002-07-05  Angus Leeming  <leeming@lyx.org>
+
+	* lyx_gui.h (hexname): new function.
+
+2002-07-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* screen.C (SplashScreen): we change
+	(topCursorVisible): ws change
+	(greyOut): divide by 2 instead of multiplying with 0.5
+
+2002-07-02  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Dialogs.h: remove static from redrawGUI and
+	toggleTooltips.
+
+2002-06-28  Angus Leeming  <leeming@lyx.org>
+
+	* Painter.h:
+	* screen.C: changes associated with the name change grfx::GImage ->
+	grfx::Image.
+
+2002-06-26  Angus Leeming  <leeming@lyx.org>
+
+	* screen.C: moved the image loading stuff into a new class grfx::Loader.
+	Simplifies this file enormously.
+
+2002-06-25  Angus Leeming  <leeming@lyx.org>
+
+	* screen.C: add a SplashScreen class to load up the pixmap once again.
+
+2002-06-24  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* LyXView.C: layout as layout
+
+2002-06-21  John Levon  <moz@compsoc.man.ac.uk>
+
+	* screen.C: add FIXME
+
+2002-06-21  John Levon  <moz@compsoc.man.ac.uk>
+
+	* WorkArea.h: remove redraw()
+
+2002-06-20  John Levon  <moz@compsoc.man.ac.uk>
+
+	* guiapi.h:
+	* Dialogs.h:
+	* Dialogs.C: createIndex() doesn't take string
+
+2002-06-20  John Levon  <moz@compsoc.man.ac.uk>
+
+	* WorkArea.h: remove unused resize(..) and change name
+
+2002-06-20  John Levon  <moz@compsoc.man.ac.uk>
+
+	* LyXKeySym.h:
+	* LyXKeySym.C: remove un-needed file
+
+	* WorkArea.h:
+	* WorkArea.C: remove un-needed file. Add back
+	  comments. Remove focus management, greyOut()
+
+2002-06-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* WorkArea.h: remove focus/unfocus events
+
+2002-06-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* WorkArea.h: remove unused methods
+
+2002-06-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Toolbar.C: add missing header
+
+2002-06-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* WorkArea.h: remove unused method width()
+
+2002-06-16  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* add a nother layer of inderection for calling gui specific
+	methods.
+	* guiapi.h: new file
+
+2002-06-16    <alstrup@diku.dk>
+
+	* WorkArea.C: New file for GUII.
+
+	* WorkAreaFactory.h: New file for GUII.
+
+	* WorkArea.h: GUII stuff.
+
+2002-06-15  Lyx Development team  <larsbj@birdstep.com>
+
+	* LyXKeySymFactory.h: Added GUII factory for LyXKeySyms.
+
+	* LyXKeySym.[Ch]: Made the LyXKeySym class GUII.
+
+	* LyXKeySym.[Ch]: new LyXKeySym class for representing a
+	keypress. For now, X11 dependent.
+
+	* Makefile.am: Added LyXKeySym.
+
+2002-06-14  Lyx Development team  <lyx@electronia>
+
+	* LyXScreenFactory.h: New factory for creating the screen
+	object in the super GUII way.
+
+	* screen.h: Made LyXScreen an abstract base class for the
+	screen object.
+
+	* LyXView.h: Moved last_textclass_ member to Toolbar.C where it
+	belongs.
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Painter.h:
+	* Painter.C: s/PainterBase/Painter, remove dead code
+
+2002-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* lyx_gui.h: remove trailing semi-colon after the brace closing
+	the namespace.
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* LyXView.h: cleanup
+
+	* LyXView.C: move init() here from xforms/
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* screen.h:
+	* screen.C: change topCursorVisible() prototype
+
+2002-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* font_metrics.h: remove trailing semi-colon after the brace closing
+	the namespace.
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* GUIRunTime.h: remove in favour of ...
+
+	* Makefile.am:
+	* lyx_gui.h: ... namespace for GUI start up
+
+	* LyXView.h: remove init(),show(),setPosition()
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Menubar.C:
+	* Timeout.h:
+	* Toolbar.C:
+	* LyXView.h:
+	* LyXView.C: some cleanup, prefer scoped_ptr
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* screen.C:
+	* Painter.C: use workHeight()
+
+	* WorkArea.h: remove confusing duplicate unused code
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* screen.h:
+	* screen.C: rename, add reset()
+
+2002-06-11  John Levon  <moz@compsoc.man.ac.uk>
+
+	* font_metrics.h: move X-specific stuff out of namespace
+
+2002-06-07  Angus Leeming  <leeming@lyx.org>
+
+	Fixes needed to compile with Compaq cxx 6.5.
+	* Alert.C: all c-library variables have been moved into namespace std.
+	Wrap using std::xyz declarations inside a #ifndef CXX_GLOBAL_CSTD block.
+
+	* Toolbar.h (Pimpl): type definition made public.
+
+2002-05-31  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Alert.h: better variable name
+
+2002-05-29  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* switch from SigC signals to boost::signals
+
+2002-05-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* WorkArea.h:
+	* WorkArea.C: move to xforms/ for better diff
+
+2002-05-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* key_state.h:
+	* mouse_state.h: add
+
+	* Makefile.am:
+	* WorkArea.h:
+	* WorkArea.C: use above
+
+2002-05-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* font_loader.h: placeholder
+
+	* screen.C: use placeholder
+
+2002-05-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* font_metrics.h: add placeholder
+
+	* Painter.C:
+	* screen.C: use placeholder
+
+2002-05-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* WorkArea.h:
+	* WorkArea.C:
+	* Makefile.am: move here
+
+	* screen.h:
+	* screen.C: move here
+
+2002-05-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Liason.C:
+	* LyXView.h:
+	* LyXView.C:
+	* Makefile.am: move LyXView here
+
+2002-05-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* Painter.h:
+	* Painter.C: add PainterBase here
+
+2002-05-22  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Dialogs.h: use more specific smart_ptr header
+
+2002-04-08  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (DIST_SUBDIRS): use this instead of EXTRA_DIST
+	(EXTRA_DIST): delete
+	(dist-hook): delete
+	(distclean-local): delete
+
+2002-04-06  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am: make distcheck work
+	(distclean-local): handle distclean of non-built frontends better.
+
+2002-03-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* most files: ws cleanup
+
+	* Makefile.am: remove ld -r stuff
+
+2002-03-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am: special rules if partial linking
+
+2002-03-11  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* doxygen fixes.
+
+2002-03-08  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Dialogs.[Ch]: add static signal toggleTooltips and
+	static method tooltipsEnabled.
+
+2002-03-04  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Dialogs.h:
+	* GUIRunTime.h (initialiseGraphics): moved to GUIRunTime.
+
+2002-03-02  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Toolbar.[Ch] (setLayout): layout as string
+
+2002-02-28  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Dialogs.h (initialiseGraphics): a new static method.
+
+2002-02-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Makefile.am: don't compile support as LyXImage is now dead.
+
+2002-02-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am: better dep. tracking from controllers and xforms
+
+2002-02-18  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Liason.C: Changes due to the renaming of support/syscall.[Ch] as
+	support/systemcall.[Ch] and of class Systemcalls as class SystemCall.
+	Rearrange #includes in Lars' approved fashion.
+
+	* Timeout.[Ch] (running): new method.
+	(default c-tor): removed.
+
+	* Dialogs.h: added a new signal, showForks.
+
+2002-02-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Liason.C:
+	change Systemcalls::System to Systemcalls::Wait and
+	change Systemcalls::SystemDontWait to Systemcalls::DontWait.
+	No change of functionality, just reflects the stripped down Systemcalls
+	class.
+
+2002-01-14  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Liason.C (printBuffer): use Buffer::filePath
+
+2001-12-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Timeout.h:
+	* FileDialog.h: do not include <config.h> in header files.
+
+2001-12-12  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Alert.h: remove spurious semi-colon at the end of the namespace
+	scope.
+
+2001-11-22  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* Alert.h:
+	* Alert.C:
+	* Alert_pimpl.h: alerts etc.
+
+2001-10-09  Herbert Voss  <voss@perce.de>
+
+	* Dialogs.h: added showFile and showTexinfo signals.
+
+2001-09-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Dialogs.h (showSplash, destroySplash, splash_): removed.
+
+	* Dialogs.C (destroySplash): removed.
+
+2001-08-27  John Levon  <moz@compsoc.man.ac.uk>
+
+	* GUIRunTime.h: initApplication() should take a & to argc
+
+2001-08-01  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Liason.C: IsDirWriteable changed
+
+2001-07-30  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* Liason.C: #include LAssert.h
+
+2001-07-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Dialogs.h: add showThesaurus
+
+2001-07-13  Edwin Leuven  <leuven@fee.uva.nl>
+
+	* Dialogs.h: add showAboutlyx and remove showCredits and Copyright
+
+2001-07-13  Edwin Leuven  <leuven@fee.uva.nl>
+
+	* Dialogs.h: added showSpellchecker
+
+2001-07-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* GUIRunTime.h: (x11Display):
+	(x11Screen):
+	(x11Colormap):
+	(x11VisualDepth): new methods
+
+2001-07-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GUIRunTime.h: add createMainView
+
+2001-06-27  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Dialogs.h: add showSpellcheckerPreferences
+
+2001-06-22  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am: remove kde frontend
+
+2001-06-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Dialogs.h: removed unused signal showCharacter.
+	Renamed signals showLayoutDocument -> showDocument,
+	showLayoutParagraph -> showParagraph,
+	showLayoutCharacter -> showCharacter.
+	Added signal updateParagraph.
+	Rearranged signals in some sort of alphabetical order again.
+
+2001-06-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* FileDialog.h:
+	* Timeout.h: added // -*- C++ -*- as first line.
+
+2001-06-11  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am: make the dependencies work for the sub libs.
+
+2001-05-31  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (libfrontends_la_LIBADD): new var, add all subdirs
+	libs here.
+
+2001-04-26  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Makefile.am: make controllers subdir before xforms.
+
+	* Dialogs.h: (add, destroySplash): moved out of line and into Dialogs.C.
+
+	* Dialogs.C: new file, instantiating the add, destroySplash methods.
+
+2001-04-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Liason.[Ch] (setMinibuffer): change second arg to string
+
+	* Dialogs.h: inherit privately from noncopyable
+
+2001-04-03  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Dialogs.h: s/popup/dialog/
+
+2001-03-22  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* Liason.C (printBuffer): do not forget file name
+	when printing with empty print_spool_command.
+
+2001-03-20  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonPolicies.[Ch]: removed (thought I did this before?). The files
+	are now stored in the controllers dir.
+
+2001-03-16  Juergen Vigna  <jug@sad.it>
+
+	* Dialogs.h (noncopyable): added minipage signals.
+
+2001-03-15  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* several files: remove CXX_WORKING_NAMESPACES
+
+	* ButtonPolicies.h: noncopyable is in namespace boost
+	* Dialogs.h (noncopyable): ditto
+	* DialogBase.h (noncopyable): ditto
+
+2001-03-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Merging changes from BRANCH_MVC back into HEAD.
+
+	* Makefile.am: added controllers to SUBDIRS.
+	removed ButtonPolicies.[Ch]. Now in controllers.
+
+	* DialogBase.h: commented out abstract method show().
+
+	* Dialogs.h: The dialogs are now stored as a
+	std::vector<boost::shared_ptr<DialogBase> >.
+	Removed using directives.
+	(d-tor) removed.
+	(add): new helper method. Makes code in c-tor a little tidier.
+	(destroySplash): Moved out of xforms implementation.
+
+	* ButtonPolicies.[Ch]: moved to controllers/ButtonPolicies.[Ch]
+
+2001-03-13  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Dialogs.h: add showMathPanel signal
+
+2001-03-09  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Dialogs.h: add showExternal signal
+
+2001-03-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Dialogs.h: add pointer to splash form
+
+	* GUIRunTime.h: minor cleanup
+
+2001-03-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Dialogs.h: remove createInclude
+
+2001-02-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am
+	* FileDialog.h: new GUII FileDialog
+
+2001-02-23  Edwin Leuven <leuven@fee.uva.nl)
+
+	* Dialogs.h: setUserFreeFont, showLayoutCharacter
+
+2001-02-19  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* DialogBase.h: derived from noncopyable, rather than deriving
+	xforms/FormBase from it.
+
+2001-02-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* DialogBase.C: add close(), non-pure. This is
+	  useful for logdlg.C in the KDE frontend.
+
+	* Dialogs.h: splash, include, and bib forms
+
+2001-02-07  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ButtonPolicies.C:
+	* ButtonPolicies.h: and remove OkViewPolicy,
+	  it's a duplicate of IgnorantPolicy
+
+	* Makefile.am:
+	* Timeout.C:
+	* Timeout.h: add GUI-I Timeout class
+
+2001-02-06  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ButtonPolicies.C:
+	* ButtonPolicies.h: add OkViewPolicy
+
+	* src/frontends/Dialogs.h: add showVCLogFile signal
+
+2001-01-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am: add qt2 frontend

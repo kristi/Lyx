@@ -1,0 +1,15 @@
+#
+# Contributed by Juergen Vigna (so ask me if you have questions)
+# This is a keyboard map for keyboards which do not have dead-keys
+# so you can put accents and umlauts on carachters
+#
+\kmod ' acute aeiouAEIOU
+\kmod ` grave aeiouAEIOU
+\kmod \" umlaut aeouAEOU
+\kxmod acute i í
+\kxmod grave i ì
+\kxmod acute j ȷ́
+\kxmod grave j ȷ̀
+# \kxmod acute ' '
+# \kxmod grave ` `
+# \kxmod umlaut \" \"

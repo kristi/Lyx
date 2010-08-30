@@ -1,0 +1,710 @@
+% This is the default list of commands for tex conversion programs to read
+%    It tells how many arguments each command takes, and which of them
+% (if any) are optional.
+%    It is taken from the list of commands originally written by John Weiss
+% 1997-03-11 for reLyX plus the math commands from math_hash.C
+%
+% Also had to add textrm etc. commands and many size commands (like \small)
+%
+%    I left in things like units of measure (\depth) because reLyX will think
+% that they're commands, and this way it will know they don't take any
+% arguments...
+%
+%    There are almost certainly commands in here we don't need -- but that
+% shouldn't matter
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The first thing listed here is commands that are hard-coded into reLyX.
+% Redefining these commands in a new syntax file will probably not help%
+% and may break things.
+\#
+\$
+\%
+\&
+\@
+\_
+\{
+\}
+~
+
+\hfill
+\i
+\j
+\L
+\l
+\LaTeX
+\LaTeXe
+\LyX
+\ldots
+\TeX
+
+\"{}
+$$
+\'{}
+\(
+\)
+\-
+\.{}
+\={}
+\[
+\]
+\\[]
+\\*[]
+\^{}
+\`{}
+\~{}
+\b{}
+%\begin{}[]   %tex2lyx will get confused if \begin is found in this file!
+%\begin{}[]{} % All of these show the different variations of \begin (jpw)
+%\begin{}{}
+%\begin{}{}{}
+%\begin{}[][][]{}
+%\begin{}(,)
+%\begin{}(,)(,)
+%\begin{}{}[]{}
+\bf
+\bibitem[]{}
+\bibliography{}
+\bibliographystyle{}
+\c{}
+\cite[]{}
+
+% Natbib citations can usually have two optional args
+\citet[][]{}
+\Citet[][]{}
+\citet*[][]{}
+\Citet*[][]{}
+
+\citealt[][]{}
+\Citealt[][]{}
+\citealt*[][]{}
+\Citealt*[][]{}
+
+\citep[][]{}
+\Citep[][]{}
+\citep*[][]{}
+\Citep*[][]{}
+
+\citealp[][]{}
+\Citealp[][]{}
+\citealp*[][]{}
+\Citealp*[][]{}
+
+\citeauthor[]{}
+\Citeauthor[]{}
+\citeauthor*[]{}
+\Citeauthor*[]{}
+
+\citeyear[]{}
+\citeyearpar[][]{}
+
+% jurabib supports some natbib commands and additionally:
+\fullcite[][]{}
+\footcite[][]{}
+\footcitet[][]{}
+\footcitealt[][]{}
+\footcitep[][]{}
+\footcitealp[][]{}
+\footciteauthor[]{}
+\footciteyear[]{}
+\footciteyearpar[][]{}
+\citefield[]{}
+\citetitle[]{}
+
+\cline{ - }
+\d{}
+\documentclass[]{}[]
+\documentstyle[]{}
+\em
+\emph{}
+%\end{}   %tex2lyx will get confused if \end is found in this file!
+\epsf{}
+\epsfbox{}
+\epsffile{}
+\epsfig{}
+\epsfxsize
+\epsfysize
+\fancyhead[]{}
+\footnote[]{}
+\footnotesize
+\H{}
+\hline
+\huge
+\Huge
+\include{}
+\includegraphics[,][,]{} % btw, LyX doesn't support graphicx, just graphics
+\input{}
+\it
+\item[]  % Has two variants (jpw) Other variant is unsupported (adk)
+\label{}
+\large
+\Large
+\LARGE
+\marginpar[]{}
+\multicolumn{}{}{}
+\newline
+\noindent
+\normalsize
+\noun{}    % LyX style for nouns (appears in lyx-generated files)
+\pageref{}
+\psfig{}
+\ref{}
+\rm
+\sc
+\sf
+\sl
+\t{ }
+\textmd{}   % I had to add these (adk)
+\textbf{}   %         :
+\textrm{}   %         :
+\textsf{}   %         :
+\texttt{}   %         :
+\textup{}   %         :
+\textit{}   %         :
+\textsl{}   %         :
+\textsc{}   %         :
+\textbar
+\textbackslash
+\textgreater
+\textless
+\scriptsize
+\small
+\tiny
+\tt
+\u{}
+\underbar{}  % LyX generated files use underbar instead of underline
+\underline{}
+\v{}
+
+
+
+% Units of measure.  These get used only within the arguments of
+% commands that take some length quantity.
+
+\depth
+\fill
+\height
+\totalheight
+\width
+
+%
+% Length variables
+%
+
+\abovedisplay
+\abovedisplayshortskip
+\arraycolsep
+\arrayrulewidth
+\arraystretch
+\baselineskip
+\baselinestretch
+\belowdisplayskip
+\belowdisplayshortskip
+\bigskipamount
+\columnsep
+\columnseprule
+\dblfloatsep
+\dbltextfloatsep
+\doublerulesep
+\evensidemargin
+\fboxrule
+\fboxsep
+\floatsep
+\footnotesep
+\footskip
+\headheight
+\headsep
+\hoffset
+\intextsep
+\itemindent
+\itemsep
+\jot
+\labelsep
+\labelwidth
+\leftmargin
+\leftmargini
+\leftmarginii
+\leftmarginiii
+\leftmarginiv
+\leftmarginv
+\leftmarginvi
+\listparindent
+\marginpush
+\marginparsep
+\marginparwidth
+\mathindent
+\medskipamount
+\oddsidemargin
+\paperheight
+\paperwidth
+\parindent
+\parsep
+\parskip
+\partopsep
+\rightmargin
+\smallskipamount
+\tabbingsep
+\tabcolsep
+\textfloatsep
+\textheight
+\textwidth
+\topmargin
+\topsep
+\topskip
+\unitlength
+\voffset
+
+%
+% Commands that act like single characters and insert something.  This
+% excludes the commands that place accents on characters, since they
+% require arguments, whereas these don't.  Also excluded are commands
+% that insert a specified amount of space [again, that requires
+% arguments] and those that insert lists, since a list isn't a single
+% object.
+%
+
+\ % A "\" followed by a space.
+\,
+\/
+\AA
+\aa
+\AE
+\ae
+\bigskip
+\copyright
+\dag
+\ddag
+\DH
+\dh
+\DJ
+\dj
+\dotfill
+\dots
+\guillemotleft
+\guillemotright
+\guilsinglleft
+\guilsinglright
+\hrulefill
+\lq
+\medskip
+\NG
+\ng
+\O
+\o
+\OE
+\oe
+\P
+\pounds
+\quad
+\qquad
+\quotedblbase
+\quotesinglebase
+\rq
+\S
+\SS
+\smallskip
+\ss
+\textbullet
+\textemdash
+\textendash
+\textexclamdown
+\textperiodcenter
+\textquestiondown
+\textquotedblleft
+\textquotedblright
+\textquoteleft
+\textquoteright
+\textvisiblespace
+\textcompwordmark
+\textquotedbl
+\TH
+\th
+\thechapter
+\theenumi
+\theenumii
+\theenumiii
+\theenumiv
+\theequation
+\thefigure
+\thefootnote
+\thempfootnote
+\thepage
+\theparagraph
+\thepart
+\thesection
+\thesubsection
+\thesubsubsection
+\thesubparagraph
+\thetable
+\vfill
+
+
+%
+% The LaTeX commands.  As per Alejandro's request, I've omitted all of
+% the math commands he appears to support in Mathed.  I'm also
+% omitting commands used primarily for defining new class and style
+% files. (jpw)
+%
+% For some reason, John didn't write {} after \" and some of the other
+%    accent commands (adk)
+% He also didn't include the \textsc{} equivalent to {\sc}
+% Because any commands with arguments in parentheses (rather than braces or
+%    brackets) appear in a picture environment, which reLyX doesn't support,
+%    we can comment those out.
+%
+% These are the commands you're mostly likely to want to redefine in your own
+% syntax files
+%
+% Arguments whose text is "translate" will have regular LaTeX in them (as
+% opposed to commands with special syntax) which should be translated by
+% reLyX like regular LaTeX. \mbox{} is an obvious example. LyX doesn't
+% support it, but only the "\mbox{" and the "}" need to be in TeX mode.
+
+\abstractname
+\Acrobatmenu{}{}         % from the hyperref package
+\addcontentsline{}{}{translate}
+\address{}
+\addtime{}
+\addtocontents{}{translate}  % one argument was missing here (JMarc)
+\addtocounter{}{}
+\addtolength{}{}
+\addvspace{}
+\Alph{}
+\alph{}
+\alsoname
+\and
+\appendix % had to add this -Ak
+\appendixname
+\arabic{}
+\author{}
+\backmatter
+%\bezier{}(,)(,)(,)    % picture
+\bfdefault
+\bibliographyunit[]
+\bibname
+\botfigrule
+\bottomfraction
+\caption[]{}
+\cc{}
+\ccname
+\centering
+\centerline{translate}
+\chapter[]{}
+\chapter*{}
+\chaptername
+\check{}
+%\circle{}    % picture environment (JMarc)
+%\circle*{}
+\cleardoublepage
+\clearpage
+\closing{}
+\color[]{,,}  % Two variants of this command and the next (jpw)
+%\color{}
+\colorspec[]{,,}{}
+%\colorspec{}{}
+%\contentsline{}{\numberline{}  }{}     % Appears only in .toc file (JMarc)
+\contentsname
+%\dashbox{}(,)[]{}   %picture
+\date{}
+\dblfigrule
+\dblfloatpagefraction
+\dbltopfraction
+\def{}{}
+\definecolor{}{}{,,}
+\DescribeMacro{}
+\discretionary{}{}{}
+\encl{}
+\enclname
+\enlargethispage{}
+\enlargethispage*{}
+\ensuremath{}
+\extracolsep{}
+\fbox{translate}
+\fcolorbox[]{,,}{,,}{}  % Two variants of this command
+%\fcolorbox{}{}{}
+\figurename
+\floatpagefraction
+\flushbottom
+\fnsymbol{}
+\fontfamily{}
+\fontseries{}
+\fontshape{}
+\fontsize{}{}
+\footnotemark[]
+\footnoterule
+\footnotetext[]{translate}
+% LaTeX has \frame{}, but beamer has \frame[]{}, so use the latter
+\frame[]{translate}
+\framebox[][]{translate} % Two variants of this command
+%\framebox(,)[]{}    %  picture variant
+\frenchspacing
+\frontmatter
+\fussy
+\glossary{translate}
+\glossaryentry{}{}       %only in .glo file (JMarc)
+% \graphpaper[](,)(,)    %picture
+\headtoname
+\href{}{translate}       % from the hyperref package
+\hspace{}
+\hspace*{}
+\hyperdef{}{}{translate} % from the hyperref package
+\hyperlink{}{translate}  % from the hyperref package
+\hyperref{}{}{translate} % from the hyperref package
+\hypertarget{}{translate} % from the hyperref package
+\hyphenation{}
+\iflanguage{}{}{}
+\ifthenelse
+\includegraphics*[,][,]{} % LyX 1.0 doesn't support clipping figures
+\indent
+\index{}
+\indexentry{}{}        % only in .idx files (JMarc)
+\indexname
+\indexspace
+\invisible
+\itdefault
+% This variant of \item might break reLyX!
+%  \item{}   % Only appears in unsupported theindex environment
+\k{}
+\kill
+\labelnumi
+\labelnumii
+\labelnumiii
+\labelnumiv
+\labelitemi
+\labelitemii
+\labelitemiii
+\labelitemiv
+\language{}
+% We need this because the arguments must not be interpreted
+\let{}{}
+% \line(,){}    %picture
+\linebreak[]
+\linethickness{}
+\listfigurename
+\listofalgorithms %AMStex?
+\listoffigures
+\listoftables
+\listtablename
+\location{}
+\mainmatter
+\makebox[][]{translate}
+%  \makebox(,)[]{}     %picture variant
+\makeglossary
+\makeindex
+\makelabel{translate}
+\makelabels
+\maketitle
+\markboth{}{translate}
+\markright{translate}
+\mathversion{}
+\mbox{translate}
+\mddefault
+% \multiput(,)(,){}{}     %picture
+\name{}
+\newboolean{}
+\newcommand{}[][]{}
+\newcommand*{}[][]{}
+%\newcommand{}[]{}    % tex2lyx can support this when the file format is the one of LyX 1.6.x
+\newcounter{}[]
+\newenvironment{}[][]{}{}
+\newenvironment*{}[][]{}{}
+%\newenvironment{}[]{}{}    % tex2lyx can support this when the file format is the one of LyX 1.6.x
+\newfont{}{ scaled }
+\newlength{}
+\newpage
+\newsavebox{}
+\newtheorem{}[]{translate}[]
+\nocite{}
+\nocorr
+\nolinebreak[]
+\nonfrenchspacing
+\nopagebreak[]
+\normalcolor
+\normalfont
+\normalmarginpar
+\notesname
+\numberline{}{}
+\onecolumn
+\onlynotes{}
+\onlyslides{}
+\opening{}
+% \oval(,)[]   %picture
+\pagebreak[]
+\pagecolor[]{,,}
+% \pagecolor{}    % tex2lyx can first care about this when fileformat 351 is supported
+\pagename
+\pagenumbering{}
+\par
+\paragraph[]{}
+\paragraph*{}
+%\parbox[]{}{}            % reLyX treats next line same as this one (adk)
+\parbox[][][]{}{translate}
+\part[]{}
+\part*{}
+\partname
+\pdfbookmark[]{}{}       % from the hyperref package
+\pdfstringdef{}{}        % from the hyperref package
+\poptabs
+\prefacename
+\printindex
+\protect
+\providecommand{}[][]{}
+\providecommand*{}[][]{}
+\ps
+\psfrag{}[][][][]{translate}
+\psfrag*{}[][][][]{translate}
+\pushtabs
+% \put(,){}     %picture
+\putbib[]
+% \qbezier[](,)(,)(,)     %picture
+\r{}
+\raggedbottom
+\raggedleft
+\raggedright
+\raisebox{}[][]{translate}
+\reflectbox{translate}
+\refname
+\refstepcounter{}
+\renewcommand{}[][]{}
+\renewcommand*{}[][]{}
+%\renewcommand{}[]{}   % tex2lyx can support this when the file format is the one of LyX 1.6.x
+\renewenvironment{}[][]{}{}
+\renewenvironment*{}[][]{}{}
+%\renewenvironment{}[]{}{}
+\resizebox{}{}{translate}
+\resizebox*{}{}{translate}
+\reversemarginpar
+\rmdefault
+\Roman{}
+\roman{}
+\rotatebox{}{translate}
+\rule[]{}{}
+\samepage
+\savebox{}[][]{}
+% \savebox{}(,)[]{}   %picture
+\sbox{}{}
+\scalebox{}[]{translate}
+\scdefault
+\section[]{}
+\section*{}
+\see
+\seename
+\selectfont
+\selectlanguage{}
+\setboolean{}{}
+\setcounter{}{}
+\setlength{}{}
+\settime{}
+\settodepth{}{}
+\settoheight{}{}
+\settowidth{}{}
+\sfdefault
+\shortstack[]{translate}
+\showhyphens{}
+\signature{}
+\sldefault
+\sloppy
+\stepcounter{}
+\stretch{}
+%\subitem{}   % unsupported theindex environment
+\subjectname
+\subfigure[]{translate}
+\subparagraph[]{}  % These "sub" versions of the sectioning commands weren't
+\subparagraph*{}   % in the original commandlist for some reason (adk)
+\subsection[]{}    %
+\subsection*{}     %
+\subsubsection[]{} %
+\subsubsection*{}  %
+%\subsubitem{}   % unsupported theindex environment
+\suppressfloats[]
+\symbol{}
+\tablename
+\tableofcontents
+\tabularnewline[]
+\telephone{translate}
+\texorpdfstring{}{}      % from the hyperref package
+\textcircled{translate}
+\textcolor[]{,,}{translate}
+%\textcolor{}{}
+\textnormal{translate}
+\textfraction
+\thanks{translate}
+\thicklines
+\thinlines
+\thispagestyle{}
+\title{}
+\today
+\topfigrule
+\topfraction
+\ttdefault
+\twocolumn[]
+\updefault
+\usebox{}
+\usecounter{}
+\usefont{}{}{}{}
+\usepackage[]{}[]
+\value{}
+% \vector(,){}   %picture
+% \verb||     % tex2lyx fails on \verb, see http://www.lyx.org/trac/ticket/4468 and http://www.lyx.org/trac/ticket/5408
+% \verb*||
+\visible
+\vline
+\vspace{}
+\vspace*{}
+\whiledo{}{}
+
+% LaTeX environments.
+% They have always one extra "argument":
+% It contains "translate" if the contents of the environment contains normal
+% LaTeX code that can be translated to LyX.
+\begin{environments}
+bibunit[]{translate}
+psmatrix[]{}
+thebibliography{}
+\end{environments}
+
+% Environments that start math mode.
+% $...$, $$...$$, \(...\) and \[...\] are hardcoded in tex2lyx.
+% The arguments are currently ignored.
+\begin{mathenvironments}
+equation
+equation*
+eqnarray
+eqnarray*
+align
+align*
+gather
+gather*
+multline
+multline*
+math
+displaymath
+flalign
+flalign
+% These require extra args
+alignat
+alignat*
+xalignat
+xalignat*
+xxalignat
+% These are not known by LyX but work nevertheless:
+empheq
+\end{mathenvironments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sweave stuff
+\Sexpr{}
+\SweaveOpts{}
+\SweaveInput{}
+\SweaveSyntax{}
+\Scoderef{}
+
+\Rcode{}
+\Robject{}
+\Rcommand{}
+\Rfunction{}
+\Rfunarg{}
+\Rpackage{}
+\Rclass{}
+\Rmethod{}

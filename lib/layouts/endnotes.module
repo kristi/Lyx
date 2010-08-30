@@ -1,0 +1,20 @@
+#\DeclareLyXModule[endnotes.sty]{Endnote}
+#DescriptionBegin
+#Adds an endnote inset, in addition to footnotes. You will need to add 
+#\theendnotes in ERT where you want the endnotes to appear.
+#DescriptionEnd
+
+Format 27
+
+InsetLayout Custom:Endnote
+   LyXType	custom
+   LatexName	endnote
+   LatexType	command
+   Decoration classic
+   Font
+     Size	Small
+   EndFont
+   MultiPar true
+   LabelString	endnote
+   Requires	endnotes
+End

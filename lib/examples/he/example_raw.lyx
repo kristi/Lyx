@@ -1,0 +1,597 @@
+#LyX 1.6.5svn created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\language hebrew
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+זו הכותרת של המסמך 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: כותרת המסמך נקראת באנגלית 
+\lang english
+title
+\lang hebrew
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מאת יהושע ליקס 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: יהושע הוא הסופר, או באנגלית 
+\lang english
+Author
+\lang hebrew
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+18
+\numeric off
+ ליולי 
+\numeric on
+1971
+\numeric off
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: זה התאריך, או באנגלית 
+\lang english
+Date
+\lang hebrew
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+תוכן הענינים
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: נכון שזה היה יכול להיות ממש נחמד אם לא היינו צריכים להקליד את תוכן
+ העניינים בעצמנו?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+1
+\numeric off
+.
+ פילוסופיה בסיסית....................
+\numeric on
+1
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+1.1
+\numeric off
+ איך ליקס עושה את זה..............
+\numeric on
+1
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+1.2
+\numeric off
+ למה ליקס יותר טובה..............
+\numeric on
+1
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+2
+\numeric off
+.
+ תכונותיה של ליקס
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+3
+\numeric off
+.
+ ניסיונות פתטיים להשתמש בעוד תכונות של ליקס
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+4
+\numeric off
+.
+ ענייני מתמטיקה
+\end_layout
+
+\begin_layout Standard
+---------------------------
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+1
+\numeric off
+.
+ פילוסופיה בסיסית
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: כותרות חלקים מן הסתם צריכות לבלוט יותר
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הפילוסופיה הבסיסית של ליקס היא שאתה צריך לדאוג אודות התוכן של מה שאתה כותב
+ ולא הצורה.
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+1.1
+\numeric off
+ איך ליקס עושה את זה
+\end_layout
+
+\begin_layout Standard
+ליקס משתמשת ב- 
+\lang english
+LaTeX
+\lang hebrew
+, מערכת להכנת מסמכים שתוכננה על ידי לסלי למפורט ב- 
+\numeric on
+1985
+\numeric off
+.
+ היא, בתורה, בנויה מעל שפת מחשב יעודית בשם 
+\lang english
+TeX
+\lang hebrew
+ שנוצרה על ידי דונלד קנות ב- 
+\numeric on
+1984
+\numeric off
+.
+ 
+\lang english
+LaTeX
+\lang hebrew
+ בנוה מסביב לפילוסופיה דומה לזו של ליקס.
+ לסלי למפורט אמר פעם )ראה הפניה ]
+\numeric on
+1
+\numeric off
+[(
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: מן הסתם ההפניה הביבליוגרפיה הזאת )
+\lang english
+citation reference
+\lang hebrew
+( לא צריכה להכתב כסתם מספר.
+ מה אם בסופו של דבר הספר של למפורט יהיה הספר השני בביבליוגרפיה?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+המטרה של טיפוגרפיה היא לעזור לקורא להבין את הרעיונות של הסופר.
+ מסמך קל לקריאה הוא מסמך שהמבנה הויזואלי שלו משקף את המבנה הלוגי שלו.
+ ציטוטים ותוכניות מחשב, שהם אלמנטים לוגיים נפרדים, צריכים להיות מופרדים
+ ויזואלית זה מזה...
+ מכיוון ש- 
+\lang english
+LaTeX
+\lang hebrew
+ לא יכולה להבין את הפרוזה שלך, אתה חיב לציין במפורש את המבנה הלוגי על ידי
+ הקלדת פקודות מיוחדות...
+ בזמן כתיבת המסמך, אתה צריך להתעסק במבנה הלוגי שלו, ולא באיך הוא נראה.
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: זה ציטוט, או באנגלית 
+\lang english
+Quote
+\lang hebrew
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+1.2
+\numeric off
+ למה ליקס יותר טובה
+\end_layout
+
+\begin_layout Standard
+ליקס פונה להרבה יותר משתמשים מאשר 
+\lang english
+LaTeX
+\lang hebrew
+.
+ היא קלה יותר ללימוד בצורה משמעותית, כי, בניגוד ל- 
+\lang english
+LaTeX
+\lang hebrew
+, שהיא שפת מחשב לכל דבר, ליקס היא כמו מעבדי תמלילים 
+\begin_inset Quotes eld
+\end_inset
+
+
+\lang english
+What you see is what you get
+\lang hebrew
+
+\begin_inset Quotes erd
+\end_inset
+
+ חוץ מהמילה האחרונה: ליקס דוגלת ב- 
+\begin_inset Quotes eld
+\end_inset
+
+
+\lang english
+What you see is what you mean
+\lang hebrew
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ כך היא מסוגלת לשלב בין הנוחות של מעבדי תמלילים והכוח של 
+\lang english
+LaTeX
+\lang hebrew
+.
+ מה אפשר לבקש יותר? פורמט הקבצים אינו תלוי במערכת שאתה עובד עליה, והכי טוב,
+ היא תוכנה חופשית.
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+2
+\numeric off
+.
+ תכונותיה של ליקס
+\end_layout
+
+\begin_layout Standard
+לליקס תכונות רבות שמקלות על כתיבת מסמכים )אחרי הכל, למה שמישהו ירצה להשתמש
+ בה אחרת?(
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: המשפט בסוגריים יהיה טוב יותר בהערת שוליים.
+\end_layout
+
+\end_inset
+
+ אני *מאוד נרגש* 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: הדגש!
+\end_layout
+
+\end_inset
+
+ לדון בהם.
+ הנה רשימה חלקית.
+\end_layout
+
+\begin_layout Standard
+*ליקס דואגת לשולי המסמך ולמספור הערות שוליים.
+\end_layout
+
+\begin_layout Standard
+* בליקס קל לכתוב ולערוך נוסחאות מתמטיות.
+\end_layout
+
+\begin_layout Standard
+אם אתה מעוניין בדיון פילוסופי למה ליקס עדיפה על הרבה מעבדי תמלילים, ראה
+ סעיף 
+\numeric on
+1.2
+\numeric off
+, בעמוד 
+\numeric on
+1
+\numeric off
+.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: מן הסתם, ההפניות )
+\lang english
+cross-references
+\lang hebrew
+( האלה לא צריכות להיות סתם כתובות.
+ מה אם נשנה את מספרי החלקים?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+3
+\numeric off
+.
+ נסיונות פתטיים להשתמש בתכונות נוספות של ליקס
+\end_layout
+
+\begin_layout Standard
+שלשום כתבתי תוכנית מחשב.
+ והרי היא לפניכם
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+5 REMARK MY AWESOME PROGRAM
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+10 PRINT 
+\begin_inset Quotes eld
+\end_inset
+
+I'M AWESOME!
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+20 GOTO 10 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: זוהי תוכנית מחשב )
+\lang english
+code
+\lang hebrew
+(.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+זה היה יותר מדי מדעי בשבילי, אז כתבתי את החמשיר הבא
+\end_layout
+
+\begin_layout Standard
+ליקס פשוט גדול
+\end_layout
+
+\begin_layout Standard
+מעבד תמלילים כל יכול
+\end_layout
+
+\begin_layout Standard
+איתו לא תפול!
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: זה אולי לא ביאליק, אבל זה עדיין שירה, או באנגלית 
+\lang english
+verse
+\lang hebrew
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+4
+\numeric off
+.
+ ענייני מתמטיקה
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+רמז: כל עניני המתמטיקה האלה צריכים להיות במוד מתמטיקה!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הנוסחא האהובה עלי היא לפתרון משוואה ריבועית.
+ אם 
+\lang english
+ax^2+bx+c=0
+\lang hebrew
+ )משוואה 
+\numeric on
+1
+\numeric off
+(, אזי 
+\lang english
+x
+\lang hebrew
+ הוא 
+\lang english
+-b
+\lang hebrew
+ פלוס או מינוס השורש הריבועי של 
+\lang english
+b^2-4ac
+\lang hebrew
+, הכל מחולק ב- 
+\lang english
+2a
+\lang hebrew
+ )משוואה 
+\numeric on
+2
+\numeric off
+(.
+\end_layout
+
+\begin_layout Standard
+משוואה אהובה אפילו יותר עומדת בבסיס החשבון הדיפרנציאלי: 
+\lang english
+f'(x)
+\lang hebrew
+ מוגדרת על ידי הגבול, כאשר דלתה-
+\lang english
+x
+\lang hebrew
+ שואף לאפס, של 
+\lang english
+f(x+deltax)-f(x)
+\lang hebrew
+ מחולק בדלתה-
+\lang english
+x
+\lang hebrew
+ )משוואה 
+\numeric on
+3
+\numeric off
+(.
+\end_layout
+
+\begin_layout Standard
+---------------------------------------
+\end_layout
+
+\begin_layout Standard
+ביבליוגרפיה
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+[1] Lamport, Leslie.
+ LaTeX: A Document Preparation System.
+ Addison-Wesley, Reading, Massachusetts, second edition, 1994.
+\end_layout
+
+\end_body
+\end_document

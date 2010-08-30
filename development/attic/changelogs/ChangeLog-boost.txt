@@ -1,0 +1,341 @@
+2006-03-12  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* libs/regex/src/Makefile.am (libboost_regex_la_SOURCES): remove
+	non-existant file
+
+2006-03-05    <larsbj@gullik.net>
+
+	* boost/optional/optional_fwd.hpp: add missing file
+
+2006-03-05  Lars Gullik Bjøøonnes<larsbj@lyx.org>
+
+	* Upgrade to version 1.33.1 of boost.
+
+2006-02-21  Lars Gullik BjÃ¸nnes <larsbj@lyx.org>
+
+	* boost/bind.hpp: include visit_each.hpp to fix a gcc 4.1 compile
+	problem
+
+2005-09-30  Angus Leeming  <leeming@lyx.org>
+
+	* libs/filesystem/src/operations_posix_windows.cpp (exists):
+	add ERROR_ACCESS_DENIED to the list of "recognised" errors. It
+	appears that Win98SE returns such an error from GetFileAttributes
+	if asked to query a path on a drive that doesn't exist.
+
+	The "correct" fix is currently being discussed on the boost-devel
+	list, but this work around will do for us for now.
+
+2005-09-30  Angus Leeming  <leeming@lyx.org>
+
+	* libs/filesystem/src/operations_posix_windows.cpp: add a block
+	of preprocessor code to include NewAPIs.h conditioned on the
+	WANT_GETFILEATTRIBUTESEX_WRAPPER macro. Enables runtime support
+	for Windows 95.
+	(_is_empty, file_size): replace GetFileAttributesExA with the
+	macro GetFileAttributesEx to enable the stub magic in NewAPIs.h
+	to work.
+
+2005-01-05  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* boost/detail/lwm_win32_nt.h: new file
+
+2004-12-05  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* libs/signals/src/.cvsignore: libboostsignals -> libboost_signals
+	* libs/signals/src/Makefile.am: ditto
+
+	* libs/regex/src/.cvsignore: libboostregex -> libboost_regex
+	* libs/regex/src/Makefile.am: ditto
+
+	* libs/filesystem/src/.cvsignore: libboostfilesystem ->
+	libboost_filesystem
+	* libs/filesystem/src/Makefile.am: ditto
+
+2004-12-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* boost/config/compiler/gcc.hpp: all to compile with gcc 4.0
+	without warnings.
+
+2004-11-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* add spirit to the collection
+
+2004-11-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* update boost to version 1.32.0
+
+2004-04-03  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* libs/filesystem/src/Makefile.am (AM_CXXFLAGS): define
+	BOOST_USER_CONFIG
+	* libs/signals/src/Makefile.am: ditto
+	* libs/regex/src/Makefile.am: ditto
+
+2004-03-29  Angus Leeming  <leeming@lyx.org>
+
+	* boost/format/internals.hpp: change the type of
+	format_item::truncate_ from 'int' to 'std::streamsize', thereby
+	fixing a run-time error when using the library on a 64-bit machine.
+
+2004-02-05  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* update boost to version 1.31.0
+
+2004-01-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* libs/regex/src/Makefile.am: remove trailing backslash
+
+2004-01-08  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* add boost::filesystem.
+
+2003-10-23  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* libs/regex/src/cpp_regex_traits.cpp (seekpos): use correct
+	types. same patch sent to boost list and accepted there.
+
+2003-10-07  Angus Leeming  <leeming@lyx.org>
+
+	* boost/any.hpp: change the throw to boost::throw_exception.
+
+2003-09-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* boost/test/detail/nullstream.hpp: new file
+
+2003-08-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* boost/config/compiler/gcc.hpp: allow for gcc 3.4
+
+	* update boost to version 1.30.2
+
+2003-08-21  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* boost/integer_traits.hpp: fix compile error on NetBSD
+
+2003-08-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* boost/config/user.hpp: do not use BOOST_NO_EXCEPTIONS here, that
+	is done automatically by the gcc config.
+
+	* boost/config/compiler/gcc.hpp: allow for gcc 2.4
+
+	* update boost to version 1.30.1
+
+2003-07-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* libs/regex/src/cpp_regex_traits.cpp (message_data): cast to safe
+	types
+
+	* libs/regex/src/c_regex_traits.cpp (do_update_ctype): cast to
+	safe types.
+
+	* boost/config/compiler/gcc.hpp: allow for gcc 2.4
+
+2003-05-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* boost/type_traits/detail/wrap.hpp: add file
+
+2003-03-21  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* update boost to version 1.30.0
+
+2003-03-11  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* update from boost cvs branch RC_1_30_0
+
+2003-03-03  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* update boost to version pre-1.30.0
+
+2002-11-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost/format/format_implementation.hpp (clear_bind): use
+	io::out_of_range
+
+	* boost/config/user.hpp (BOOST_FUNCTION_NO_DEPRECATED): define it.
+
+2002-11-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Boost.Format: add files so that this boost lib can be used.
+
+2002-11-07  Angus Leeming  <leeming@lyx.org>
+
+	* libs/regex/src/Makefile.am: add cregex.cpp and fileiter.cpp
+
+2002-10-15  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* update boost to version 1.29.0.
+
+2002-08-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* update boost, we have almost no local changes to the boost files
+	now.
+	[But still: Remember that all changes to boost code _must_ go
+	through me, then I can sync up with my boost tree, and also
+	request changes on the boost developers list.]
+
+2002-08-09  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* update boost
+	[Remember that all changes to boost code _must_ go through me,
+	then I can sync up with my boost tree, and also request changes on
+	the boost developers list.]
+
+2002-07-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* update boost
+	[Remember that all changes to boost code _must_ go through me,
+	then I can sync up with my boost tree, and also request changes on
+	the boost developers list.]
+
+2002-06-18  Angus Leeming  <leeming@lyx.org>
+
+	Reapplied:
+	* boost/signals/connection.hpp:
+	* libs/signals/src/connection.cpp: c-assert expects an int, so don't
+	pass it a pointer.
+
+2002-06-16  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* update boost. (prev commit lost).
+
+2002-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* boost/signals/connection.hpp:
+	* libs/signals/src/connection.cpp: c-assert expects an int, so don't
+	pass it a pointer.
+
+2002-06-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* libs/regex/src/Makefile.am: only compile the source files that
+	we actually have to.
+
+2002-05-28  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* libs/regex/src/.cvsignore: ignore .lo, .deps and .libs
+	* libs/signals/src/.cvsignore: ditto
+
+2002-05-26  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* libs/signals/Makefile.am: new file
+	* libs/signals/.cvsignore: ditto
+	* libs/signals/src/.cvsignore: ditto
+	* libs/signals/src/Makefile.am: ditto
+	* libs/signals/src/connection.cpp: ditto
+	* libs/signals/src/signal_base.cpp: ditto
+	* libs/signals/src/slot.cpp: ditto
+	* libs/signals/src/trackable.cpp: ditto
+
+	* libs/regex/src/.cvsignore: add libboostregex.la
+
+	* libs/Makefile.am (SUBDIRS): add signals
+
+2002-05-24  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* libs/regex/src/Makefile.am (libboostregex_la_SOURCES): add a
+	missing \ that made the lib incomplete.
+
+	* update and enable use of exceptions again.
+
+2002-05-22  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost/detail/shared_count.hpp: never throw, assert or ponder on
+	instead.
+
+	* major boost update. (a bit more is comming)
+
+2001-09-07  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* boost/crc.hpp (detail): re-apply the cxx patch from 2001-06-07.
+
+2001-07-07  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost/config.hpp: update
+
+2001-06-07  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost/limits.hpp: completely bogus jug addon removed.
+
+	* boost/crc.hpp: possible fix for the cxx compilation problems, as
+	suggested on the boost list.
+
+2001-06-01  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost/config.hpp: remove hack moved to config.h
+
+2001-06-01  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* boost/config.hpp (BOOST_NO_LIMITS): fix the hack mentionned
+	below.
+
+2001-06-01  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost/utility.hpp: update
+	* boost/static_assert.hpp: update
+	* boost/smart_ptr.hpp: update
+	* boost/config.hpp: update
+	(BOOST_NO_LIMITS): add a hack so that we can continue to use
+	lyxstring.
+
+	* boost/detail/limits.hpp: new file
+	* boost/limits.hpp: new file
+	* boost/integer.hpp: new file
+	* boost/crc.hpp: new file
+
+2001-05-31  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost/re_detail/regex_synch.hpp: delete file
+	* boost/re_detail/regex_stack.hpp: delete file
+	* boost/re_detail/regex_split.hpp: delete file
+	* boost/re_detail/regex_raw_buffer.hpp: delete file
+	* boost/re_detail/regex_options.hpp: delete file
+	* boost/re_detail/regex_match.hpp: delete file
+	* boost/re_detail/regex_library_include.hpp: delete file
+	* boost/re_detail/regex_kmp.hpp: delete file
+	* boost/re_detail/regex_format.hpp: delete file
+	* boost/re_detail/regex_cstring.hpp: delete file
+	* boost/re_detail/regex_config.hpp: delete file
+	* boost/re_detail/regex_compile.hpp: delete file
+	* boost/re_detail/fileiter.hpp: delete file
+
+	* boost/regex_traits.hpp: delete file
+	* boost/regex.hpp: delete file
+	* boost/regex.h: delete file
+	* boost/cregex.hpp: delete file
+	* boost/config.h.in: delete file
+
+	* mkinstalldirs: delete file
+	* missing: delete file
+	* ltmain.sh delete file
+	* ltconfig: delete file
+	* install-sh: delete file
+	* configure.in: delete file
+	* config.sub: delete file
+	* config.guess: delete file
+	* aclocal.m4: delete file
+	* acinclude.m4: delete file
+
+2001-05-30  Juergen Vigna  <jug@sad.it>
+
+	* boost/config.hpp: change include of <string> to "LString.h".
+
+2001-05-29  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost/utility.hpp: update
+
+	* boost/smart_ptr.hpp: update... not finished
+
+	* boost/config.hpp: update
+
+2001-04-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* boost/array.hpp: move array back into namespace boost
+
+2001-03-15  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* boost/utility.hpp: remove lyx specific modifications.
+
+2001-02-20  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* .cvsignore: added various files

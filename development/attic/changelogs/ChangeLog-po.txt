@@ -1,0 +1,1203 @@
+2007-02-10 Uwe Stöhr <uwestoehr@web.de>
+
+	* de.po: corrections of beamer layout translation
+	and updates
+
+2006-02-23  Michael Gerz  <michael.gerz@teststep.org>
+
+        * de.po: tiny changes suggested by Hartmut Haase
+
+2006-02-11  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* remerge
+
+2006-01-16  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* pl.po: update from Tomasz Luczak (bug 1898)
+
+2006-01-29  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* remerge
+
+2006-01-28  Lars Gullik Bjonnes  <larsbj@lyx.org>
+
+	* remerge
+
+2006-01-28  Michael Gerz  <michael.gerz@teststep.org>
+
+	* de.po: minor update for the gtk frontend
+
+2006-01-16  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* pl.po: update from Tomasz Luczak
+
+2006-01-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* it.po: remerge. something is wrong...
+
+2006-01-11  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* it.po: update from Kostantino.
+
+2006-01-10  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* nn.po: update from Ingar Pareliussen
+
+2006-01-04  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* hu.po: update from Alex.
+
+2006-01-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* es.po: update from Eulogio Serradilla Rodríguez.
+
+	* LINGUAS: use same list of languages as for 1.3.x.
+
+	* postats.sh: small update.
+
+2006-01-01  Michael Gerz  <michael.gerz@teststep.org>
+
+	* de.po: minor changes proposed by Hartmut Haase
+
+2005-12-28  Lars Gullik Bjonnes <larsbj@gullik.net>
+
+	* pl.po: update from Tomasz Luczak
+
+2005-12-23  Lars Gullik Bjonnes  <larsbj@lyx.org>
+
+	* remerge
+
+2005-12-18  Lars Gullik Bjonnes  <larsbj@lyx.org>
+
+	* *.po: Remove obsolete entries
+
+2005-12-18  Lars Gullik Bjonnes  <larsbj@lyx.org>
+
+	* remerge
+
+2005-11-28  Michael Gerz  <michael.gerz@teststep.org>
+
+	* de.po: minor changes proposed by Hartmut Haase
+
+2005-11-22  Adrien Rebollo <adrien.rebollo@gmx.fr>
+
+	* fr.po: 2nd and maybe last update for release 1.4
+
+2005-11-21  Adrien Rebollo <adrien.rebollo@gmx.fr>
+
+	* fr.po: 1st update for release 1.4
+
+2005-11-19  Michael Gerz  <michael.gerz@teststep.org>
+
+	* de.po: more updates
+
+2005-11-15  Michael Gerz  <michael.gerz@teststep.org>
+
+	* de.po: more updates
+
+2005-10-31  Michael Gerz  <michael.gerz@teststep.org>
+
+	* de.po: more updates
+
+2005-10-23  Lars Gullik Bjonnes  <larsbj@localhost.localdomain>
+
+	* remerge and some CRLF removal
+
+2005-10-23  Michael Gerz  <michael.gerz@teststep.org>
+
+	* de.po: more updates
+
+2005-10-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.in.in:
+	* postats.sh: adapt to new developers site.
+
+2005-10-09  Lars Gullik Bjonnes  <larsbj@localhost.localdomain>
+
+	* rename no.po to nb.po, remerge
+	* LINGUAS: replace no with nb
+
+2005-10-03  Michael Gerz  <michael.gerz@teststep.org>
+
+	* de.po: tiny improvements by Hartmut Haase
+
+2005-09-15  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* *.po: remerge.
+	
+	* Makefile.in.in: fix quoting of awk regexp constants. Use sed
+	instead of awk to change single backslashes to double ones in
+	LabelString*, since it is not possible to do this portably in awk.
+
+2005-09-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.in.in: when invoking awk, use POSIX regexps only. 
+	(bug 1980)
+
+2005-09-08  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* he.po: move enum, appendix counter functionality here
+
+2005-09-06  Michael Gerz  <michael.gerz@teststep.org>
+
+	* de.po:
+	* postats.sh:
+	* pocheck.pl: change name & address (Schmitt => Gerz)
+
+2005-08-21  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* remerge po files
+
+2005-08-01  Helge Hafting  <helge.hafting@aitel.hist.no>
+
+	* no.po: some consistency fixes and other small fixes; translated
+	math/table toolbar helptext now that I figured out how to turn
+	those toolbars on; hopefully improved on my previous bad
+	translation of "label".
+
+2005-07-21  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* de.po: another small update
+
+2005-07-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* no.po: another small update
+
+2005-07-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* no.po: update a bit
+
+2005-07-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* no.po: update a bit
+	* *.po: remerge and remove obsolete entries
+
+2005-07-17  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* postats.sh: make sure gettext language is english.
+
+2005-07-17  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* no.po: update a bit
+	* *.po: remerge
+
+2005-07-16  Stephan Witt <stephan.witt@beusen.de>
+
+	* de.po: provide missing menu item translations and shortcut fixes
+
+2005-07-16  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* no.po: update a bit
+	* *.po: remerge
+	
+2005-07-15  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.in.in: use AWK variable
+
+2005-07-11  Helge Hafting  <helge.hafting@aitel.hist.no>
+
+	* no.po: The branch inset name is translated, several correct
+	fuzzy translations are no longer fuzzy, the name "TOC" is
+	translated, some of the bibtex dialog is translated and some
+	layout names.
+
+2005-07-06  Helge Hafting  <helge.hafting@aitel.hist.no>
+
+	* no.po: Another update, with translations for "branches", and
+	menu shortcut changes to minimize clashes.
+
+2005-07-04  Helge Hafting  <helge.hafting@aitel.hist.no>
+
+	* no.po: This time with the newly available vspace translations,
+	as well as a few more xforms translations.
+
+2005-07-04  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* POTFILES.in: add src/vspace.C
+
+	* no.po: update to lastest strings.
+
+2005-07-04  Helge Hafting  <helge.hafting@aitel.hist.no>
+
+	* no.po: Some error messages, and a few corrections/refinements on
+	my earlier work.
+
+2005-07-01  Helge Hafting  <helge.hafting@aitel.hist.no>
+
+	* no.po: Now with 2038 translations. Many xforms strings, many
+	layout strings, bibliography dialogs, as well as little fixes here
+	and there.
+
+2005-06-28  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* *.po: remerge.
+
+2005-06-28  Helge Hafting  <helge.hafting@aitel.hist.no>
+
+	* no.po: Some translations I missed, and some improved
+	translations. Change tracking and various math/table stuff.
+
+2005-06-24  Helge Hafting  <helge.hafting@aitel.hist.no>
+
+	* no.po: Lots of translated strings, now that I figured out those
+	"fuzzy" things. In particular, all of the main menu+submenus and
+	main toolbar texts, except for a very few I couldn't find in the
+	po file. I may have missed some dynamic menus, and anything
+	xforms-specific. Also, lots of dialog box strings translated,
+	that's where lots of the fuzzy stuff used to be.
+
+2005-06-06  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* de.po: another update.
+
+2005-06-02  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* de.po: more changes.
+
+2005-05-29  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* de.po: bringing the file in sync with my tree. Only marginal
+	modifications to the messages, but a lot of differences due to a
+	remerge of the po file.
+
+2005-05-18  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.in.in: add the layout LabelString entries in pot file.
+
+2005-05-02  Angus Leeming  <leeming@lyx.org>
+
+	* po/POTFILES.in: src/SpellBase.C now contains a translatable string.
+
+2005-04-28  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* Makefile.in.in: remove duplicate lines
+
+2005-04-28  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* Makefile.in.in (layouts_l10n.pot): replace underscores with
+	spaces in Style definition; strip quotes
+
+	* de.po:
+	* fr.po: Adjust po files to '_'-less styles in layout files
+
+2005-04-19  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* nn.po: update from Ingar Pareliussen
+
+2005-03-31  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* pl.po: update from Tomasz Luczak
+
+2005-03-30  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* pl.po: update from Tomasz Luczak
+
+2005-03-24  Angus Leeming  <leeming@lyx.org>
+
+	* postats.sh: unset the LANG environment variable because
+	GNU sed and grep have real problems in UTF-8 environments.
+	Add a block to translate Author's names from the local encoding
+	of the po file to XHTML character codes.
+
+2005-03-11  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* LINGUAS: new file. Lists the languages known to LyX.
+
+2005-02-16  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* *.po: remerge with gettext 0.13
+
+2005-01-12  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.in.in (POTFILES.in): replace mention of path_defines.C
+	with package.C.
+
+2004-10-18  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* de.po: update strings with context information
+
+2004-10-05  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ru.po: fix crash when autosaving reported by Nikita V.
+	Youshchenko
+
+2004-09-10  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.in.in (i18n.php3): new target; this file is used in the
+	www-devel repository
+
+2004-08-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.in.in (POTFILES.in): fix portability problem with Mac
+	OS X (basic regexps do not understand \|)
+
+2004-08-02  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* de.po: big update
+
+2004-06-08  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.in.in (xforms_l10n.pot, qt_l10n.pot, layouts_l10n.pot)
+	(languages_l10n.pot, ui_l10n.pot): Set awk variable top_srcdir to
+	Makefile variable $(top_srcdir), add a awk function fixupfilename
+	use it in printint out the filename to the pot file.
+
+	* *.po: remerge
+
+2004-06-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.in.in (layouts_l10n.pot): add the ListName entries (bug
+	#1312)
+
+	* *.po: remerge
+
+2004-06-03  Angus Leeming  <leeming@lyx.org>
+
+	* .cvsignore: ignore .pot files with version suffix.
+	E.g., lyx-1.4.0cvs.pot.
+
+2004-06-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* po files: remerge and remove obsoletes
+
+2004-06-01  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.in.in (*_l10n.pot): \. -> \\. in regex to remove dir
+	part from filenames.
+
+2004-05-28  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.in.in (Makefile): fix typo
+
+2004-05-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.in.in ($(DOMAIN).pot-update): don't depend on
+	l10n_pots, run always when updating instead.
+	(l10n_pots): files in builddir, remove files after domain.po is
+	created.
+	(xforms_l10n.pot): create in builddir, correct filename
+	(qt_l10n.pot): ditto
+	(layouts_l10n.pot): ditto
+	(languages_l10n.pot): ditto
+	(ui_l10n.pot): ditto
+	(${srcdir}/POTFILES.in): make src/support/path_defines.C never be
+	in this file
+
+	* .cvsignore: add remove-potcdate.sed
+
+2004-05-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makevars (XGETTEXT_OPTIONS): set the language explictly.
+
+2004-05-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.in.in: change how we generate POTFILES.in a bit
+
+2004-05-26  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.14.1.
+	* boldquot.sed: New file, from gettext-0.14.1.
+	* en@boldquot.header: New file, from gettext-0.14.1.
+	* en@quot.header: New file, from gettext-0.14.1.
+	* insert-header.sin: New file, from gettext-0.14.1.
+	* quot.sed: New file, from gettext-0.14.1.
+	* remove-potcdate.sin: New file, from gettext-0.14.1.
+	* Rules-quot: New file, from gettext-0.14.1.
+
+2004-03-22  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2003-12-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* wa.po: remove bad e-mail address
+
+	* hu.po: fix address
+
+2003-12-15  Ingar Pareliussen <Ingar.Pareliussen@chembio.ntnu.no>
+
+	* nn.po: update
+
+2003-11-28  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* Makefile.in.in: always create pot files with LC_ALL="C"
+
+2003-11-14  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.in.in (xforms_l10n.pot): skip entries in symbol font
+	(we do not want to translate them...)
+
+2003-08-18  Michael Schmitt <Michael.Schmitt@teststep.org>
+
+	* de.po: Fix numerous shortcuts and one translation
+
+2003-08-14  Michael Schmitt <Michael.Schmitt@teststep.org>
+
+	* de.po: update.
+
+2003-07-21  Michael Schmitt <Michael.Schmitt@teststep.org>
+
+	* Makefile.in.in: fix extraction of language names from lib/languages
+	when the name includes a space.
+
+	* de.po: update.
+
+2003-07-11  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* pl.po: copy the version from 1.3.x branch, since it contains
+	important bugfixes
+
+2003-05-22  Michael Schmitt <Michael.Schmitt@teststep.org>
+
+	* Makefile.in.in: Consider classic.ui etc. for the creation of
+	pox/pot files.
+
+2003-05-21  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2003-05-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.in.in (POTFILES.in): make sure that the file is sorted
+	in locale-independent order
+
+2003-04-30  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* pocheck.pl: more fixes
+
+	* de.po: update
+
+2003-04-28  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* pocheck.pl: do not output several different messages about bad
+	translation for the same word.
+
+2003-04-09  John Levon  <levon@movementarian.org>
+
+	* Makefile.in.in: translate the toolbar name
+
+2003-03-30  John Levon  <levon@movementarian.org>
+
+	* Makefile.in.in: fix escaping of " for qt UI files
+
+2003-03-10  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* pocheck.pl: new perl script that checks the consistency of a
+	given po file
+
+2003-02-14  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* POTFILES.in:
+	* Makefile.in.in: use a plain sort instead of "sort -f -n" to
+	generate POTFILES.in. Hopefully everybody will get the
+	same ordering now.
+
+2003-02-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* remerge
+
+2003-02-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* no.po: update
+
+2003-02-05  Alfredo Braunstein <abraunst@libero.it>
+
+	* es.po: small spanish tightening update
+
+2003-02-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* no.po: update
+
+2003-02-03  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2003-02-03  Zdenko Podobny <zdpo@mailbox.sk>
+
+	* sk.po: update
+
+2003-02-03  Tomasz Luczak <tlu@technodat.com.pl>
+
+	* pl.po: update
+
+2003-02-02  Alfredo Braunstein <abraunst@libero.it>
+
+	* es.po: update
+
+2003-01-30  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* ca.po:
+	* cs.po:
+	* nl.po:
+	* sv.po:
+	* tr.po: remove invalid email address of last translator
+
+2003-01-31  Alfredo Braunstein <abraunst@libero.it>
+
+	* es.po: update
+
+2003-01-30  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* no.po: small update
+
+2003-01-29  Angus Leeming  <leeming@lyx.org>
+
+	* postats.sh: further tidy. More robust.
+
+2003-01-28  Angus Leeming  <leeming@lyx.org>
+
+	* es.po: msgfmt complained about a missing '\n'.
+
+	* postats.sh: rewritten. Michael's original version resulted in
+	php warnings about uninitialised variables if any of the
+	translated, fuzzy or untranslated strings are missing (eg, because
+	there /are/ no untranslated strings).
+	Took the opportunity to make sure it does not need a Makefile to run.
+
+2003-01-28  Pauli Virtanen  <pauli.virtanen@hut.fi>
+
+	* fi.po: update
+
+2003-01-28  Alfredo Braunstein <abraunst@libero.it>
+
+	* es.po: update
+
+2003-01-27  Angus Leeming  <leeming@lyx.org>
+
+	* postats.sh: == is a bash extension. Use =.
+	The <ul> tag does not nest inside a <p>. With this change, the
+	generated i18n.php3 file now validates as strictly conformant
+	xhtml 1.0.
+
+2003-01-27  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2003-01-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* postats.sh: a first stab at xhtml-conformant code.
+
+2003-01-27  Alfredo Braunstein <abraunst@libero.it>
+
+	* es.po: update
+
+2003-01-27  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2003-01-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.in.in: Ignore items and submenus
+	for pot file generation if they are commented out
+
+2003-01-26  Alfredo Braunstein  <abraunst@libero.it>
+
+	* es.po: update
+
+2003-01-24  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2003-01-24  Angus Leeming  <leeming@lyx.org>
+
+	* he.po: Remove anon@anon e-mail address of last translator.
+
+	* postats.sh: slight change to allow it to be run from
+	build-dir != src_dir.
+
+2003-01-24  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* postats.sh: new file with which to re-generate i18n.php3 for the
+	www.devel.lyx.org site.
+
+2003-01-23  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* remerge po files.
+
+2003-01-23  Pauli Virtanen  <pauli.virtanen@hut.fi>
+
+	* fi.po: update
+
+2003-01-20  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2003-01-20  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2003-01-15  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2003-01-15  Pauli Virtanen  <pauli.virtanen@hut.fi>
+
+	* fi.po: update
+
+2003-01-12  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.in.in: changes to make distcheck work
+	* po files: remerge
+	* no.po: small update
+
+2003-01-10  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2003-01-09  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* POTFILES.in: update
+
+2003-01-08  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* fr.po: update
+
+2003-01-08  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2003-01-02  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2003-01-02  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2002-12-21  Alfredo Braunstein <abraunst@libero.it>
+
+	* es.po: update
+
+2002-12-22  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2002-12-19  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2002-12-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* no.po: update
+
+2002-12-17  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2002-12-17  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.in.in (l10n_pots): fix stupid mistake
+
+	* remerge the po files with lyx.pot
+
+	* Makefile.in.in (l10n_pots): dont use a tmp file
+
+2002-12-16  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.in.in (qt_l10n.pot): Fix a bug that resulted in too few
+	strings being extracted.
+
+2002-12-14  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.in.in (languages_l10n.pot): new target
+	(default_ui_l10n.pot): new target
+	(l10n_pots): add languages_l10n.pot and default_ui_l10n.pot
+	($(top_srcdir)/src/ext_l10n.h): delete target
+
+2002-12-16  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* de.po: update
+
+2002-12-09  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.in.in (layouts_l10n.pot): new target
+	(qt_l10n.pot): new target
+	(xforms_l10n.pot): new target
+	(l10n_pots): new target
+	($(top_srcdir)/src/ext_l10n.h): remove layout parsing and qt
+	parsing, move to their own targets.
+	($(srcdir)/$(PACKAGE).pot): depend on l10n_pots
+
+2002-12-08  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update da.po
+
+2002-12-02  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* remerge from lyx.pot
+	* no.po: small updates
+
+2002-11-26  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* no.po: update
+
+2002-11-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* no.po: update
+
+2002-11-25  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* remerge from lyx.pot
+	* no.po: update
+
+2002-11-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* remerge from lyx.pot
+
+2002-08-13  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* bg.po: change encoding to CP1251
+
+2002-07-03  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* hu.po: remove space as binding of 'replace all' in search dialog
+
+2002-06-11  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ru.po: update from Vitaly Lipatov
+
+2002-05-29  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2002-05-14  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2002-05-07  Helge Hafting  <helgehaf@aitel.hist.no>
+
+	* no.po: update
+
+2002-05-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* remerge from lyx.pot
+
+2002-05-03  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2002-05-03  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* fi.po: update from Pauli Virtanen
+
+2002-05-02  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* fr.po: update
+
+2002-04-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* no.po: small update
+
+2002-04-25  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2002-04-15  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* da.po: update from Claus Hindsgaul
+
+2002-04-15  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* fi.po: update from Pauli Virtanen
+
+2002-04-11  Claus Hindsgaul  <claus_h@image.dk>
+
+	* da.po: update
+
+2002-04-07  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* no.po: update.
+
+2002-04-04  Adrien Rebollo <adrien.rebollo@gmx.fr>
+
+	* README: removed obsolete status, updated build instructions
+
+2002-04-04  Allan Rae  <rae@lyx.org>
+
+	* Makefile.in.in (.po.pox): make it work when builddir != srcdir
+
+2002-04-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* da.po: update from Claus Hindsgaul
+
+2002-04-02  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* fi.po: update from Pauli Virtanen
+
+2002-04-01  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* da.po: update
+
+2002-03-31  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* no.po: updated
+
+	* da.po: updated
+
+2002-03-12  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* bg.po: new language from Georgi Tellalov
+
+	* es.po: fix charset
+
+2002-02-18  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ru.po: update from Vitaly Lipatov
+
+2002-01-17  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* sk.po: new translation from Zdeno Podobný <zdpo@mailbox.sk>
+
+2001-11-04  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.in.in: consider Qt2 dialogs for translation
+
+2001-10-08  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.40.
+
+2001-09-17  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* all files: update 'Note...'->"Note', as per M. Schmitt request
+
+2001-09-05  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ru.po: update from Vitaly Lipatov
+
+2001-09-04  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* da.po: update from Claus Hindsgaul
+
+2001-07-25  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Makefile.in.in: replaced "find src -path" call with unix-standard
+	equivalent. (From Lars).
+
+2001-07-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* po files: merge with lyx.pot
+	* no.po: some updates
+
+2001-07-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* da.po: update from Claus Hindsgaul
+
+	* fr.po: update from Adrien Rebollo
+
+2001-07-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.in.in (Makefile): exclude the kde dir
+
+2001-07-04  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.38.
+	* cat-id-tbl.c: Remove file.
+	* stamp-cat-id: Remove file.
+
+2001-07-02  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* hu.po: update from László Zrubecz
+
+2001-06-27  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: update from Adrien Rebollo
+
+2001-05-29  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: update from Adrien Rebollo
+
+2001-05-09  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* sl.po: update from Roman Maurer
+
+2001-05-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* eu.po: update from Dooteo
+
+2001-03-21  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* da.po: update from Claus Hindsgaul
+
+2001-03-09  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* pl.po: update from Pawel Dziekonski
+
+	* fi.po: update from Pauli Virtanen
+
+2001-03-07  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* pl.po: update from Pawel Dziekonski
+
+2001-03-06  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* pl.po: update from Pawel Dziekonski
+
+2001-02-16  Allan Rae  <rae@lyx.org>
+
+	* Makefile.in.in: grep -E isn't necessary anymore and the awk is
+	superfluous to the generation of POTFILES.in
+
+2001-02-14  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* da.po: update from Claus Hindsgaul
+
+2001-02-09  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* de.po: update from Pit
+
+2001-02-02  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* es.po: update from German Poo Caaman~o
+
+2001-01-29  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* da.po: update from Claus Hindsgaul
+
+2001-01-26  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* da.po: update from Claus Hindsgaul
+
+2001-01-14  Allan Rae  <rae@lyx.org>
+
+	* Makefile.in.in (POTFILES.in): Removed dependency on
+	$(top_srcdir)/src/ext_l10n.h because we need the Makefile to be
+	regenerated _before_ ext_l10n.h is regenerated in order for
+	changes to the ext_l10n.h rule to take effect.
+	($(top_srcdir)/src/ext_l10n.h): moved so Makefile rule has precedence.
+	Rewrote to use sed exclusively instead of awkward awk scripts.  Fixed
+	several bugs in the process.  We now only translate stuff that
+	should be translated.
+
+2001-01-13  Allan Rae  <rae@lyx.org>
+
+	* Makefile.in.in (POTFILE_IN_DEPS): remove the GNU make specific :=
+
+2001-01-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* sl.po: update from Roman Maurer
+
+	* de.po: update from Pit
+
+2001-01-08  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* no.po: update
+
+2001-01-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* sl.po: update from Roman Maurer
+
+2000-12-27  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ro.po: update from Claudiu Costin
+
+	* fi.po: update from Pauli Virtanen
+
+2000-12-14  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: update from Emmanuel
+
+2000-12-04  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fi.po: update from Pauli Virtanen
+
+	* fr.po: update from Jean-Pierre
+
+2000-11-30  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* *.po: Ensure they have valid shortcuts. Ie, replace "|xyz" with
+	"xyz".
+	Also removed all instances of "%x".
+
+2000-11-15  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* merge the po files with latest pot
+
+2000-10-26  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* merge the po files with latest pot
+
+2000-10-24  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Makefile.in.in (ext_l10n.h): fix a bug in the generation that
+	could lead to _("") + some simplification
+
+	* all po files updated again
+
+2000-10-24  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* all po files updated to latest lyx.pot
+
+	* no.po: slightly updated.
+
+2000-10-17  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* Makefile.in.in (${srcdir}/POTFILES.in): hopefully fix the
+	generation of POTFILES.in
+
+2000-10-11  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* no.po: update a bit for 1.1.6cvs
+
+2000-10-10  Allan Rae  <rae@lyx.org>
+
+	* Makefile.in.in (POTFILES.in): one little tweak to ensure POTFILES.in
+	stays in $(srcdir).
+
+2000-10-06  Allan Rae  <rae@lyx.org>
+
+	* Makefile.in.in: Over zealous in yesterdays work.
+	Cleaned up to be gettext.m4 friendly.  Should work fine now.
+
+2000-10-05  Allan Rae  <rae@lyx.org>
+
+	* Makefile.in.in: First attempt at generating POTFILES.in
+	and ../src/ext_l10n.h via a Makefile
+
+2000-07-26  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* no.po: update a bit for new ui
+
+2000-06-23  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: update from Emmanuel and Jean-Pierre
+
+	* sl.po: update from Roman Maurer
+
+2000-06-07  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* de.po: update from Pit
+
+2000-06-06  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: update from Emmanuel
+
+2000-06-06  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* de.po: updated
+
+2000-06-05  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fi.po: update from Pauli Virtanen
+
+2000-05-29  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: update from Jean-Pierre
+
+2000-05-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: update from Emmanuel and Jean-Pierre
+
+2000-05-23  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* eu.po: update from Dooteo
+
+2000-05-18  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* nl.po: update from Ivo Timmermans
+
+	* eu.po: new file from Iñaki Larrañaga (aka Dooteo)
+	<blackzig@freemail.it>
+
+2000-02-09  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* he.po: update from tzafrir Cohen <tzafrir@technion.ac.il>.
+
+2000-04-17  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: update from Jean-Pierre Chretien
+
+	* fi.po: update from Pauli Virtanen
+
+	* sl.po: update from Roman Maurer
+
+2000-04-28  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* remove obsolete entries from po files. Make all po files pass
+	the verification test.
+
+2000-04-17  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fi.po: update from Pauli Virtanen
+
+2000-03-10  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* es.po: bugfix from Jose M. Alcaide
+
+2000-03-10  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: updated from Olivier Faucheux
+
+2000-02-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ca.po: updated from Francesc Burrull i Mestres
+
+2000-02-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* he.po: new file from tzafrir Cohen <tzafrir@technion.ac.il>.
+
+2000-01-27  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* tr.po: updated
+
+	* po files remerged with updated lyx.pot
+
+2000-01-24  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* ca.po: updated from Francesc Burrull i Mestres
+
+	* sl.po: updated from Roman Maurer
+
+2000-01-20  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* *.po: updated as part of make distdir
+
+	* ro.po: new po file for romanian, written for klyx but included
+	here so that updates can be made easier later.
+
+1999-12-28  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fi.po: update from pauli.virtanen@saunalahti.fi
+
+1999-12-22  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fi.po: update from pauli.virtanen@saunalahti.fi
+
+1999-12-21  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* .cvsignore: add lyx.pot
+
+	* lyx.pot: remove from cvs
+
+1999-12-09  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr.po: updated.
+
+1999-11-30  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* *.po: obsolete entries removed after merge with
+	up to date lyx.pot because of make distdir.
+
+1999-10-28  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* *.po: obsolete entries and merged with lyx.pot because of make
+	distdir.
+
+1999-10-25  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* redadded POTFILES.in some of the clean targest need it
+
+	* removed POTFILES.in from .cvsignore
+
+1999-10-23  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* .cvsignore: added POTFILES.in
+
+	* POTFILES.in: removed file
+
+1999-10-04  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* cs.po: Update from Ludek Brukner
+
+1999-09-22  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* Added this file. Needed by the dist targets.

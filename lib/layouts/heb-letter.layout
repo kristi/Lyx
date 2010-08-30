@@ -1,0 +1,18 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[letter]{letter (Hebrew)}
+# Hebrew letter textclass definition file.
+# Author: Dekel Tsur <dekel@math.tau.ac.il>
+
+Format 27
+Input letter
+
+
+Style My_Address
+	Align                 Left
+End
+
+
+Style Send_To_Address
+	Align                 Right
+End
+

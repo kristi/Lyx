@@ -1,0 +1,1246 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[beamer,amssymb.sty,hyperref.sty,pgf.sty,xcolor.sty,xxcolor.sty]{presentation (beamer)}
+# Author : Till Tantau <tantau@users.sourceforge.net>
+
+# $Header: /cvsroot/latex-beamer/latex-beamer/lyx/layouts/beamer.layout,v 1.16 2004/10/07 20:53:07 tantau Exp $
+
+# Includes
+Format 27
+Input stdcounters.inc
+Input stdinsets.inc
+
+
+# General textclass parameters
+Columns            1
+Sides              1
+SecNumDepth        2
+TocDepth           2
+DefaultStyle       Standard
+Provides hyperref  1
+Provides geometry  1
+
+DefaultFont
+  Family           Sans
+  Series           Medium
+  Shape            Up
+  Size             Normal
+  Color            None
+EndFont
+
+
+# Standard style definition
+Style Standard
+  Category         MainText
+  Margin           Static
+  LatexType        Paragraph
+  LatexName        dummy
+  ParIndent        MM
+  ParSkip          0.4
+  Align            Left
+  AlignPossible    Block, Left, Right, Center
+  LabelType        No_Label
+End
+
+# List section
+# Itemize style definition
+Style Itemize
+  Category         List
+  Margin           Static
+  LatexType        Item_Environment
+  LatexName        itemize
+  OptionalArgs     1
+  NextNoIndent     1
+  LeftMargin       MMN
+  LabelSep         xx
+  ItemSep          0.2
+  TopSep           0.7
+  BottomSep        0.7
+  ParSep           0.3
+  Align            Left
+  LabelType        Itemize
+  LabelString      "*"
+End
+
+# Enumerate style definition
+Style Enumerate
+  Category         List
+  Margin           Static
+  LatexType        Item_Environment
+  LatexName        enumerate
+  OptionalArgs     2
+  NextNoIndent     1
+  LeftMargin       MMN
+  LabelSep         xx
+  ParSkip          0.0
+  ItemSep          0.2
+  TopSep           0.7
+  BottomSep        0.7
+  ParSep           0.3
+  Align            Left
+  LabelType        Enumerate
+  RefPrefix        enu
+End
+
+# Description style definition
+Style Description
+  Category         List
+  Margin           First_Dynamic
+  LatexType        Item_environment
+  LatexName        description
+  OptionalArgs     2
+  NextNoIndent     1
+  LeftMargin       MM
+  LabelSep         xx
+  ParSkip          0.4
+  ItemSep          0.2
+  TopSep           0.7
+  BottomSep        0.7
+  ParSep           0.3
+  Align            Left
+  LabelType        Manual
+  LabelString      "MM"
+
+  # label font definition
+  LabelFont 
+    Series        Bold
+  EndFont
+End
+
+# Sectioning section
+# Part style definition
+Style Part
+  Category         Section
+  Margin           Dynamic
+  LatexType        Command
+  LatexName        part
+  OptionalArgs     1
+  NeedProtect      1
+  NextNoIndent     1
+  Labelsep         xx
+  ParSkip          0.4
+  TopSep           4
+  BottomSep        4
+  ParSep           0.8
+  Align            Center
+  LabelType        Static
+  LabelString      "Part"
+	RefPrefix        part
+
+  # standard font definition
+  Font 
+    Family         Roman
+    Series         Bold
+    Size           Huge
+  EndFont
+
+  LabelFont
+    Color          Latex
+  EndFont
+  	TocLevel 0
+End
+
+# Section style definition
+Style Section
+  Category         Section
+  Margin           First_Dynamic
+  LatexType        Command
+  LatexName        lyxframeend{}\section
+  NeedProtect      1
+  NextNoIndent     1
+  LabelSep         xx
+  ParSkip          0.4
+  TopSep           2
+  BottomSep        0.25
+  ParSep           0.7
+  Align            Left
+  LabelType        Counter
+  LabelCounter     section
+  LabelString      "Section \arabic{section}"
+	RefPrefix        sec
+  OptionalArgs     1
+
+  Font 
+    Family         Roman
+    Series         Bold
+    Size           huge
+  EndFont
+
+  LabelFont 
+    Color          latex
+  EndFont
+  LabelStringAppendix "\Alph{section}"
+  TocLevel         1
+End
+
+# Section* style definition
+Style Section*
+  CopyStyle        Section
+  Category         Unnumbered
+  Margin           Static
+  LatexName        lyxframeend{}\section*
+  LabelType        No_Label
+  OptionalArgs     0
+End
+
+# Subsection style definition
+Style Subsection
+  Category         Section
+  Margin           First_Dynamic
+  LatexType        Command
+  LatexName        lyxframeend{}\subsection
+  NeedProtect      1
+  NextNoIndent     1
+  LabelSep         xx
+  ParSkip          0.4
+  TopSep           2
+  BottomSep        0.25
+  ParSep           0.5
+  Align            Left
+  LabelType        Counter
+  LabelCounter     subsection
+  LabelString      "Subsection \arabic{section}.\arabic{subsection}"
+	RefPrefix        sub
+  OptionalArgs     1
+
+  # standard font definition
+  Font 
+    Family         Roman
+    Series         Bold
+    Size           larger
+  EndFont
+
+  LabelFont 
+    Color          latex
+  EndFont
+  LabelStringAppendix "\arabic{section}.\arabic{subsection}"
+  TocLevel 2
+End
+
+# Subsection* style definition
+Style Subsection*
+  CopyStyle        Subsection
+  Category         Unnumbered
+  Margin           Static
+  LatexName        lyxframeend{}\subsection*
+  LabelType        No_Label
+  OptionalArgs     0
+End
+
+# Frame control definition
+Style BeginFrame
+  Category         Frames
+  TocLevel         4
+  KeepEmpty        1
+  LatexType        Command
+  LatexName        lyxframeend{}\lyxframe
+  OptionalArgs     1
+  Margin           First_Dynamic
+  NextNoIndent     1
+  ParSkip          0
+  TopSep           2.5
+  BottomSep        0.5
+  ParSep           0
+  Align            Center
+  LabelType        Static
+  LabelBottomSep   0
+  LeftMargin       M
+  LabelSep         xx
+  LabelString      "Frame"
+
+  Font
+    Series         Bold
+    Size           Largest
+    Color          Blue
+  EndFont
+
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+
+  Preamble
+    \makeatletter
+    \long\def\lyxframe#1{\@lyxframe#1\@lyxframestop}%
+    \def\@lyxframe{\@ifnextchar<{\@@lyxframe}{\@@lyxframe<*>}}%
+    \def\@@lyxframe<#1>{\@ifnextchar[{\@@@lyxframe<#1>}{\@@@lyxframe<#1>[]}}
+    \def\@@@lyxframe<#1>[{\@ifnextchar<{\@@@@@lyxframe<#1>[}{\@@@@lyxframe<#1>[<*>][}}
+    \def\@@@@@lyxframe<#1>[#2]{\@ifnextchar[{\@@@@lyxframe<#1>[#2]}{\@@@@lyxframe<#1>[#2][]}}
+    \long\def\@@@@lyxframe<#1>[#2][#3]#4\@lyxframestop#5\lyxframeend{%
+      \frame<#1>[#2][#3]{\frametitle{#4}#5}}
+    \makeatother
+  EndPreamble
+End
+
+Style BeginPlainFrame
+  Category          Frames
+  TocLevel          4
+  KeepEmpty         1
+  LatexType         Command
+  LatexName         lyxframeend{}\lyxplainframe
+  Margin            First_Dynamic
+  NextNoIndent      1
+  ParSkip           0
+  TopSep            2.5
+  BottomSep         0.5
+  ParSep            0
+  Align             Center
+  LabelType         Static
+  LabelBottomSep    0
+  LeftMargin        M
+  LabelSep          xx
+  LabelString       "Frame (no head/foot/sidebars)"
+
+  Font
+    Series          Bold
+    Size            Largest
+    Color           Blue
+  EndFont
+
+  LabelFont 
+    Family          Roman
+    Color           latex
+  EndFont
+
+  Preamble
+    \makeatletter
+    \long\def\lyxplainframe#1{\@lyxplainframe#1\@lyxframestop}%
+    \def\@lyxplainframe{\@ifnextchar<{\@@lyxplainframe}{\@@lyxplainframe<*>}}%
+    \long\def\@@lyxplainframe<#1>#2\@lyxframestop#3\lyxframeend{%
+      \frame<#1>[plain]{\frametitle{#2}#3}}
+    \makeatother
+  EndPreamble
+End
+
+Style AgainFrame
+  Category          Frames
+  KeepEmpty         0
+  LatexType         Command
+  LatexName         lyxframeend{}\lyxagainframe
+  OptionalArgs      2
+  Margin            First_Dynamic
+  NextNoIndent      1
+  ParSkip           0
+  TopSep            3
+  BottomSep         3
+  ParSep            0
+  Align             Center
+  LabelType         Static
+  LabelBottomSep    0
+  LeftMargin        M
+  LabelSep          xx
+  LabelString       "Again frame with label"
+
+  Font
+    Color           latex
+  EndFont
+
+  LabelFont 
+    Family          Roman
+    Color           latex
+    Series          Bold
+    Size            Largest
+  EndFont
+
+  Preamble
+    \makeatletter
+    \long\def\lyxagainframe#1{\@lyxagainframe#1\@lyxframestop}%
+    \def\@lyxagainframe{\@ifnextchar<{\@@lyxagainframe}{\@@lyxagainframe<*>}}%
+    \def\@@lyxagainframe<#1>{\@ifnextchar[{\@@@lyxagainframe<#1>}{\@@@lyxagainframe<#1>[]}}
+    \long\def\@@@lyxagainframe<#1>[#2]#3\@lyxframestop{%
+      \againframe<#1>[#2]{#3}}
+    \makeatother
+  EndPreamble
+End
+
+Style EndFrame
+  Category          Frames
+  KeepEmpty         1
+  LatexType         Command
+  LatexName         lyxframeend
+  Margin            First_Dynamic
+  ParSkip           0
+  TopSep            0
+  BottomSep         3
+  ParSep            0
+  Align             Center
+  LabelType         Static
+  LabelBottomSep    0
+  LeftMargin        MMMMM
+  LabelString       "________________________________"
+
+  LabelFont 
+    Family          typewriter
+    Series          Medium
+    Size            Normal
+    Color           latex
+  EndFont
+
+  Preamble
+    \def\lyxframeend{} % In case there is a superfluous frame end
+  EndPreamble
+End
+
+# Frame decoration section
+Style FrameSubtitle
+  Category         Frames
+  Margin           Static
+  LatexType        Command
+  LatexName        framesubtitle
+  ParSkip          0.4
+  ItemSep          0
+  TopSep           0
+  BottomSep        1
+  ParSep           1
+  Align            Center
+  LabelType        No_Label
+  OptionalArgs     1
+
+  # standard font definition
+  Font 
+    Series         Bold
+    Color          Blue
+  EndFont
+
+End
+
+
+Style Column
+  Category         Columns
+  Margin           Static
+  LatexType        Command
+  LatexName        column
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+  ParIndent        MM
+  Align            Left
+  LabelType        Static
+  LabelSep         xx
+  LabelString      "Start column (increase depth!), width:"
+  OptionalArgs     1
+  LeftMargin       "Start column (increase depth!), width:xx"
+
+  # standard font definition
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+End
+
+
+Style Columns
+  Category         Columns
+  KeepEmpty        1
+  Margin           Static
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            Left
+  LabelType        Static
+  LabelSep         xx
+
+  LatexName        columns}%{
+  LabelString      "Columns"
+  LeftMargin       "Columnsxx"
+
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+
+
+  # font & label font definition
+
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+End
+
+Style ColumnsCenterAligned
+  Category         Columns
+  KeepEmpty        1
+  Margin           Static
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            left
+  LabelType        Static
+  LabelSep         xx
+
+  LatexName        centercolumns}%{
+  LabelString      "Columns (center aligned)"
+  LeftMargin       "Columns (center aligned)xx"
+
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+
+  Preamble
+  \newenvironment{centercolumns}{\begin{columns}[c]}{\end{columns}}
+  EndPreamble
+  # font & label font definition
+
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+End
+
+Style ColumnsTopAligned
+  Category         Columns
+  KeepEmpty        1
+  Margin           Static
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            left
+  LabelType        Static
+  LabelSep         xx
+
+  LatexName        topcolumns}%{
+  LabelString      "Columns (top aligned)"
+  LeftMargin       "Columns (top aligned)xx"
+
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+
+  Preamble
+  \newenvironment{topcolumns}{\begin{columns}[t]}{\end{columns}}
+  EndPreamble
+  # font & label font definition
+
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+End
+
+# Frame progression section
+Style Pause
+  Category          Overlays
+  KeepEmpty         1
+  LatexType         Command
+  LatexName         pause
+  Margin            First_Dynamic
+  OptionalArgs      1
+  NextNoIndent      1
+  ParSkip           0
+  TopSep            0
+  BottomSep         0.25
+  ParSep            0
+  Align             Center
+  LabelType         Static
+  LabelBottomSep    0
+  LeftMargin        MMMMM
+  LabelString       "_ _ _ _ _ _ _ _ _ _ _ _ _ _"
+
+  LabelFont 
+    Family          typewriter
+    Series          Medium
+    Size            Normal
+    Color           latex
+  EndFont
+End
+
+Style Overprint
+  Category         Overlays
+  Margin           First_Dynamic
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            Left
+  LabelType        Static
+  LabelSep         xx
+
+  LatexName        overprint
+  LabelString      "Overprint"
+
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+  KeepEmpty        1
+
+  # font & label font definition
+
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+End
+
+Style OverlayArea
+  Category         Overlays
+  Margin           First_Dynamic
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            Left
+  LabelType        Static
+  LabelSep         xx
+
+  LatexName        overlayarea
+  LabelString      "Overlayarea"
+
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+
+  # font & label font definition
+
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+End
+
+Style Uncover
+  Category         Overlays
+  Margin           First_Dynamic
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            Left
+  LabelType        Static
+
+  LatexName        uncoverenv}%{
+  LabelSep         xx
+  LabelString      "Uncovered on slides"
+
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+
+  # font & label font definition
+
+  LabelFont 
+    Family         Roman
+    Color          Latex
+  EndFont
+End
+
+Style Only
+  Category         Overlays
+  Margin           First_Dynamic
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            Left
+  LabelType        Static
+
+  LatexName        onlyenv}%{
+  LabelSep         xx
+  LabelString      "Only on slides"
+
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+
+  # font & label font definition
+
+  LabelFont
+    Family         Roman
+    Color          Latex
+  EndFont
+End
+
+# Blocks section
+Style Block
+  Category         Blocks
+  Margin           First_Dynamic
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            Left
+  LabelType        Static
+  LabelSep         xx
+
+  LatexName        block
+  LabelString      "Block:"
+  RequiredArgs     1
+  
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+
+  # font & label font definition
+
+  LabelFont
+    Family         Roman
+    Color          latex
+  EndFont
+End
+
+Style ExampleBlock
+  Category         Blocks
+  Margin           First_Dynamic
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            Left
+  LabelType        Static
+  LabelSep         xx
+
+  LatexName        exampleblock
+  LabelString      "Example Block:"
+  RequiredArgs     1
+  
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+
+  # font & label font definition
+
+  Font
+    Color          green
+  EndFont
+
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+End
+
+Style AlertBlock
+  Category         Blocks
+  Margin           First_Dynamic
+  LatexType        Environment
+  NextNoIndent     0
+  ParIndent        MM
+  Align            Left
+  LabelType        Static
+  LabelSep         xx
+
+  LatexName        alertblock
+  LabelString      "Alert Block:"
+  RequiredArgs     1
+  
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+
+  # font & label font definition
+
+  Font
+    Color          red
+  EndFont
+
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+End
+
+# Title slide data section
+# Title style definition
+Style Title
+  Category         Titling
+  Margin           Static
+  LatexType        Command
+  InTitle          1
+  LatexName        title
+  ParSkip          0.4
+  ItemSep          0
+  TopSep           0
+  BottomSep        1
+  ParSep           1
+  Align            Center
+  LabelType        No_Label
+  OptionalArgs     1
+
+  # standard font definition
+  Font 
+    Size           Huge
+    Series         Bold
+    Color          Blue
+  EndFont
+
+End
+
+Style Title_(Plain_Frame)
+  CopyStyle        Title
+  Preamble
+     % plain title style, override default
+     \renewcommand\makebeamertitle{\frame[plain]{\maketitle}}%
+  EndPreamble
+End
+
+Style Subtitle
+  Category         Titling
+  Margin           Static
+  LatexType        Command
+  InTitle          1
+  LatexName        subtitle
+  ParSkip          0.4
+  ItemSep          0
+  TopSep           0
+  BottomSep        1
+  ParSep           1
+  Align            Center
+  LabelType        No_Label
+  OptionalArgs     1
+
+  # standard font definition
+  Font 
+    Size           Large
+    Series         Bold
+    Color          Blue
+  EndFont
+
+End
+
+# Author style definition
+Style Author
+  Category         Titling
+  Margin           Static
+  LatexType        Command
+  InTitle          1
+  LatexName        author
+  ParSkip          0.4
+  TopSep           1.3
+  BottomSep        0.7
+  ParSep           0.7
+  Align            Center
+  LabelType        No_Label
+  OptionalArgs     1
+
+  # standard font definition
+  Font 
+    Size           Largest
+    Color          Blue
+  EndFont
+
+End
+
+Style Institute
+  Category         Titling
+  Margin           Dynamic
+  LatexType        Command
+  InTitle          1
+  LatexName        institute
+  ParSkip          0.4
+  TopSep           0.9
+  BottomSep        0.5
+  ParSep           1
+  Align            Center
+  LabelType        No_Label
+  OptionalArgs     1
+
+  # standard font definition
+  Font 
+    Size           Large
+    Color          Blue
+  EndFont
+End
+
+InsetLayout InstituteMark
+  LyxType          custom
+  LatexType        command
+  LatexName        inst
+  LabelString      "Institute mark"
+  Font
+    Color          foreground
+    Size           Small
+    Family         Roman
+    Shape          Up
+    Series         Medium
+    Misc           No_Emph
+    Misc           No_Noun
+    Misc           No_Bar
+  EndFont
+  LabelFont
+    Color          blue
+    Size           Small
+  EndFont
+End
+
+# Date style definition
+Style Date
+  Category         Titling
+  Margin           Dynamic
+  LatexType        Command
+  InTitle          1
+  LatexName        date
+  ParSkip          0.4
+  TopSep           0.9
+  BottomSep        0.5
+  ParSep           1
+  Align            Center
+  LabelType        No_Label
+  OptionalArgs     1
+
+  # standard font definition
+  Font 
+    Size           Largest
+    Color          Blue
+  EndFont
+End
+
+# Titles & bibliography section
+# Bibliography style definition
+Style Bibliography
+  Category         BackMatter
+  Margin           First_Dynamic
+  LatexType        Bib_Environment
+  LatexName        thebibliography
+  NextNoIndent     1
+  LeftMargin       MM
+  ParSkip          0.4
+  ItemSep          0
+  TopSep           0.7
+  BottomSep        0.7
+  ParSep           0.5
+  Align            Left
+  LabelType        Bibliography
+  LabelString      "References"
+  LabelBottomSep   0.7
+
+  # label font definition
+  LabelFont 
+    Series         Bold
+    Size           Larger
+  EndFont
+End
+
+Style Quotation
+  Category         MainText
+  Margin           Static
+  LatexType        Environment
+  LatexName        quotation}%{
+  NextNoIndent     1
+  LeftMargin       MMM
+  RightMargin      MMM
+  ParIndent        MM
+  ParSkip          0
+  ItemSep          0
+  TopSep           0.5
+  BottomSep        0.5
+  ParSep           0
+  Align            Block
+  AlignPossible    Block, Left, Right, Center
+End
+
+
+Style Quote
+  Category         MainText
+  Margin           Static
+  LatexType        Environment
+  LatexName        quote}%{
+  NextNoIndent     1
+  LeftMargin       MMM
+  RightMargin      MMM
+  TopSep           0.5
+  ParSep           0.5
+  BottomSep        0.5
+  Align            Block
+  AlignPossible    Block, Left, Right, Center
+  LabelType        No_Label
+End
+
+
+Style Verse
+  # LaTeX type is first dynamic because of LaTeX implementation.
+  # In LyX this does not make sense.
+  Category         MainText
+  LatexType        Environment
+  LatexName        verse}%{
+  Margin           First_Dynamic
+  NextNoIndent     1
+  LeftMargin       MMMM
+  LabelIndent      MMMM
+  ParSkip          0.4
+  TopSep           0.7
+  BottomSep        0.7
+  ParSep           0.5
+  Align            Block
+  AlignPossible    Block, Left
+  LabelType        No_Label
+End
+
+
+Style TitleGraphic
+  Category         Titling
+  Margin           Static
+  LatexType        Command
+  InTitle          1
+  LatexName        titlegraphic
+  ParSkip          0.4
+  ItemSep          0
+  TopSep           0
+  BottomSep        1
+  ParSep           1
+  Align            Center
+  LabelType        No_Label
+
+  # standard font definition
+  Font 
+    Size           Huge
+    Series         Bold
+    Color          Blue
+  EndFont
+End
+
+
+# Theorems and such section
+Style Corollary
+   Category        Theorems
+   Margin          First_Dynamic
+   LatexType       Environment
+   NextNoIndent    0
+   ParIndent       MM
+   Align           Left
+   LabelType       Static
+   LabelSep        xx
+
+   LatexName       corollary}%{
+   LabelString     "Corollary."
+ 
+   ParSkip         0.5
+   TopSep          1
+   BottomSep       1
+   ParSep          0
+   KeepEmpty       1
+ 
+   # font & label font definition
+ 
+   LabelFont
+     Series        Bold
+     Color         Blue
+     Size          Large
+   EndFont
+End
+
+Style Definition
+  CopyStyle        Corollary
+  LatexName        definition}%{
+  LabelString      "Definition."
+End
+
+Style Definitions
+  CopyStyle        Corollary
+  LatexName        definitions}%{
+  LabelString      "Definitions."
+End
+
+Style Example
+  CopyStyle        Corollary
+  LatexName        example}%{
+  LabelString      "Example."
+
+  LabelFont
+    Series         Bold
+    Color          Green
+  EndFont
+End
+
+Style Examples
+  CopyStyle        Corollary
+  LatexName        examples}%{
+  LabelString      "Examples."
+End
+
+
+Style Fact
+  CopyStyle        Corollary
+  LatexName        fact}%{
+  LabelString      "Fact."
+End
+
+Style Proof
+  CopyStyle        Corollary
+  LatexName        proof}%{
+  LabelString      "Proof."
+End
+
+Style Theorem
+  CopyStyle        Corollary
+  LatexName        theorem}%{
+  LabelString      "Theorem."
+End
+
+# Misc. section
+# Separator style definition
+Style Separator
+  Category         MainText
+  LatexType        Paragraph
+  LatexName        dummy
+  ParIndent        MM
+  ParSkip          0.4
+  Align            Left
+  AlignPossible    Block, Left, Right, Center
+  Margin           First_Dynamic
+  TopSep           0
+  BottomSep        0
+  ParSep           0
+  LabelType        Static
+  LabelBottomSep   0
+  LabelString      "___"
+  KeepEmpty        1
+
+  LabelFont 
+    Series         Medium
+    Size           Normal
+    Color          latex
+  EndFont
+End
+ 
+Style LyX-Code
+  Category              MainText
+  Margin           Static
+  LatexType        Environment
+  LatexName        lyxcode
+  NextNoIndent     1
+  LeftMargin       MMM
+  RightMargin      MMM
+  TopSep           0.5
+  BottomSep        0.5
+  Align            Left
+  AlignPossible    Block, Left, Right, Center
+  LabelType        No_Label
+  FreeSpacing      1
+
+  # define the environment lyxcode
+  Preamble
+  \newenvironment{lyxcode}
+    {\par\begin{list}{}{
+      \setlength{\rightmargin}{\leftmargin}
+      \setlength{\listparindent}{0pt}% needed for AMS classes
+      \raggedright
+      \setlength{\itemsep}{0pt}
+      \setlength{\parsep}{0pt}
+      \normalfont\ttfamily}%
+     \def\{{\char`\{}
+     \def\}{\char`\}}
+     \def\textasciitilde{\char`\~}
+     \item[]}
+    {\end{list}}
+  EndPreamble
+
+  # standard font definition
+  Font 
+    Family         Typewriter
+  EndFont
+End
+ 
+Style NoteItem
+  Category         MainText
+  Margin           Static
+  LatexType        Command
+  LatexName        note[item]
+  ParSkip          0.5
+  TopSep           1
+  BottomSep        1
+  ParSep           0
+  Align            Left
+  LabelType        Static
+  LabelSep         xx
+  LabelString      "Note:"
+  OptionalArgs     1
+  LeftMargin       "Note:xx"
+ 
+  # standard font definition
+  LabelFont 
+    Family         Roman
+    Color          latex
+  EndFont
+End
+ 
+
+# Input lyxmacros.inc
+
+# Charstyles:
+
+InsetLayout CharStyle:Alert
+  LyXType charstyle
+  LabelString Alert
+  LatexType        command
+  LatexName        alert
+  Font
+    Color          red
+  EndFont
+End
+
+
+InsetLayout CharStyle:Structure
+  LyXType charstyle
+  LabelString Structure
+  LatexType        command
+  LatexName        structure
+  Font
+    Color          blue
+  EndFont
+End
+
+
+InsetLayout Custom:ArticleMode
+   LyXType	custom
+   LatexName	mode<article>
+   LatexType	command
+   Decoration   classic
+   LabelString	Article
+   MultiPar     true
+End
+
+
+InsetLayout Custom:PresentationMode
+   LyXType	custom
+   LatexName	mode<presentation>
+   LatexType	command
+   Decoration   classic
+   LabelString	Presentation
+   MultiPar     true
+End
+
+
+Float
+  Type             table
+  GuiName          Table
+  Placement        tbp
+  Extension        lot
+  NumberWithin     none
+  Style            plain
+  ListName         "List of Tables"
+  NeedsFloatPkg    false
+	ListCommand      listoftables
+End
+
+
+Float
+  Type             figure
+  GuiName          Figure
+  Placement        tbp
+  Extension        lof
+  NumberWithin     none
+  Style            plain
+  ListName         "List of Figures"
+  NeedsFloatPkg    false
+	ListCommand      listoffigures
+End
+
+
+# to give users the choice of a title frame with and without
+# head-/footline, we define our own maketitle command
+TitleLaTeXName makebeamertitle
+
+AddToPreamble
+  % this default might be overridden by plain title style
+  \newcommand\makebeamertitle{\frame{\maketitle}}%
+  \AtBeginDocument{
+    \let\origtableofcontents=\tableofcontents
+    \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+    \def\gobbletableofcontents#1{\origtableofcontents}
+  }
+EndPreamble
+
+Input theorems-refprefix.inc

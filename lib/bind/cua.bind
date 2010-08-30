@@ -1,0 +1,240 @@
+# -*- text -*-
+
+# file cua.bind
+# This file is part of LyX, the document processor.
+# Licence details can be found in the file COPYING.
+
+# author Asger Alstrup
+# author Lars Gullik Bjønnes
+# author Jean-Marc Lasgouttes
+# author Angus Leeming
+# author John Levon
+# author Jürgen Spitzmüller
+# author Dekel Tsur
+# author Jürgen Vigna
+# author Andrew Zabolotny
+
+# Full author contact details are available in file CREDITS.
+
+# This is the CUA (Common User Access) flavour bind file, based on
+# bindings found in the Windows, Mac and Motif world.
+
+# DO NOT CHANGE THIS DEFAULT BINDING FILE! It will be replaced
+# with every new install of LyX and your changes will be lost.
+# Instead, customize a copy of this file placed in
+# ~/.lyx/bind/cua.bind
+#
+# Happy tuning!
+
+# Free bindings:
+
+#\bind "C-h"
+#\bind "C-j"
+
+
+###
+
+\bind "C-n"			"buffer-new"
+\bind "C-S-N"			"buffer-new-template"
+\bind "C-o"			"file-open"
+\bind "C-w"			"buffer-close"
+\bind "C-s"			"buffer-write"
+\bind "C-S-S"			"buffer-write-as"
+\bind "C-p"			"dialog-show print"
+\bind "C-d"			"buffer-view dvi"	# 'd' for dvi
+\bind "C-t"			"buffer-view ps"
+\bind "C-M-t"			"master-buffer-view ps"
+\bind "C-M-d"			"master-buffer-view dvi"
+\bind "C-S-D"			"buffer-update dvi"	# 'd' for dvi
+\bind "C-S-T"			"buffer-update ps"
+\bind "C-M-S-t"			"master-buffer-update ps"
+\bind "C-M-S-d"			"master-buffer-update dvi"
+\bind "C-q"			"lyx-quit"
+\bind "C-Next"			"buffer-next"
+\bind "C-Tab"			"buffer-next"
+\bind "C-Prior"			"buffer-previous"
+\bind "C-S-BackTab"		"buffer-previous"
+
+\bind "C-M-b"			"font-boldsymbol"
+\bind "C-b"			"font-bold"
+\bind "C-e"			"font-emph"
+# used below for line-delete-forward
+#\bind "C-k"			"font-noun"		# 'k' for capitals
+\bind "C-u"			"font-underline"
+\bind "C-S-P"			"font-typewriter" # 'P' for Program
+\bind "C-S-O"			"font-strikeout"
+
+\bind "C-m"			"math-mode"
+\bind "C-S-M"			"math-display"
+\bind "C-S-r"			"regexp-mode"
+\bind "C-M-n"			"command-sequence math-display; math-number-toggle;"
+
+\bind "C-f"			"dialog-show findreplace"
+\bind "C-S-f"			"dialog-show findreplaceadv"
+\bind "C-i"			"inset-toggle"		# 'i' for Inset
+
+\bind "C-c"			"copy"
+\bind "C-x"			"cut"
+\bind "C-v"			"paste"
+\bind "C-S-v"			"clipboard-paste"
+\bind "C-M-v"			"primary-selection-paste"
+
+\bind "C-z"			"undo"
+\bind "C-y"			"redo"
+\bind "C-S-Z"			"redo"
+
+\bind "C-a"			"command-sequence buffer-begin ; buffer-end-select"   # select all
+\bind "C-M-a"			"inset-select-all"
+
+\bind "C-S-E"			"changes-track"  # it's what MS Word uses
+\bind "~S-M-quotedbl"		"quote-insert single"
+\bind "~S-C-quotedbl"		"self-insert \""
+\bind "C-minus"	"specialchar-insert hyphenation"
+\bind "C-S-underscore"		"math-macro-fold"
+\bind "C-M-minus"		"specialchar-insert nobreakdash"
+\bind "M-S-Right"		"depth-increment"
+\bind "M-S-Left"		"depth-decrement"
+\bind "C-S-L"			"specialchar-insert ligature-break"
+\bind "C-~S-slash"		"specialchar-insert slash"
+\bind "C-l"			"ert-insert"		# 'l' for LaTeX
+\bind "C-S-I"			"info-insert"
+
+#bind "F1"			"help"			# Not yet implemented!
+#bind "C-F1"			"help-context"		# Not yet implemented!
+\bind "F2"			"buffer-write"
+\bind "F3"			"word-find"
+\bind "C-F4"			"buffer-close"
+\bind "M-F4"			"lyx-quit"
+\bind "F5"			"screen-recenter"
+\bind "C-M-Up"			"scroll line up"
+\bind "C-M-Down"		"scroll line down"
+\bind "C-M-Prior"		"scroll page up"
+\bind "C-M-Next"		"scroll page down"
+\bind "C-F6"			"buffer-next"
+\bind "C-S-F6"			"buffer-previous"
+\bind "F7"			"dialog-show spellchecker"
+\bind "S-F7"			"thesaurus-entry"
+
+\bind "M-x"			"command-execute"
+\bind "M-o"			"dialog-show toc"
+
+\bind "F11"			"ui-toggle fullscreen"
+
+\bind "M-equal"	"buffer-zoom-in"
+\bind "M-plus"		"buffer-zoom-in"
+\bind "M-minus"	"buffer-zoom-out"
+
+#
+# Motion group
+#
+
+\bind "M-Up"			"paragraph-move-up"
+\bind "M-Down"			"paragraph-move-down"
+\bind "C-Right"			"word-right"
+\bind "C-Left"			"word-left"
+\bind "C-Up"			"paragraph-up"
+\bind "C-Down"			"paragraph-down"
+\bind "C-Home"			"buffer-begin"
+\bind "C-End"			"buffer-end"
+\bind "M-C-Home"		"inset-begin"
+\bind "M-C-End"			"inset-end"
+
+\bind "C-~S-greater"		"label-goto"
+\bind "C-~S-less" 		"bookmark-goto 0"
+
+
+#
+# Motion + select group
+#
+
+\bind "S-Right"			"char-right-select"
+\bind "S-Left"			"char-left-select"
+\bind "S-Up"			"up-select"
+\bind "S-Down"			"down-select"
+\bind "S-C-Right"		"word-right-select"
+\bind "S-C-Left"		"word-left-select"
+\bind "S-C-Up"			"paragraph-up-select"
+\bind "S-C-Down"		"paragraph-down-select"
+\bind "S-Home"			"line-begin-select"
+\bind "S-End"			"line-end-select"
+\bind "S-Prior"			"screen-up-select"
+\bind "S-Next"			"screen-down-select"
+\bind "S-C-Home"		"buffer-begin-select"
+\bind "S-C-End"			"buffer-end-select"
+\bind "S-M-C-Home"		"inset-begin-select"
+\bind "S-M-C-End"		"inset-end-select"
+\bind "C-Insert"		"copy"
+\bind "S-Insert"		"paste"
+\bind "S-Delete"		"cut"
+
+# Numeric keypad (if Shift+KP_XXX does not switch the NumLock state)
+\bind "S-KP_Right"              "char-right-select"
+\bind "S-KP_Left"               "char-left-select"
+\bind "S-KP_Up"                 "up-select"
+\bind "S-KP_Down"               "down-select"
+\bind "S-C-KP_Right"            "word-right-select"
+\bind "S-C-KP_Left"             "word-left-select"
+\bind "S-C-KP_Up"               "paragraph-up-select"
+\bind "S-C-KP_Down"             "paragraph-down-select"
+\bind "S-KP_Home"               "line-begin-select"
+\bind "S-KP_End"                "line-end-select"
+\bind "S-KP_Prior"              "screen-up-select"
+\bind "S-KP_Next"               "screen-down-select"
+\bind "S-C-KP_Home"             "buffer-begin-select"
+\bind "S-C-KP_End"              "buffer-end-select"
+\bind "S-C-KP_Prior"            "buffer-begin-select"
+\bind "S-C-KP_Next"             "buffer-end-select"
+\bind "C-KP_Insert"             "copy"
+\bind "S-KP_Insert"             "paste"
+\bind "S-KP_Delete"             "cut"
+
+#
+# bookmarks
+#
+
+\bind "C-~S-1"			"bookmark-goto 1"
+\bind "C-~S-2"			"bookmark-goto 2"
+\bind "C-~S-3"			"bookmark-goto 3"
+\bind "C-~S-4"			"bookmark-goto 4"
+\bind "C-~S-5"			"bookmark-goto 5"
+\bind "C-~S-6"			"bookmark-goto 6"
+\bind "C-~S-7"			"bookmark-goto 7"
+\bind "C-~S-8"			"bookmark-goto 8"
+\bind "C-~S-9"			"bookmark-goto 9"
+\bind "C-M-~S-1"		"bookmark-save 1"
+\bind "C-M-~S-2"		"bookmark-save 2"
+\bind "C-M-~S-3"		"bookmark-save 3"
+\bind "C-M-~S-4"		"bookmark-save 4"
+\bind "C-M-~S-5"		"bookmark-save 5"
+\bind "C-M-~S-6"		"bookmark-save 6"
+\bind "C-M-~S-7"		"bookmark-save 7"
+\bind "C-M-~S-8"		"bookmark-save 8"
+\bind "C-M-~S-9"		"bookmark-save 9"
+
+
+#
+# Edit group
+#
+
+\bind "C-Delete"		"word-delete-forward"
+\bind "C-BackSpace"		"word-delete-backward"
+\bind "M-Return"		"break-paragraph inverse"
+\bind "C-Return"		"newline-insert newline"
+\bind "C-S-Return"		"newline-insert linebreak"
+\bind "C-k"			"line-delete-forward"
+\bind "C-space"			"space-insert protected"
+\bind "nobreakspace"		"space-insert protected"
+\bind "C-M-space"		"space-insert normal"
+\bind "S-C-space"		"space-insert thin"
+\bind "C-period"		"specialchar-insert end-of-sentence"
+\bind "M-period"		"specialchar-insert dots"
+\bind "Escape"			"cancel"
+\bind "F9"			"meta-prefix"
+
+# Include menu and math bindings
+
+\bind_file menus.bind
+\bind_file math.bind
+\bind_file latinkeys.bind
+\bind_file cyrkeys.bind
+\bind_file greekkeys.bind

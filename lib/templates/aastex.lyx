@@ -1,0 +1,281 @@
+#LyX 1.6.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass aastex
+\begin_preamble
+\slugcomment{}
+\shorttitle{}
+\shortauthors{}
+\end_preamble
+\use_default_options false
+\language english
+\inputencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author ""
+\author ""
+\end_header
+
+\begin_body
+
+\begin_layout Title
+<Paper Title>
+\end_layout
+
+\begin_layout Author
+<Author 1>
+\begin_inset Flex altaffilmark
+status open
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Affiliation
+<Institution and Address>
+\end_layout
+
+\begin_layout Email
+<email@address>
+\end_layout
+
+\begin_layout Author
+<Author 2>
+
+\begin_inset Flex altaffilmark
+status collapsed
+
+\begin_layout Plain Layout
+
+2,3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Affiliation
+<Institution and Address>
+\end_layout
+
+\begin_layout And
+
+\end_layout
+
+\begin_layout Author
+<Author 3>
+\begin_inset Flex altaffilmark
+status collapsed
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Affiliation
+<Institution and Address>
+\end_layout
+
+\begin_layout Altaffilation
+1
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Visiting Astronomer, etc.
+\end_layout
+
+\begin_layout Altaffilation
+2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Current Address, etc.
+\end_layout
+
+\begin_layout Altaffilation
+3
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}{
+\end_layout
+
+\end_inset
+
+Visiting Astronomer, etc.
+ 
+\end_layout
+
+\begin_layout Abstract
+<Abstract text>
+\end_layout
+
+\begin_layout Keywords
+<Journal approved keywords>
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+<intro text>
+\end_layout
+
+\begin_layout Section
+Observations
+\end_layout
+
+\begin_layout Standard
+<observations text>
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+<results text; refer to Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig1"
+
+\end_inset
+
+ and to 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "ref1"
+
+\end_inset
+
+> 
+\end_layout
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Standard
+<discussion text> 
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+<conclusions text>
+\end_layout
+
+\begin_layout Acknowledgements
+
+\end_layout
+
+\begin_layout Standard
+<acknowledgment text>
+\end_layout
+
+\begin_layout Appendix
+
+\end_layout
+
+\begin_layout Section
+Appendix
+\end_layout
+
+\begin_layout References
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author(1982)"
+key "ref1"
+
+\end_inset
+
+Author, A., 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+apj
+\end_layout
+
+\end_inset
+
+, 109, 301 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout FigCaption
+\begin_inset CommandInset label
+LatexCommand label
+name "fig1"
+
+\end_inset
+
+This is the first figure.
+ 
+\end_layout
+
+\end_body
+\end_document

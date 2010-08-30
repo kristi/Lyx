@@ -1,0 +1,207 @@
+This file lists interface changes that might affect users in 2.0.0, some 
+known problems in LyX 2.0.0 and some things you have to take into account
+when upgrading from earlier versions to a version of the 2.0.x series.
+Note that fixes are available for some of these, but they have not yet
+been applied because of incomplete testing.
+
+
+Interface changes
+-----------------
+
+There have been some changes to the LyX command line. There is a new option 
+"--batch" that causes LyX to run the given commands without opening a GUI 
+window. Thus, something like:
+    lyx -batch -x "buffer-print printer default dvips" myfile.lyx
+will cause LyX to print myfile.lyx to the default printer, using dvips and 
+the default print settings (which, of course, have to have been configured 
+already). At present, not many commands can be used this way, but there will
+be more eventually.
+
+Bash completion script was added to the tarball.
+
+The following variables are obsoleted in 2.0
+
+- \plaintext_roff_command (was not used anymore)
+
+- \personal_dictionary, \spell_command, \use_input_encoding,
+  \use_personal_dictionary and \use_spell_lib (ispell support has been
+  removed)
+
+- \spellchecker_use_alt_lang and \use_escape_chars (actually not used
+  by the UI, and it is as simple to check whether the relevant
+  variable is empty)
+
+- \custom_export_command and \custom_export_format
+
+
+The following new LyX functions have been introduced:
+
+- LFUN_WORD_FINDAD ("word-findadv").
+
+- LFUN_REGEXP_MODE ("regexp-mode").
+
+- LFUN_PHANTOM_INSERT ("phantom-insert").
+
+- LFUN_INSET_BEGIN ("inset-begin").
+
+- LFUN_INSET_END (""inset-end"").
+
+- LFUN_INSET_BEGIN_SELECT ("inset-begin-select").
+
+- LFUN_INSET_END_SELECT ("inset-end-select").
+
+- LFUN_CHANGE_PREVIOUS ("change-previous").
+
+- LFUN_LABEL_INSERT_AS_REF ("label-insert-as-reference").
+
+- LFUN_SECTION_SELECT ("section-select").
+
+- LFUN_FONT_UNDERLINE ("font-underline").
+
+- LFUN_FONT_STRIKEOUT ("font-strikeout").
+
+- LFUN_FONT_UULINE ("font-underunderline").
+
+- LFUN_FONT_UWAVE ("font-underwave").
+
+- LFUN_BRANCHES_RENAME ("branches-rename").
+
+- LFUN_BRANCH_ADD_INSERT ("branch-add-insert").
+
+- LFUN_BUFFER_CLOSE_ALL ("buffer-close-all").
+
+- LFUN_INSET_FORALL ("inset-forall").
+
+- LFUN_DEBUG_LEVEL_SET ("debug-level-set").
+
+- LFUN_INSET_SELECT_ALL ("inset-select-all").
+
+- LFUN_MATH_AMS_MATRIX ("math-ams-matrix").
+
+- LFUN_VC_COMPARE ("vc-compare").
+
+- LFUN_SPELLING_ADD ("spelling-add").
+
+- LFUN_SPELLING_IGNORE ("spelling-ignore").
+
+- LFUN_SPELLING_REMOVE ("spelling-remove").
+
+- LFUN_PREVIEW_INSERT ("preview-insert").
+
+- LFUN_FORWARD_SEARCH ("forward-search").
+
+- LFUN_INSET_COPY_AS ("inset-copy-as").
+
+
+The following LyX functions have been removed:
+
+- LFUN_NEXT_INSET_TOGGLE ("next-inset-toggle"): use "inset-toggle" instead.
+
+- LFUN_NEXT_INSET_MODIFY ("next-inset-modify"): use "inset-modify" instead.
+
+- LFUN_PARAGRAPH_SPACING ("paragraph-spacing"): use "paragraph-params" instead.
+
+- LFUN_NOTES_MUTATE ("notes-mutate"): replace
+    notes-mutate <SOURCE> <TARGET>
+  with the more general function inset-forall
+    inset-forall Note:<SOURCE> inset-modify note Note <TARGET>
+
+- LFUN_ALL_INSETS_TOGGLE ("all-insets-toggle"): replace
+    all-insets-toggle <ACTION> <TARGET>
+    all-insets-toggle <ACTION>
+  with the more generic function inset-forall
+    inset-forall <TARGET> inset-toggle <ACTION>
+    inset-forall * inset-toggle <ACTION>
+  There is a difference in the <TARGET> parameter, which is would be
+  like "note" in the first case and "Note" in the second.
+
+- LFUN_TABULAR_FEATURE ("tabular-feature"): use "inset-modify" instead.
+
+
+The following LyX functions have been changed:
+
+- LFUN_INSET_TOGGLE ("inset-toggle"): For some insets, this function was used 
+  to show the settings dialog. This is no longer possible and one should use
+  inset-settings for this purpose.
+ 
+- LFUN_WORD_REPLACE ("word-replace"): The replacement and searched strings
+  arguments have been inverted in order to allow the replacement of the word
+  at current cursor position, even if it is not selected.
+
+- LFUN_OPTIONAL_INSERT ("optional-insert") has been renamed LFUN_ARGUMENT_INSERT
+  ("argument-insert").
+
+
+The following LyX key bindings have been changed:
+
+- LFUN_MATH_MACRO_FOLD ("math-macro-fold")
+  The binding to "C-minus" has changed to "C-S-underscore".
+
+- LFUN_MATH_MACRO_UNFOLD ("math-macro-unfold")
+  The binding to "C-plus" has changed to "C-S-asterisk".
+
+
+New external programs and libaries:
+-----------------------------------
+
+LyX 2.0 introduces support for some new external helper programs/libraries,
+while the support for some existing programs has been dropped. This
+particularly applies to spell checking and the thesaurus.
+
+1.) SPELLCHECKING:
+
+* Direct support for ispell and hspell has been dropped. However, ispell
+  and hspell are still accessible via the enchant wrapper (see below).
+
+* Support for the aspell command line program has been dropped. Note that
+  the aspell library (aspell 0.60.x) is still supported.
+  
+* Next to aspell (library), LyX now also supports hunspell (the spell
+  checker used by OpenOffice and Firefox) and enchant, a wrapper that
+  provides automatic access to many spell checking libraries (ispell,
+  aspell, hspell, hunspell, etc.).
+
+* On Mac Apples Spell Server is preconfigured as "native" spell checker.
+
+LyX 2.0 is configured for any and multiple of these three possibilities,
+given that they are installed on the machine where LyX is configured on.
+The actual spell checker can be selected in Tools > Preferences.
+Packagers are advised to pre-select whatever is most common on their
+platform/distribution.
+
+2.) THESAURUS:
+
+* Support for the aiksaurus library has been dropped in favour of the
+  MyThes thesaurus library (the thesaurus library used by OpenOffice).
+  
+* LyX ships the MyThes library itself, so contrary to LyX 1.6.x, no
+  extra thesaurus library needs to be installed. However, LyX does not
+  ship any thesaurus dictionary.
+
+* The OpenOffice thesaurus dictionaries can be used, but the path to those
+  dictionary needs to be set in Tools > Preferences. Please refer to the
+  UserGuide, sec. 6.13, for further instructions.
+
+Packagers are advised to preset the thesaurus for their distribution/
+platform. Packagers of installation bundles (on Windows and the Mac)
+are advised to provide automatic installation of thesaurus disctionaries
+in the installation process (analoguous to the spellchecker installation).
+
+
+Known issues in version 2.0.0
+-----------------------------
+
+
+Caveats when upgrading from earlier versions to 2.0.x
+-------------------------------------------------------
+
+
+
+
+Note: There may later be an updated list of known issues online at
+	http://wiki.lyx.org/LyX/ReleaseNotes
+
+TODO
+----
+- Somebody should create a rc2rc script...
+  http://www.lyx.org/trac/changeset/27531

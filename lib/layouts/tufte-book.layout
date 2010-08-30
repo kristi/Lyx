@@ -1,0 +1,239 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[tufte-book,bibentry.sty,fancyhdr.sty,multicol.sty,natbib.sty,optparams.sty,paralist.sty,placeins.sty,ragged2e.sty,setspace.sty,textcase.sty,titlesec.sty,titletoc.sty,xcolor.sty,xifthen.sty,xkeyval.sty]{book (Tufte)}
+# tufte-book textclass definition file.
+# Jason Waskiewicz <jason.waskiewicz@sendit.nodak.edu>, 2009/10/18
+# Modified by Uwe Stöhr <uwestoehr@web.de>, 2009/11/15
+
+Format 27
+
+Provides geometry 1
+Provides natbib-internal 1
+
+Sides		2
+PageStyle	Headings
+
+ClassOptions
+	Other		nohyper
+end
+
+Style Standard
+	Margin		Static
+	LatexType	Paragraph
+	LatexName	dummy
+	ParIndent	MM
+	ParSkip		0.4
+	Align		Block
+	AlignPossible	Block, Left, Right, Center
+	LabelType	No_Label
+End
+
+# import other layouts
+Input stdlayouts.inc
+Input stdclass.inc
+
+Style Title
+	InPreamble	1
+End
+
+Style Author
+	InPreamble	1
+End
+
+Style Date
+	InPreamble	1
+End
+
+NoStyle Abstract
+NoStyle Chapter
+NoStyle Section
+NoStyle Subsection
+NoStyle Subsubsection
+NoStyle Subsubsection*
+NoStyle Paragraph
+NoStyle Paragraph*
+NoStyle Subparagraph
+NoStyle Subparagraph*
+
+Style Chapter
+	Margin		Static
+	Category	Section
+	LabelType	No_Label
+	LabelCounter	chapter
+	TocLevel	0
+	LatexType	Command
+	LatexName	chapter
+	NeedProtect	1
+	NextNoIndent	1
+	ParSkip		0.4
+	TopSep		4
+	BottomSep	0.8
+	ParSep		0.8
+	Align		Block
+	RefPrefix chap
+	OptionalArgs	1
+	Font
+	  Series	Bold
+	  Size		Huge
+	EndFont
+End
+
+Style Section
+	Category	Section
+	Margin		Dynamic
+	LabelType	No_Label
+	LabelCounter	section
+	TocLevel	1
+	LatexType	Command
+	LatexName	section
+	NeedProtect	1
+	NextNoIndent	1
+	LabelSep	xxx
+	ParSkip		0.4
+	TopSep		1.3
+	BottomSep	0.7
+	ParSep		0.7
+	Align		Block
+	RefPrefix sec
+	OptionalArgs	1
+	Font
+	  Series	Bold
+	  Size		Larger
+	EndFont
+End
+
+Style Subsection
+	CopyStyle	Section
+	TocLevel	2
+	LatexName	subsection
+	TopSep		0.9
+	BottomSep	0.5
+	ParSep		0.5
+	RefPrefix sub
+	Font
+	  Series	Bold
+	  Size		Large
+	EndFont
+End
+
+InsetLayout Sidenote
+	LyxType		custom
+	LatexType	command
+	LatexName	sidenote
+	Decoration	classic
+	LabelString	"sidenote"
+	Font
+	  Color		foreground
+	  Size		Small
+	  Misc		No_Emph
+	  Misc		No_Noun
+	  Misc		No_Bar
+	EndFont
+	LabelFont
+	  Color		marginlabel
+	  Size		Small
+	EndFont
+End
+
+InsetLayout Marginnote
+	CopyStyle	Sidenote
+	LatexName	marginnote
+	Decoration	classic
+	LabelString	"marginnote"
+	Font
+	  Family	Roman
+	  Shape		Up
+	  Series	Medium
+	EndFont
+	MultiPar	true
+End
+
+InsetLayout NewThought
+	LyXType		charstyle
+	LatexType	Command
+	LatexName	newthought
+	LabelString	"new thought"
+	Font
+	  Shape		SmallCaps
+	EndFont
+	LabelFont
+	  Family	Roman
+	  Color		red
+	EndFont
+End
+
+InsetLayout AllCaps
+	CopyStyle	NewThought
+	LatexName	allcaps
+	LabelString	"allcaps"
+	Font
+	  Shape		Up
+	  Misc		Noun
+	EndFont
+	LabelFont
+	  Color		blue
+	EndFont
+End
+
+InsetLayout SmallCaps
+	CopyStyle	NewThought
+	LatexName	smallcaps
+	LabelString	"smallcaps"
+	LabelFont
+	  Color		green
+	EndFont
+End
+
+Style Full_Width
+	Margin		Static
+	LaTeXType	environment
+	LaTeXName	fullwidth
+	Category	MainText
+	NextNoIndent	1
+	ParSkip		0
+	ItemSep		0
+	TopSep		0.5
+	BottomSep	0.5
+	ParSep		0
+	Align		Block
+	AlignPossible	Block, Left, Right, Center
+	LabelType	No_Label
+End
+
+# this steps the counters
+Counter		marginfigure
+End
+
+Counter		margintable
+End
+
+# define the floats
+Float
+	Type		margintable
+	GuiName		MarginTable
+	Placement	tbp
+	Extension	lot
+	NumberWithin	none
+	Style		plain
+	ListName	"List of Tables"
+	NeedsFloatPkg false
+End
+
+Float
+	Type		marginfigure
+	GuiName		MarginFigure
+	Placement	tbp
+	Extension	lof
+	NumberWithin	none
+	Style		plain
+	ListName	"List of Figures"
+	NeedsFloatPkg false
+End
+
+Style Bibliography
+	TopSep                4
+	LabelString           "Bibliography"
+	LabelFont
+	  Series              Bold
+	  Size                Huge
+	EndFont
+End

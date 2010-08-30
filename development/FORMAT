@@ -1,0 +1,1293 @@
+LyX file-format changes
+-----------------------
+
+Please keep the entries informative enough, i.e. try to indicate what
+changes happened in particular if possible.
+The good example would be 2010-01-10 entry.
+
+-----------------------
+
+2010-07-17 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 398: support \mathscr;
+	  no new parameter but the mathrsfs package will be loaded
+
+2010-07-16 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 397 (r34920)
+	  Remove Nameref support
+
+2010-07-13 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 396 (r34884)
+	  nameref support
+		new commands nameref and Nameref for InsetRef
+
+2010-07-13 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 395: support for ISO C-series paper format;
+	  new parameter \papersize cxpaper with (x = 0 - 6)
+
+2010-07-03 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 394: support for makebox;
+	  new box parameter \use_makebox
+
+2010-06-07 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 393 (r34619)
+		Renaming in LyX format: \begin_inset OptArg becomes
+	  \begin_inset Argument.	
+
+2010-06-07 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 392 (r34615)
+	  Dummy format change permitting Beamer files to be converted to 
+		a new, more useful format.
+
+2010-06-05 Edwin Leuven <e.leuven@uva.nl>
+	* Format incremented to 391 (r34598)
+	  Added support for decimal alignment in tables.
+
+2010-05-25 Pavel Sanda <sanda@lyx.org>
+	* Format incremented to 390: support for ouput sync (forward/reverse)
+	search. New boolean \forward_search and string \forward_macro.
+
+2010-05-24 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 389: remove quotes from html_latex_* params.
+
+2010-05-18 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 388: support for page sizes A0-3, A6, B0-3, B6
+	  and JIS B0-6
+
+2010-04-21 Richard heck <rgheck@comcast.net>
+	* Format incremented to 387: New options for XHTML math output.
+	  New BufferParams: html_math_img_scale, html_latex_start,
+	  html_latex_end.
+
+2010-04-17 Richard heck <rgheck@comcast.net>
+	* Format incremented to 386: LyX version for InsetInfo:
+	  new parameters: type  "lyxinfo", arg   "version".
+
+2010-04-08 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 385: support to change the background color
+	  for shaded boxes: new buffer parameter \boxbgcolor
+
+2010-04-03 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 384: support to specify a document-wide
+	  font color: new buffer parameter \fontcolor
+
+2010-03-31 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 383: support for Turkmen
+
+2010-03-31 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 382: support to change the font color
+	  for greyed-out notes: new buffer parameter \notefontcolor
+
+2010-03-28: Vincent van Ravesteijn <vfr@lyx.org>
+	* Format incremented to 381: support for new parameters
+	  for \xymatrix: \xymatrix@!0, \xymatrix!R and \xymatrix!C.
+
+2010-03-28: Vincent van Ravesteijn <vfr@lyx.org>
+	* Format incremented to 380: introduction of InsetPreview.
+	
+2010-03-18: Richard Heck <rgheck@comcast.net>
+	* Format incremented to 379: revise format 374
+	  Replace boolean \html_use_mathml with \html_math_output,
+	  which at the moment can be: MathML, HTML, Images, or LaTeX.
+
+2010-02-12 Pavel Sanda <sanda@lyx.org>
+	* Format incremented to 378: support for revision InsetInfo.
+	  Various "vcs-*" strings could be argument of arg parameter
+	  in InsetInfo. This entry is a safety measure, no lyx2lyx
+	  conversion is needed in fact.
+
+2010-02-11 Uwe Stöhr <uwestoehr@web.de> and Edwin Leuven <e.leuven@uva.nl>
+	* Format incremented to 377: support for multirow cells in
+	  tables
+
+2010-01-10 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 376: new buffer param
+	  \maintain_unincluded_children. If true, the aux files of
+	  non-included children (with \includeonly) are updated to
+	  keep the counters and refs correct.
+
+2010-01-06 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 375: add support for \includeonly
+	  This adds a new buffer param list of relative filenames
+	  which are output as \includeonly arguments, like this:
+	  \begin_includeonly
+	  child1.lyx
+	  child2.lyx
+	  \end_includeonly
+
+2009-12-30 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 374: add html output options.
+		\html_use_mathml (boolean): whether to use MathML or images
+		\html_be_strict (boolean): whether to be XHTML 1.1 compliant
+
+2009-12-07 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 373: merge g-brief-de and g-brief-en
+	  classes into one g-brief class.
+	  All German layout names are replaced by English ones, the
+	  two classes are renamed to g-brief.
+
+2009-11-29 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 372: new buffer param fontencoding.
+	  This param holds a buffer-specific fontencoding (argument
+	  of the fontenc package).
+	  Possible values:
+	  - global: use lyxrc.fontenc [this is the default]
+	  - default: do not load the fontenc package at all
+	  - <ENC>: real encodings such as "T1". Multiple encodings
+	    can be separated by comma.
+
+2009-11-11 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 371: add option to suppress the LaTeX
+	  package mhchem.
+
+2009-07-20 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 370: introduce a document option to
+	  suppress the default date.
+
+2009-07-22 Vincent van Ravesteijn <vfr@lyx.org>
+	* Format incremented to 369: add the author ids to the list of
+	  authors and let the numbering start with 1 in stead of 0.	
+
+2009-07-21 Jürgen Spitzmüller <spitz@lyx.org>, Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 368: allow to use glue lengths for
+	  horizontal spaces.
+	  We just revert hspaces with glue lengths to ERT, since the
+	  inset didn't support them prior to format 368.
+	  No explicit conversion.
+
+2009-07-20 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 367: allow to use percent lengths for
+	  vertical and horizontal spaces.
+
+2009-07-20 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 366: allow to use percent lengths for the
+	  paragraph skip separation.
+
+2009-07-19 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 365: support for paragraph indentation.
+
+2009-07-13 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 364: add \filename_suffix parameter
+	  to branches.
+	  Possible values: 0, 1.
+	  If "1", the branch name is appended to the filename on export
+	  (e.g., <filename>-<suffix>.pdf).
+
+2009-07-11 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 363: support for horizontal longtable
+	  alignment.
+  
+2009-06-11 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 362: support for the applemac encoding.
+
+2009-05-25 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 361: support for custom setting of
+	  bibliography (longest) label width.
+	  Empty file format change.
+
+2009-05-22 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 360: param width for nomencl_print
+	CommandInset. This
+	1.) adds a further value "width" to param set_width
+	(see format 359)
+	and
+	2.) a param width, which takes a length
+	If "width" is chosen, we define the indendation of the nomencl
+	list via the optional argument of \printnomenclature, e.g.
+	\printnomenclature[2cm]{}
+
+2009-05-22 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 359: param set_width for nomencl_print
+	CommandInset. This specifies how wide the longest nomencl label
+	is (i.e., how wide the indendation in the nomencl list is).
+	Possible values:
+	- none: do not specifiy the width (use predefined values)
+	- auto: compute the widest label and specify via
+	  \settowidth{\nomlabelwidth}{<widest label>}
+
+2009-05-22 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 358: support for custom bibtex and
+	  makeindex commands.
+
+2009-05-05 Pavel Sanda <sanda@lyx.org>, Enrico Forestieri <forenr@lyx.org>
+	* Format incremented to 357: Change of the latex output for
+	  underline from \underbar to ulem's \uline.
+
+2009-05-05 Pavel Sanda <sanda@lyx.org>
+	* Format incremented to 356: support for double and wave underline
+	  character styles via ulem's \uuline and \uwave
+
+2009-05-03 Pavel Sanda <sanda@lyx.org>
+	* Format incremented to 355: support for strikeout character
+	  style via ulem's \sout
+
+2009-04-26 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 354: support for splitindex's
+	  \printindex* and \printsubindex*.
+
+2009-04-26 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 353: support for splitindex's
+	  \printsubindex.
+
+2009-04-15 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 352: splitindex support.
+
+2009-04-11 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 351: support to set a page background
+	  color.
+
+2009-04-06 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 350: new param \default_output_format.
+
+2009-04-05 Jürgen Spitzmüller <spitz@lyx.org>
+	* Format incremented to 349: initial support for XeTeX.
+
+2009-01-30 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 348: support for \*phantom.
+
+2009-01-03 Vincent van Ravesteijn <V.F.vanRavesteijn@tudelft.nl>
+	* Format incremented to 347: support for tabular valign.
+
+2008-11-28 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 346: support for German (Switzerland):
+	  (bug 5450)
+
+2008-11-07 José Matos <jamatos@lyx.org>
+	* Format incremented to 345: for docbook backend CharStyle: -> Element:
+	  (fix bug 5411)
+
+2008-10-12 Pavel Sanda <sanda@lyx.org>
+	* Format incremented to 344: sanitize backreference settings
+	  for hyperref (fix bug 5340).
+
+2008-10-12 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 343: new param \use_default_options
+	  (fix bug 2114).
+
+2008-10-12 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 342: support for Mongolian.
+
+2008-09-30 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 341: support for TABs in listings.
+
+2008-08-01 José Matos <jamatos@fc.up.pt>
+	* Format incremented to 340: move empty layouts to "Plain Layout".
+
+2008-07-28 Richard Heck <rgheck@brown.edu>
+	* Format incremented to 339: removal of default modules.
+
+2008-06-21 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 338: support for polytonic Greek.
+
+2008-06-13 Abdelrazak Younes <younes@lyx.org>
+	* Format incremented to 337: convert/revert graphics display param.
+
+2008-06-04 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 336: new param \font_cjk.
+
+2008-05-30 Richard Heck <rgheck@brown.edu>
+	* Format incremented to 335: fixes for InsetSpace problems.
+
+2008-05-16 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 334: fix for bug 4868.
+
+2008-05-09 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 333: fixes in the APA layout.
+
+2008-05-06 Pavel Sanda <sanda@lyx.org>
+	* Format incremented to 332: Added groupId for graphics insets.
+
+2008-25-04 Helge Hafting <helge.hafting@aitel.hist.no>
+	* Format incremented to 330: More horizontal fills
+	  - \leftarrowfill, \rightarrowfill
+	  - \upbracefill, \downbracefill
+
+2008-04-28 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 329: new param \master.
+
+2008-04-18 Bo Peng <ben.bob@gmail.com>
+	* Format incremented to 328: Revert the support for embedding
+
+2008-04-16 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 327: support for Mexican Spanish.
+
+2008-04-11 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 326: support for pdflatex via external inset.
+
+2008-03-29 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 325: merge the two Japanese languages to one that is
+	  encoding independent.
+
+2008-03-25 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 324: merge the two newline insets.
+
+2008-03-25 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 323: merge the diverse newpage insets.
+
+2008-03-24 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 322: local layout
+
+2008-03-18 Edwin Leuven <e.leuven@uva.nl>
+	* Format incremented to 321: drop row/col lines and ensure
+	  consistency between cell and row/col lines.
+	  Make the separation between \begin_inset and Tabular a
+	  single space (it used to be a double space for lyx < 1.4)
+
+2008-03-18 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 320: support for protected horizontal fill
+	  (\hspace*{\fill})
+
+2008-03-10 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 319: hspace and extended hfill support
+
+2008-03-09 Bo Peng <ben.bob@gmail.com>
+	* Format incremented to 318: add \extra_embedded_files to buffer params
+
+2008-03-02 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 317: support floating placements for wrap floats
+
+2008-03-02 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 316: support for subfloats (subfig package)
+
+2008-02-18 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 315: support for column separation in page margins
+
+2008-02-03 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 314: adapt scrlttr2 class for serial letters
+
+2008-01-12 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 313: change in how modules are represented
+
+2008-01-11 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 312: support for sidewaysalgorithm (rotfloat)
+	  and wide sideways{figure,table}.
+
+2008-01-10 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 311: dummy format to drive the AMS conversion
+
+2007-12-28 Bernhard Reiter <ockham@gmx.net>
+	* Format incremented to 310: support for \nocite{*}
+
+2007-12-11 Bernhard Reiter <ockham@gmx.net>
+	* Format incremented to 309: support for \nocite
+
+2007-12-15 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 308: support for Serbian (Latin)
+
+2007-12-05 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 307: support for \slash and \nobreakdash
+
+2007-12-05 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 306: support for Interlingua
+
+2007-12-05 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 305: support for Bahasa Malaysia
+
+2007-12-03 Jürgen Spitzmüller <j.spitzmueller@gmx.de>
+	* Format incremented to 304: framed and shaded boxes are now real boxes
+	  (not notes).
+
+2007-11-25 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 303: remove Serbocroatian as this was not a real
+	  babel language (Croatian was used instead in the background)
+	* Implement Serbian
+
+2007-11-25 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 302: support for Latin and North Sami
+
+2007-11-24 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 301: support for \linebreak
+
+2007-11-23 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 300: support for \pagebreak
+
+2007-11-01 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 299: support for hyperlink types
+
+2007-11-01 Stefan Schimanski <sts@1stein.org>
+	* Format incremented to 298: math-macro code has been rewritten,
+	  now it supports definitions with optional parameters
+
+2007-10-29 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 297: support for Albanian, lower Sorbian,
+	  fixed upper Sorbian language
+
+2007-10-23 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 296: InsetInclude becomes an InsetCommand
+
+2007-10-12 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 295: get rid of the htmlurl command that was
+	  needed for docbook, add the option to create a hyperlink instead
+
+2007-10-12 Pavel Sanda <ps@twin.jikos.cz>
+	* Format incremented to 294: PDFOptions: add usetitle,
+	  fix leftovers
+
+2007-10-11 Bo Peng <ben.bob@gmail.com>
+	* Format incremented to 293: Add InsetInfo.
+
+2007-10-09 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 292: Support for Japanese without
+	  using CJK and inputenc. (japanese-plain)
+
+2007-10-04 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 291: Support for Vietnamese.
+
+2007-10-03 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 290: Add table wrap floats
+
+2007-10-03 Martin Vermeer <martin.vermeer@tkk.fi>
+	* Format incremented to 289: make Index a collapsable inset.
+
+2007-09-25 Richard Heck <rgheck@comcast.net>
+	* Format incremented to 288: Change how command insets are
+	  represented in LyX files.
+
+2007-09-24 Uwe Stöhr <uwestoehr@web.de>
+	* Format incremented to 287: Add missing optional parameters
+	  for wrapped figures.
+
+2007-09-21 Pavel Sanda <ps@twin.jikos.cz>
+	* Format incremented to 286: LyX now supports hyperref and some
+	  of its options.
+
+2007-09-11 Bo Peng <ben.bob@gmail.com>
+	* Format incremented to 285: Tweaks to embedded file format
+	  Remove inzip parameter from graphics insets.
+
+2007-09-09 Helge Hafting <helge.hafting@aitel.hist.no>
+	* Format incremented to 284: LyX now implements wrapped figures
+	  using wrapfig.sty instead of floatflt.sty. The latter
+	  is rather buggy, the former also has more options.
+	  No conversion as the .lyx doesn't change.
+	  The .tex export is slightly different, necessitating the
+	  format increase.
+
+2007-09-08 Martin Vermeer <martin.vermeer@tkk.fi>
+
+	* format incremented to 283: CharStyle insets are now
+	  called Flex.
+
+2007-08-31 Bo Peng <ben.bob@gmail.com>
+
+	* format incremented to 282: lyx files can be zipfiles with
+          embedded documents.
+
+2007-08-29 Richard Heck <rgheck@comcast.net>
+
+	* format incremented to 281: allow modules for layout files
+
+2007-08-17 Martin Vermeer <martin.vermeer@tkk.fi>
+
+	* format incremented to 280: the show_label parameter
+	  is depreciated in favour of (Collapsable) status.
+
+2007-08-17 Martin Vermeer <martin.vermeer@tkk.fi>
+
+	* format incremented to 279: CharStyle names are now
+	  expected to be of form CharStyle:Name.
+
+2007-08-12 José Matos <jamatos@fc.up.pt>
+
+	* format incremented to 278: Close begin_deeper with a
+          corresponding end_deeper (the only case where it matters is
+          at the end of the body).
+
+2007-08-12 José Matos <jamatos@fc.up.pt>
+
+	* format incremented to 277: lyx is able to create invalid
+          table where a multicolumn does not have a first cell
+          (required by the table file format)
+
+2007-07-20 Dov Feldstern <dov@lyx.org>
+
+	* format *not* incremented; fixed format 249 conversion, so that it now
+		correctly deals with encodings in footnotes (part of bug 3613)
+
+2007-06-26 Uwe Stöhr <uwestoehr@web.de> and Dov Feldstern <dov@lyx.org>
+
+	* format incremented to 276: switching exsting language 'arabic' to
+		'arabic_arabtex'; this is to differentiate from the new arabic support
+		using the arabi package.
+
+2007-05-04  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 275: add graphics params scaleBeforeRotation
+	(fix bug 1749).
+
+2007-06-13 Dov Feldstern <dov@lyx.org>
+	* format incremented to 274: applying the conversion done in format 259
+		to the \lang property, which was forgotten back then... This is
+		slightly more complicated, because the default language has to be
+		determined on a per-paragraph basis.
+
+2007-06-13 Bo Peng <ben.bob@gmail.com>
+	* format incremented to 273: add --Separator-- environment to
+		separate consecutive environments
+
+2007-06-13 Bo Peng <bpeng@lyx.org>
+	* format incremented to 272: convert listings to ERT because
+		earlier versions of lyx can not handle unrecognizable
+		listings parameters.
+
+2007-05-15 José Matos <jamatos@lyx.org>
+	* format incremented to 271: extended textclasses accept the
+        normal font sizes: 10, 11 and 12pt.
+
+2007-05-14 Martin Vermeer <martin.vermeer@tkk.fi>
+	* format incremented to 270: support beamer \alert, \structure
+
+2007-05-08 Bo Peng <ben.bob@gmail.com>
+	* format incremented to 269: add listings support
+	- add preamble flag \listings_params, e.g. \listings_params "language=Python,float"
+	- add inset listings, with options lstparams and inline, e.g.
+		\begin_inset listings
+		lstparams "xleftmargin=50pt,language=Python"
+		inline false
+	- add \lstinputlisting Include type. e.g.
+		\begin_inset Include \lstinputlisting{newfile1.lyx}[firstline=10,lastline=15]
+
+2007-05-06 Uwe Stöhr  <uwestoehr@web.de>
+
+	* format incremented to 268: add support for the CJK encodings
+	- all encodings supported by CJK.sty are now in lib/encodings
+	- lib/encoding has got two new flags:
+	  - encoding package:
+	    "inputenc" for those languages that use the inputenc-package and
+	    "CJK" for the CJK encodings
+	  - "fixed"/"variable" to divide between multi- or single-byte encoding
+	- lib/languages allows now to set an empty language for babel
+	  in this case babel isn't called.
+
+2007-05-04  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 267: add plain utf8 encoding (for XeTeX).
+
+2007-04-29  Uwe Stöhr  <uwestoehr@web.de>
+
+	* format incremented to 266:
+	Support for the Armenian language
+
+2007-04-26  Uwe Stöhr  <uwestoehr@web.de>
+
+	* format incremented to 265: fix LyX's table border line handling
+	With the fix (see bug 1746) LyX now takes care if the user has entered
+	a "|" character in the argument field of tables. Therefore the "|"
+	character has to be removed when also a table border is set.
+
+2007-04-24  José Matos  <jamatos@lyx.org>
+
+	* format incremented to 264:
+	textclass cv is renamed simplecv
+
+2007-02-22  José Matos  <jamatos@lyx.org>
+
+	* format incremented to 263: changes in the language names (overdue):
+	  brazil -> brazilian
+	  portuges -> portuguese
+
+2007-02-16  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 262: Allow ascii \inputencoding
+
+2007-02-14  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 261: \output_changes is now considered
+	even if \tracking_changes is false. This allows to output existing
+	changes even if future changes are not tracked anymore.
+	The old combination
+
+	\tracking_changes false
+	\output_changes true
+
+	is therefore converted to
+
+	\tracking_changes false
+	\output_changes false
+
+	on upgrade. Nothing is done on downgrade since the new behaviour is
+	not supported in older formats.
+
+2007-02-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 260: Allow utf8x \inputencoding
+
+2007-02-12  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 259:
+	Old: Spaces at start or end of font changes were output outside of
+	     the font change, i.e. not 'xx\textbf{ yy }zz', but
+	     'xx \textbf{yy} zz'.
+	New: Spaces are always output with the font set by the user.
+
+2007-01-31  Uwe Stöhr  <uwestoehr@web.de>
+
+	* format incremented to 258: new \lyxline definition
+	Old:
+	        \\newcommand{\\lyxline}[1]{
+ 	          {#1 \\vspace{1ex} \\hrule width \\columnwidth \\vspace{1ex}}
+ 	        }
+	New:
+		\\newcommand{\\lyxline}[1][1pt]{%
+ 	          \\par\\noindent%
+ 	          \\rule[.5ex]{\\linewidth}{#1}\\par}
+        The new definition is more robust, see bug 1988 and now really takes care of
+	the fontsize: \lyxline{\Huge} produces now a thicker line than \lyxline{\normalfont}
+
+2007-01-29  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 257: Caption styles have been replaced by
+	InsetCaption. This is at the same time also a layout file format
+	change to format 3. layout2layout removes caption layouts from old
+	styles.
+	Note that InsetCaption did exist before this format, but was never
+	used. Old files containing do nevertheless still work.
+	Of course users can still define a Caption style in layout files,
+	but the special treatment in LyX is gone (apart from the sensitive
+	label property).
+
+2006-12-22  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 256: allow some new inputenc settings.
+	For the complete list, see lib/lyx2lyx/lyx_1_5.py.
+
+2006-11-25  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 255: new insets for \clearpage and
+	\cleardoublepage. They are written inline to the file, exactly like
+	\newpage.
+
+2006-11-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 254: new header parameter \use_esint.
+	It can have the same values as \use_amsmath: 0 (off), 1 (auto) and
+	2 (on).
+
+2006-10-18  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 253: new nomenclature and printnomenclature
+	insets. These are standard InsetCommand with the following parameters:
+	\nomenclature[prefix]{symbol}{description}
+	\printnomenclature[labelwidth]
+
+2006-10-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 252: changed command inset syntax
+
+	Old:
+
+	\begin_inset LatexCommand \cmdname[opt1][opt2]{arg}
+	preview true
+	\end_inset
+
+	and
+
+	\bibitem [opt1]{arg}
+
+
+	New:
+
+	\begin_inset LatexCommand cmdname
+	name1 "opt1"
+	name2 "opt2"
+	name3 "arg"
+	preview true
+	\end_inset
+
+	The order of the parameters and for each parameter the name and
+	optional/required bit is now stored in InsetCommandParams.
+
+2006-10-03  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 251: save show_label param for charstyles.
+
+	On revert, the show_label param is just removed. Nothing to convert.
+
+2006-10-12  Martin Vermeer <martin.vermeer@hut.fi>
+
+	* Format incremented to 250: allow optional arg to environments
+
+	No material format change. Now optargs for environments are allowed
+	to be specified in layout files and will be handled properly. When
+	converted back to older formats, they will be ignored in LaTeX
+	output.
+
+2006-08-14  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 249: Unicode
+
+	LyX documents are now always encoded in utf8. The value of
+	\inputencoding does now only determine the encoding of the created
+	LaTeX file.
+	Up to format 248 the value of \inputencoding did also determine the
+	encoding of the LyX file:
+
+	\inputencoding       LyX file encoding
+	auto                 as determined by the document and character
+	                     languages
+	default              ditto
+	everything else      as determined by \inputencoding
+
+	The difference between auto and default is only the LaTeX output:
+	auto causes loading of the inputenc package, default does not.
+
+2006-07-03  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 248: Basic booktabs support
+
+	The <features> tag has a new switch: booktabs="true|false".
+	An absent switch is equivalent to booktabs="false".
+	Horizontal lines are set with the booktabs package if this switch
+	is on.
+
+	The <row> tag of tabulars has the following new attributes:
+	topspace, bottomspace and interlinespace. All take a LyXLength
+	as value, or the special keyword "default".
+
+2006-06-10  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 247. The Grand Font Interface Rewrite.
+	(1) Split font selection to rm, sf, tt:
+		\fontscheme -> \font_roman, \font_sans, \font_typewriter
+		Change 246->247:
+			\fontscheme	\font_roman	\font_sans	\font_typewriter
+			default		default		default		default
+			ae		ae		default		default
+			times		times		default		default
+			palatino	palatino	default		default
+			helvet		default		helvet		default
+			avant		default		avant		default
+			newcent		newcent		default		default
+			bookman		bookman		default		default
+			pslatex		times		(or \usepackage{pslatex})
+		New 246->247:
+			\font_roman: cmr (-> \renewcommand{\rmdefault}{cmr}),
+				     lmodern, charter, utopia, ccfonts, chancery, beraserif
+					(-> \usepackage{<name>})
+			\font_sans: cmss, lmss, cmbr
+					(-> \renewcommand{\sfdefault}{<name>})
+				    berasans (-> \usepackage{<name>})
+			\font_typewriter: cmtt, lmtt, cmtl,
+					(-> \renewcommand{\sfdefault}{<name>})
+					courier, luximono, beramono
+					(-> \usepackage{<name>})
+	(2) New param \font_default_family (rmdefault, sfdefault, ttdefault)
+	(3) New param \font_sc (true, false).
+	(4) New param \font_osf (true, false).
+	(5) New param \font_sf_scale (float)
+	(6) New param \font_tt_scale (float)
+	Support for the following fonts has been added:
+		bera, ccfonts, chancery, charter, cmbright, computer modern (explicitely),
+		courier, lmodern, luximono, utopia.
+	Support for the following font has been removed:
+		pslatex (it's superseded by mathptmx (times)).
+
+2006-06-03  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* format incremented to 246. The framed.sty package is
+	now supported with note types framed and shaded.
+
+2005-10-12  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 245. The \quotes_times parameter
+	has been removed.
+
+2005-09-24  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 244. Rename '\InsetSpace \,'
+	to '\InsetSpace \thinspace{}', because the comma was
+	not parsed by lyxlex, and '\InsetSpace \space' to
+	'\InsetSpace \space{}' in favour of consistency.
+
+2005-07-18  José Matos  <jamatos@lyx.org>
+
+	* format incremented to 243.
+
+	* this change only affects the preamble, the paperpackage
+          option was removed and papersize is changed to default.
+
+2005-06-21  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* format incremented to 242. There is no file format per
+	se, but the "frenchb" language has been removed from lib/language
+	and has to be translated to "french" by lyx2lyx.
+
+2005-02-03  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 241.
+
+	All following changes apply only to text in ERT insets. The
+	rationale is that text in ERT is simply ASCII text, and nothing more.
+
+	* paragraph breaks are now a single newline in latex and not a
+	paragraph break anymore (bug 698).
+	* \newline is not allowed anymore, because it is redundant (see above)
+	* layouts other than Standard, paragraph parameters and font changes
+	are not allowed anymore. They never made sense and were ignored for
+	latex output, but now they can't be read or set anymore (bug 922).
+
+
+2005-01-23  Jürgen Spitzmüller  <j.spitzmüller@gmx.de>
+
+	* format incremented to 240.
+	* new bufferparam:
+		\output_changes {true|false}
+	(should the change tracking marks be visible in the output or not?)
+	* lyx2lyx should just delete the param in 239.
+
+2005-01-06  José Matos  <jamatos@lyx.org>
+
+	* format incremented to 239.
+	* the paragraph parameters are displayed in their own line. This
+	change is consistent with the insets behaviour, and corresponds
+	to a more uniform treatment of the paragraphs since some of them
+	had already their own line.
+
+	An example of a single paragraph follows:
+
+\begin_layout Standard
+\paragraph_spacing single
+\align left
+Paragraph text.
+\end_layout
+
+
+2004-12-03  José Matos  <jamatos@lyx.org>
+
+	* format incremented to 238.
+	* The compatibility code to read old latex accents from 0.12.x in
+	InsetLatexAccent::checkContents has been removed.
+	The following translations are done:
+		"\i \x"   -> "\i \x{}"
+		"\i \xy"  -> "\i \x{y}"
+		"\i \x y" -> "\i \x{y}"
+		"\i \x\i" -> "\i \x{\i}"
+		"\i \x\j" -> "\i \x{\j}"
+	x is a latex accent command, y the base character. \, i and j are
+	literal.
+	lyx did these changes already from 0.12.x -> 215, but not lyx2lyx,
+	so formats 215 - 237 can have both versions.
+
+
+2004-10-10  José Matos  <jamatos@lyx.org>
+
+	* format incremented to 237.
+	* In the header, the following statments use now booleans values,
+	instead of 0, 1:
+		- \use_geometry
+		- \use_bibtopic
+		- \tracking_changes
+
+2004-08-15  José Matos  <jamatos@lyx.org>
+
+	* format incremented to 236.
+	* Added tags:
+		- \begin_document
+		- \begin_header
+		- \begin_body
+		- \end_body
+
+	* The options for \papersize are changed:
+		Default -> default
+		Custom -> custom
+	* All whitespaces are removed at the end of lines, when
+	not necessary. As an example we have all the lines in the header that
+	do not belong to the preamble.
+
+2004-07-01  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 235.
+	* \paperpackage had an off-by-one error. Translation table:
+
+	  234: a4    a4wide  widemarginsa4
+	  235: none  a4      a4wide         widemarginsa4
+
+	  The "widemarginsa4" setting of 235 has no equivalent in 234.
+
+2004-05-12  Angus Leeming  <leeming@lyx.org>
+
+	* format incremented to 234.
+	* the citation engine is specified explicitly rather than being
+	deduced from 3 bools.
+
+	\use_natbib 1
+	\use_numerical_citations 0   ->   \cite_engine <style>
+	\use_jurabib 0
+
+	where <style> is one of "basic", "natbib_authoryear",
+	"natbib_numerical" or "jurabib".
+
+2004-04-29  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* format incremented to 233.
+	* insetgraphics does not allow filenames without extension anymore.
+	The complete filename has to be given.
+
+2004-03-29  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 232.
+
+	* Support for bibtopic (sectioned bibliographies).
+	  - bufferparam \use_bibtopic [1|0]
+	  - the bibtex inset has a second argument for bibtopic's
+	    btPrint{Cited|NotCited|All} command:
+	    < 231:
+	    \begin_inset LatexCommand \bibtex[<style>]{<database>}
+	    now:
+	    \begin_inset LatexCommand \bibtex[<style>][<btPrintX>]{<database>}
+	  Forwards, there's nothing to be done. Backwards, \usepackage[dot]{bibtopic}
+	  has to be inserted to the preamble. Instead of the bibtex inset, the LaTeX
+	  \bibliographystyle{<style>}
+	  \begin{btSect}{<database>}
+	  \<btprintX>
+	  \end{btSect}
+	  has to be inserted.
+
+2004-03-29  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 231.
+
+	* Support for sidewaysfigure/sidewaystable (rotating package).
+	insetfloat has now a param \sideways [true|false] (default is false).
+	The param should be erased on downwards conversion, if it was true,
+	the inset should be replaced by
+	\begin{sidewaysfigure} <content> \end{sidewaysfigure}
+	resp.
+	\begin{sidewaystable} <content> \end{sidewaystable}
+	i.e. ERT.
+
+2004-02-23  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 230.
+
+	* Support for a second optional argument in insetcommand.
+	currently, citation uses this to support natbibs second
+	optional argument \cite[before][after]{key}.
+	I think there's nothing to convert upwards. Downwards, the
+	commands with 2 optional args need to be converted to ERT.
+
+	* Support for jurabib (param \use_jurabib [1|0], default is 0).
+	When converting downwards, \usepackage{jurabib} has to be added
+	to the preamble and, if babel is used, \usepackage{babel} before
+	(jurabib fails if babel is called afterwards). If the natbib commands
+	are used together with jurabib, they have to be converted to ERT too.
+
+2003-12-29  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* format incremented to 229.
+	* Minipages cannot be read anymore. All minipage insets will
+	be converted to frameless box insets between 228->229.
+
+2003-12-15  Angus Leeming  <leeming@lyx.org>
+
+	* format incremented to 228.
+	* Change the output of all insets derived from InsetCollapsable
+	except for InsetERT (which has a similar output already), changing lines
+	"collapsed true" -> "status collapsed"
+	"collapsed false" -> "status open".
+	* Change the output of InsetERT, changing lines
+	"status Collapsed" -> "status collapsed"
+	"status Open" -> "status open".
+	"status Inlined" -> "status inlined".
+
+2003-12-10  Angus Leeming  <leeming@lyx.org>
+
+	* format NOT incremented.
+	* add a 'draft' option to InsetExternal.
+
+2003-12-10  Angus Leeming  <leeming@lyx.org>
+
+	* format incremented to 227.
+	* Change the output of InsetBox:
+	\begin_inset Boxed -> \begin_inset Box Boxed
+	\begin_inset Doublebox -> \begin_inset Box Doublebox
+	\begin_inset Frameless -> \begin_inset Box Frameless
+	\begin_inset ovalbox -> \begin_inset Box ovalbox
+	\begin_inset Ovalbox -> \begin_inset Box Ovalbox
+	\begin_inset Shadowbox -> \begin_inset Box Shadowbox
+
+2003-12-10  Angus Leeming  <leeming@lyx.org>
+
+	* format incremented to 226.
+	* Change the output of InsetNote:
+	\begin_inset Note -> \begin_inset Note Note
+	\begin_inset Comment -> \begin_inset Note Comment
+	\begin_inset Greyedout -> \begin_inset Note Greyedout
+
+2003-11-28  André Pönitz
+
+	* Remove space_above/space_below from Paragraph.
+    This is now handled by InsetVSpace.
+
+2003-10-07  Angus Leeming  <leeming@lyx.org>
+
+	* Add transformations to InsetExternal
+
+	boundingBox 0 0 20 20           the dimensions of the B.B..
+	                                Output if the B.B. is not empty.
+	clip                            clip the image to the B.B.
+	                                Output if true.
+	extra LaTeX "draft"             'extra' data passed to the primary
+	                                command for this output format.
+	                                (Possible formats LaTeX, PDFLaTeX,
+	                                 LinuxDoc, DocBook, Ascii.)
+	                                The string can contain spaces and so
+	                                is wrapped in "...".
+	rotateAngle 30                  Rotation of the data.
+	                                Output for non-zero rotation only.
+	rotateOrigin bottomleft         Rotation origin.
+	                                Output for non-zero rotation and
+	                                non-default origin (center) only.
+	scale 50
+	width 2cm                       Output only if the image is resized.
+	height 2cm
+	keepAspectRatio
+
+2003-10-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* Added box inset. File format:
+
+	\begin_inset Ovalbox            Boxed/Frameless/ovalbox/Ovalbox
+	                                    /Shadowbox/Doublebox
+	position "b"                    t/c/b
+	hor_pos "c"                     l/c/r/s
+	has_inner_box 1                 1/0
+	inner_pos "b"                   t/c/b/s
+	use_parbox 0                    1/0
+	width "100col%"                 unit+width-string
+	special "none"                  none/height/depth
+	                                    /totalheight/width
+	height "1in"                    unit+width-string
+	height_special "totalheight"    none/height/depth
+	                                    /totalheight/width
+	collapsed false                 true/false
+
+	\begin_layout Standard
+
+	<box contents>
+	\end_layout
+
+	\end_inset
+
+	This box (Frameless, has_inner_box=1, use_parbox=0) replaces
+	the pre-existing Minipage inset. Parameters translate as follows:
+	position                        0/1/2   -> t/c/b
+	inner_position                  0/1/2/3 -> inner_pos c/t/b/s
+	height                          same
+	width                           same
+	collapsed                       same
+
+2003-08-19  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* attribute valignment="center" is replaced by valignment="middle"
+	for tabular columns and cells
+
+2003-08-17  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* Added branch inset. File format:
+
+	branch definition in the header:
+	\branch <branchname>
+	\selected 0                    0/1
+	\color #rrggbb
+	\end_branch
+
+	\begin_inset Branch <branchname>
+	collapsed false                 true/false
+
+	\begin_layout Standard
+
+	<branch contents>
+	\end_layout
+
+	\end_inset
+
+2003-07-28  José Matos  <jamatos@lyx.org>
+
+	* \the_end is replaced with \end_document
+
+2003-07-28  José Matos  <jamatos@lyx.org>
+
+	* \layout is replaced with \begin_layout
+
+2003-07-28  José Matos  <jamatos@fep.up.pt>
+
+	Format bumped to 225
+
+	* All layouts finish now with \end_layout
+
+2003-06-04  Angus Leeming  <leeming@lyx.org>
+
+	Format bumped to 224
+
+	* the storage of the external inset has been changed from
+
+		\begin_inset External XFig,"file.fig",""
+
+		\end_inset
+
+	to this
+
+		\begin_inset External
+			template XFig
+        		filename file.fig
+			display <display_type>
+			lyxscale <scale>
+
+		\end_inset
+
+	throwing away the final arg (here "", more generally "<string>") that holds
+	the parameters variable.
+	Variables are output if present (filename) or different from the default
+	values (display, lyxscale).
+
+	Moreover, the RasterImage template has been scrapped. All RasterImage
+	external insets are now converted to Graphics insets.
+
+2003-05-20  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* Added new space insets:
+		\SpecialChar ~ is now \InsetSpace ~
+		ERT: "\ " could be converted to InsetSpace \<space>
+		ERT: "\," could be converted to InsetSpace \,
+
+2003-04-24  André Pönitz <poenitz@gmx.net>
+
+	* Added eqref support:
+	\begin_inset LatexCommand \eqref{label}
+
+2003-03-14  Dekel Tsur
+
+	* Format bumped to 223.
+
+2003-03-12  John Levon  <levon@movementarian.org>
+
+	* Added \\end_header to signify the end of the header in a
+	  more robust fashion.
+
+	* use_amsmath is now a tristate {0 = never, 1 = auto, 2 = always}
+
+2003-02-10  John Levon  <levon@movementarian.org>
+
+	Format bumped to 222
+
+	Added \\tracking_changes 0|1 to the header.
+
+	Added \\author to the header. This can be present multiple
+	times, and is of the form :
+
+	\\author "Real Name" email@address.com
+
+	Added \\change_deleted, \\change_inserted. Each of these does not
+	span a paragraph, and is delimited by "\\change_unchanged\n". Both are
+	of the form :
+
+	\\change_inserted author time
+
+	where author is an integer ID reference into the author list in
+	the header, and time is time_t.
+
+2002-10-24  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* InsetGraphicsParams.h (scale): is now a float, not an unsigned int.
+
+2002-08-22  Rob Lahaye <lahaye@snu.ac.kr>
+
+New graphics dialog. With the removal of buttons in the dialog, also
+keywords in the graphics inset went. The following keywords do not
+exist anymore:
+	lyxsize_kind
+	lyxsize_type
+	lyxwidth
+	lyxheight
+	size_kind
+	size_type
+	rotate
+
+Only non-default values are saved to the lyx files. The defaults of the remaining
+keywords are;
+	filename <empty>
+	lyxscale 100
+	display default
+	scale 100
+	width <empty>
+	height <empty>
+	draft <off>
+	noUnzip <off>
+	BoundingBox <from file>
+	clip <off>
+	rotateAngle 0
+	rotateOrigin centerBaseline
+	subcaption <off>
+	subcaptionText <empty>
+	special <empty>
+
+The remaining keywords have sufficient overlap with the old ones for a
+smooth reading of the 1.2.x inset keywords in most common cases.
+
+Compatibility is certainly broken for the old lyxwidth/lyxheight keywords.
+They don't exist anymore and we can't translate them into a scaling value, while
+we're reading the graphics inset. The old lyxwidth/lyxheight keyword and its
+argument is ignored and lost.
+
+Only few compatibility issues are left for lyx2lyx:
+
+------------------------------------------------------------------------------
+old-token                                   new-token         remove
+------------------------------------------------------------------------------
+size_kind original / size_type 0            scale 100         width <val>
+                                                              height <val>
+                                                              scale <val>
+
+size_kind width_height / size_type 1            -             scale <val>
+
+lyxsize_kind original / lyxsize_type 0      lyxscale 100      lyxscale <val>
+------------------------------------------------------------------------------
+[replace old-token by new-token, and remove any of subsequent tokens as listed]
+
+If "rotate" is absent, lyx2lyx should ignore "rotateAngle <val>":
+   if ( "rotateAngle <val>" is there WITHOUT being preceded by the keyword "rotate" )
+   then
+        replace "rotateAngle <val>" by "rotateAngle 0"
+
+
+2002-08-12  Andre' Poenitz <poenitz@gmx.de>
+
+Added \lyxlock for locked math inset when written to .lyx file.
+When "downgrading" .lyx files this should simple be deleted but it
+does not hurt at all if it stays in. It does not have to be added
+when "upgrading".
+
+
+2002-08-02  Angus Leeming  <leeming@lyx.org>
+
+Added a boolean "preview" flag to InsetCommandParams.
+Currently it is written only by InsetInclude, because only this
+class can generate a preview of its contents.
+
+The LyX file now contains:
+
+ \begin_inset Include \input{snapshot_t=40.tex}
++preview true
+
+ \end_inset
+
+Earlier versions of LyX just swallow this extra token silently.
+
+2002-08-12  Angus Leeming  <leeming@lyx.org>
+
+The 1.2.0 InsetGraphicsParams "size_type" and "lyxsize_type" have been
+renamed as "size_kind" and "lyxsize_kind" respectively.
+
+ \begin_inset Graphics FormatVersion 1
+ 	filename file.eps
+ 	display default
+-	size_kind original
++	size_type original
+ 	width 7cm
+ 	rotateOrigin center
+-	lyxsize_kind original
++	lyxsize_type original
+	lyxwidth 4cm
+
+ \end_inset
+

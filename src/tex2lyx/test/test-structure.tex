@@ -1,0 +1,141 @@
+\documentclass[legalpaper]{article}
+
+\newenvironment{foo}{==[}{]==}
+
+\begin{document}
+
+This document contains all sorts of layouts we are supposed to
+support, along with weird nestings.
+
+At time you will see that I use subsubsections in weird places. The
+intent is just to make sure that I can include a macro-type layout
+everyzhere it makes sense.
+
+A normal paragraph
+\begin{equation}
+x = \sin y
+\end{equation}
+with maths inside it.
+
+\begin{quote}
+An environment...
+
+... with two paragraphs
+\end{quote}
+
+\begin{foo}
+an unknown environment
+\end{foo}
+
+
+\section{A section}
+
+\section[Hello!]{A section with optional argument}
+
+\begin{quote}
+An environment
+\end{quote}
+
+\section*{A starred section}
+
+\begin{figure}
+\caption{ \emph{\noun{is}} a caption}
+\end{figure}
+
+\begin{figure}
+\caption[s\noun{ho}rt]{this \emph{is} a caption}
+\end{figure}
+
+A paragraph\footnote{hello} with a footnote and another
+one\footnote{hello
+
+there} with several paragraphs
+
+some ERT \vspace{1cm} aa
+
+and another paragraph
+
+\begin{center}
+Some centered stuff (does not work)
+\end{center}
+
+\begin{quotation}
+An environment
+
+\subsubsection*{with a command inside it}
+\end{quotation}
+
+\begin{quotation}
+Another environment
+
+\begin{quotation}
+With another one inside it (with same layout)
+
+[this one even has several paragraphs!]
+\end{quotation}
+
+\end{quotation}
+
+We can also nest enumerations
+
+\begin{enumerate}
+\item Item1
+\begin{enumerate}
+\item Item1.a
+
+\item Item1.b (there is  a paragraph break in front of this)
+\begin{itemize}
+\item Item1.b.*
+\item Item1.b.*
+\end{itemize}
+\end{enumerate}
+\item Item2
+\end{enumerate}
+
+Let's see what happens when normal paragraphs are inserted in lists:
+
+\begin{itemize}
+\item the first item
+
+with some explanatory text under it
+
+and a second paragraph for good measure
+
+\subsubsection*{we can even have one as a subsubsection}
+
+\item the second item
+
+\item the third item
+
+\subsubsection*{and a sssection heading inside it (why not?)}
+\end{itemize}
+
+What else? Well, we have descriptions:
+\begin{description}
+\item[ABC] first item
+\item[BCD] second one
+\end{description}
+labelings:
+\begin{lyxlist}{00.00.0000}
+\item [label~1] first item
+\item [label~2] second item
+\end{lyxlist}
+and bibliography:
+\begin{thebibliography}{9}
+\bibitem{FOO} Edward Bar. \emph{The Foo Book}. (1999)
+\bibitem{FO2} Walter Müller \emph{The Müller Book}. (2004) 
+\end{thebibliography}
+
+\appendix
+
+\section{This is the Appendix}
+
+\noindent blabla bla bla
+
+
+\section{Another Appendix section}
+
+blub
+
+
+\end{document}

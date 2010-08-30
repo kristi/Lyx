@@ -1,0 +1,178 @@
+.\" Man page for LyX.
+.\" Use the following command to view man page:
+.\"
+.\"  tbl lyx.1 | nroff -man | less
+.\"
+.TH LYX 1 "@LYX_DATE@" "Version @VERSION@" "LyX @VERSION@"
+.SH NAME
+LyX \- A Document Processor
+.\"
+.\" setup
+.de Cr
+.ie n (c)
+.el \(co
+..
+.SH SYNOPSIS
+\fBlyx@version_suffix@\fR [ \fIcommand\-line switches\fR ] [ \fIname[.lyx] ...\fR ]
+.br
+.SH DESCRIPTION
+\fBLyX\fR is too complex to be described completely in the "man" page
+format. If your system is properly configured, you can access the full
+documentation within \fBLyX\fR under the Help menu.
+
+\fBLyX\fR is a document preparation system. It excels at letting you
+create complex technical and scientific articles with mathematics,
+cross\-references, bibliographies, indices, etc. It is very good at
+documents of any length in which the usual processing abilities are
+required: automatic sectioning and pagination, spellchecking, and so
+forth. It can also be used to write a letter to your mom, though
+granted, there are probably simpler programs available for that. It is
+definitely not the best tool for creating banners, flyers, or
+advertisements, though with some effort all these can be done, too.
+Some examples of what it is used for: memos, letters, dissertations
+and theses, lecture notes, seminar notebooks, conference proceedings,
+software documentation, books (on PostgreSQL, remote sensing,
+cryptology, fictional novels, poetry, and even a children's book or
+two), articles in refereed scientific journals, scripts for plays and
+movies, business proposals... you get the idea.
+
+Currently, \fBLyX\fR uses the Qt4 library as a
+toolkit. \fBLyX\fR should run everywhere, where this library runs.
+This is on all major Unix platforms as well as Windows and Mac OS X
+(which actually is a unix platform).
+.SH OPTIONS
+\fBLyX\fR supports the following command\-line switches.
+.TP 6
+.BI \-help
+summarizes LyX usage
+.TP
+.BI \-version
+provides version information on the build of LyX.
+.TP
+.BI \-sysdir " directory"
+sets system directory. Normally not needed.
+.TP
+.BI \-userdir " directory"
+sets user directory. Needed if you want to use LyX with different lyxrc
+settings.
+.TP
+.BI \-geometry " WxH+X+Y"
+set geometry of the main window.
+.TP
+.BI \-dbg " feature[,feature...]"
+where feature is a name or number.
+Use "\fBlyx@version_suffix@ \-dbg\fR" to see the list of available debug features.
+.TP
+\fB \-x [\-\-execute]\fP \fIcommand
+where command is a lyx command.
+.TP
+\fB \-e [\-\-export]\fP \fIfmt
+where fmt is the export format of choice.
+Look on Tools->Preferences->File formats->Format to get an idea which parameters should be passed.
+Note that the order of -e and -x switches matters.
+.TP
+\fB \-i [\-\-import]\fP \fIfmt file.xxx
+where fmt is the import format of choice and file.xxx is the file to be imported.
+.TP
+\fB \-f [\-\-force\-overwrite]\fP \fIwhat
+where what is is either "\fBall\fR", "\fBmain\fR" or "\fBnone\fR".
+Specify "\fBall\fR" to allow overwriting all files during a batch export,
+"\fBmain\fR" to allow overwriting the main file only, or "\fBnone\fR"
+to disallow overwriting any file. When this switch is followed by anything
+else other than "\fBall\fR", "\fBmain\fR" or "\fBnone\fR", the behavior is as
+if "\fBall\fR" was specified, but what follows is left on the command line for
+further processing.
+.TP
+.BI -batch
+causes LyX to run the given commands without opening a GUI window.
+Thus, something like:
+.br
+    lyx -batch -x "buffer-print printer default dvips" myfile.lyx
+.br
+will cause LyX to print myfile.lyx to the default printer, using dvips and
+the default print settings (which, of course, have to have been configured
+already).
+
+.SH ENVIRONMENT
+.TP
+.B @LYX_DIR_VER@
+can be used to specify which system directory to use.
+.PP
+The system directory is determined by searching for the file
+"chkconfig.ltx". Directories are searched in this order:
+.br
+1) \-sysdir command line parameter
+.br
+2) @LYX_DIR_VER@ environment variable
+.br
+3) Maybe <path of binary>/TOP_SRCDIR/lib
+.br
+4) <path of binary>/../share/<name of binary>/
+.br
+5) hardcoded lyx_dir (at build time: @real_pkgdatadir@)
+.TP
+.B @LYX_USERDIR_VER@
+can be used to specify which user directory to use.
+.PP
+The user directory is, in order of precedence:
+.br
+1) \-userdir command line parameter
+.br
+2) @LYX_USERDIR_VER@ environment variable
+.br
+3) $HOME/.<name of binary> if no explicit setting is made
+
+.TP
+.B LYX_LOCALEDIR
+can be used to tell LyX where to look for the translations of its GUI
+strings in other languages.
+
+.TP
+.B LYX_FORCE_OVERWRITE
+can be used to change the default behavior when exporting from command
+line.
+.PP
+By default, LyX overwrites the main file when exporting from command
+line but not the ancillary files. This behavior can be changed by setting
+this environment variable, which relieves the need of using the \-f switch.
+Allowed values are either "\fBall\fR", "\fBmain\fR" or "\fBnone\fR", with
+same meaning as for the \-f switch.
+.SH FILES
+.nf
+.ta \w'\fILIBDIR\fR/lyxrc.in  'u
+~/.lyx/preferences      Personal configuration file
+~/.lyx/lyxrc.defaults   Personal autodetected configuration file
+\fILIBDIR\fR/lyxrc.dist  System wide configuration file
+\fILIBDIR\fR/configure.py  Updates \fBLyX\fR if config has changed
+\fILIBDIR\fR/bind/      Keybindings
+\fILIBDIR\fR/clipart/   Clipart pictures
+\fILIBDIR\fR/doc/       Documentation in \fBLyX\fR format.
+\fILIBDIR\fR/examples/  Example documents
+\fILIBDIR\fR/images/    Images used as icons or in popups
+\fILIBDIR\fR/kbd/       Keyboard mappings
+\fILIBDIR\fR/layouts/   Layout descriptions
+\fILIBDIR\fR/templates/ Templates for documents
+\fILIBDIR\fR/tex/       Extra TeX files
+.sp
+.fi
+
+.I LIBDIR
+is the system directory. This was at build time @real_pkgdatadir@.
+.SH SEE ALSO
+tex2lyx@version_suffix@(1), latex(1).
+
+Full documentation in either native \fBLyX\fR or postscript format.
+.SH BUGS/LIMITATIONS
+There are still some bugs in \fBLyX\fR. To report one, read if
+possible the Introduction found under the Help menu in LyX. You'll
+find detailed info on submitting bug reports there. If you can't do
+that, send details to the LyX Developers mailing list
+lyx\-devel@lists.lyx.org, or use the LyX bug tracker at
+http://bugzilla.lyx.org/. Don't forget to mention which version you
+are having problems with!
+
+\fBLaTeX\fR import is still not perfect and may produce buggy *.lyx
+files. Consult the \fBtex2lyx@version_suffix@\fR documentation.
+
+.SH AUTHORS
+LyX is Copyright (C) 1995 by Matthias Ettrich, 1995-2010 LyX Team

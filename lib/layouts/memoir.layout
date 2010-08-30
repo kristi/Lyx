@@ -1,0 +1,183 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[memoir]{book (Memoir)}
+# Memoir textclass definition file
+# Author: Jürgen Spitzmüller <spitzmueller@gmx.de>
+# Improvements by: Bennett Helm <bennett.helm@fandm.edu>
+# feel free to contribute missing features!
+
+
+Format 27
+Columns            1
+Sides              2
+SecNumDepth        1
+TocDepth           1
+DefaultStyle       Standard
+PageStyle          Headings
+Provides makeidx   1
+Provides framed    1
+# Memoir has support for line spacing, but uses different names from
+# what setspace.sty does.  
+Provides SetSpace  1
+
+
+ClassOptions
+	FontSize             9|10|11|12|14|17
+	PageStyle            empty|plain|headings|myheadings|ruled|Ruled|companion
+	Other                oldfontcommands
+End
+
+
+Style Standard
+	Margin                Static
+	LatexType             Paragraph
+	LatexName             dummy
+	ParIndent             MM
+	ParSkip               0.4
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	LabelType             No_Label
+End
+
+
+Input stdinsets.inc
+Input stdlists.inc
+Input stdcounters.inc
+Input stdfloats.inc
+Input stdsections.inc
+Input stdstarsections.inc
+Input numreport.inc
+
+
+Style Part
+	OptionalArgs         1
+	TocLevel 	     -1
+End
+      	
+
+
+Style Chapter
+	OptionalArgs         2
+	TocLevel 	     0
+End
+
+
+Style Chapter*
+	OptionalArgs         1
+End
+
+
+Style Section
+	OptionalArgs         2
+	TocLevel 1
+End
+
+
+Style Subsection
+	OptionalArgs         2
+	TocLevel 2
+End
+
+
+Style Subsubsection
+	OptionalArgs         2
+	TocLevel 3
+End
+
+
+Style Paragraph
+	OptionalArgs         2
+	TocLevel 4
+End
+
+
+Style Subparagraph
+	OptionalArgs         2
+	TocLevel 5
+End
+
+
+Style Chapterprecis
+	Margin               Static
+	LatexType            Command
+	LatexName            chapterprecis
+	NeedProtect          1
+	NextNoIndent         1
+	LeftMargin           MM
+	LabelSep             xxx
+	ParSkip              0.4
+	TopSep               0.4
+	BottomSep            0
+	ParSep               0.4
+	Align                Block
+	Font
+	  Shape              Italic
+	  Size               Normal
+	EndFont
+End
+
+#FIXME: this takes two parameters!!!
+Style Epigraph
+	Category              Maintext
+	Margin                Right_Address_Box
+	LatexType             Command
+	LatexName             epigraph
+	ParSkip               0.4
+	BottomSep             1.5
+	ParSep                1.5
+	Align                 Left
+End
+
+#FIXME: what is actually documented is \PoemTitle
+#but \poemtitle is defined nevertheless. Weird.
+Style Poemtitle
+	Category              Section
+	LatexType             Command
+	LatexName             poemtitle
+	NeedProtect           1
+	NextNoIndent          1
+	LabelSep              xxx
+	ParSkip               0.4
+	TopSep                0.4
+	ParSep                0.4
+	Align                 center
+	OptionalArgs          1
+	Font
+	   Series             Bold
+	EndFont
+End
+
+
+Style Poemtitle*
+	CopyStyle             Poemtitle
+	Category              Unnumbered
+	LatexName             poemtitle*
+	OptionalArgs          0
+End
+
+
+Input stdtitle.inc
+Input stdstruct.inc
+
+
+Style Bibliography
+	TopSep               4
+	LabelString          "Bibliography"
+	LabelFont
+	  Series             Bold
+	  Size               Huge
+	EndFont
+End
+
+
+Input lyxmacros.inc
+Input stdlayouts.inc
+
+Style Legend
+	Category            Maintext
+	LatexType           Command
+	LatexName           legend
+	NeedProtect         1
+	NextNoIndent        1
+	ParSkip             0.4
+	Align               Center
+End

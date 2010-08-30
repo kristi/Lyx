@@ -1,0 +1,7 @@
+#!/bin/sh
+
+regfile=`cat ${srcdir}/tests/regfiles/lstrings`
+output=`./check_lstrings`
+
+test "$regfile" = "$output"
+exit $?

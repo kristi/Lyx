@@ -1,0 +1,85 @@
+#
+# Keyboard mapping for Serbian cyrillic keyboard (ISO8859-5 encoding)
+# Based on the standard JUS.I.K1.005
+#
+# (c)2001 by Zvezdan Petkovic <z.petkovic@computer.org>
+#
+
+\kmap @ \"
+\kmap ^ &
+\kmap & /
+\kmap * (
+\kmap ( )
+\kmap ) =
+\kmap - '
+\kmap _ ?
+\kmap = +
+\kmap + *
+\kmap ` <
+\kmap ~ >
+\kmap q љ
+\kmap w њ
+\kmap e е
+\kmap r р
+\kmap t т
+\kmap y з
+\kmap u у
+\kmap i и
+\kmap o о
+\kmap p п
+\kmap [ ш
+\kmap ] ђ
+\kmap \\ ж
+\kmap a а
+\kmap s с
+\kmap d д
+\kmap f ф
+\kmap g г
+\kmap h х
+\kmap j ј
+\kmap k к
+\kmap l л
+\kmap ; ч
+\kmap ' ћ
+\kmap z ѕ
+\kmap x џ
+\kmap c ц
+\kmap v в
+\kmap b б
+\kmap n н
+\kmap m м
+\kmap / -
+\kmap Q Љ
+\kmap W Њ
+\kmap E Е
+\kmap R Р
+\kmap T Т
+\kmap Y З
+\kmap U У
+\kmap I И
+\kmap O О
+\kmap P П
+\kmap { Ш
+\kmap } Ђ
+\kmap | Ж
+\kmap A А
+\kmap S С
+\kmap D Д
+\kmap F Ф
+\kmap G Г
+\kmap H Х
+\kmap J Ј
+\kmap K К
+\kmap L Л
+\kmap : Ч
+\kmap \" Ћ
+\kmap Z Ѕ
+\kmap X Џ
+\kmap C Ц
+\kmap V В
+\kmap B Б
+\kmap N Н
+\kmap M М
+\kmap < ;
+\kmap > :
+\kmap ? _

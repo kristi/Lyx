@@ -1,0 +1,31 @@
+Pre-release of LyX version 2.0.0 (alpha 6)
+==========================================
+
+We are pleased to announce the sixth alpha release of LyX 2.0.0.
+This release is for testing purposes only, users are encouraged
+to use current 1.6 stable release for any serious work.
+
+Tarballs and binaries can be found at ftp://ftp.lyx.org/pub/lyx/devel/
+
+LyX 2.0.0 will be culmination of more than 21 months of hard work
+and you can find an overview of the new features here:
+http://wiki.lyx.org/LyX/NewInLyX20
+
+Known issues with LyX 2.0 can be found at the following addresses:
+http://wiki.lyx.org/Devel/LyX20Road
+http://www.lyx.org/trac/wiki/BugTrackerHome
+
+
+If you think you found a bug in LyX 2.0.0, either e-mail the LyX
+developers' mailing list (lyx-devel at lists.lyx.org), or open a bug
+report at http://www.lyx.org/trac/wiki/BugTrackerHome
+
+If you have trouble using LyX or have a question, consult the
+documentation that comes with lyx and http://wiki.lyx.org. If you
+can't find the answer there, e-mail the LyX users' list
+(lyx-users at lists.lyx.org).
+
+We hope you will enjoy the result!
+
+The LyX team.
+http://www.lyx.org

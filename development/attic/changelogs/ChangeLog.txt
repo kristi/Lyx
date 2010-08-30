@@ -1,0 +1,1335 @@
+2006-03-12  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.ac: run lib/configure.py, not lib/configure
+	* autogen.sh: don't build lib/configure from lib/configure.m4 anymore
+
+2006-02-24  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* RELEASE-NOTES: update.
+
+2006-02-24  Christian Ridderström <christian.ridderstrom@gmail.com>
+
+	* INSTALL: change the references to 'cvs' into 'Subversion'.
+
+2006-02-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* RELEASE-NOTES: new file
+	* Makefile.am (EXTRA_DIST): distribute it.
+	* ANNOUNCE: point to it.
+
+2006-02-23  Christian Ridderström <christian.ridderstrom@gmail.com>
+
+	* README: change the references to 'cvs' into 'Subversion'.
+
+2006-02-16  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* UPGRADING: update for 1.4.0
+
+2006-02-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: call LYX_VERSION_SUFFIX and LYX_USE_PACKAGING
+	earlier (bug 2237); fix definition of LYX_ABS_INSTALLED_DATADIR.
+
+2006-02-11  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* configure.ac:
+	* config/lyxinclude.m4: Use 'svn' as the development tag
+
+2006-02-10  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Delete all .cvsignore files from the source tree
+
+2006-01-26  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* autogen.sh: remove the --force-missing option to automake 
+
+2006-01-25  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* NEWS: update for 1.4.0.
+
+2006-01-24  John Spray  <spray@lyx.org>
+
+	* configure.ac: the gtk frontend does not need xforms anymore.
+
+2006-01-19  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (EXTRA_DIST): do not distribute INSTALL.OS2 and
+	README.OS2.
+
+	* ANNOUNCE: 
+	* README: 
+	* INSTALL: a first update for 1.4.0.
+
+2006-01-04  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* INSTALL.MacOSX: update.
+
+2006-01-01  Angus Leeming  <leeming@lyx.org>
+
+	* COPYING: remove the XForms exception.
+
+2005-12-30  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.ac: fix version-suffix
+
+2005-12-28  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* autogen.sh: require automake 1.9
+	* configure.ac: add 1.9 to automake options
+
+2005-12-23  Lars Gullik Bjonnes  <larsbj@lyx.org>
+
+	* configure.ac: pre3
+
+2005-12-23  Lars Gullik Bjonnes  <larsbj@lyx.org>
+
+	* autogen.sh (AUTOMAKE): add --force-missing to args.
+
+	* configure.ac: add am args to AM_INIT_AUTOMAKE, modify AC_INIT to
+	contain tar name as well, use AC_CONFIG_HEADERS instead of
+	AM_CONFIG_HEADER, remove unused variable VERSION
+
+2005-12-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: add to SOCKET_LIBS the libraries required by
+	socket code (useful for solaris).
+
+2005-12-06  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.ac: remove dead gnome stuff
+	* configure.ac: check for xft if using the gtk frontend
+
+2005-10-18  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: check for target name as early as possible (fixes
+	bug in change below).
+
+2005-10-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: call LYX_USE_PACKAGING early. Sanitize PACKAGE
+	setting. 
+
+2005-09-30  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac: check for NewAPIs.h. If found, define the
+	WANT_GETFILEATTRIBUTESEX_WRAPPER to enable runtime support
+	for Windows 95 in Boost.Filesystem.
+
+2005-09-29  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac: Use the new MSYS_AC_CANONICAL_PATH to generate
+	path strings that make sense on Windows as well as on Unix boxes.
+	Insert these strings into the generated Makefiles.
+
+2005-09-22  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* INSTALL.MacOSX: update to reflect simplified procedure.
+
+2005-09-21  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (EXTRA_DIST): distribute INSTALL.MacOSX
+
+2005-09-21  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* INSTALL.MacOSX: rename from README.MacOSX and update.
+
+2005-09-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.ac: error out if qt frontend is choosen but no qt library
+	was found
+
+2005-09-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: check for AWK and use --posix option if we found
+	gawk. (bug 1980)
+
+2005-07-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* configure.ac: version back to 1.4.0cvs 
+
+2005-07-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* configure.ac: set version to 1.4.0pre1
+
+2005-07-18  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* README: 
+	* INSTALL: update for 1.4
+
+2005-07-16  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* lyx.man: remove reLyX refs and ref to tex2lyx
+	* autogen.sh,configure.ac: remove reLyX handling 
+	* INSTALL,INSTALL.OS2: remove some reLyX paragraphs.
+
+2005-07-16  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* INSTALL: lib/xfonts is dead.
+
+2005-07-15  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* configure.ac: set AWK to gawk and subsitute 
+
+2005-07-15  José Matos <jamatos@lyx.org>
+
+	* configure.ac: Add support for python, and add Makefile to
+	lyx2lyx.
+
+2005-07-14  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (EXTRA_DIST): add the new README and INSTALL files
+
+2005-07-13  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* Makefiles: make sure to dist pch.h and mark PCH_FILE as a build
+	file.
+
+2005-07-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* INSTALL: small tweak.
+
+2005-06-01  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: if the xforms frontend is added just to help gtk,
+	do not build the xforms binary.
+
+2005-05-20  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* configure.ac: Use AM_* flags for CLAGS,CXXFLAGS where we require
+	the values to be properly set.
+
+2005-05-03  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac: test for io.h and process.h.
+	Test the spelling of close(), getpid(), open(), pclose() and
+	popen(). Do they have a leading underscore or not?
+
+2005-05-02  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac: test for utime.h and sys/utime.h
+
+2005-05-02  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac: test for something that MSVC doesn't have (fcntl)
+	as opposed to something it does (select, socket).
+
+2005-05-02  Angus Leeming  <leeming@lyx.org>
+
+	* autogen.sh (ACINCLUDE_FILES): remove [ap]spell.m4. Add spell.m4.
+
+	* configure.ac: remove explicit invocation of CHECK_WITH_ASPELL,
+	CHECK_WITH_PSPELL. Add new invocation of LYX_CHECK_SPELL_ENGINES.
+	Also check for select() and socket() system functions and use
+	these to decide whether to build the src/client sun-directory.
+
+2005-03-11  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: remove hack when GNU gettext utilities are not
+	available; remove calls to AC_C_CONST and AC_C_INLINE (already
+	required by AM_INTL_SUBDIR; remove ALL_LINGUAS variable (see
+	po/LINGUAS instead); do not AC_SUBST LINGUAS.
+
+2005-03-07  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* autogen.sh: remove autom4te.cache directories
+
+2005-03-06  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac: make the xforms part be built
+	first when building gtk frontend
+
+2005-03-05  Angus Leeming  <leeming@lyx.org>
+
+	* autogen.sh: remove test for gettext. Belongs in configure.
+	Return 1 if autogen.sh exits abnormally.
+
+2005-03-02  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac: dont setup gnome/Makefile
+
+2005-02-24  Angus Leeming  <leeming@lyx.org>
+
+	* autogen.sh: enable the use of (1.5 <= automake <= 1.9).
+
+2005-02-23  Angus Leeming  <leeming@lyx.org>
+
+	* autogen.sh: test for automake >= 1.5 and for gettext >= 0.12.
+
+	* INSTALL: document these requirements.
+
+2005-02-09  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am: remove hack for making bindist work with autoconf
+	<=1.4. This broke non GNU make programs.
+
+2005-02-07  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac (AH_BOTTOM): make BOOST_POSIX be defined for cygwin
+
+2005-02-02  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: if the prefix contains space, replace it with
+	${builddir}/installprefix and issue a warning.
+
+	* configure.ac: when testing for AikSaurus, do not require libbz2.
+
+2005-01-27  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac: add src/support/tests/Makefile
+
+2005-01-21  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: indicate in final info whether aiksaurus is used.
+
+2005-01-20  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac: s/COMRESSION/COMPRESSION/
+
+2005-01-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: remove duplicated code
+
+2005-01-06  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: use LYX_USE_PACKAGING
+
+2005-01-05  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac (VERSION_INFO): add CPPFLAGS to info
+
+2005-01-04  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac (AC_CHECK_FUNCS): test for the existence of
+	lstat and readlink.
+
+2004-12-28  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: remove call to LYX_CXX_CHEADERS
+
+2004-12-16  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac: remove the HAVE_MKDIR conditional code to
+	src/support/mkdir.C
+
+2004-12-15  Angus Leeming  <leeming-0hXrFu2P2+c@public.gmane.org>
+
+	* configure.ac: add AC_FUNC_MKDIR test and code to
+	#define mkdir should a non-POSIX version be found.
+
+2004-12-04  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* Most Makefile.am's: Move PCH_FLAGS to AM_CPP flags where
+	possible.
+
+2004-12-03  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* Most Makefile.am's: Change to use AM_CPPFLAGS instead of
+	INCLUDES since that has been deprecated by automake.
+
+2004-11-25  Angus Leeming  <leeming@lyx.org>
+
+	* README.Cygwin: new file, containing the current contents of
+	README.Win32.
+
+	* README.Win32: rewritten to explain why we don't currently
+	provide formal support for a native Win32 port (other than
+	one based on Cygwin) and how that may change in the future.
+
+2004-11-29  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: do not include broken_headers.h; do not check for
+	strchr, memset and memmove
+
+2004-11-04  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: do not check for snprintf
+
+2004-10-11  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.ac: remove RPM_FRONTEND_DEPS
+
+2004-10-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: make maintainer mode active by default for
+	development releases
+
+2004-09-26  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac: update for gtk 2.4
+
+2004-09-23  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* README.MacOSX: update again
+
+2004-09-22  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* README.MacOSX: update a bit
+
+2004-09-04  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac (AC_CONFIG_FILES): add src/client/Makefile
+
+2004-09-03  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.ac: print error message if uic or moc is not found
+	and the qt frontend is used
+
+2004-08-18  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* More pch work.
+
+2004-08-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: instead of the previous code (which does not
+	work), just add xforms to the list of frontends if gtk is specified
+
+2004-07-26  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac: add code that some xforms tests are run only once
+	even if both xforms and gtk are configured.
+
+2004-06-09  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (SUBDIRS): remove m4 directory (does not have a
+	Makefile.am).
+
+2004-06-09  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* Makefile.am (dist_noinst_DATA): use the dist_ and noinst_
+	annotations to clean up the Makefile slightly.
+
+2004-06-01  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac (AC_CONFIG_FILES): add lib/doc/Makefile
+
+2004-05-28  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* mkinstalldirs: remove file
+
+2004-05-27  Kayvan Sylvan <kayvan@sylvan.com>
+
+	* configure.ac (AH_BOTTOM): Remove reference to support/nt_defines.h
+
+2004-05-26  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* autogen.sh (ACLOCAL): make all aclocal find m4
+
+2004-05-26  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (SUBDIRS): Add m4.
+	(DIST_SUBDIRS): Add m4.
+	(ACLOCAL_AMFLAGS): New variable.
+	* configure.ac (AC_CONFIG_FILES): Add m4/Makefile.
+
+2004-04-19  Angus Leeming  <leeming@lyx.org>
+
+	* README.MacOSX: update to reflect Jean-Marc's comments to the list.
+
+2004-04-20  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac: (AC_CONFIG_FILES) add gtk/gimages Makefile.
+
+2004-04-03  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac: define BOOST_USER_CONFIG
+
+2004-03-10  Ronald Florence <ron@18james.com>
+
+	* README.MacOSX: update
+
+2004-01-26  Angus Leeming  <leeming@lyx.org>
+
+	* autogen.sh: enable the use of autoconf 2.59.
+
+2004-01-08  Lars Gullik Bjonnes  <larsbj@gullik.net>
+
+	* configure.ac (AC_CONFIG_FILES): add boost::filesystem Makefiles.
+
+2003-12-15  Ronald Florence <ron@18james.com>
+
+	* README.MacOSX: updated for 1.4.0cvs
+
+2003-11-18  Angus Leeming  <leeming@lyx.org>
+
+	* autogen.sh: accept autoconf 2.58 as a supported version.
+
+2003-10-24  André Pönitz  <poenitz@gmx.net>
+
+	* lyxfunc.C:
+	* rowpainter.C:
+	* text.C:
+	* text3.C:
+	* lyxtext.h: set fills in fill(...) instead of returning it
+
+2003-10-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* INSTALL: remove a comment about --with-included-string
+
+	* configure.ac: remove the configure are
+	--with-included-string
+
+2003-09-21  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac (FORNTENDS): use tabs to align message, make gtk
+	not delete info about other frontends
+
+2003-09-16  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac: remove LYX_CXX_STL_STRING and
+	LYX_CXX_GOOD_STD_STRING checks. Add a simplified version of the
+	AC_ARG_WITH(included-string)
+
+2003-09-11  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* README.MacOSX: update
+
+2003-09-09  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* configure.ac (AH_BOTTOM): add blurb for BOOST_ASSERT
+
+2003-09-08  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* README.MacOSX: new file.
+
+2003-08-26  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* INSTALL: Add compilation instructions for SUN Sparc
+        Solaris. (bug #362)
+
+2003-08-19  Angus Leeming  <leeming@lyx.org>
+
+	* configure.ac (AH_TOP): get rid of 'The LyX Team'.
+
+2003-08-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac (AH_BOTTOM): do not use BOOST_NO_EXCEPTIONS
+	here, that is done by boost gcc config.
+
+2003-08-05  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.ac: add $(EXEEXT) to program names in FRONTEND_PROGS
+
+2003-08-02  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.ac: only configure the frontends that have been
+	specified; build in FRONTENDS_PROGS the list of programs that
+	should be built
+	(AC_CONFIG_FILES): output lyx_forms.h-tmp instead of lyx_forms.h
+	in order to do dependency trick in xforms frontend (same for
+	lyx_xpm.h)
+
+2003-07-31  John Levon  <levon@movementarian.org>
+
+	* NEWS:
+	* INSTALL: refer to latex-xft-fonts
+
+2003-07-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac: compression support
+
+2003-07-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac: check for zlib.
+
+2003-07-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* configure.ac: new file
+
+	* autogen.sh (autoversion): remove support for autoconf 2.13
+
+	* .cvsignore: remove acconfig.h configure.ac configure.in
+
+2003-07-10  John Levon  <levon@movementarian.org>
+
+	* INSTALL: update Aiksaurus URL
+
+2003-06-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* sourcedoc/Doxyfile.in (EXCLUDE): exclude gnome and generated
+	files in qt dir.
+
+2003-06-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyx.man: change env variable from foo_13x to foo_14x
+
+2003-05-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am: allow boost as system lib
+
+2003-04-25  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* dummy entry
+
+2003-04-14  Angus Leeming  <leeming@lyx.org>
+
+	* autogen.sh (autoversion): Print message proclaims support for
+	autoconf 2.54.
+
+2003-04-10  Angus Leeming <leeming@lyx.org>
+
+	* autogen.sh: We support autoconf 2.57, so tell the user.
+
+2003-04-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* status: update
+
+2003-04-03  Angus Leeming  <leeming@lyx.org>
+
+	* status: attempt to fill it out a little.
+
+2003-04-03  John Levon  <levon@movementarian.org>
+
+	* status: start a status file ...
+
+2003-03-27  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* INSTALL: mention --enable-maintainer-mode
+
+2003-03-25  John Levon  <levon@movementarian.org>
+
+	* autogen.sh: add aspell.m4
+
+2003-03-12  Kayvan Sylvan  <kayvan@sylvan.com>
+
+	* autogen.sh (ACINCLUDE_FILES): Added cygwin.m4
+
+2003-03-15  John Levon  <levon@movementarian.org>
+
+	* INSTALL: little fix
+
+2003-02-27  Angus Leeming  <leeming@lyx.org>
+
+	* INSTALL: better instructions for the Qt frontend
+
+2003-02-18  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* INSTALL: document the use of --with-frontend
+
+2003-02-13  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* most source files all over: remove the use of #pragma
+	implementaion and interface.
+
+2003-02-11  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* autogen.sh (autoversion): autoconf 2.57 works too
+
+2003-02-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Back on the cvs track.
+
+2003-02-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* LyX 1.3.0 released.
+
+2003-02-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ABOUT-NLS: updated
+
+	* INSTALL.autoconf: updated
+
+2003-02-06  Angus Leeming  <leeming@lyx.org>
+
+	* ANNOUNCE: email the devel list with bugs. Move fontconfig stuff to
+	install.
+
+	* INSTALL: a chunk on using fontconfig with the Qt frontend.
+
+	* ABOUT-NLS:
+	* ANNOUNCE:
+	* COPYING:
+	* INSTALL:
+	* lyx.man:
+	* NEWS:
+	* README:
+	* README.OS2:
+	* README.Win32:
+	* UPGRADING: whitespace
+
+2003-02-04  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: allow lyx.xpm to be found when making rpmdist in
+	srcdir != builddir.
+
+2003-02-04  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ANNOUNCE:
+	* INSTALL:
+	* README: mention that all qt 3.x should work (not only 3.0.x).
+
+	* INSTALL: mention python 1.5.2.
+
+	* NEWS: add entry for LyX 1.2.3
+
+	* UPGRADING: update for 1.3.0
+
+2003-01-30  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* Makefile.am: test for the presence of rpmbuild.
+
+2003-01-27  Angus Leeming  <leeming@lyx.org>
+
+	* UPGRADING: further cleanup following some advice from Dekel.
+
+2003-01-26  Angus Leeming  <leeming@lyx.org>
+
+	* README, NEWS, INSTALL: tighten up the English and make them a bit
+	more self-consistent. Remove a couple of references to bogus ftp
+	repositories.
+
+	* UPGRADING: had a stab at this one two, but my lack of detailed
+	knowledge prevents me from doing more than scratch at the surface.
+
+2003-01-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am: move some doxy stuff from here...
+	* sourcedoc/Makefile.am: ...to here
+
+2003-01-14  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (rpmdist): use rpmbuild
+
+2002-12-26  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyx.man: update to mention Qt frontend, remove old information
+	about OS/2 and other tweaks
+
+	* NEWS: clarify statement about TeX fonts
+
+2002-12-23  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* autogen.sh (autoversion): add autoconf 2.54 to supported versions
+
+2002-12-20  John Levon  <levon@movementarian.org>
+
+	* NEWS: small updates
+
+2002-12-19  John Levon  <levon@movementarian.org>
+
+	* config/qt.m4: fix so lib is placed correctly. IRIX
+	  whines at us
+
+2002-12-19  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* NEWS: update
+
+2002-12-18  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am: sourcdoc as firstclass citizen
+
+	* sourcedoc/Makefile.am: new file
+
+2002-11-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* autogen.sh: add support for EXTRA_ACINCLUDE_FILES.
+
+2001-09-08  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* autogen.sh: set autotool commands at top of the file;
+	improve GNU m4 test; be more verbose on autotools version.
+
+2002-10-09  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* autogen.sh: fix test that says whether m4 has been found
+
+2002-09-30  Angus Leeming  <leeming@lyx.org>
+
+	* INSTALL: update notes on compilation with Compaq cxx.
+
+2002-09-12  John Levon  <levon@movementarian.org>
+
+	* autogen.sh: new Qt configure script
+
+2002-09-10  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* autogen.sh: accept autoconf 2.52 too; remove unneeded files
+	depending on autoconf version
+
+2002-08-08  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* .cvsignore: change acconfig.m4 to acconfig.h
+
+	* autogen.sh (AUTOCONF): remove warning args on autoheader and
+	autoconf
+
+2002-08-08  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* autogen.sh (autoversion): add handling of different autoconf
+	versions.
+
+	* .cvsignore: add acconfig.m4, autom4te-2.53.cache, configure.in
+	and configure.ac
+
+	* acconfig.m4: move from here...
+	* config/acconfig.m4 ...to here
+
+	* configure.in: more from here...
+	* config/configure.in: ...to here
+
+2002-07-30  André Poenitz <poenitz@gmx.de>
+
+	* INSTALL: fix location of GNU gettext package
+
+2002-07-23  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* UPGRADING: update to mention math lfuns changes
+
+2002-07-20  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.in: yet another try at the same thing
+
+2002-07-18  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.in: try (again) to fix EOF handling in VERSION_INFO
+
+2002-07-17  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* acconfig.h: do not include broken_headers.h; remove descriptions
+	of HAVE_LIBSM and XPM_H_LOCATION
+
+	* INSTALL: remove documentation for --with-broken-headers and
+	--with-liberty
+
+	* configure.in: do not invoke LYX_SCO, LYX_HPUX, LYX_SUNOS4,
+	AC_STRUCT_ST_BLKSIZE, AC_STRUCT_ST_BLOCKS, AC_STRUCT_ST_RDEV;
+	remove --with-broken-headers option; do not test for strerror and
+	atexit
+	(VERSION_INFO): add EOF at the end
+
+2002-07-14  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in: remove xforms from qt
+
+2002-07-04  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* configure.in (LYX_USE_FRONTEND): The order of libraries is
+	now dependant on the $host variable.
+
+2002-07-06  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* autogen.sh: use $ACLOCAL and $AUTOHEADER instead of aclocal
+	and autoheader to test if they are present.
+
+2002-07-03  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* INSTALL: document --enable-debug
+
+2002-07-01  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* configure.in (LYX_USE_FRONTEND): Change order of libraries for
+	Cygwin.
+
+2002-07-01  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.in (VERSION_INFO): use $host instead of $host_alias
+	for the host type.
+
+2002-06-17  Angus Leeming  <leeming@lyx.org>
+
+	* INSTALL: how to compile with Compaq cxx on Tru64 Unix.
+
+2002-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* configure.in: add xforms/forms/*.lo to the xforms version of
+	FRONTEND_GUILIB.
+
+2002-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* configure.in: remove LYX_STL_STRING_FWD.
+
+2002-06-11  John Levon  <moz@compsoc.man.ac.uk>
+
+	* INSTALL:
+	* configure.in: remove attempt to link against libiberty. It
+	is morally wrong, and potentially dangerous.
+
+2002-06-07  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.in: move the test for xpm/xforms out of the frontends
+	case, to avoid code duplication
+
+2002-06-06  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* acconfig.h: remove FORMS_IMAGE_H_LOCATION and FORMS_H_LOCATION
+
+2002-06-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in: remove LYX_REGEX call
+
+2002-06-02  John Levon  <moz@compsoc.man.ac.uk>
+
+	* acconfig.h: add FORMS_IMAGE_H_LOCATION
+
+	* autogen.sh: add xforms.m4
+
+	* configure.in: use XFORMS_IMAGE_LIB
+
+2002-05-30  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyx.man: lyx honors variable LYX_DIR_13x
+
+2002-05-29  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Switch from SigC to boost::signals, SigC is now not used in any
+	files anymore.
+
+2002-05-29  John Levon  <moz@compsoc.man.ac.uk>
+
+	* INSTALL: document that --program-* and frontends
+	don't work (yet ...)
+
+2002-05-29  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* NEWS: add info about the 1.1.6 series
+
+2002-05-29  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in: move Aiksaurus configure to catch
+	extra-lib/inc (bug 383)
+
+2002-05-27  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* autogen.sh (ACINCLUDE_FILES): add pkg.m4
+
+2002-05-26  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in: add the boost::signals makefiles.
+
+2002-05-26  Michael Koziarski  <michael@koziarski.com>
+
+	* configure.in: gtkconfig.patch
+
+2002-05-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in (VERSION): back to cvs
+
+2002-05-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in (VERSION): pre5
+
+2002-05-01  John Levon  <moz@compsoc.man.ac.uk>
+
+	* UPGRADING: more details on upgrading
+
+2002-04-26  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (DISTCLEANFILES): don't use -r
+	(distclean-local): new target
+
+2002-04-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* UPGRADING: mention floatflt gotcha
+
+2002-04-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in (VERSION): use the proper postfix
+
+2002-04-24  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.in: add check for GNU m4 (does not check that program
+	is actually gnu m4, but better than nothing)
+
+	* configure.in: small hack for compatibility with autoconf 2.52.
+	Basically, there is a weird interference with stdlib.h with g++
+	and _some_ functions (mkstemp, mktemp...)
+
+2002-04-22  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in (FRONTEND_GUILIB): add qt2/xforms/*.lo for qt2
+
+2002-04-16  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* UPGRADING: updates
+
+2002-04-11  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* NEWS: add spie class
+
+2002-04-08  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* UPGRADING: remove stuff that is not relevant now.
+
+	* Makefile.am (bindist): new bindist target
+
+2002-04-06  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in: make distcheck work
+
+	* Makefile.am: make distcheck work
+
+2002-04-02  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* lyx.man: update somewhat for 1.2.0
+
+2002-03-31  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in: call LYX_XFORMS_IMAGE_LOADER_NEEDS_JPEG
+
+2002-03-27  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* NEWS: small update
+
+	* MAINTAINERS: removed
+
+2002-03-26  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ANNOUNCE:
+	* INSTALL:
+	* README:
+	* NEWS: update somewhat for 1.2.0
+
+2002-03-22  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* INSTALL: updated the Problems section for Tru64 Unix.
+
+2002-03-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (DISTCLEANFILES): be recursive here
+
+	* configure.in: use LYX_CHECK_LDR
+
+2002-03-14  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* configure.in: Fix order of -lXpm and -lforms for
+	Cygwin linker.
+
+2002-03-15  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.in: small cleanups
+
+2002-03-14  Michael A. Koziarski  <michael@koziarski.com>
+
+	* configure.in: First stage of fixing the gnome compile problems.
+	Linking problems to be fixed next.
+
+2002-03-12  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* README: add bulgarian
+
+	* configure.in (ALL_LINGUAS): add bg
+
+2002-03-12  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (sourcedoc/Doxyfile): remove explict rule (this is
+	also autogenerated)
+
+2002-03-07  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Makefile.am: remove references to the now-dead forms directory.
+
+2002-03-05  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* configure.in: compile the xforms image loader if your version of the
+	xforms libraries is up to the task, else use the basic alternative.
+
+2002-03-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.in: help qt2 along a bit
+
+2002-03-01  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in: fixup qt2
+
+2002-02-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* configure.in: don't compile src/frontends/support as LyXImage is
+	now dead.
+
+2002-02-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* acconfig.h: nt/os2 defines moved
+
+2002-02-04  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* README: change reference to bugtracker
+
+2002-01-17  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.in (ALL_LINGUAS): add slovak
+
+2002-01-13  Michael A. Koziarski  <michael@koziarski.com>
+
+	* configure.in:  Fix the includes for gnome.
+
+2002-01-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in: change for Aiksaurus 0.14
+
+2002-01-08  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.in: remove test for -lpt on SCO. Hopefully it is not
+	needed anymore. This fixes bug #137
+
+2001-11-28  John Levon  <moz@compsoc.man.ac.uk>
+
+	* README: fix ghostscript comment
+
+2001-11-12  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* INSTALL: document change in --prefix behaviour.
+
+	* configure.in: do not use AC_PREFIX_PROGRAM, which is broken in
+	autoconf 2.5[012].
+
+2001-10-31  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* configure.in: check also for locale.h, so that things work out
+	correctly with --disable-nls
+
+2001-10-30  John Levon  <moz@compsoc.man.ac.uk>
+
+	* README:
+	* lyx.man: change ref to known bugs
+
+2001-10-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* configure.in: set version here and not in version.h.
+	Generate version.C instead of version_info.h
+
+2001-09-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* configure.in (VERSION_INFO): use AC_SUBST instead of AC_DEFINE
+	for VERSION_INFO
+
+2001-09-12  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* configure.in: do not set FRONTENDS to "xforms" when frontend is
+	xforms; fix the use of "cat <<EOF ... EOF" (bugs introduced by
+	last checkin)
+
+2001-09-10  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lyxinclude.m4:
+	* configure.in: add VERSION_INFO to config.h
+	(from a first proposal by Rob Lahaye)
+
+2001-09-08  Rob Lahaye  <lahaye@users.sourceforge.net>
+
+	* lyx.man: add -version commandline flag
+
+2001-08-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in: output new qt2 makefiles
+
+2001-07-31  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in: don't use -lbz2 if we don't need it
+
+2001-07-30  John Levon  <moz@compsoc.man.ac.uk>
+
+	* COPYING: use standard spiel for xforms
+
+2001-07-30  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in: add --without-aiksaurus, always
+	  subst AIKSAURUS_LIBS
+
+2001-07-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* NEWS:
+	* INSTALL:
+	* configure.in: add libAikSaurus
+
+2001-07-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* NEWS: update again.
+
+	* configure.in: move --enable-assertions a bit higher.
+	move the setup of libtool a bit later.
+
+2001-07-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* INSTALL: document --disable-optimization
+
+2001-07-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (EXTRA_DIST): add sourcedoc
+	(doxydoc): renamed from sourcedoc to avoid conflicts.
+
+2001-07-23  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* NEWS: updated for 1.2.0
+
+2001-07-19  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* configure.in: remove extra action for AC_OUTPUT (not needed
+	anymore with gettext 0.10.38)
+
+2001-07-05  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* INSTALL: update various requirements
+
+	* configure.in: do not test for namespace, mutable
+
+	* acconfig.h: remove entry for USE_PSPELL
+
+2001-07-04  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ABOUT-NLS: updated from gettext 0.10.38
+
+	* autogen.sh: use simpler logic for creating acinclude.m4 files.
+	Update for gettext 0.10.38
+
+2001-06-29  John Levon  <moz@compsoc.man.ac.uk>
+
+	* INSTALL: change RedHat stuff to insist on updating gcc
+
+2001-06-14  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am: no point in including 200k historical
+	  OLD-CHANGES file in dist tarball
+
+2001-06-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* src/lyxfunc.C (getStatus): handle LFUN_READ_ONLY_TOGGLE so that
+	it can be used as a menu entry
+
+2001-06-11  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* autogen.sh: remove kde stuff
+
+	* configure.in: remove kde stuff
+
+2001-06-13  John Levon  <moz@compsoc.man.ac.uk>
+
+	* INSTALL: remove mention of kde frontend, mention the need of gnu
+	m4.
+
+2001-06-01  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* acconfig.h: add BOOST_NO_LIMITS hack to help boost lib.
+
+2001-05-31  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* acconfig.h: auto update
+
+	* configure.in: call AC_PROG_LIBTOOL instead of AM_PROG_LIBTOOL
+	GUI: modify FRONTEND_GUILIB for all target to match what is
+	needed in the Makefile.am
+	(AC_CONFIG_SUBDIRS): remove boost
+	(AC_OUTPUT): generate boost/Makefile
+
+	* autogen.sh (AUTOCONF): remove some commented code, remove the
+	boost configuration.
+
+2001-05-30  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* acconfig.h: add entry for HAVE_DECL_ISTREAMBUF_ITERATOR
+
+	* configure.in: check for istreambuf_iterator in <iterator>
+
+2001-05-16  Ruurd Reitsma  <r.a.reitsma@wbmt.tudelft.nl>
+
+	* Added README.Win32
+
+2001-04-15  Allan Rae  <rae@lyx.org>
+
+	* Makefile.am (sourcedoc/Doxyfile): ensure modifications to doxygen
+	configuration file take effect.
+	(DISTCLEANFILES): clean out sourcedoc/
+
+	* sourcedoc/Doxyfile.in(FILE_PATTERNS): make sure we only filter
+	things that should be filtered.  Now you can run it after you started
+	compiling stuff as well.
+
+2001-03-29  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* configure.in: changed AC_INIT(src/lyx.C) to AC_INIT(src/main.C)
+
+2001-03-26  Baruch Even  <baruch@lyx.org>
+
+	* configure.in: Added libglade detection and libraries for the gnome
+	build. The gnome build will now depend on libglade libraries.
+
+2001-03-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Merging changes from BRANCH_MVC back into HEAD.
+
+	* configure.in: added controllers directory to frontends.
+
+2001-03-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* INSTALL: remove mention of problem with gettext.
+
+2001-03-02  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in:
+	* INSTALL: minor changes, become --with-version-suffix
+
+2001-02-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in:
+	* INSTALL: --with-lyx-version
+
+	* Makefile.am: fix uninstall
+
+2001-02-20  Edwin Leuven <leuven@fee.uva.nl>
+
+	* move latex preamble to guii xforms dir, see:
+	* src/ChangeLog
+	* src/frontends/xforms/ChangeLog
+
+2001-02-13  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* autogen.sh (AUTOCONF): use spaces insteadt of '\t' for echo
+	strings.
+	(AUTOCONF): add libtool.m4 to generation of boost.m4
+
+2001-02-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* forms/include_form.fd:
+	* forms/bibforms.fd:
+	* forms/bibforms.h.patch: deleted
+
+	* forms/lyx.fd: remove splash form
+
+2001-02-08  John Levon  <moz@compsoc.man.ac.uk>
+
+	* INSTALL: mention RH7.0 workaround with kde f.e.
+
+2001-02-06  albert chin  <china@thewrittenword.com>
+
+	* acconfig.h:
+	* configure.in: check declarations of snprintf and vsnprintf.
+
+2001-02-06  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* INSTALL: update description of command line to use with compaq
+	cxx.
+
+2001-01-30  John Levon  <moz@compsoc.man.ac.uk>
+
+	* INSTALL: mention build problem with older xforms
+
+2001-01-25  John Levon  <moz@compsoc.man.ac.uk>
+
+	* autogen.sh: add qt2.m4
+
+	* configure.in: add qt2 frontend option, Makefile
+
+	* config/qt2.m4: config gubbins for qt2
+
+	* lib/CREDITS: add Kalle
+
+2001-01-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* INSTALL (Problems): update description of the "missing linux
+	kernel sources" problem.
+
+2001-01-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure.in: working support for --with-lyx-suffix
+
+	* INSTALL: describe --with-lyx-suffix
+
+2001-01-15  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* INSTALL (Problems): add tip about using --with-included-string
+	on solaris 2.6 with gcc 2.95.2 (ld does not like long symbol
+	names).
+
+2001-01-12  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* ChangeLog: store old and begin new
+
+	* src/version.h (LYX_DOCVERSION): update to 1.2.0cvs

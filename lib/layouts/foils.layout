@@ -1,0 +1,332 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass{presentation (FoilTeX)}
+# Foils textclass definition file.
+# Created (1.Oct.96):   Alejandro Aguilar Sierra
+# Enhanced (fonts & centering):  Jean-Marc Lasgouttes
+# To do: Define class specific options.
+
+
+Format 27
+Columns                 1
+Sides                   1
+
+
+DefaultFont
+	Family                Sans
+	Series                Medium
+	Shape                 Up
+	Size                  Normal
+	Color                 None
+EndFont
+
+
+ClassOptions
+	FontSize              17|20|25|30
+	PageStyle             "empty|plain|foilheadings|fancy"
+	Other                 "dvips"
+End
+
+
+Style Standard
+	Margin                Static
+	LatexType             Paragraph
+	LatexName             dummy
+	ParIndent             MM
+	ParSkip               0.4
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	LabelType             No_Label
+End
+
+
+Style Foilhead
+	TocLevel              1
+	Margin                Static
+	LatexType             Command
+	LatexName             foilhead
+	LabelSep              xxx
+	ParSkip               0.4
+	TopSep                1.3
+	BottomSep             0.7
+	ParSep                0.7
+	Align                 Center
+	LabelType             No_Label
+	Font
+	  Series              Bold
+	  Size                Large
+	EndFont
+End
+
+
+Style ShortFoilhead
+	CopyStyle             Foilhead
+	LatexParam            "[-0.5in]"
+End
+
+
+Style Rotatefoilhead
+	CopyStyle             Foilhead
+	LatexName             rotatefoilhead
+End
+
+
+Style ShortRotatefoilhead
+	CopyStyle             Rotatefoilhead
+	LatexParam            "[-0.5in]"
+End
+
+
+# We add there a few additional lists that look good in foils.
+Input stdlists.inc
+
+Style TickList
+	Margin                Static
+	LatexType             Item_Environment
+	LatexName             dinglist
+	LatexParam            "{52}"
+	NextNoIndent          1
+	LeftMargin            MMN
+	LabelSep              xx
+	ItemSep               0.2
+	TopSep                0.7
+	BottomSep             0.7
+	ParSep                0.3
+	Align                 Block
+	AlignPossible         Block, Left
+	LabelType             Itemize
+	LabelString           "_/"
+	Requires	      pifont
+End
+
+Style CrossList
+	Margin                Static
+	LatexType             Item_Environment
+	LatexName             dinglist
+	LatexParam            "{56}"
+	NextNoIndent          1
+	LeftMargin            MMN
+	LabelSep              xx
+	ItemSep               0.2
+	TopSep                0.7
+	BottomSep             0.7
+	ParSep                0.3
+	Align                 Block
+	AlignPossible         Block, Left
+	LabelType             Itemize
+	LabelString           "><"
+	Requires	      pifont
+End
+
+
+Input stdtitle.inc
+Input stdstruct.inc
+
+
+Style Title
+	Font
+	  Series              Bold
+	  Size                Largest
+	EndFont
+End
+
+
+Style Author
+	Font
+	  Size                Large
+	EndFont
+End
+
+
+Style Date
+	Font
+	  Size                Large
+	EndFont
+End
+
+
+Style Abstract
+	Font
+	  Size                Normal
+	  Series              Medium
+	EndFont
+	LabelFont
+	  Size                Large
+	  Series              Bold
+	EndFont
+End
+
+
+# Header definitions:
+Style My_Logo
+	Margin                Static
+	LatexType             Command
+	LatexName             MyLogo
+	LeftMargin            My_Logo:xx
+	LabelSep              xxx
+	Align                 Left
+	LabelType             Static
+	LabelString           "My Logo:"
+	LabelFont
+	  Series              Bold
+	  Shape               Italic
+	  Color               red
+	EndFont
+End
+
+
+Style Restriction
+	CopyStyle             My_Logo
+	LatexName             Restriction
+	LeftMargin            Restriction:xx
+	LabelString           "Restriction:"
+End
+
+
+Style Left_Header
+	CopyStyle             My_Logo
+	LatexName             leftheader
+	LeftMargin            Left_Header:xx
+	LabelString           "Left Header:"
+End
+
+
+Style Right_Header
+	CopyStyle             My_Logo
+	LatexName             rightheader
+	LeftMargin            Right_Header:xx
+	LabelString           "Right Header:"
+End
+
+
+Style Right_Footer
+	CopyStyle             My_Logo
+	LatexName             rightfooter
+	LeftMargin            Right_Footer:xx
+	LabelString           "Right Footer:"
+End
+
+
+
+Style Bibliography
+	LabelFont
+	  Size                Larger
+	  Series              Bold
+	EndFont
+End
+
+
+Style Theorem
+	Margin                First_Dynamic
+	LatexType             Environment
+	LatexName             Theorem
+	NextNoIndent          1
+	LabelSep              xx
+	ParSkip               0.4
+	ItemSep               0.2
+	TopSep                0.7
+	BottomSep             0.7
+	ParSep                0.3
+	Align                 Block
+	AlignPossible         Block, Left
+	LabelType             Static
+	LabelString           "Theorem #."
+	TextFont
+	  Shape               Slanted
+	  Size                Normal
+	EndFont
+	LabelFont
+	  Series              Bold
+	EndFont
+End
+
+
+Style Lemma
+	CopyStyle             Theorem
+	LatexName             Lemma
+	LabelString           "Lemma #."
+End
+
+
+Style Corollary
+	CopyStyle             Theorem
+	LatexName             Corollary
+	LabelString           "Corollary #."
+End
+
+
+Style Proposition
+	CopyStyle             Theorem
+	LatexName             Proposition
+	LabelString           "Proposition #."
+End
+
+
+Style Definition
+	CopyStyle             Theorem
+	LatexName             Definition
+	LabelString           "Definition #."
+	Font
+	  Shape               Up
+	EndFont
+	LabelFont
+	  Shape               Up
+	  Series              Bold
+	EndFont
+End
+
+
+Style Proof
+	CopyStyle             Theorem
+	LatexName             Proof
+	LabelString           "Proof."
+	Font
+	  Shape               Up
+	EndFont
+	LabelFont
+	  Shape               Up
+	  Series              Bold
+	EndFont
+End
+
+
+Style Theorem*
+	CopyStyle             Theorem
+	LatexName             Theorem*
+	LabelString           "Theorem."
+End
+
+
+Style Lemma*
+	CopyStyle             Lemma
+	LatexName             Lemma*
+	LabelString           "Lemma."
+End
+
+
+Style Corollary*
+	CopyStyle             Corollary
+	LatexName             Corollary*
+	LabelString           "Corollary."
+End
+
+
+Style Proposition*
+	CopyStyle             Proposition
+	LatexName             Proposition*
+	LabelString           "Proposition."
+End
+
+
+Style Definition*
+	CopyStyle             Definition
+	LatexName             Definition*
+	LabelString           "Definition."
+End
+
+
+Input stdlayouts.inc
+Input stdfloats.inc
+Input stdcounters.inc
+Input stdinsets.inc
+Input lyxmacros.inc
+Input theorems-refprefix.inc

@@ -1,0 +1,37 @@
+#
+# Keyboard mapping for Serbo-Croatian latin keyboard (ISO8859-2 encoding)
+# Based on the standard JUS.I.K1.002
+#
+# (c)2001 by Zvezdan Petkovic <z.petkovic@computer.org>
+#
+
+\kmap @ \"        # The characters above numbers are almost all remapped
+\kmap ^ &
+\kmap & /
+\kmap * (
+\kmap ( )
+\kmap ) =
+\kmap - '
+\kmap _ ?
+\kmap = +
+\kmap + *
+\kmap ` <
+\kmap ~ >
+\kmap y z         # y and z are switched
+\kmap Y Z
+\kmap [ š  # s caron (pronunced sh)
+\kmap { Š
+\kmap ] đ  # d stroke (pronunced dj, with j as in German, not as
+\kmap } Đ  # in English)
+\kmap \\ ž # z caron (pronounced zh)
+\kmap | Ž
+\kmap ; č  # c caron (pronunced tch)
+\kmap : Č
+\kmap ' ć  # c accute (pronunced as very soft ch)
+\kmap \" Ć
+\kmap z y
+\kmap Z Y
+\kmap < ;
+\kmap > :
+\kmap / -
+\kmap ? _

@@ -1,0 +1,242 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass{letter (KOMA-Script)}
+# KOMA scrlettr textclass definition file.
+# Bernd Rellermeyer <100.41728@germanynet.de>, 1999/2/17.
+
+Format 27
+Style Standard
+	LatexName             dummy
+	ParSep                0.4
+	AlignPossible         Block, Left, Right, Center
+End
+
+Input stdlists.inc
+Input stdcounters.inc
+Input stdinsets.inc
+
+Style Description
+	LabelFont
+	  Family              Sans
+	EndFont
+End
+
+
+Style Labeling
+	CopyStyle             List
+	LatexName             labeling
+	# overwrite the preamble code definition
+	Preamble
+	EndPreamble
+End
+
+Style List
+	Obsoletedby           Labeling
+End
+
+Input stdlayouts.inc
+
+
+
+Style Letter
+	LatexType             Command
+	LatexName             letter
+	KeepEmpty             1
+	LabelSep              xx
+	TopSep                1.5
+	BottomSep             1.5
+	ParSep                1.5
+	Align                 Left
+	LabelType             Static
+	LabelString           "L"
+	LabelFont
+	  Series              Bold
+	  Shape               Italic
+	  Size                Small
+	  Color               Blue
+	EndFont
+End
+
+
+Style Opening
+	CopyStyle             Letter
+	LatexName             lyxopening
+	LabelString           "O"
+	Preamble
+	  \newcommand{\lyxopening}[1]{\pagebreak\startbreaks\opening{#1}}
+	EndPreamble
+End
+
+
+Style Closing
+	LatexType             Command
+	LatexName             closing
+	KeepEmpty             0
+	TopSep                1.5
+	BottomSep             1.5
+	ParSep                1.5
+	Align                 Left
+End
+
+
+Style PS
+	LatexType             Command
+	LatexName             ps
+	TopSep                0.4
+	BottomSep             0.4
+	ParSep                0.4
+	Align                 Left
+End
+
+
+Style CC
+	LatexType             Command
+	LatexName             cc
+	LeftMargin            xxxx::xx
+	LabelSep              xx
+	TopSep                0.4
+	BottomSep             0.4
+	ParSep                0.4
+	Align                 Left
+	LabelType             Static
+	LabelString           "cc:"
+End
+
+
+Style Encl
+	CopyStyle             CC
+	LatexName             encl
+	LabelString           "encl:"
+End
+
+
+Style Name
+	LatexType             Command
+	LatexName             name
+	KeepEmpty             1
+	LeftMargin            xxxxxxxxxxxx::xx
+	LabelSep              xx
+	TopSep                0.4
+	BottomSep             0.4
+	ParSep                0.4
+	Align                 Left
+	LabelType             Static
+	LabelString           "Name:"
+	LabelFont
+	  Series              Bold
+	  Shape               Italic
+	  Color               Blue
+	EndFont
+End
+
+
+Style Signature
+	CopyStyle             Name
+	LatexName             signature
+	LabelString           "Signature:"
+End
+
+
+Style Address
+	CopyStyle             Name
+	LatexName             address
+	LabelString           "Address:"
+End
+
+
+Style Telephone
+	CopyStyle             Name
+	LatexName             telephone
+	LabelString           "Telephone:"
+End
+
+
+Style Place
+	CopyStyle             Name
+	LatexName             place
+	LabelString           "Place:"
+End
+
+
+Style Date
+	CopyStyle             Name
+	LatexName             date
+	LabelString           "Date:"
+End
+
+
+Style Backaddress
+	CopyStyle             Name
+	LatexName             backaddress
+	LabelString           "Backaddress:"
+End
+
+
+Style Specialmail
+	CopyStyle             Name
+	LatexName             specialmail
+	LabelString           "Specialmail:"
+End
+
+
+Style Location
+	CopyStyle             Name
+	LatexName             location
+	LabelString           "Location:"
+End
+
+
+Style Title
+	CopyStyle             Name
+	LatexName             title
+	LabelString           "Title:"
+	HTMLTitle             true
+End
+
+
+Style Subject
+	CopyStyle             Name
+	LatexName             subject
+	LabelString           "Subject:"
+End
+
+
+Style Yourref
+	CopyStyle             Name
+	LatexName             yourref
+	LabelString           "Your ref.:"
+	LabelFont
+	  Family              Sans
+	  Series              Medium
+	  Shape               Up
+	  Size                Small
+	  Color               None
+	EndFont
+End
+
+
+Style Yourmail
+	CopyStyle             Yourref
+	LatexName             yourmail
+	LabelString           "Your letter of:"
+End
+
+
+Style Myref
+	CopyStyle             Yourref
+	LatexName             myref
+	LabelString           "Our ref.:"
+End
+
+
+Style Customer
+	CopyStyle             Yourref
+	LatexName             customer
+	LabelString           "Customer no.:"
+End
+
+
+Style Invoice
+	CopyStyle             Yourref
+	LatexName             invoice
+	LabelString           "Invoice no.:"
+End

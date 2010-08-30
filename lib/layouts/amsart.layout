@@ -1,0 +1,140 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass{article (AMS)}
+# AMS-Article textclass definition file. Taken from initial LyX source code
+# and from the Article textclass definition file, following the AMS sample
+# paper "testmath.tex" of January, 1995
+# Author : David L. Johnson <dlj0@lehigh.edu>
+# Probably broken by Jean-Marc Lasgouttes <Jean-Marc.Lasgouttes@inria.fr>
+# modified and modularized by Emmanuel GUREGHIAN <gureghia@boston.bertin.fr>
+# Tinkered with Sep. '07 by Paul Rubin <rubin@msu.edu>
+# Modularized Jan '08 by Richard Heck <rgheck@brown.edu>
+# Moved "number within sections" to modules Aug '09 (Paul Rubin <rubin@msu.edu>)
+
+Format 27
+Columns                 1
+Sides                   2
+PageStyle               Headers
+
+
+ClassOptions
+	FontSize   8|9|10|11|12
+End
+
+DefaultModule theorems-ams
+DefaultModule eqs-within-sections
+DefaultModule figs-within-sections
+
+Style Standard
+	Category              MainText
+	Margin                Static
+	LatexType             Paragraph
+	LatexName             dummy
+	ParIndent             MM
+	ParSkip               0.4
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	LabelType             No_Label
+End
+
+Input stdfloats.inc
+Input stdcounters.inc
+Input stdinsets.inc
+Input stdsections.inc
+Input stdstarsections.inc
+Input lyxmacros.inc
+Input stdlayouts.inc
+Input stdlists.inc
+Input amsdefs.inc
+
+NoStyle                 Chapter
+NoStyle                 Paragraph
+NoStyle                 Subparagraph
+NoStyle                 Chapter*
+#NoStyle                Paragraph*
+#NoStyle                Subparagraph*
+
+NoStyle Verse    # Although mathematicians tend to be poets at times,
+                 # we don't need this.
+
+
+Style Section
+	Align                 Center
+	Font
+	  Series              Medium
+	  Shape               Smallcaps
+	  Size                Normal
+	EndFont
+	TocLevel 1
+End
+
+
+Style Section*
+	Align                 Center
+	Font
+	  Series              Medium
+	  Shape               Smallcaps
+	  Size                Large
+	EndFont
+End
+
+
+Style SpecialSection
+	CopyStyle	      Section
+	LatexName	      specialsection
+	Font
+	  Shape               Up
+	EndFont
+End
+
+
+Style SpecialSection*
+	CopyStyle	      SpecialSection
+	Category              Unnumbered
+	LatexName	      specialsection*
+	Margin                Static
+	LabelType             No_Label
+	LabelCounter	      ""	
+	OptionalArgs          0
+End
+
+
+Style Subsection
+	Font
+	  Series              Bold
+	  Size                Normal
+	EndFont
+	LabelFont
+	  Series	      Medium
+	EndFont
+	TocLevel 2
+End
+
+
+Style Subsection*
+	Font
+	  Series              Bold
+	  Size                Normal
+	EndFont
+	LabelFont
+	  Series	      Medium
+	EndFont
+End
+
+
+Style Subsubsection
+	Font
+	  Shape               Italic
+	  Series	      Medium
+	  Size                Normal
+	EndFont
+	TocLevel 3
+End
+
+
+Style Subsubsection*
+	Font
+	  Shape               Italic
+	  Series	      Medium
+	  Size                Normal
+	EndFont
+End

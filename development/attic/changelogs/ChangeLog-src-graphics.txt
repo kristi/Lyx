@@ -1,0 +1,1282 @@
+2006-02-17  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* GraphicsCacheItem.C (findTargetFormat): fix previous fix
+
+2006-01-11  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* GraphicsCacheItem.C (convertToDisplayFormat): handle unknown
+	formats
+	* GraphicsConverter.C (Impl, build_script): ditto
+
+2005-11-02  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsCacheItem.C: trivial fix to a MSVS warning.
+
+2005-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (startLoading): quote the name of the LaTeX file
+	passed to the lyxpreview converter script.
+
+2005-04-17  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsConverter.C (c-tor): quote conversion commands correctly.
+
+2005-02-15  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsLoader.C: s/struct/class/ in definition of
+	lyx::graphics::Loader::Impl to silence MSVC warning:
+	"type name first seen using 'class' now seen using 'struct'".
+
+2005-01-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* PreviewLoader.C (Impl): use convert<> instead of atoi,strToXXX
+	and friends
+
+	* GraphicsParams.h (class Params): change angle from float to double
+
+2005-01-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* PreviewLoader.C (unique_filename): tostr -> convert
+
+2005-01-04  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* PreviewLoader.C: lyxrc.preview_scale_factor is a string now.
+
+2004-11-25  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* rename a lot of InsetOld to InsetBase
+
+2004-11-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* GraphicsCache.C: include <map> to fix compilation with boost
+	1.32.0
+
+2004-11-09  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* GraphicsCacheItem.C:
+	s/getFormatFromContents/formats.getFormatFromFile/
+
+2004-10-29  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* GraphicsCacheItem.C: s/getExtFromContents/getFormatFromContents/
+	* GraphicsImage.h (loadableFormats): correct documentation
+
+2004-10-01  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsConverter.C (move_file, build_script): protect
+	shell variables with quotes.
+
+2004-09-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: use proper signal include
+
+	* GraphicsCacheItem.[Ch]: Use preferred calling of Boost.Signal
+	* GraphicsConverter.C: ditto
+	* GraphicsImage.h: ditto
+	* GraphicsLoader.[Ch]: ditto
+	* PreviewLoader.[Ch]: ditto
+
+2004-09-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: include <boost/function.hpp> instead of
+	<boost/function/function0.hpp>
+
+	* GraphicsImage.C: Use preferred calling of boost::function
+	* GraphicsImage.h: ditto
+
+2004-08-16  José Matos  <jamatos@lyx.org>
+
+	* PreviewLoader.C (Impl::startLoading): remove space at end of line.
+
+2004-08-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: new file
+
+	* Makefile.am: support pch
+
+2004-07-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* PreviewLoader.C, GraphicsParams.C, GraphicsConverter.C: change
+	"support/std_sstream.h" to <sstream>
+
+2004-04-19  Angus Leeming  <leeming@lyx.org>
+
+	* Previews.[Ch] (status): new member function, replacing activated.
+
+2004-04-15  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (startLoading): change arguments passed to the
+	preview-generation script to include the foreground and background
+	colours.
+	(dumpPreamble): no longer write the foreground and background
+	colours to the latex file as PostScript specials.
+	(setConverter): consider only those 'to' formats that are
+	loadable natively by the GUI library, rather than all formats
+	for which a converter exists.
+	(setAscentFractions): re-written to parse much simplified metrics
+	file.
+
+2004-04-13  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble):
+	* Previews.C (generateBufferPreviews): re-enable iteration over all
+	insets.
+
+2004-02-21  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* GraphicsCacheItem.C (convertToDisplayFormat): unzip zipped files
+	to a temporary file
+	* PreviewLoader.C: use always a temp dir
+	* PreviewLoader.C: check successfull creation of LaTeX file
+
+2004-01-31  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* PreviewLoader.C (FindFirst): inherit from std::unary_function
+	and make operator() const
+	(FindSnippet): inherit from unary_function, simplify slightly.
+
+2004-01-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* GraphicsTypes.C: include <string>
+
+2003-11-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Previews.C: include paragraph.h
+	* PreviewLoader.C: ditto
+
+2003-11-05  José Matos  <jamatos@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble): rename ascii to plaintext
+	and LatexRunParams to OutputParams.
+
+2003-10-22  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewImage.C (statusChanged): always pass on the signal, not just
+	when the preview is ready for display.
+
+2003-10-22  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsConverter.C (Impl c-tor): add a warning message if the file
+	to contain the conversion script cannot be opened.
+
+2003-10-22  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (startLoading): do nothing if the buffer is not yet
+	loaded.
+
+2003-10-13  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsTypes.[Ch] (setDisplayTranslator): removed.
+	Make displayTranslator a function,
+
+2003-10-10  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.[Ch]: removed.
+
+	* Makefile.am: remove PreviewedInset.[Ch].
+
+2003-10-09  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.[Ch] (previewReady): remove the side effects.
+	Now simply reports whether the preview is ready.
+
+2003-10-09  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.[Ch]: move PreviewedInset out of namespace lyx::graphics.
+	Remove the inset and view member functions.
+	Add a new connect member function and preview_ready_signal_ member
+	variable, to enable the class to tell an arbirary connectee that the
+	preview is ready.
+
+2003-10-09  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.[Ch] (removePreview, previewReady): these functions
+	are now passed a 'Buffer const &', eliminating most of the remaining
+	need for PreviewedInset to use a BufferView cache.
+
+2003-10-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* GraphicsCache.h:
+	* PreviewImage.h: add <string> and other small fixes to make
+	Lars' std::string patch compile with STLport.
+
+2003-09-29  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsParams.[Ch] (asString): removed. Replaced with
+	operator<<(std::ostream &, BoundingBox const &).
+
+2003-09-25  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsParams.[Ch] (asString): new member function.
+
+2003-09-21  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Previews.C (Previews): fix new bug
+
+	* GraphicsCache.C (Cache): fix new bug
+
+2003-09-19  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.[Ch] (generatePreview, previewWanted): now passed
+	a 'Buffer const &' argument.
+
+2003-09-18  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.C (latexString): add a Buffer const & arg.
+	* PreviewedInset.C (addPreview): pass the buffer to latexString.
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.[Ch] (c-tor) move out of line.
+	(d-tor): make private.
+	(inset): return a const reference rather than a non-const pointer.
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsImage.h: separate interface from implementation. Make all the
+	pure virtual functions private.
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C: add #include "LColor.h".
+
+2003-09-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* GraphicsConverter.C
+	* PreviewLoader.C: remove usage of STRCONV
+
+2003-09-14  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (remove): consider all InProgressProcesses when
+	ascertaining which ones to remove from the list, not every other one.
+
+2003-09-09  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* GraphicsCacheItem.C: change Assert to BOOST_ASSERT
+	* Previews.C: ditto
+
+2003-09-08  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsImage.C:
+	* GraphicsParams.C:
+	* PreviewLoader.C: remove redundant using directives.
+
+2003-09-07  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsTypes.h:
+	* Previews.h: remove #include "support/std_string.h".
+
+2003-09-06  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.C: add #include "insets/inset.h"
+
+2003-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* *.C: strip out redundant #includes. (26 in total.)
+
+2003-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* LoaderQueue.C (get):
+
+2003-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsCache.C:
+	* GraphicsCacheItem.C:
+	* GraphicsConverter.C:
+	* PreviewImage.C:
+	* PreviewLoader.C:
+	* PreviewedInset.C:
+	* Previews.C: 'namespace support = lyx::support' rather than
+	'using lyx::support'.
+
+	* Previews.h: cleaned up some comments.
+
+	* LoaderQueue.[Ch]: move #include "GraphicsCacheItem.h" into the .C file.
+
+2003-07-26  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* GraphicsTypes.h: do not declare displayTranstor here (and remove
+	extra include)
+
+2003-07-27  José Matos  <jamatos@fep.up.pt>
+
+	* PreviewLoader.C (Impl::dumpPreamble): comply with makeLaTeXFile
+	argument change.
+
+2003-07-21  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsCache.h:
+	* GraphicsCacheItem.[Ch]:
+	* GraphicsParams.h:
+	* PreviewLoader.h:
+	* PreviewedInset.[Ch]:
+	* Previews.h: use namespace lyx::graphics rather than grfx shortcut.
+
+2003-07-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Change namespace grfx to lyx::graphics.
+
+2003-07-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* introcude namespace lyx::support
+
+2003-06-04  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsLoader.C (Loader copy c-tor): make it work as expected. ;-)
+	(operator=): if it has a copy c-tor, it should have this too.
+
+2003-06-03  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsLoader.[Ch] (Loader): add copy constructor.
+
+2003-05-23  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble): rename fragile as moving_arg.
+
+2003-05-22  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble): no longer pass a free_spacing arg to
+	the inset::latex method.
+
+2003-05-22  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble): no longer pass a fragile arg to
+	the inset::latex method.
+
+2003-05-22  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble): the 'nice' param passed to
+	makeLaTeXFile is now encapsulated within runparams.
+
+2003-05-22  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble):
+	pass around a LatexRunParams parameter.
+
+2003-05-13 André Pönitz <poenitz@gmx.net>
+
+	* GraphicsConverter.C:
+	* PreviewLoader.C: use tostr from own header
+
+2003-05-12 André Pönitz <poenitz@gmx.net>
+
+	* PreviewLoader.C:  boost::format -> bformat
+
+2003-04-15  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsConverter.C: #include lstrings.h.
+
+2003-02-28  Alfredo Braunstein <abraunst@libero.it>
+
+	* GraphicsConverter.C
+	* PreviewLoader.C: added #include "format.h"
+
+2003-02-26  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.[Ch]: strip out the caching of the BufferView and
+	use the cache of the parent inset instead.
+
+	* PreviewLoader.C (startLoading): Prevent a crash if the user is
+	not using a tmp directory.
+
+2003-02-26  Alfredo Braunstein  <abraunst@libero.it>
+
+	* GraphicsLoader.[Ch],
+	* PreviewImage.[Ch],
+	* PreviewedInset.C: Removed unneeded list of owner insets
+
+2003-02-25  Alfredo Braunstein  <abraunst@libero.it>
+
+	* GraphicsConverter (startConversion): add the call to
+	ForkedCallQueue::add
+
+	* GraphicsLoader.[Ch],
+	* PreviewImage.[Ch],
+	* PreviewedInset.C: Removed unneeded BufferView
+
+2003-02-25  Alfredo Braunstein  <abraunst@libero.it>
+
+	* LoaderQueue.[Ch]: a simplification of the code, eliminated
+	the unneeded input bucket.
+
+	* GraphicsCacheItem.C (imageConverted): move warning inside the
+	!success block.
+
+2003-02-25  Alfredo Braunstein  <abraunst@libero.it>
+
+	* PreviewLoader.C (FindFirst): use ==, not < with std::find.
+
+2003-02-21  Alfredo Braunstein  <abraunst@libero.it>
+
+	* LoaderQueue.[Ch] (setPriority): added
+
+	* PreviewLoader.C (finishedGenerating): reversed the loading order so
+	first images get 'touched' last, and so load first.
+
+2003-02-20  Alfredo Braunstein  <abraunst@libero.it>
+
+	* LoaderQueue.[Ch]: added. Implements a service queue that loads
+	images in background
+	* GraphicsSupport.[Ch]: removed
+	* Makefile.am: the changes above
+	* GraphicsLoader.C: use the loading queue
+
+2003-01-21  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble): ensure that \lyxlock does not prevent
+	previews from being generated.
+
+2003-01-13  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsCacheItem.C (findTargetFormat): define the default conversion
+	format to be PPM not XPM.
+
+2002-12-17  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (EXTRA_DIST): remove variable
+
+2002-12-13  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsImageXPM.[Ch]: removed.
+
+	* Makefile.am: associated change.
+
+2002-12-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* several files: ws changes
+
+2002-11-21  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsConverter.C (build_script, move_file):
+	Don't use "if [ $? -ne 0 ]; then..."
+
+2002-11-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* PreviewLoader.C (IncrementedFileName): STRCONV
+	(startLoading): ditto
+
+	* GraphicsConverter.C (Impl): STRCONV
+	(move_file): ditto
+
+	* GraphicsTypes.C: include config.h
+
+2002-10-25  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsConverter.C (Impl::converted)
+	* PreviewLoader.C (Impl::finishedGenerating): no longer receives a
+	string as first arg, reflecting change in ForkedCall interface.
+
+	* PreviewLoader.C: use pid rather than command as identifier in
+	InProgress map.
+
+2002-10-18  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsCacheItem.C (findTargetFormat): add debug message.
+
+2002-09-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (INCLUDES): loose SIGC_INCLUDES
+
+2002-09-10  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* GraphicsConverter.C (build_script): do not use ChangeExtension
+	on a base name
+	(Impl): ditto
+
+2002-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* all files: modify the headers as discussed on the list.
+
+2002-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (startLoading): pass the desired output format to the
+	conversion script.
+
+2002-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C: remove this ndigits stuff as an unnecessary extra.
+
+2002-09-03  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C: fix crash reported by Norbert Koksch when
+	generating more than 999 preview snippets. Use filenames with 5 digit
+	numbers, not 3, in the first instance, although more general code is
+	commented out. I don't suppose /anyone/ has 100000 formulae in one
+	document...
+
+2002-09-03  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C: activate #ifdef USING_NEW_PREVIEW_STY code.
+
+2002-09-03  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsConverter.C (Impl c-tor): remove lyxpreview2xpm cruft.
+
+2002-09-03  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* GraphicsConverter.C (Impl c-tor): "hide" crash by prefixing
+	convertDefault command with "sh ".
+
+2002-08-28  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* GraphicsImage.C: small style fix to width/height setting.
+
+	* GraphicsTypes.h: have a displayTranslator here.
+
+	* Makefile.am:
+	* GraphicsTypes.C: new file added for the setDisplayTranslator();
+
+2002-08-23  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* GraphicsImage.C:
+	* GraphicsParams.[Ch]: remove keepLyXAspectRatio, width and height
+	because this input has gone from the graphics dialog.
+
+	* GraphicsTypes.h: add enum DisplayType DefaultDisplay
+
+2002-08-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GraphicsImageXPM.h: inlcude boost/shared_ptr.hpp, remove include
+	for support/smart_ptr.h, switch to boost smart ptr.
+
+	* GraphicsImageXPM.C: reorder includes, include boost/bind.hpp
+	(~Data): let the smart_ptr handle cleanup
+	(reset): use nifty 3rd arg
+	(resetData): ditto
+	(free_color_table): free the table manually
+
+2002-08-09  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble): pass Buffer::filePath() to
+	Buffer::makeLaTeXFile() so that LaTeX can find \input files because
+	input@path is now set correctly.
+
+2002-08-06  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C: add support for preview.sty 0.73 (currently
+	#ifdef-ed out, awaiting the formal release).
+
+	* PreviewedInset.[Ch] (removePreview): new method. Useful if previewing
+	the contents of a file that has changed.
+
+2002-08-05  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (dumpPreamble): add lyx to the list of options output
+	to preview.sty. Works only for versions of preview.sty > 0.72b but
+	doesn't hurt earlier versions. Allows me to test the new parsing of
+	LyX-specific data from the generated log file.
+
+2002-08-02  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsLoader.C: cache the BufferView as a weak_ptr.
+
+	* PreviewLoader.[Ch] (buffer): new method, returning the owner.
+	(add): don't add empty snippets.
+
+	* PreviewedInset.[Ch]: cache the BufferView as a weak_ptr.
+	(view, setView): access to to the cache_.
+
+2002-08-02  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.[Ch]: cache the LaTeX snippet.
+
+2002-08-01  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewedInset.[Ch]: new files. An abstract base class that can help
+	insets to generate previews.
+	The daughter class must instantiate three small methods.
+	The Inset would own an instance of this daughter class and invoke it
+	as necessary. For example, mathd/formula.C gets previews at the cost
+	of 15 or so lines of code.
+
+	* Makefile.am: add PreviewedInset.[Ch].
+
+	* PreviewLoader.C (add): add debug message.
+
+	* Previews.C (generateBufferPreviews): remove if-block from loop.
+
+2002-07-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* PreviewLoader.C (setFontScalingFactor): strip,frontStrip ->
+	trim,ltrim,rtrim
+	(setAscentFractions): ditto
+
+2002-07-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* PreviewLoader.C (setAscentFractions): modify because of strip
+	changes
+
+2002-07-22  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GraphicsConverter.C (build_script): take a ostream as a more
+	general argument than ostringstream.
+
+2002-07-22  Herbert Voss  <voss@lyx.org>
+
+	* GraphicsConverter.C: get the "default converter" run again
+
+2002-07-21  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* PreviewLoader.C: use BufferParams::getLyXTextClass
+
+2002-07-21  Herbert Voss  <voss@lyx.org>
+
+	* GraphicsImage.C: get the LyXAspectRatio run.
+
+	* GraphicsParams.[Ch]: add bool keepLyXXAspectRatio
+
+2002-07-20  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* PreviewLoader.C (startLoading): pass an interger as resolution
+	to the lyxpreview converter
+
+	* GraphicsParams.C: include <cstdlib>
+
+2002-07-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* PreviewLoader.C (startLoading): use LibScriptSearch to find the
+	preview converter script
+
+2002-07-18  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* GraphicsCacheItem.C (reset): use erase() instead of clear() for
+	strings
+
+2002-07-18  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsCacheItem.[Ch]: add a FileMonitor variable to the the Impl
+	class.
+	(startMonitoring, monitoring, checksum): new methods to interact with
+	the FileMonitor.
+
+	* GraphicsLoader.[Ch] (startMonitoring, monitoring, checksum): new
+	methods invoking the CacheItem methods of the same name.
+	(resetFile): if monitoring and the file changes, start monitoring this
+	new file.
+
+2002-07-17  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Makefile.am: remove FileMonitor.[Ch]
+
+2002-06-17  Herbert Voss  <voss@lyx.org>
+
+	* GraphicsCachItem.C (findTargetFormat): remove the speciell case
+	for old ps-files (Garst). It's now handled by defining a converter and
+	disabling the ps-support of xforms.
+
+2002-07-17  Angus Leeming  <leeming@lyx.org>
+
+	Be true to the Pimpl idiom, moving all signals into the respective
+	Impl classes and defining methods to connect them to an outside slot.
+	Const-ify all visible class methods as they act only on a const pimpl_.
+
+	* GraphicsCache.[Ch] (add, remove): const-ify.
+
+	* GraphicsCacheItem.[Ch] (startLoading): const-ify.
+	(statusChanged): move the signal into the Impl class.
+	(connect): new method, enabling a listener to connect to this signal.
+
+	* GraphicsConverter.[Ch]: (startConversion): const-ify.
+	(finishedConversion): move the signal into the Impl class.
+	(connect): new method, enabling a listener to connect to this signal.
+
+	* GraphicsLoader.[Ch] (reset, startLoading): const-ify.
+	(statusChanged): move the signal into the Impl class.
+	(connect): new method, enabling a listener to connect to this signal.
+
+	* PreviewLoader.[Ch] (add, remove, startLoading): const-ify.
+	(imageReady): move the signal into the Impl class.
+	(connect): new method, enabling a listener to connect to this signal.
+	(emitSignal): new method, enabling PreviewImage to tell the outside
+	world that the file has been loaded into memory.
+
+	* Previews.[Ch] (loader, removeLoader, generateBufferPreviews):
+	const-ify.
+
+	* GraphicsCache.C:
+	* GraphicsCacheItem.C:
+	* GraphicsConverter.[Ch]:
+	* GraphicsImage.h:
+	* GraphicsImageXPM.C:
+	* GraphicsLoader.C:
+	* PreviewLoader.[Ch]: whitespace clean-up.
+
+2002-07-16  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* PreviewLoader.C (setConverter): remove unused variable
+
+	* GraphicsImageXPM.C (isDrawable): implement
+	(setPixmap): the opaque color is black, not white
+
+2002-07-15  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* GraphicsImageXPM.C (color_none_id):
+	(contains_color_none): use ascii_lowercase instead of lowercase
+
+2002-07-16  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C: greater use of STL algorithms.
+
+	* Previews.[Ch]: use const in more places.
+	(generateBufferPreviews): now takes a Buffer const & argument, not a
+	pointer.
+
+2002-07-15  John Levon  <moz@compsoc.man.ac.uk>
+
+	* GraphicsImage.h: remove getPixmap/X, add isDrawable()
+
+2002-07-12  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsLoader.[Ch]: smart loading of images. Images are loaded only
+	if visible 2 secs after the call to load them is first made.
+
+	* GraphicsSupport.[Ch]: new files. isInsetVisible interrogates the
+	BufferView to ascertain whether the inset is visible or not.
+
+	* Makefile.am: added GraphicsSupport.[Ch].
+
+	* PreviewImage.[Ch]: use this smart loader.
+
+	* PreviewLoader.C: don't load generated image files indiscimminantly.
+	Instead emit the imageReady signal and allow the image owner to decide.
+
+2002-07-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* GraphicsCache.C: remove init_graphics()
+
+2002-07-09  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (setAscentFractions): fix bug due to use of integer
+	arithmetic when it should be floating.
+
+2002-07-09  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C (startLoading): prepend LaTeX file with "\batchmode".
+	Output equation labels as "(#)" if lyxrc preference is set.
+	(setFontScalingFactor): use lyxrc variable preview_scale_factor
+	rather than hard-coding this.
+
+2002-07-09  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C: Further refactoring of the code. Should now be
+	pretty clean.
+
+	* PreviewMetrics.[Ch]: removed. Had a v. short shelf life and is now
+	past its sell-by date. The code to read the metrics file is now found
+	as a helper function in PreviewLoader.C.
+
+	* GraphicsImageXPM.C (scale): use boost::tie.
+
+2002-07-08  Herbert Voss  <voss@lyx.org>
+
+	* PreviewLoader.C: use of preview_size_factor to get the right
+	font-size! 0.9 is the default.
+
+2002-07-08  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C: Add "delayed" and "showlabels" options to the
+	invocation of preview.sty.
+	Perform something of an internal clean-up.
+
+2002-07-06  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewLoader.C: ensure that the metrics data is used by the
+	correct image!
+
+	* PreviewLoader.C:
+	* PreviewImage.C: (Impl d-tor): remove all generated files that still
+	exist (perhaps because the process was curtailed before the images
+	were loaded.)
+
+	* PreviewLoader.C (unique_filename): store the files in Buffer::tmppath.
+
+2002-07-05  Angus Leeming  <leeming@lyx.org>
+
+	* PreviewImage.h:
+	* PreviewImage.C:
+	* PreviewLoader.h:
+	* PreviewLoader.C:
+	* PreviewMetrics.h:
+	* PreviewMetrics.C:
+	* Previews.h:
+	* Previews.C: new files. The previewed LaTeX snippet stuff.
+
+	* Makefile.am: add these files.
+
+2002-07-05  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsLoader.h: whitespace.
+
+2002-07-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GraphicsImage.[Ch]: newImage and loadableFormats changed to
+	boost::function from boost::signal.
+
+2002-07-01  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* GraphicsConverter.C (convert): do not use ChangeExtension
+	because to_file_base may contain a dot.
+
+2002-06-28  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsCacheItem.[Ch]: refactor some of the more convoluted logic
+	by moving those SignalPtrs into the grfx::Image and grfx::Converter
+	classes where they really belong.
+	Use the Pimpl idiom to hide the class internals from public view.
+
+	* GraphicsTypes: remove the typedefs, leaving only the enums.
+
+	* GraphicsImage.h: now has a finishedLoading signal, as opposed to being
+	passed a reference to one in the load() method.
+
+	* GraphicsConverter.[Ch]: totally refactored. An instance of
+	grfx::Converter now represents a single conversion process.
+	Thus grfx::CachItem now has a grfx::Converter * that is set when the
+	conversion is initiated and destroyed on completion.
+
+	* GraphicsCache.[Ch]:
+	* GraphicsCacheItem.[Ch]:
+	* GraphicsConverter.[Ch]:
+	* GraphicsLoader.[Ch]: use the Pimpl idiom to hide the class internals
+	from public view.
+	Note that I have done this only after making the above changes,
+	so not only should we have a clean, minimal and well documented
+	interface to these classes in the header files, but the class internals
+	should be much clearer too.
+
+	* Renamed classes
+	grfx::GCache -> grfx::Cache,
+	grfx::GCacheItem -> grfx::CacheItem,
+	grfx::GConverter -> grfx::Converter,
+	grfx::GImage -> grfx::Image,
+	grfx::GImageXPM -> grfx::ImageXPM,
+	grfx::GParams -> grfx::Params.
+
+2002-06-26  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsLoader.[Ch]: use boost::scoped_ptr in preference to
+	std::auto_ptr. Define an empty Loader d-tor out-of-line to ensure it
+	compiles.
+
+2002-06-26  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsTypes.h: add "Ready" to the ImageStatus enum.
+	move the DisplayType enum out of grfx::GParams to here.
+
+	* GraphicsCacheItem.h: re-write preliminary description to reflect
+	current reality.
+
+	* GraphicsParams.[Ch]:
+	* GraphicsImageXPM.C (load, setPixmap): changes aassociated with moving
+	grfx::DisplayType out of grfx::GParams.
+
+	* GraphicsLoader.[Ch]: new files. Factor out the image loading stuff
+	that was in frontends/screen.C and insets/insetgraphics.C into a
+	single, easy-to-use class.
+
+	* Makefile.am: add these files.
+
+2002-06-25  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsCache.[Ch]:
+	* GraphicsCacheItem.[Ch]:
+	* GraphicsTypes.h: rewrite the graphics cache to just load a graphics
+	file into memory. The cache no longer controls the generation of the
+	pixmap. Instead, it just emits a signal when the loading status of an
+	image changes.
+	The cache no longer stores InsetGraphics pointers and nor does it
+	assume responsibility for modifying an image (scaling, rotating etc).
+	Instead, that must now be performed elsewhere.
+
+2002-06-19  Angus Leeming  <leeming@lyx.org>
+
+	* GraphicsConverter.C: add using std::endl directive.
+
+2002-06-17  Herbert Voss  <voss@lyx.org>
+
+	* GraphicsCachItem.C: (findTargetFormat)return xpm-format as a
+	default when nothing different was found
+	(convertToDisplayFormat): handle zipped files in the right way and
+	choose always convert as a default converter when no other
+	userdefined was found
+
+	* GraphicsConverter.C: add more lyxerr comments and choose
+	convert when no other userdefined converter was found
+
+2002-06-10  Herbert Voss  <voss@lyx.org>
+
+	* GraphicsImageXPM.C (convertTo7chars): get another special color
+	format from convert work in the right way
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* GraphicsCache.C: use right colormap incantation
+
+2002-06-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* GraphicsCache.C: use lyx_gui namespace
+
+	* GraphicsImageXPM.C: back down to using xforms
+	  directly again
+
+2002-06-07  Angus Leeming  <leeming@lyx.org>
+
+	Fixes needed to compile with Compaq cxx 6.5.
+	* GraphicsConverter.h: forward declare class ConvProcess.
+
+	* GraphicsImageXPM.C:
+	all c-library variables have been moved into namespace std.
+	Wrap using std::xyz declarations inside a #ifndef CXX_GLOBAL_CSTD block.
+
+2002-06-06  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsImageXPM.C (rotate): rotate in the same sense as xdvi!
+
+2002-05-30  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GraphicsImageXPM.C: SigC to boot::signals changes.
+	(newImage): fix () bug when using new.
+
+2002-05-29  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* switch from SigC signals to boost::signals.
+
+2002-05-29  André Pönitz <poenitz@gmx.net>
+
+	* GraphicsParam.C: remove unneeded #include, move vomment
+
+2002-05-28  André Pönitz <poenitz@gmx.net>
+
+	* GraphicsParam.[Ch]: move inset related stuff to inset/insetgraphics
+
+2002-05-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* GraphicsImageXPM.C: ColorHandler moved
+
+2002-05-24  Juergen Vigna  <jug@sad.it>
+
+	* GraphicsCache.h:
+	* GraphicsImage.h: include LString.h first.
+
+2002-05-22  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GraphicsCacheItem.h: use more specific smart_ptr header.
+	* GraphicsTypes.h: ditto
+	* GraphicsImage.h: ditto
+	* GraphicsConverter.h: ditto
+
+2002-04-28  John Levon  <moz@compsoc.man.ac.uk>
+
+	* GraphicsImageXPM.C: understand convert's use of "opaque"
+	  as a colour name
+
+2002-04-19  Marco Morandini <morandini@aero.polimi.it>
+
+	* GraphicsCache.[Ch] (loadableFormats): new method. A wrapper for
+	GImage::loadableFormats() that ensures that the signal is connected
+	to the derived class' method.
+
+2002-04-18  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GraphicsImageXPM.C (convertTo7chars): drop all conversions and
+	only work on the string.
+
+2002-04-17  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsImageXPM.C (Data::reset): Fix the loading of xpm files by
+	the simple image loader when it encounters colour strings like
+	#rrrrggggbbbb.
+
+2002-04-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsCacheItem.C (convertToDisplayFormat):
+	* GraphicsConverter.C (build_script): remove the Alerts when things go
+	wrong as the inset displays the message anyway. Moreover, Alert seems
+	pretty temperamemtal at the moment.
+
+2002-04-16  Rob Lahaye  <lahaye@users.sourceforge.net>
+
+	* GraphicsImageXPM.C: fix clipping for boundingbox y-coordinates
+
+2002-04-08  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsCacheItem.C (findTargetFormat): fix bug waiting to bite:
+	a reference to a temp object that's going out of scope...
+
+2002-04-09  Herbert Voss  <voss@lyx.org>
+
+	* GraphicsParams.C (BoundingBox c-tor): fix rounding errors by using
+	LyXLength::inBP instead of inPixels.
+
+2002-04-10  Herbert Voss  <voss@perce.de>
+
+	* GraphicsCache.[Ch]:
+	* GraphicsCacheItem.[Ch]: add width/height functions from Angus
+	to read the "Bounding Box" from non (e)ps files.
+
+2002-04-08  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsParams.C (c-tor): if clipping, then check the Bounding Box of
+	the EPS file too, to ensure that the clipped Bounding Box is relative
+	to the original. (From Herbert.)
+
+2002-04-04  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsParams.C (BoundingBox c-tor): ensure that the member
+	variables are initialised. Clean-up parsing of the string (with thanks
+	to Herbert.)
+
+2002-03-26  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsCacheItem.C (convertToDisplayFormat): don't launch that Alert
+	if the file can't be found.
+
+	* GraphicsParams.h (c-tor): remove string() as default argument.
+
+	* GraphicsCacheItem.C: a couple of changes as a result.
+
+2002-03-22  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsCache.[Ch] (update): now passed filepath to determine absolute
+	path to graphics file.
+
+	* GraphicsParams.[Ch] (c-tor): now passed filepath.
+
+2002-03-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* most files: ws cleanup
+
+	* Makefile.am: remove ld -r stuff
+
+2002-03-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am: special rules if partial linking
+
+2002-03-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsCache.C: use Lars' preferred idiom for a for-loop.
+
+2002-03-11  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GraphicsConverter.[Ch] (converted): make first arg const ref.
+
+	* GraphicsCacheItem.h: doxy change
+
+	* GraphicsCacheItem.C: ws change
+
+2002-03-05  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Makefile.am: if there is no image loading class leveraging the power
+	of the appropriate gui library, then compile the basic alternative
+	found in GraphicsImageXPM.[Ch].
+
+2002-03-04  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsCache.C: change associated with move of initialiseGraphics
+	to GUIRuntime.
+
+2002-02-28  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsParams.[Ch]:
+	* GraphicsImage.C:
+	* GraphicsImageXPM.C: properly resolve more warnings about comparison
+	between signed and unsigned integer expressions.
+
+	* Makefile.am: add GraphicsTypes.h which I'd carelessly left out.
+
+	* GraphicsCache.C: move connections to the GImage-derived classes to
+	the frontends.
+
+	* GraphicsImageXPM.C (copy c-tor): don't copy pixmap.
+
+	* GraphicsCacheItem.C (findTargetFormat): if we can load direct without
+	conversion, then do that.
+
+2002-02-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsCache.C: improve commentary to graphicsInit and where it
+	should really go.
+
+	* GraphicsImageXPM.C (~Data, free_color_table): resolve the crash
+	that became a memory leak properly. (Let the shared_c_ptr free the
+	color table.)
+	(reset, mapcolor): tidy up and introduce a work around for XPM files
+	with crappy color entries. Print out a nice friendly message on what's
+	gone wrong and how to resolve it properly.
+
+2002-02-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsImageXPM.[Ch]: more rigorous use of types (signed/unsigned).
+	(Data d-tor): introduce memory leak temporarily, to "fix" a crash
+	in free_color_table.
+	(unique_color_string): use the correct string c-tor.
+
+2002-02-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ImageLoader.[Ch]:
+	* ImageLoaderXPM.[Ch]: removed.
+
+	* GraphicsConverter.[Ch]:
+	* GraphicsImage.[Ch]:
+	* GraphicsImageXPM.[Ch]:
+	* GraphicsParams.[Ch]:
+	* GraphicsTypes.h: new files.
+
+	* All files. A total re-write of the graphics cache. The cache now
+	supports asynchronous file conversion and file loading. Images
+	can be cropped, rotated and scaled for display on the LyX screen.
+	The old LyXImage and ImageLoader have been combined in a new class
+	GImage. Ditto, ImageLoaderXPM's functionality has been moved into
+	GImageXPM.
+
+2002-02-07  Herbert Voss  <voss@lyx.org>
+
+	* GraphicsCacheItem.C: use unzipFile() from support/filetools
+
+2002-01-31  Herbert Voss  <voss@lyx.org>
+
+	* GraphicsCacheItem.h: handle filetype without the file extension;
+	getting type from contents; handle zipped files
+
+2002-01-27  Herbert Voss  <voss@lyx.org>
+
+	* GraphicsCacheItem.h: added Converting to the ImageStatus enum.
+
+2002-01-17  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ImageLoaderXPM.C: don't set XpmColorKey flag if we don't use it
+
+2001-12-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* GraphicsCacheItem.h: do not include <config.h> in header files
+
+2001-09-21  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ImageLoaderXPM.C (runImageLoader): If the pixmap contains a
+	transparent colour, then set it to the colour of the background.
+	Also take account of the monochrome, grayscale of color
+	preferences option.
+
+2001-09-20  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsCacheItem.C (convertImage): only convert if "from" and "to"
+	are different. Thus, don't delete the "to" if it's the original!
+
+2001-09-01  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ImageLoadXPM.C: remove setting of alloc colour mask,
+	  led to crash as we don't define a callback
+
+2001-07-29  Baruch Even  <baruch@lyx.org>
+
+	* ImageLoaderXPM.C (runImageLoader): When loading agree to use non-exact
+	colors with closeness of 10000.
+
+	* GraphicsCacheItem.C: Fixed a compilation bug introduced earlier.
+
+2001-07-29  Baruch Even  <baruch@lyx.org>
+
+	* GraphicsCacheItem.C (findTargetFormat): Removed error dialog box,
+	too annoying.
+
+2001-07-23  Baruch Even  <baruch@lyx.org>
+
+	* GraphicsCacheItem.C (convertImage): Fixed a bug with regard to loading
+	the image after conversion.
+
+2001-07-17  Baruch Even  <baruch@lyx.org>
+
+	* GraphicsCacheItem.h:
+	* GraphicsCacheItem.C: Shuffled things a bit to make it easier to switch
+	from synchronous to asynchronous and to ease the coming changes.
+
+2001-07-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ImageLoaderXPM.C (runImageLoader): get display information from
+	GUIRunTime.
+
+2001-06-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GraphicsCache.C:
+	* GraphicsCacheItem.C:
+	* ImageLoader.C:
+	* ImageLoaderXPM.C: removed // -*- C++ -*- as first line.
+
+2001-04-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GraphicsCache.h: inherit privately from noncopyable
+	* ImageLoader.h: ditto
+	* GraphicsCacheItem.h: ditto
+
+2001-04-16  Allan Rae  <rae@lyx.org>
+
+	* ImageLoaderXPM.C (runImageLoader): #warning triggers an error on Sun
+	CC 6.0 as an unrecognised preprocessor directive.  So ensure they're
+	wrapped.
+
+2001-04-02  Baruch Even  <baruch@lyx.org>
+
+	* GraphicsCacheItem.[Ch]: Changed to used the Converter class instead
+	of hard coding ImageMagick.
+
+2001-03-10  Baruch Even  <baruch@lyx.org>
+
+	* GraphicsCache.C: Style change from (*it).field to it->field
+
+2001-03-15  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* GraphicsCache.h: noncopyable is in namespace boost
+	* ImageLoader.h: ditto
+	* GraphicsCacheItem.h: ditto
+
+2001-03-07  Baruch Even  <baruch@lyx.org>
+
+	* GraphicsCache.C (d-tor): Removed the assert, the assumption it carried
+	was false and it's not needed anyhow since the shared_ptr's in the cache
+	will destroy everything on exit.
+
+2001-02-28  Baruch Even  <baruch@ev-en.org>
+
+	* GraphicsCache.h:
+	* GraphicsCache.C: Changed the singleton pattern implementation, the
+	former version "leaked" in the sense that it was not deallocated at
+	program end.
+
+2001-02-20  Baruch Even  <baruch@ev-en.org>
+
+	* GraphicsCache.C: Changed to use shared_ptr<GraphicsCacheItem>
+	instead of a pure pointer.
+
+	* GraphicsCacheItem.[Ch]:
+	* GraphicsCacheItem_pimpl.[Ch]: Collapsed them into GraphicsCacheItem,
+	removed the reference counting that was inside. Also fixed a bug where
+	a temporary file wouldn't get erased.
+
+	* ImageLoader.[Ch]: Changed the semantics of the image_ pointers usage.
+	Ownership is now dropped when the caller requests the image_ pointer.
+
+2001-02-20  Baruch Even  <baruch@ev-en.org>
+
+	* GraphicsCache.C: Cleared up the confusion on when and how it is
+	emptied.
+
+	* GraphicsCacheItem.C: Indentation change.
+
+	* GraphicsCacheItem_pimpl.C: Fixed the loading logic so that it will
+	figure correctly when the image has been loaded successfully.
+
+2001-02-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ImageLoader.C: add a "using" directive.
+
+	* ImageLoader.h: remove extra comma at the end of enum; add an
+	std:: qualifier for vector.
+
+2001-01-21  Baruch Even  <baruch@ev-en.org>
+
+	* GraphicsCacheItem.[Ch]: Changes due to the storage of width and
+	height in the image itself and minor cleanups.
+
+	* GraphicsCacheItem_impl.[Ch]: Changes due to the switch to use a
+	new ImageLoader class instead of the older Renderer class. This
+	means change of responsibilities.

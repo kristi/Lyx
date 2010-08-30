@@ -1,0 +1,4140 @@
+2006-03-14  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* symbols: Add \tag and \tag*
+
+2006-03-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* symbols: Comment out unused insets
+
+2006-03-12  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.m4: Remove
+	* Makefile.am: Remove configure.m4 and use configure.py
+
+2006-03-11  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.py: fix off-by-one error in version_suffix handling
+	* configure.py: fix several typos
+	* configure.py: adjust whitespace of converter output
+	* configure.py: fix noweave detection
+	* configure.py: sort textclass.lst
+	* configure.py: fix test for tex_allows_spaces
+
+2006-03-10  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* languages: fix babel/jurabib conflict with Spanish by using 
+	\deactivatetilden.
+
+	* layouts/amsdefs.inc: clear Address definition from lyxmacros
+	(bug 2363).
+
+	* layouts/scrlettr.layout:
+	* layouts/scrlttr2.layout: Map labeling to list (bug 2246).
+
+2006-02-24  Enrico Forestieri  <forenr@tlc.unipr.it>
+
+	* scripts/legacy_lyxpreview2ppm.py (extract_metrics_info): 
+	* scripts/lyxpreview2bitmap.py (extract_metrics_info): fix
+	computation when either ascent or descent is 0. (bug 2167)
+
+2006-02-19  Enrico Forestieri  <forenr@tlc.unipr.it>
+
+	* scripts/lyxpreview2bitmap.py: fix script to work with recent versions
+	of preview-latex and dvipng (bug 2243).
+
+2006-02-19  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* bind/de_menus.bind: comment out obsolete bindings (bug 1161).
+
+2006-02-06  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.py: sync with configure.m4
+
+2006-02-02  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.m4: add lyx13x format and converter
+	* configure.m4: remove viewer from lyx format to exclude it from the
+	View menu
+
+2006-01-26  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* chkconfig.ltx: add missing tests for bibtopic and jurabib;
+	remove obsolete tests for a4 and a4wide.
+
+	* doc/LaTeXConfig.lyx.in: document dvipost; remove documentation
+	of a4 and a4wide, which aren't used anymore.
+
+2006-01-18  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* scripts/layout2layout.py: fix creation of "LatexType Bib_Environment"
+
+2006-01-08  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* scripts/layout2layout.py: add "LatexType Bib_Environment" to style
+	if LabelType is Bibliography.
+	* layouts/aastex.layout:
+	* layouts/kluwer.layout: Change LatexType of Bibliography style to
+	Bib_Environment. 
+
+2006-01-05  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* layouts/cv.layout (Bibliography): change latextype to
+	Bib_Environment.
+
+2006-01-05  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview_tools.py (find_exe): return only the basename of
+	the executable to avoid problems when the path to the exe contains
+	spaces. Fixes bug 2193.
+
+2006-01-02  Michael Gerz  <michael.gerz@teststep.org>
+
+	* layouts/amsart-seq.layout: fix typo in counter
+
+2005-12-29  Lars Gullik Bjonnes  <larsbj@lyx.org>
+
+	* CREDITS: regenerated
+	* generate_contributions.py (contributers): add Tomasz Luczak
+
+2005-12-19  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* layouts/paper.layout: the abstract environment should not be
+	indented, should be block, and its main text should be in roman
+	font; however, the label should be sans serif, bold, and not
+	centered.
+
+2005-12-16  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* symbols: avoid use of symbol font if cmsy is available.
+	Saves 3 seconds in initMath() for me (qt, ~20.000 fonts)
+
+2005-12-14  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* CREDITS:
+	* generate_contributions.py: Add Szõke Sándor; update entries for
+	Andreas Klostermann and Eitan Frachtenberg.
+
+2005-12-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* bind/sciword.bind: include math.bind, not maths.bind.
+
+2005-12-09  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* examples/hu_splash.lyx: update from Alex.
+
+2005-11-25  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* syntax.default: add some hyperref commands
+
+2005-11-14  Hartmut Haase  <hha4491@atomstromfrei.de>
+
+	* examples/de_mathed.lyx: 
+	* Makefile.am (dist_examples_DATA): new translation. 
+
+2005-11-10  Hartmut Haase  <hha4491@atomstromfrei.de>
+
+	* examples/de_beispiel_gelyxt.lyx: update.
+	
+	* examples/de_ItemizeBullets.lyx:
+	* examples/de_decimal.lyx:
+	* Makefile.am (dist_examples_DATA): new translations. 
+
+2005-11-07  Hartmut Haase  <hha4491@atomstromfrei.de>
+
+	* examples/de_multicol.lyx:
+	* Makefile.am (dist_examples_DATA): new translated example.
+
+2005-10-24  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* bind/cua.bind: 
+	* bind/emacs.bind: 
+	* bind/mac.bind: 
+	* bind/xemacs.bind: fix bindings for inserting single quotes and 
+	`"' character. 
+
+2005-10-24  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* scripts/layout2layout.py: fix line ending removal
+
+2005-10-21  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* layouts/*.{inc,layout}: Add format information
+	* scripts/layout2layout.py: new layout file converter
+	* Makefile.am: install scripts/layout2layout.py
+
+2005-10-12  Hartmut Haase  <hha4491@atomstromfrei.de>
+
+	* example/de_Minipage.lyx: update.
+
+2005-10-11  Bennet Helm  <bennet.helm@fandm.edu>
+
+	* bind/mac.bind: change default keybinding for protected spaces
+	from C-space to M-space
+
+2005-10-03  Michael Gerz  <michael.gerz@teststep.org>
+
+	* generate_contributions.py:
+	* CREDITS: move my entry into alphabetical order
+
+2005-09-21  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* scripts/legacy_lyxpreview2ppm.py:
+	* scripts/lyxpreview2bitmap.py: ensure that the metrics file
+	contains sensible fractional ascent data if the extracted
+	ascent or descent data is zero.
+
+2005-09-18  Angus Leeming  <leeming@lyx.org>
+
+	* configure.py: add Bo Peng's experimental Python script to
+	the repository.
+
+2005-09-08  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4:
+	* lyxrc.example: correct grammar describing invocation of the
+	spellchecker.
+
+2005-09-06  Michael Gerz  <michael.gerz@teststep.org>
+
+	* CREDITS:
+	* generate_contributions.py:
+	* bind/de_menus.bind:
+	* bind/math.bind:
+	* bind/menus.bind: change name & address (Schmitt => Gerz)
+
+2005-08-25  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* bind/cua.bind:
+	* bind/mac.bind:
+	* bind/sciword.bind: bind "paste-primary-selection (paragraph)"
+
+2005-08-23  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* configure.m4: support tex4ht converter;
+	polish/fix some comments ("a" => "an", "latex" => "LaTeX", etc.)
+
+2005-08-10  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* memoir.layout: change order of includes to fix bug 1971
+
+2005-07-28  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (dist_examples_DATA): 
+	* examples/de_Lebenslauf.lyx:
+	* examples/de_Minipage.lyx:
+	* examples/de_TableExamples.lyx:
+	* examples/de_Waehrungen.lyx: new translated exmaples from Hartmut
+	Haase. 
+
+2005-07-26  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* syntax.default: add \fancyhead and \href
+
+2005-07-25  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.m4: fix invocation of tex2lyx again.
+
+2005-07-19  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: fi invocation of tex2lyx.
+
+2005-07-18  José Matos <jamatos@lyx.org>
+
+	* examples/*.lyx:
+	* templates/*.lyx: update all files to the latest file format
+
+2005-07-18  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* images/banner.ppm: new banner
+
+2005-07-17  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* layouts/*.layout: remove spaces from label strings
+
+2005-07-17  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* layouts/*.layout: fix left margins in various text classes
+
+2005-07-16  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* syntax.default: file moved here from reLyX dir
+	* configure.m4: fix path search, search for tex2lyx instead of
+	reLyX, don't create help dir
+	* Makefile.am: remove reLyx stuff, add syntax.default to pkg_DATA
+	* Remove the reLyX dir
+
+2005-07-15  José Matos <jamatos@lyx.org>
+
+	* Makefile.am: remove lyx2lyx references, place it only as a
+	subdirectory.
+
+2005-07-15  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: typo. 
+
+2005-07-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* reLyX/syntax.default: new "environments" environments and
+	mathenvironments for tex2lyx
+
+2005-07-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* layouts/scrclass.inc: fix bad comment.
+
+2005-06-16  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* languages: remove language "frenchb"; with language "french"
+	provide default values for \og and \fg if needed; use babel option
+	"canadien" for French Canadian
+
+2005-06-30  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* reLyX/syntax.default: recognize optional argument of \frame
+
+2005-06-24  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ui/stdmenus.ui:
+	* ui/classic.ui: use \text for {sub|super}script (fixes bug 1667)
+
+2005-06-20  Günter Milde  <g.milde@web.de>
+
+	* layouts/obsolete.inc: remove, since lyx2lyx does the job.
+
+	* layouts/scrmacros.inc: remove.
+
+	* layouts/scrclass.inc: adapt to the death of scrmacros.inc.
+
+	* Makefile.am: adapt.
+
+2005-06-16  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/legacy_lyxpreview2ppm.py (legacy_conversion): use gswin32c
+	rather than gswin32 on Windows machines.
+
+2005-06-14  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: remove texput.log after testing for spaces.
+
+2005-06-14  Enrico Forestieri  <forenr@tlc.unipr.it>
+
+	* configure.m4: avoid using symbolic links since they confuse
+	miktex. 
+
+2005-06-09  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* layouts/*: put all LabelStrings in quotes
+
+2005-06-10  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: use ps2pdf13 for ps->pdf converter; do not display
+	the list of programs we are about to check; simplify code.
+
+2005-06-01  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: fix shortcut for text format.
+
+2005-05-25  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4: strip '\r' characters from the generated
+	chkconfig.sed on Windows.
+
+2005-05-16  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* ui/stdmenus.ui
+	* ui/classic.ui: fix use of "..."  according to KDE
+	human interface guidelines; fix capitalization; align
+	functionality of stdmenus.ui and classic.ui; remove
+	"inset-toggle"; remove "Bibliography Key" from classic.ui
+
+2005-05-20  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* configure.m4: rename "ASCII" to "Plain text"
+
+2005-05-18  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* layouts/report.layout: no need to change LabelString here
+
+	* layouts/heb-article.layout:
+	* layouts/heb-letter.layout:
+	* layouts/dinbrief.layout: avoid 8bit characters
+
+	* layouts/scrclass.inc: no need to reset LabelString here
+
+	* layouts/amsbook.layout: no need to remove numbering of paragraph
+	layout.
+
+	* layouts/amsdefs.inc: fix case of LabelString
+
+2005-05-10  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* layouts/llncs.layout: fix some font sizes; change description;
+	fix subsection counter.
+
+	* layouts/apa.layout:
+	* layouts/seminar.layout: fix numbering; change description
+
+2005-05-09  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* ui/classic.ui:
+	* ui/stdmenus.ui: fix shortcut for Cross-reference
+
+2005-05-08  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* bind/*.bind
+	* doc/*Customization: change "reference-goto" to "label-goto"
+
+2005-05-08  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.py:
+	* scripts/legacy_lyxpreview2ppm.py do not quote the name of the
+	executable when spawning an external process.
+
+2005-05-07  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* ui/*.ui: Synchronize menu entries with dialog titles:
+	"TeX" => "TeX Code", "BibTeX Reference" => "BibTeX Bibliography",
+	"Citation Reference" => "Citation", "Cross Reference" =>
+	"Cross-reference"; fix semantics: "Goto Reference" => "Goto Label",
+	"Refs" => "Labels"
+
+2005-05-05  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* layouts/stdlists.inc:
+	* layouts/stdstruct.inc: clean up bibliography
+
+2005-05-04  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (DISTCLEANFILES): add texput.log.
+
+2005-04-28  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* layouts/*.layout:
+	* layouts/*.inc: All Style, NoStyle and CopyStyle commands
+	use a _ for spaces instead of quotes
+
+2005-04-25  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ui/stdmenus.ui: rearrange tabular features stuff
+
+2005-04-22  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4: rewrite the "DeclareFOOClass" manipulation
+	scripts to be more portable.
+
+2005-04-18  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* stdtoolbars.ui: remove the 4x4 default size
+
+2005-04-20  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ui/stdmenus.ui: Add aligned, alignedat, gathered and split
+	environment to the math_insert menu
+
+2005-04-14  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* layouts/scrclass.inc: do not assign a toclevel to addchap or
+	addsec.
+
+	* layouts/numreport.inc: use data from numarticle.inc, so that
+	changes from article are obvious.
+
+	* layouts/numarticle.inc: add numbering stuff for Paragraph and
+	SubParagraph; set Part TocLevel to 0.
+
+2005-04-18  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ui/stdtoolbars.ui:
+	* ui/stdmenus.ui:
+	* layouts/stdclass.inc: clean up around character styles
+
+2005-04-15  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/convertDefault.sh: post error messages to STDERR.
+
+2005-04-09  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (dist_scripts_DATA): add scripts/fig_copy.sh and
+	scripts/lyxpreview_tools.py.
+
+2005-04-08  Angus Leeming  <leeming@lyx.org>
+
+	* generate_contributions.py: new file. Master repository of all
+	contributer information. Usage:
+	$ generate_contributions.py CREDITS credits.php blanket-permission.php
+	where the arguments are the names of the generated files.
+
+	* CREDITS: regenerated from generate_contributions.py.
+
+2005-03-30  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: improve Navigate menu
+
+2005-03-25  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* layouts/revtex4.layout: indicate that the revtex4 class provides
+	natbib and url functionality.
+
+2005-03-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: add a check to see whether TeX allows spaces in
+	file names. Works with web2c 7.5.3 or later.
+
+2005-03-23  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/convertDefault.sh: remove the test that "convert" really,
+	really succeeded, because it reports failures on Windows that are
+	actually successes. See, eg,
+	http://marc.theaimsgroup.com/?l=lyx-users&m=110561697803860&w=2
+
+2005-03-17  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* reLyX/syntax.default: update natbib/jurabib commands, add
+	\DescribeMacro, \let, \subfigure and bibunit commands
+
+2005-02-20  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* layouts/stdlayouts.inc: change labelstring to "Senseless!"
+
+2005-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* CREDITS: add some missing pretty printing info.
+	add some missing e-mail addresses after a trawl of the lyx lists
+	and, as a last resort, after a google search. Not necessarily
+	correct, but a start.
+
+2005-02-17  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: do not use -swap option for gv (it does not work
+	with latest versions).
+
+2005-02-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ui/stdmenus.ui: add more facilities for drawing/deleting partition
+	lines in matrix
+
+2005-02-10  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* bind/math.bind: provide key bindings for lines in matrix
+
+2005-02-09  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ui/stdmenus.ui: add facilities for drawing/deleting partition
+	lines in matrix
+
+2005-02-08  Mike Ressler  <mike.ressler@alum.mit.edu>
+
+	* layouts/aastex.layout: Updated for AASTeX 5.2
+
+2005-02-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* reLyX/configure.ac: use AC_CANONICAL_TARGET; use
+	RELYX_USE_PACKAGING as in main configure.
+
+	* reLyX/acinclude.m4 (RELYX_ERROR, RELYX_USE_PACKAGING): new
+	macros.
+
+2005-01-24  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ui/classic.ui, ui/stdmenus.ui: add output-changes.
+
+2005-01-24  Angus Leeming  <leeming@lyx.org>
+
+	* reLyX/configure.ac: revert Jean-Marc's wrapping of the
+	prefix variable in single quotes.
+
+2005-01-20  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4: replace all occurences of '$$s/' with '$$s/scripts'.
+
+2005-01-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ui/classic.ui, ui/stdmenus.ui: Increase number of bookmarks to 5
+	(from Uwe Stöhr)
+	* ui/classic.ui: Goto -> Go to
+	* bind/aqua.bind, bind/cua.bind, bind/emacs.bind, bind/mac.bind,
+	* bind/xemacs.bind: Add shortcuts for bookmarks 4 and 5
+
+2005-01-02  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* configure.m4: add \cygwin_path_fix_needed to lyrxc.defaults.
+
+2005-01-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* reLyX/configure.ac: make sure the prefix is correctly quoted.
+
+	* configure.m4: small visual fix to the search for groff
+
+2005-01-06  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am: remove mention of configure.cmd.
+
+2005-01-04  Angus Leeming  <leeming@lyx.org>
+
+	* configure.cmd. Remove this OS/2 relic.
+
+2004-12-29  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* configure.m4: check for notepad editor
+
+2004-12-22  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ui/stdmenus.ui: add entry for words-count
+
+2004-12-17  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* Makefile.am: honor the textrm_*.xpm renaming.
+
+2004-12-17  Martin Vermer  <martin.vermeer@hut.fi>
+
+	* images/math/textrm_*.xpm: renamed to textrm_AA, textrm_Oe
+	* symbols: added Ångström, Ørsted
+
+2004-12-16  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: remove code for checking languages in the LaTeX
+	format...
+
+	* chkconfig.ltx: ... and replace it with a TeX solution
+
+2004-12-13  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* CREDITS: add John Spray
+
+2004-12-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* configure.m4: add printout of language list for which
+	hyphenation is enabled
+
+2004-11-19  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* layouts/memoir.layout: allow 2 optional arguments
+	for sectioning commands
+
+2004-11-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.m4: check for more viewers and editors
+
+2004-11-11  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* chkconfig.ltx: check package booktabs
+
+2004-11-05  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* bind/mac.bind: use <cmd>-Tab and <cmd>-backtab as shortcuts for
+	buffer-next/previous
+
+2004-11-04  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdclasses.inc: allowed non alphanumeric chars in ids.
+
+2004-11-04  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* Makefile.am: fix installation of lyx2lyx and scripts for
+	configure --version-suffix
+
+2004-11-01  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.m4: add copier for pstex_t and pdftex_t files
+	* external_templates: (Template XFig): correct referenced files
+	* scripts/tex_copy.py: new
+	* Makefile.am: add scripts/tex_copy.py
+
+2004-10-30  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdclasses.inc:
+	* layouts/db_stdcharstyles.inc: new file to hold docbook Character Styles.
+
+2004-10-30  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_lyxmacros.inc: Remove innertag "CDATA" from Code.
+
+2004-10-30  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdlayouts.inc: remove SGML paragraph type.
+
+2004-10-28  José Matos  <jamatos@lyx.org>
+
+	* Makefile.am: add entry to layouts/db_stdcounters.inc
+
+	* layouts/agu_stdclass.inc:
+	* layouts/agu_stdtitle.inc. replace &dquot;...&dquot; with <>
+
+2004-10-28  José Matos  <jamatos@lyx.org>
+
+	* layouts/agu_stdclass.inc:
+	* layouts/agu_stdsections.inc: since we are using substituion
+	change the the dread &quot; to <> syntax, since that can never
+	happen in a parameter.
+
+	* layouts/agu_stdcounters.inc: replace para by as a counter.
+
+2004-10-27  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdclass.inc: include counter files.
+	* layouts/db_stdcounters.inc: readd file with specific docbook counters.
+
+2004-10-26  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4: add an XFig 'copier'.
+
+	* scripts/fig_copy.sh: a script to 'copy' an XFig data file. If this
+	involves a directory change, then any references to picture files are
+	changed from relative to absolute paths.
+
+2004-10-25  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* Makefile.am (dist_bind_DATA): add mac.bind
+
+2004-10-24  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdstarsections.inc: change all to type Paragraph,
+	they only look like sections but they don't act as such.
+
+2004-10-22  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdstarsections.inc: add mixing quotes around !-- --
+
+2004-10-22  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdclass.inc: add Email character style.
+
+2004-10-19  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* bind/xemacs.bind:
+	* bind/emacs.bind:
+	* bind/mac.bind:
+	* bind/cua.bind: add bindings for buffer-previous/next
+
+2004-10-18  Andreas Vox  <vox@isp.uni-luebeck.de>
+
+	* layouts/db_stdstarsections.inc: fix definition, no title.
+
+2004-10-18  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdmacros.inc: replace programlist with screen, as it
+	is a little bit more general.
+
+2004-10-15  Andreas Vox  <vox@isp.uni-luebeck.de>
+
+	* layouts/db_stdstarsections.inc: fill definitions for star sections.
+
+2004-10-13  José Matos  <jamatos@lyx.org>
+
+	* layouts/linuxdoc.layout:
+	* layouts/manpage.layout: rename classes to be consistent with AGU
+	and docbook.
+
+2004-10-12  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.m4: fix lyxpreview_to_png_command
+
+2004-10-11  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* bind/mac.bind: fix the depth-increment/decrement bindings
+
+2004-10-10  José Matos  <jamatos@lyx.org>
+
+	* Makefile.am (dist_lyx2lyx_DATA): fix entry for lyx2lyx/profiling.py
+
+2004-10-08  José Matos  <jamatos@lyx.org>
+
+	* scripts/legacy_lyxpreview2ppm.py (legacy_conversion):
+	* scripts/lyxpreview2bitmap.py (main):
+	replace os.getenv(x) by os.environ[x] for compatibility with old
+	python versions.
+
+2004-10-01  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/convertDefault.sh: protect shell variables with quotes.
+
+2004-09-24  José Matos  <jamatos@lyx.org>
+
+	* layouts/docbook-book.layout
+	* layouts/docbook-chapter.layout
+	* layouts/docbook-section.layout
+	* layouts/docbook.layout: load docbook specialization in the end.
+
+2004-09-21  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ui/stdmenus.ui: replace the Insert>Box submenu with a single
+	entry; add a shortcut to "Character Style"
+
+2004-09-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: instead of \input-ing the layout files directly in
+	latex, grep out the correct command from them; remove need for
+	\srcdir. This should fix the bug where latex configuration cannot
+	be done because LyX is installed in a directory which name
+	contains spaces.
+
+	* chkconfig.ltx: remove use of macro \srcdir
+	(\TestDocClass): change to take two arguments
+	(\DeclareLaTeXClass, \DeclareLinuxDocClass, \DeclareDocBookClass):
+	do not exit after execution
+
+2004-09-13  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* languages: add nynorsk
+
+2004-08-15  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (dist_lyx2lyx_DATA): fix entry for lyx2lyx/LyX.py
+
+2004-08-14  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ui/stdmenus.ui:
+	* ui/classic.ui: add LyX menu
+
+2004-08-14  Bennett Helm  <bennett.helm@fandm.edu>
+
+	* bind/mac.bind: new file. This is the Mac flavour bind file, based on
+	bindings found in the Mac world.
+
+2004-08-13  LyX Guy  <lasgouttes@lyx.org>
+
+	* Makefile.am (dist_layouts_DATA): remove db_stdcounters.inc
+
+2004-08-13  José Matos  <jamatos@lyx.org>
+	* layouts/elsart.layout: fixed its permission settings and readded
+	layouts. Added optional itens as already present in 1.3 version.
+
+2004-08-13  José Matos  <jamatos@lyx.org>
+	* layouts/elsart.layout: removed temporarily to correct the
+	permission settings of the file.
+
+	* layouts/db_stdclass.inc: remove specific docbook counters, they
+	are not need anymore.
+
+	* layouts/db_stdcounters.inc: removed since it lost its usefulness.
+
+2004-08-09  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview_tools.py: move code common to both
+	legacy_lyxpreview2ppm.py and lyxpreview2bitmap.py into a separate
+	file. The code itself is a straight copy of the implementation
+	to be found in the 1.3.x tree. It is much more flexible and powerful
+	than the existing code in the 1.4.x tree. It's also better tested.
+
+	* scripts/legacy_lyxpreview2ppm.py: use the code in
+	lyxpreview_tools.py. Also use try-except blocks when reading files.
+	The code is as similar as possible to that found in the 1.3.x tree,
+	differing only in the parsing of the metrics file as 1.4.x requires
+	different data.
+
+	* scripts/lyxpreview2bitmap.py: use the code in lyxpreview_tools.py.
+	Also use the experience gained in making the 1.3.x code robust to
+	wrap arguments to external programs in 'single quotes'.
+
+2004-07-23  Angus Leeming  <leeming@lyx.org>
+
+	* layouts/apa.layout: Patch from Yvonnick Noel. Spell the
+	"Acknowledgements" style correctly. Add the ability to see the
+	contents in LyX. Obsolete the "Acknowledgments" style.
+
+2004-08-03  Martin Vermeer <martin.vermeer@hut.fi>
+
+	* languages: dropped the icelandic fontenc thing.
+
+2004-08-02  Martin Vermeer <martin.vermeer@hut.fi>
+
+	* languages: fixed my introduced missing quote bug (Icelandic,
+	according to Logi Ragnarsson's patch, my bad).
+
+2004-06-22  Martin Vermeer <martin.vermeer@hut.fi>
+
+	* encodings:
+	* languages: implement iso-8859-13 (latin-7) for Latvian and
+	Lithuanian. Also include Icelandic.
+
+2004-06-09  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (dist_*): Use the dist annotation to clean up the
+	Makefile slightly.
+
+2004-06-02  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (EXTRA_DIST): fix and cleanup, make sure
+	chkconfig.ltx is mentioned
+
+2004-06-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am: include common.am, add subdir doc, remove doc
+	releated entries.
+
+2004-06-01  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* external_templates: add ReferencedFile commands where appropriate
+
+2004-05-31  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* Makefile.am: remove compiled python files
+
+2004-05-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* reLyX/Makefile.am: rewrite to not fiddle with autoconf/automake
+	internals.
+
+	* Makefile.am: rewrite to fiddle as little as possible with
+	autoconf/automake internals.
+
+2004-05-25  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* update m4 files from automake 1.8 autoconf 2.59 and update
+	other m4 files to avoid auto warnings.
+
+2004-05-19  Uwe Stöhr  <uwestoehr@web.de>
+
+	* lib/math.bind: fix some bindings to work with german keyboard;
+	new binding "M-m y" that inserts \oint
+
+2004-05-19  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.py (find_exe):
+	* scripts/legacy_lyxpreview2ppm.py (find_exe): append ".exe" to the
+	program name on Win32.
+
+2004-05-18  Angus Leeming  <leeming@lyx.org>
+
+	* legacy_lyxpreview2ppm.py: search for "gswin32" also when looking
+	for ghostscript.
+
+2004-05-14  José Matos  <jamatos@lyx.org>
+
+	* layouts/agu_stdclass.inc:
+	* layouts/db_stdclass.inc: remove !DOCTYPE from the Formal Public
+	Identifier since this is an invariant.
+
+2004-05-13  José Matos  <jamatos@lyx.org>
+
+	* configure.m4: add support for docbook-xml.
+
+2004-05-12  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdclass.inc: do not use small caps for name.
+	* layouts/db_stdtitle.inc: align Date at center.
+	* templates/docbook_article.lyx: Use Character Styles for name.
+	* examples/docbook_article.lyx: remove unnecessary vertical spaces.
+
+2004-05-11  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdtitle.inc: obsolete FirstName and Surname.
+
+2004-05-03  José Matos  <jamatos@lyx.org>
+
+	* scripts/legacy_lyxpreview2ppm.py: bug fix for temporary file
+	writing.
+
+2004-05-03  Angus Leeming  <leeming@lyx.org>
+
+	* layouts/scrlettr.layout: include counters.
+
+2004-05-03  José Matos  <jamatos@lyx.org>
+
+	* scripts/legacy_lyxpreview2ppm.py: fix bug with python 2.3 and
+	extend support for secure temporary files for python >= 2.0.
+
+2004-05-03  José Matos  <jamatos@lyx.org>
+
+	* reLyX/MakePreamble.pm(translate_preamble): use a saner method
+	to translate \usepackage from the preamble, fix #1584.
+
+2004-05-03  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* layouts/scrlttr2.layout: include counters.
+
+2004-04-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* CREDITS: update Hartmut Haase's entry
+
+2004-04-29  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: add some commentary to the RasterImage
+	template.
+
+2004-04-27  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4: don't create a lyxpreview -> png converter if
+	dvipng is not found.
+
+2004-04-26  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* CREDITS: add Huang Ying.
+
+2004-04-26  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.py: tell python about the file's
+	encoding.
+
+2004-04-21  John Levon  <levon@movementarian.org>
+
+	* ui/default.ui:
+	* ui/stdtoolbars.ui: add a non-GUI name for toolbars
+
+2004-04-20  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4: change the lyxpreview_to_bitmap_command to the
+	new python script.
+
+	* scripts/.cvsignore: new file, ignoring *.pyc.
+
+2004-04-20  Angus Leeming  <angus@localhost.localdomain>
+
+	* external_templates: Comment out the insertion of the definitions
+	of the WarnNotFound, InputOrWarn macros in the preamble by
+	the XFig template.
+
+2004-04-19  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/legacy_lyxpreview2ppm.py: new file. Called automatically
+	by lyxpreview2bitmap.py if dvipng is not found.
+
+	* scripts/lyxpreview2bitmap.py (main): changes to suit.
+
+2004-04-19  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.py (extract_metrics_info): make the
+	regex a little more robust. Now recognizes negative integers.
+
+2004-04-15  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.sh: removed.
+	* scripts/lyxpreview2bitmap.py: added. Uses Jan-Åke Larsson's dvipng
+	to perform the conversion.
+
+2004-04-12  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* configure.m4: merge \viewer and \format. Add editor to \format
+	* configure.m4: check for more viewers and editors
+	* external_templates: remove EditCommand
+
+2004-04-06  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* external_templates: use some new variables instead of $$Basename
+	(needed to fix bug #605)
+
+2004-04-01  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* help/ and contents is gone (outdated).
+	* Makefile.am: remove all traces of help/
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* ui/classic.ui:
+	* ui/stdmenus.ui: bring up the preferences dialog with
+	"dialog-show prefs" rather than "dialog-show preferences".
+
+2004-03-30  Angus Leeming  <leeming@lyx.org>
+
+	* bind/aqua.bind:
+	* bind/cua.bind:
+	* bind/emacs.bind:
+	* bind/xemacs.bind: s/inset_toggle/next-inset-toggle/.
+
+2004-03-29  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* doc/LaTeXConfig.lyx.in: check for bibtopic.
+
+2004-03-22  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* lyxrc.example: remove \ps_command
+
+	* configure.m4: check for acrobat, acrord32 and gsview32 as PDF
+	viewers (useful for windows); do not pass -swap option when
+	gsview32 is used as ps viewer. Remove support for \ps_command
+
+2004-03-17  Angus Leeming  <leeming@lyx.org>
+
+	* ui/classic.ui:
+	* ui/stdmenus.ui: remove "dialog-show forks".
+
+2004-03-15  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* doc/LaTeXConfig.lyx.in: fix entry for REVTeX (bug #1533)
+
+2004-02-27  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: if lyx_check_config is false (no latex), use some
+	ugly sed code to parse the textclasses and produce a reasonable
+	textclass.lst.
+
+2004-03-07  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* dco/LaTeXConfig.lyx.in: document jurabib.
+
+2004-02-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* examples/ro_splash.lyx: move this file from the docs (where it
+	has been put by mistake)
+
+2004-02-23  Cengiz Gunay  <cengique@users.sf.net>
+
+	* layouts/svjour.inc: update (missing counters and floats)
+	* layouts/svglobal.layout: new class
+
+	* doc/LaTeXConfig.lyx.in: update
+
+2004-02-20  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* bind/cua.bind:
+	* bind/emacs.bind:
+	* bind/sciword.bind:
+	* bind/xemacs.bind: added binding for "quote-insert single"
+	NB: Still TODO for aqua.bind (see FIXME)
+
+	* ui/classic.ui:
+	* ui/stdmenus.ui: added "quote-insert single"
+
+2004-02-18  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* kbd/espanol.kmap: new file from David Raymond
+
+2004-02-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* CREDITS: add dooteo and Helge Hafting
+
+2004-01-06  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* layouts/aguplus.inc: add Affiliation style
+
+2004-01-22  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: fix call to makepsres; cosmetic changes to font
+	checking messages
+
+2004-01-18  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* examples/g-brief2.lyx: Fix layouts
+
+2003-12-15  Ronald Florence  <ron@18james.com>
+
+	* reLyX/reLyX.in: search for library in
+	"$dir/../Resources/LyX/reLyX" for LyX/Mac
+
+2004-01-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* layouts/siamltex.layout: fix layout name for Definition
+
+2004-01-06  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* templates/agu_article.lyx: add template for AGU XML format
+
+2004-01-05  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: use the valid csh-style glob
+	"*.{gif,png,jpg,bmp,pbm,ppm,tga,tif,xpm,xbm}" to define the
+	RasterImage file filter, rather than the current psuedo-glob,
+	psuedo-regex .
+
+2003-12-22  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* layouts/g-brief2.layout: more spelling fixes
+
+	* examples/g-brief2-de.lyx: removed
+
+	* examples/g-brief2-en.lyx: renamed to examples/g-brief2.lyx
+
+2004-01-05  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* CREDITS: add Roman Maurer
+
+2003-12-31  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* layouts/agu_stdclass.inc:
+	* layouts/agu_std sections.inc:
+	* layouts/agu_stdtitle.inc: moving LatexParam functionality into
+	.layout files
+
+2003-12-22  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* layouts/g-brief2-en.layout: fix spelling,
+	remove obsolete style; rename file to g-brief2.layout
+	* layouts/g-brief2-de.layout: remove file
+
+2003-12-22  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* agu_stdclass.inc:
+	* agu_stdtitle.inc: More AGU header stuff
+
+2003-12-18  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* agu_stdclass.inc:
+	* agu_stdtitle.inc: AGU header stuff
+
+2003-12-15  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* examples/Minipage.lyx: fix width units (c% -> text%).
+
+2003-12-10  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* CREDITS: add Felix Kurth
+
+2003-12-10  Felix Kurth  <felix@fkurth.de>
+
+	* examples/g-brief2-de.lyx:
+	* examples/g-brief2-en.lyx:
+	* layouts/g-brief2-de.layout:
+	* layouts/g-brief2-en.layout:
+	* doc/LaTeXConfig.lyx.in: support for new textclass g-brief2
+
+2003-12-08  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* reLyX/syntax.default: add \psfrag and \psfrag*
+
+2003-12-08  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* CREDITS: add Ronald Florence
+
+2003-12-06  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* db_stdclass.inc:
+	* agu_stdclass.inc: Conglomerate-style CharStyles
+
+2003-12-03  José Matos  <jamatos@lyx.org>
+
+	* examples/docbook_article.lyx: update to latest file format.
+
+2003-11-28  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* layouts/chess.layout: Remove blanks in style name
+
+2003-11-28  Angus Leeming  <leeming@lyx.org>
+
+	* ui/stdmenus.ui: add Insert VSpace.
+
+2003-11-28  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/convertDefault.sh: use cut in preference to sed, but use it
+	safely.
+
+2003-11-27  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* layouts/db_stdclass.inc:
+	* layouts/agu_stdclass.inc:
+	* layouts/linuxdoc.layout: parametrize SGML document header
+
+2003-11-25  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* lib/layouts/agu-dtd.layout:
+	* lib/layouts/agu_stdclass.inc:
+	* lib/layouts/agu_stdcounters.inc:
+	* lib/layouts/agu_stdlists.inc:
+	* lib/layouts/agu_stdsections.inc:
+	* lib/layouts/db_lyxmacros.inc:
+	* lib/layouts/db_stdclass.inc:
+	* lib/layouts/db_stdlayouts.inc:
+	* lib/layouts/db_stdlists.inc:
+	* lib/layouts/db_stdstarsections.inc:
+	* lib/layouts/db_stdstruct.inc:
+	* lib/layouts/db_stdtitle.inc:
+	* lib/layouts/docbook-book.layout:
+	* lib/layouts/docbook-chapter.layout:
+	* lib/layouts/docbook-section.layout: Introducing a number of tags
+	parametrizing various XML formats that we may want to support
+
+2003-11-17  Roman Maurer <roman.maurer@amis.net>
+
+	* examples/sl_splash.lyx: update
+
+2003-11-15  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* CREDITS: Add Joao Luis and Eulogio Serradilla
+
+2003-11-14  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* layouts/db_stdsections.inc:
+	* layouts/db_stdtitle.inc: XML sanitation: new layout
+	parameters InnerTag and CommandDepth
+
+2003-11-13  Angus Leeming  <leeming@lyx.org>
+
+	* CREDITS: added Ling Li.
+
+2003-11-12  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* configure.m4: when latex configuration detection is disabled,
+	fix the default textclass.lst to the new format. Also simplify it
+	to contain only "article".
+
+	* layouts/cv.layout: lowercase description
+
+2003-11-12  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* lib/examples/docbook_article.lyx:
+	* lib/layouts/db_stdclass.inc:
+	* lib/layouts/stdclass.inc:
+	* lib/ui/stdmenus.ui: The Character Style /XML short
+	element patch.
+
+2003-11-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* Makefile.am (install-xfonts):
+	* configure.m4: create a resource list file for Display Postscript
+
+2003-11-03  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/convertDefault.sh: Do not use 'cut' when checking whether
+	the output file was generated successfully. Win32 filenames have the
+	form 'C:\my\file' and use of 'cut' will cause us to look for a file
+	called 'C'...
+
+2003-10-23  José Matos  <jamatos@lyx.org>
+
+	* layouts/db_stdcounters.inc:
+	* layouts/db_stdclass.inc: add counters for docbook.
+
+2003-10-22  José Matos  <jamatos@lyx.org>
+
+	* lyxconvert_223.py (convert_minipage): Assures that paramaters order
+	is the same that lyx outputs. Give default values to new parameters.
+
+2003-10-21  José Matos  <jamatos@lyx.org>
+
+	* lyxconvert_223.py (convert_minipage): convert minipage to insetbox.
+
+2003-10-10  Angus Leeming  <leeming@lyx.org>
+
+	* images/math/cases.xpm:
+	* images/math/frac.xpm:
+	* images/math/int.xpm:
+	* images/math/lbrace_rbrace.xpm:
+	* images/math/lbracket_rbracket.xpm:
+	* images/math/lparen_rparen.xpm:
+	* images/math/prod.xpm:
+	* images/math/root.xpm:
+	* images/math/sqrt.xpm:
+	* images/math/sum.xpm: generated by latex and lyxpreview2bitmap.sh.
+
+2003-10-10  Angus Leeming  <leeming@lyx.org>
+
+	* ui/stdtoolbars.ui: the \root and \sqrt icons had been transposed.
+
+2003-10-08  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* bind/aqua.bind: fix typo
+
+2003-10-07  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: add transformers to the RasterImage and XFig
+	templates.
+
+2003-10-07  Angus Leeming  <leeming@lyx.org>
+
+	* images/buffer-close.xpm:
+	* images/buffer-reload.xpm:
+	* images/buffer-update_ps.xpm:
+	* images/build-program.xpm:
+	* images/dialog-show_spellchecker.xpm:
+	* images/layout_LyX-Code.xpm:
+	* images/layout_Scrap.xpm:
+	* images/math-subscript.xpm:
+	* images/math-superscript.xpm:
+	* images/note-insert.xpm:
+	* images/tabular-feature_append-column.xpm:
+	* images/tabular-feature_append-row.xpm:
+	* images/tabular-feature_delete-column.xpm:
+	* images/tabular-feature_delete-row.xpm:
+	* images/tabular-insert.xpm:
+	* images/math/frac.xpm:
+	* images/math/sqrt.xpm: replace rgb.txt names with #rrggbb equivalent.
+
+2003-10-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ui/stdmenus.ui: The Box patch. Fancybox support, minipage,
+	parbox
+
+2003-10-06  José Matoa  <jamatos@lyx.org>
+
+	* lyxrevert_223.py: finish support for change tracking revert.
+
+2003-10-03  José Matos  <jamatos@lyx.org>
+
+	* lyx2lyx:
+	* lyxrevert_223.py:
+	* lyxrevert_224.py:
+	* lyxrevert_225.py: support backward saving for 1.3.x format.
+
+2003-09-27  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* layouts/memoir.layout: More sensible order; new env "legend".
+
+2003-09-25  Angus Leeming  <leeming@lyx.org>
+
+	* *.xpm: ensured that they all have the same style of colour table.
+
+2003-09-25  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: re-add the RasterImage template.
+
+2003-09-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* CREDITS: add Hartmut Haase
+
+2003-09-23  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: split the XfigInput preamble definition into two,
+	renaming the macro called by the user as \inputOrWarn.
+
+2003-09-22  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ijmpd.lyx: re-add (it was only present on the 1.2.x branch)
+
+2003-09-22  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* layouts/memoir.layout: new support for memoir.cls
+	* layouts/scrclass.inc: minor enhancements
+
+2003-09-17  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* doc/LaTeXConfig.lyx.in: added agums entry to AGU section.
+
+2003-09-10  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyx2lyx: Declare encoding for python >= 2.3
+
+2003-09-08  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* bind/aqua.bind: new bindings useful on aqua (from Ronald
+	Florence)
+
+2003-09-07  Kayvan Sylvan  <kayvan@sylvan.com>
+
+	* configure.m4 - Do an additional test in the Cygwin case to
+	see if the path correction is necessary. If running with newer
+	cygwin tetex packages, the path correction actually appears to
+	fail.
+
+2003-09-05  Johnathan Burchill  <jkerrb@shaw.ca>
+
+	* external_templates: Write a message to the latex log file if the
+	xfig file cannot be found.
+
+2003-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: add a new PreambleDef section and use it in the
+	XFig template.
+
+2003-09-04  Johnathan Burchill  <jkerrb@shaw.ca>
+
+	* external_templates: add some clever LaTeX to the XFIG template so that
+	we input the file if it exists, else print a warning encased in an fbox.
+
+2003-09-03  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/fig2pdftex.sh:
+	* scripts/fig2pstex.sh: fail silently if the input file doesn't exist.
+
+2003-08-22  José Matos  <jamatos@lyx.org>
+
+	* lyx2lyx/lyxconvert_210.py: first attempt to support 0.10.7
+
+2003-08-22  Angus Leeming  <leeming@lyx.org>
+
+	* lyxrc.example
+	* examples/listerrors.lyx:
+	* layouts/chess.layout:
+	* lyx2lyx/lyx2lyx:
+
+	* bind/broadway.bind:
+	* bind/cyrkeys.bind:
+	* bind/greekkeys.bind:
+	* bind/hollywood.bind:
+	* bind/latinkeys.bind:
+	* bind/math.bind:
+	* bind/sciword.bind: tell the world who wrote 'em.
+
+	* scripts/TeXFiles.sh:
+	* scripts/convertDefault.sh:
+	* scripts/listerrors: ditto
+
+	* ui/classic.ui:
+	* ui/default.ui:
+	* ui/stdmenus.ui:
+	* ui/stdtoolbars.ui: ditto
+
+2003-08-22  Angus Leeming  <leeming@lyx.org>
+
+	* bind/cua.bind:
+	* bind/de_menus.bind:
+	* bind/emacs.bind:
+	* bind/fi_menus.bind:
+	* bind/menus.bind:
+	* bind/pt_menus.bind:
+	* bind/sv_menus.bind:
+	* bind/xemacs.bind:
+	* examples/Foils.lyx: remove 'The LyX Team' from the authorship and
+	copyright notices. Add authors explicitly having performed all sorts of
+	detective work to find 'em ;-)
+
+2003-08-19  Michael Schmitt <michael.schmitt@teststep.org>
+
+	* lyx2lyx/lyxconvert_224.py: replace valignment "center"
+	by "middle"
+
+2003-08-20  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* layouts/agums.layout: new AGU Manuscript layout.
+
+2003-08-14  Michael Schmitt <michael.schmitt@teststep.org>
+
+	* ui/classic.ui: remove blank in front of "..."
+	* bind/de_menus.bind: fix backwards compatibility
+	bindings for (sub(sub))section*
+
+2003-08-17  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ui/stdmenus.ui: fix small menu mess-up (double Note entry)
+
+2003-08-17  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ui/stdmenus.ui: implements the 'branch inset'
+	idea. This allows the output of various versions of a document
+	from a single source version, selectively outputing or suppressing
+	output of parts of the text.
+	This implementation contains a 'branch list editor' in a separate
+	tab of the document settings dialog. Branches are user definable
+	and have a "display colour" to distinguish them on-screen.
+
+	ColorHandler was somewhat cleaned up.
+	(1) make possible a dynamically growing LColor list by allowing
+	the graphic context cache to grow along (vector);
+	(2) eliminate an IMHO unnecessary step in colour allocation.
+
+2003-08-14  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: move Note up to the submenus section
+
+2003-08-12  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* configure.m4: replace "PDF" by "PDF (ps2pdf)"
+
+	* bind/math.bind: rename "valign-center" to "valign-middle"
+
+	* ui/classic.ui: Consistent capitalization of menu items;
+	introduce submenu "alignment" in "Edit/Tabular" (shared with
+	"Edit/Math"); fix shortcuts for "Flalign Environment" and
+	"Font Change" and "Table of Contents"
+
+	* ui/stdmenus.ui: Consistent capitalization of menu items;
+	introduce submenu "alignment" in "Edit/Tabular" (shared with
+	"Edit/Math")
+
+	* ui/stdtoolbars.ui: De-capitalize names for consistency;
+	use imperative style for consistency: "XXX aligned" => "Align XXX"
+
+2003-08-09  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* templates/koma-letter2.lyx: fix typo.
+
+2003-08-04  Angus Leeming  <leeming@lyx.org>
+
+	* lyxpreview2bitmap.sh: respect the LATEX environment variable.
+
+2003-08-01  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_216.py (convert): Change the language of the
+	document only if is 'default'.
+
+2003-07-23  Rod Pinna  <rpinna@civil.uwa.edu.au>
+
+	* layouts/elsart.layout: change MaxCounter to Section, rather than
+	subsection. The Elsevier doc file allows for numbered sections, as
+	does the class file.
+
+2003-07-29  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ui/stdmenus.ui: fixed Note submenu issues
+
+2003-07-29  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ui/stdmenus.ui: submenu for Note/Comment/Greyedout
+
+2003-07-29  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* ui/stdmenus.ui: Insert->Special character/Special formatting
+	split and small rearrangement as discussed on bugzilla (bug 1299)
+
+2003-07-28  José Matos  <jamatos@lyx.org>
+
+	* lyx2lyx/lyxconvert_224.py (end_document):
+	replace \the_end with \end_document.
+
+2003-07-28  José Matos  <jamatos@lyx.org>
+
+	* lyx2lyx/lyx2lyx (parse_options): support gziped files.
+	* lyx2lyx/parser_tools.py (set_format): output correct version.
+
+2003-07-28  José Matos  <jamatos@fep.up.pt>
+
+	* lyx2lyx/lyx_convert224.py (layout2begin_layout):
+	\layout -> \begin_layout.
+
+2003-07-28  José Matos  <jamatos@fep.up.pt>
+
+	* lyx2lyx/lyx_convert224.py (add_end_layout): fix logic.
+
+2003-07-28  José Matos  <jamatos@fep.up.pt>
+
+	* lyx2lyx/lyx_convert224.py (add_end_layout): new file to read new format.
+
+2003-07-27  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/db_lyxmacros.inc:
+	* layouts/heb-article.layout:
+	* layouts/lyxmacros.inc:
+	* layouts/obsolete.inc:
+	* layouts/scrlttr2.layout:
+	* lyx2lyx/lyxconvert_223.py (convert_comment): remove layout Comment.
+
+2003-07-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* reLyX/configure.ac: new file
+
+	* reLyX/.cvsignore: delete configure.in, configure.ac aclocal.m4
+
+2003-07-26  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ui/stdmenus.ui: fix mnemonic for "Display Tooltips"
+
+2003-07-27  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/linuxdoc.layout: add support for tables and figures
+	(linuxdoc).
+
+2003-07-22  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenu.ui: fix up mnemonics to not clash, standardise
+	some math entries
+
+2003-07-16  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: Add Note Settings
+
+2003-07-15  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (remove_oldert): Fix handling of
+	\hfill inside ERT.
+
+2003-07-09  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* CREDITS: update.
+
+2003-07-10  John Levon  <levon@movementarian.org>
+
+	* ui/classic.ui: fix toolbars to new scheme, fix space inserts
+
+	* ui/stdmenus.ui: fix duplicate mnemonic in File menu
+
+2003-07-07  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* examples/fr_AlignementDecimal.lyx:
+	* examples/fr_CV.lyx:
+	* examples/fr_ExemplesTableaux.lyx:
+	* examples/fr_ListesPuces.lyx:
+	* examples/fr_Minipage.lyx:
+	* examples/fr_exemple_brut.lyx:
+	* examples/fr_exemple_lyxifie.lyx:
+	* examples/fr_mathed.lyx:
+	* examples/fr_splash.lyx: translation update
+	* examples/fr_MultiColonnes.lyx: suppressed
+	* examples/fr_multicol.lyx: replaces fr_MultiColonnes.lyx
+
+2003-06-24  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* images/*: rename a few icons because to follow the latest lfun
+	renaming frenzy
+
+	* configure.m4: add some code to workaround zsh incompatibilities
+	(bug 977)
+
+2003-04-15  Rod Pinna   <rodney.pinna@uwa.edu.au>
+
+	* layouts/elsart.layout: added "Proof" environment
+
+2003-06-23  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* reLyX/reLyX.in: honor variable LYX_DIR_14x
+
+2003-06-20  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/TeXFiles.sh (types): Generalise the sed that tries to
+	normalise paths /foo//bar ==> /foo/bar to work with arbitrary '///' etc
+	also.
+
+2003-06-19  Angus Leeming  <leeming@lyx.org>
+
+	* lib/bind/cua.bind:
+	* lib/bind/emacs.bind:
+	* lib/bind/xemacs.bind:
+	* lib/ui/classic.ui:
+	* lib/ui/stdmenus.ui:
+	* lib/ui/stdtoolbars.ui: replace lots of lfuns with dialog-show <name>.
+
+2003-06-17  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* ui/stdmenus.ui: add submenu "Paste Recent" to edit. Also add
+	pasterecent menu.
+
+2003-06-17  John Levon  <levon@movementarian.org>
+
+	* examples/splash.lyx: remove mention of lyxrc
+
+2003-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/fig2pdftex.sh (legacy_xfig): Extract the necessary magic
+	from epstopdf and write it as a shell function, as suggested by
+	Martin Vermeer. Means that we are not dependent on the presence of
+	epstopdf or of perl.
+
+2003-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/fig2pdftex.sh (legacy_xfig): Use epstopdf, as suggested by
+	Martin Vermeer.
+
+	* configure.m4: add $$s/ to the lyxpreview2bitmap.sh path.
+
+2003-06-11  John Levon  <levon@movementarian.org>
+
+	* ui/stdtoolbars.ui: move flags to ...
+
+	* ui/default.ui: ... Toolbars section here
+
+2003-06-11  John Levon  <levon@movementarian.org>
+
+	* ui/stdtoolbars.ui: show Extra toolbar by default
+
+2003-06-09  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: remove all references to the parameters variable.
+
+2003-06-09  José Matos  <jamatos@fep.up.pt>
+
+	* lyx2lyx/lyxconvert_215 (first_layout): new function to assure
+	that \layout is the first element in a lyx file.
+
+2003-06-07  José Matos  <jamatos@fep.up.pt>
+
+	* lyx2lyx/lyxconvert_216 (update_tabular): small fix to work with
+	csv2lyx files.
+
+2003-06-06  José Matos  <jamatos@fep.up.pt>
+
+	* lyx2lyx/lyxconvert_215 (remove_space_in_units): fix bug 763.
+
+2003-06-06  José Matos  <jamatos@fep.up.pt>
+
+	* lyx2lyx/lyxconvert_216 (update_tabular): fix bug 1045.
+
+2003-06-06  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* languages: Add country code to the lang code.
+
+2003-06-05  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: Scrap the RasterImage format.
+
+	* scripts/fig2pstex.py:
+	* scripts/pic2ascii.py:
+	* scripts/pic2png_eps.py:
+	* scripts/general_command_wrapper.py:
+	* scripts/pic2png_eps.sh:
+	* scripts/fig2png.py: removed.
+
+2003-06-04  Angus Leeming  <leeming@lyx.org>
+
+	* lyx2lyx/lyx2lyx: bump the output format to 224.
+	* lyx2lyx/lyxconvert_223.py (convert_external): new file, new function.
+	An amalgamation of suggestions from José Matos and Dekel Tsur.
+	Also converts a RasterImage External Inset to a Graphics Inset.
+
+2003-06-03  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: modify the templates to use the converter"
+	mechanism.
+
+2003-06-02  John Levon  <levon@movementarian.org>
+
+	* lyx2lyx/lyxconvert_221.py: remove insetparents
+
+2003-06-01  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4: add an extension to the dateout format or the converter
+	code fouls up.
+
+2003-06-01  John Levon  <levon@movementarian.org>
+
+	* lyx2lyx/lyxconvert_221.py: "\BibTeX" to "\bibtex" (bug 1018)
+	(from José Matos)
+
+2003-05-31  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4 (latex_to_html_command): add a bunch of formats and
+	converters that are to be used by the external inset.
+
+	* fig2pdftex.sh: make it work as a "converter".
+	* fig2pstex.sh: new file: a converter from xfig to pstex_t.
+
+2003-05-30  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: Force Normal Space -> Inter-word Space
+
+2003-05-30  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: fix capitalisation
+
+2003-05-25  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/fig2pdf.sh: renamed again as fig2pdftex.sh.
+
+2003-05-24  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: re-organise Document and Tools menus
+
+2003-05-23  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/fig2pdf.sh: new script. Capable of converts an XFIG image to
+	something that pdflatex can process into high quality PDF.
+	Works both with "modern" xfig and with older, "legacy" versions.
+
+	* scripts/fig2png.sh: removed.
+
+2003-05-23  Angus Leeming  <leeming@lyx.org>
+
+	* external_templates: add a PDFLaTeX flavour to the xfig outputs.
+	* scripts/fig2png.py: a new and very simple script.
+	* scripts/fig2png.sh: another new and rather more sophisticated script.
+
+2003-05-22  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ui/stdmenus.ui:
+	* ui/classic.ui: remove "error-next" and "error-remove-all"
+
+2003-05-22  John Levon  <levon@movementarian.org>
+
+	* ui/stdtoolbars.ui: fix default toolbars
+
+2003-05-22  John Levon  <levon@movementarian.org>
+
+	* bind/cua.bind: fix space insert
+
+2003-05-21  José Matos  <jamatos@fep.up.pt>
+
+	* lyx2lyx/lyxconvert_221.py: convert \SpecialChar ~
+
+2003-05-20  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* bind/cua.bind:
+	* bind/emacs.bind:
+	* bind/yemacs.bind:
+	* bind/latinkeys.bind:
+	* ui/stdmenus.ui: new space insets
+
+2003-05-20  John Levon  <levon@movementarian.org>
+
+	* ui/stdtoolbars.ui: s/Paragraph Style/Paragraph Settings/
+
+2003-05-16 André Pönitz <poenitz@gmx.net>
+
+	* ui/*: re-indent according to LyX style
+
+2003-05-07  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: we can use _R_edo
+
+2003-05-02  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* chkconfig.ltx: add layout even if the TeX class is missing;
+	introduce a forth field in the textclass.lst file that
+	keeps track whether the TeX class is available
+
+2003-05-03  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: Child Document not Child document
+
+	* bind/xemacs.bind: fix insert graphics binding
+
+2003-05-02 André Pönitz <poenitz@gmx.net>
+
+	* layouts/*: re-indent according to LyX style
+
+2003-04-30  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* layouts/llncs.layout: remove Chapter and Mail layouts (did not
+	work). Add Email layout
+
+2003-04-30  John Levon  <levon@movementarian.org>
+
+	* default.ui: replace with new layout. Move old layout to ...
+
+	* classic.ui: ...here
+
+2003-04-26  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: Make table settings use old layout-tabular LFUN
+
+2003-04-26  John Levon  <levon@movementarian.org>
+
+	* ui/stdmenus.ui: remove shortcuts for cut,copy,paste
+	to allow better shortcuts for the other options. Use
+	new inset-settings. Disable "inset-toggle" for now.
+	Re-organise Insert menu, and back out the Note submenu.
+
+2003-04-15  John Levon  <levon@movementarian.org>
+
+	* ui/stdtoolbars.ui:
+	* ui/stdmenus.ui: split out from new.ui
+
+	* ui/new.ui: use Include
+
+2003-04-15  John Levon  <levon@movementarian.org>
+
+	* ui/new.ui: add new ui for testing
+
+2003-04-15  John Levon  <levon@movementarian.org>
+
+	* ui/default.ui: add toolbar placement flags,
+	and Minibuffer
+
+2003-04-11  Rob Lahaye  <lahaye@users.sourceforge.net>
+
+	* configure.m4: add another Grace conversion from agr to ppm.
+
+2003-04-10  John Levon  <levon@movementarian.org>
+
+	* ui/default.ui: Add visibility tag to toolbars
+
+	* BufferView_pimpl.C: updateToolbar on mouse click
+
+	* ToolbarBackend.h:
+	* ToolbarBackend.C: handle toolbar on/off settings
+
+2003-04-10  John Levon  <levon@movementarian.org>
+
+	* images/: new icons, mostly taken from kdeart
+
+2003-04-09  John Levon  <levon@movementarian.org>
+
+	* ui/default.ui: add a name for the toolbar
+
+2003-04-08  John Levon  <levon@movementarian.org>
+
+	* ui/default.ui: add tooltips for toolbar items,
+	s/Icon/Item
+
+2003-04-03  Tomasz Luczak <tlu@technodat.com.pl>
+
+	* layouts/mwbk.layout: small fix
+
+2003-04-02  John Levon  <levon@movementarian.org>
+
+	* bind/math.bind: tab lfun changed
+
+2003-04-01  John Levon  <levon@movementarian.org>
+
+	* lyx2lyx/lyxconvert_218.py: fix reading of subcaption texts
+
+2003-03-29  John Levon  <levon@movementarian.org>
+
+	* images/psnfss1.xpm:
+	* images/psnfss2.xpm:
+	* images/psnfss3.xpm:
+	* images/psnfss4.xpm:
+	* images/standard.xpm:
+	* images/amssymb.xpm: make transparent
+
+2003-03-28  John Levon  <levon@movementarian.org>
+
+	* ui/default.ui: fix dupe accelerator for change tracking
+
+2003-03-28  John Levon  <levon@movementarian.org>
+
+	* bind/sciword.bind:
+	* bind/math.bind: remove math-greek*
+
+2003-03-27  John Levon  <levon@movementarian.org>
+
+	* bind/cua.bind: add MS Word's "track changes" shortcut
+
+2003-03-24  John Levon  <levon@movementarian.org>
+
+	* symbols: add bmod function
+
+2003-03-14  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* templates/revtex4.lyx:
+	* templates/latex8.lyx: fix bad info insets
+
+2003-03-14  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (remove_pextra): Fix conversion of
+	minipages that contains tabulars.
+
+	* lyx2lyx/lyx2lyx (main): Handle development version files
+
+2003-03-12  Angus Leeming  <leeming@lyx.org>
+
+	* images/font-free.xpm: renamed as font-free-apply.xpm.
+
+	* ui/default.ui: s/font-free/font-free-apply/
+
+2003-03-12  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyx2lyx (main): Print error messages to stderr.
+
+	* lyx2lyx/lyxconvert_218.py (change_infoinset): Convert correctly
+	notes with several lines and backslashes.
+
+2003-03-12  John Levon  <levon@movementarian.org>
+
+	* lyx2lyx/lyxconvert_221.py: add \\end_header
+
+2003-03-11  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (change_infoinset): Convert Info insets
+	to Note insets.
+
+2003-03-11  Matej Cepl  <matej@ceplovi.cz>
+
+	* layouts/scrlttr2.layout: add Comment layout
+
+2003-03-10  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* configure.m4: fix the tgif converters
+
+2003-03-10  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.sh: use variables for the names of
+	'latex', 'dvips', 'gs' and 'pnmcrop' and move their definition to
+	the top of the script.
+
+	* scripts/lyxpreview2bitmap.sh: enable BAIL_OUT to print a message.
+
+2003-03-10  Angus Leeming  <leeming@lyx.org>
+
+	* images/graphics-insert.xpm: rename as
+	dialog-show-new-inset_graphics.xpm.
+
+2003-03-05  Angus Leeming  <leeming@lyx.org>
+
+	* ui/default.ui: use 'dialog-show-new-inset "graphics"' instead
+	of graphics-insert'.
+
+2003-03-06  Serge Winitzki  <serge@cosmos.phy.tufts.edu>
+
+	* bind/sciword.bind: update for 1.3.x
+
+2003-03-06  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* ui/default.ui: Add item for split env.
+
+2003-03-05  Angus Leeming  <leeming@lyx.org>
+
+	* ui/default.ui: use 'dialog-show-new-inset "external"' instead
+	of 'external-insert'.
+	use "dialog-show-new-inset include" instead of "buffer-child-insert".
+
+2003-03-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* doc/LaTeXConfig.lyx.in: really get rid of iletter description
+
+2003-03-03  PAP  <papasot@pythagoras.physics.upatras.gr>
+
+	* layouts/kluwer.layout: update for 1.3.x compatibility
+
+	* layouts/ijmpd.layout: re-add, since it only made it to 1.2.x.
+
+	* doc/LaTeXConfig.lyx.in: add ijmpd
+
+2003-02-28  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* layouts/llncs.layout: do not forget to define floats too
+
+2003-02-27  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* examples/fr_Foils.lyx: new translation of example
+
+2003-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* ui/default.ui: use the new 'dialog-show-new-inset "name"' instead
+	of 'citation-insert', 'reference-insert' and 'bibtex-insert'.
+
+2003-02-25  Angus Leeming  <leeming@lyx.org>
+
+	* reLyX/BasicLyX.pm (regularizeLatexLength, getAsLyXLength):
+	make a valid LaTeX length understandable to LyX.
+
+2003-02-21 André Pönitz <poenitz@gmx.net>
+
+	* examples/de_beispiel_roh.lyx: Small fixes to make it look like a
+	  German document
+
+2003-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* CREDITS: Add Alfredo Braunstein.
+
+2003-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* ui/default.ui: change bibkey-insert to bibtem-insert.
+
+2003-02-18  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* layouts/scrclass.inc:
+	* layouts/scrarticle.layout: KOMA update
+
+2003-02-17  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* templates/koma-letter2.lyx:
+	* layouts/scrlttr2.layout: new KOMA letter class
+	* doc/LaTeXConfig.lyx.in: document this.
+
+2003-02-17  André Pönitz <poenitz@gmx.net>
+
+	* layouts/*: Item_Environment -> Bib_Environment for Bibliography
+
+2003-02-14  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* chkconfig.ltx: information is in LaTeXConfig.lyx, not
+	LyXConfig.lyx
+
+	* configure.m4: fix detection of fax programs
+
+2003-02-14  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* scripts/TeXFiles.sh: Add search for *.bib-files (>bibFiles.lst)
+	changed version to 0.3.
+
+2003-02-11  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* templates/elsart.lyx:
+	* layouts/elsart.layout: new class, adapted from work of Herbert
+	Voss and Rod Pinna
+
+2003-02-12  Tomasz Luczak  <tlu@technodat.com.pl>
+
+	* layouts/mwart.cls:
+	* layouts/mwbk.cls:
+	* layouts/mwrep.cls: new classes. Adaptation of the base classes
+	to polish typographical conventions.
+
+2003-02-11  Angus Leeming  <leeming@lyx.org>
+
+	* reLyX/MakePreamble.pm: Output an accurate decription of what created
+	the file.
+
+	* reLyX/syntax.default: fix typo spotted by JMarc.
+
+2003-02-11  Angus Leeming  <leeming@lyx.org>
+
+	* reLyX/BasicLyX.pm: Do as LyX does: wrap the minipage width and
+	height output in inverted commas and strip the space from "4.5 cm".
+	Factorise the code by defining sub getAsLyXLength.
+
+2003-02-11  Angus Leeming  <leeming@lyx.org>
+
+	* reLyX/BasicLyX.pm: add support for minipages. The inner-pos optional
+	argument is currently parsed but ignored because I'm not sure how
+	LyX wants it.
+	Known bug: if the paragraph ends '\end{minipage}%', then the '%'
+	causes the next paragraph to be concatenated with this one. This is
+	a generic reLyX bug that I'll try and track down.
+
+2003-02-10  Angus Leeming  <leeming@lyx.org>
+
+	* reLyX/syntax.default: fix natbib commands that LyX will only allow
+	a single optional arg for.
+
+2003-02-08  John Levon  <levon@movementarian.org>
+
+	* chkconfig.ltx: look for dvipost package
+
+	* configure.m4: look for and prefer pplatex
+
+	* ui/default.ui: Add change tracking menu items
+
+2003-02-07  Tomasz Luczak  <tlu@technodat.com.pl>
+
+	* kbd/polski.kmap: new keymap, which assumes that you have a
+	non-Polish keyboard.
+
+2003-02-07  Angus Leeming  <leeming@lyx.org>
+
+	* BasicLyX.pm: enable reLyX to recognise natbib citations.
+
+	* MakePreamble.pm: if '\usepackage{natbib}' is found, activate
+	LyX's natbib support.
+
+	* reLyX/syntax.default: add natbib citation commands.
+
+2003-02-07  Angus Leeming  <leeming@lyx.org>
+
+	* lyx2lyx/lyx2lyx: enable the debug level to be set.
+
+	* reLyX/BasicLyX.pm, reLyX/CleanTeX.pm, reLyX/Verbatim.pm: pass
+	$...$ and $$...$$ through reLyX unchanged.
+
+	* reLyX/RelyxTable.pm: provide support for 'm' column descriptors.
+
+	* reLyX/Text/TeX.pm: fix the $macro regex so that it recognises
+	that \) is a valid token but that \)* is a token and a '*'.
+
+	* reLyX/syntax.default: no need to translate symbols that mathed
+	can handle natively.
+
+2003-02-04  Joao Luis Meloni Assirati  <assirati@fma.if.usp.br>
+
+	* images/math/rbracket.xpm: new file.
+
+2003-02-04  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* Makefile.am (IMAGES): install banner.ppm
+
+2003-02-04  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/db_stdclass.inc:
+	* layouts/linuxdoc.layout:
+	* layouts/manpage.layout: add minimal support for counters.
+
+2003-02-02  Angus Leeming  <leeming@lyx.org>
+
+	* reLyX/RelyxTable.pm: add paranoia check that array bounds are valid.
+
+2003-01-28  Edwin Leuven <e.leuven@uva.nl>
+
+	* layouts/amsbook.layout:
+	* layouts/amsart.layout: get address working
+
+2003-01-22  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* layouts/cv.layout:
+	* layouts/egs.layout: do not use Include but Input
+
+	* layouts/llncs.layout: do not CopyStyle Journal, which does not
+	exist.
+
+2003-01-20  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* reLyX/reLyXmain.pl: fixes the problem where a directory has
+	the same name as a TeX file.
+
+2003-01-17  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* lib/examples/*.lyx:
+	* lib/templates/*.lyx: convert to format 221.
+
+2003-01-17  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (change_listof): Handle reLyX files.
+
+2003-01-15  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ui/default.ui: re-add ellipsis on some menu entries
+
+2003-01-15  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* symbols: Fix \Box, \Diamond, \cong, and \surd.
+
+2003-01-15  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* reLyX/MakePreamble.pm (translate_preamble):
+	Fix bug 815, do not output \makeindex.
+
+2003-01-15  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* lyx2lyx/lyxconvert_218.py(remove_figinset):
+	Fix bug 816, make function more robust.
+
+2003-01-13  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/convertDefault.sh: make it return the exit status of the
+	convert program.
+
+2003-01-13  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* doc/LaTeXConfig.lyx.in: document AGU and EGS classes
+
+2003-01-12  Michael Schmitt <michael.schmitt@teststep.org>
+
+	* configure.m4: Replace fig/tgif/agr->xpm converters by
+	fig/tgif/agr->ppm/jpeg converters
+
+2003-01-12  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (EXTRA_DIST): fix for distcheck
+
+2003-01-06  Angus Leeming  <leeming@lyx.org>
+
+	* configure.m4: added a few graphics formats (gif, jpg etc).
+
+	* images/banner.xpm: removed.
+	* images/banner.ppm: Re-create the LyX banner in ppm format.
+
+2003-01-10  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* layouts/jgrga.layout:
+	* layouts/aguplus.inc: new class for the AGU Journal of
+	Geophysical Research
+
+2003-01-08  José Abílio Oliveira Matos  <jamatos@lyx.org>
+
+	* lyx2lyx/parser_tools.py (get_value): make it robust to the
+	no argument case.
+
+2003-01-07  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* bind/xemacs.bind:
+	* bind/emacs.bind: move keypad bindings later so that the binding
+	for "copy" shown in menus is not C-KP_Insert
+
+2003-01-07  José Abílio Oliveira Matos  <jamatos@lyx.org>
+
+	* lyx2lyx/lyx2lyx.py: trims whitespace from header if not in preamble.
+
+2003-01-07  José Abílio Oliveira Matos  <jamatos@lyx.org>
+
+	* lyx2lyx/lyxconvert_217.py: accept tag attributes without quotes.
+
+2003-01-07  José Matos  <jamatos@fep.up.pt>
+
+	* lyx2lyx/lyxconvert_217.py: change bool_table to a function,
+	becoming more liberal regarding the accepted values.
+
+2003-01-06  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.sh: don't use 'which' to find an
+	executable. Use 'type'.
+
+2003-01-05  John Levon  <levon@movementarian.org>
+
+	* lyx2lyx/lyxconvert_215.py: handle \lyxrcsid, \lyxvcid, \cursor
+
+2003-01-04  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_220.py: Fix alignment of fixed width columns.
+
+2002-12-23  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* layouts/cl2emult.layout:
+	* layouts/broadway.layout:
+	* layouts/hollywood.layout: remove spurious spaces
+
+2002-12-20  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* mathed.lyx: Removed big delimiters table as they are not symbols.
+	Removed the instructions on adding the xfonts dir to the fontpath.
+
+	* symbols: Fix \psi, \leftarrow, \rightsquigarrow, and \varsubsetneq
+
+2002-12-18  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* Makefile.am (install-xfonts): do not use "ln -sf" since some
+	solaris versions do not like it. "ln -f -s" is better.
+
+2002-12-17  John Levon  <levon@movementarian.org>
+
+	* configure.m4: back out LaTeX viewer again
+
+2002-12-09  André Pönitz <poenitz@gmx.net>
+
+	* symbols: support for \implies and \dots
+
+2002-12-04  Jean-Marc Lasgouttes  <jean-marc.lasgouttes@inria.fr>
+
+	* configure.m4: remove epsi format
+
+2002-11-22  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* bind/sciword.bind: big update: use menus.bind and maths.bind and
+	make sure we do not use accent-vector
+
+2002-11-25  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* kbd/arabic.kmap: Fix map (patch from Isam Bayazidi).
+
+2002-11-21  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.sh: Don't use "if [ $? -ne 0 ]; then..."
+
+2002-11-20  John Levon  <levon@movementarian.org>
+
+	* images/math/: implement missing math icons
+
+2002-11-20  John Levon  <levon@movementarian.org>
+
+	* images/math/: renames for stupid OSes
+
+2002-11-15  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* lib/ru_splash.lyx: update from Vitaly Lipatov
+
+2002-11-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* configure.m4 (removing font links): use -f not -r
+
+2002-11-01  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* layouts/llncs.layout: Remove layouts that don't exist in llncs.cls.
+
+2002-10-31  John Levon  <levon@movementarian.org>
+
+	* external_templates: small tweak for clarity
+
+2002-10-30  John Levon  <levon@movementarian.org>
+
+	* ui/default.ui: re-add table-like commands to math, and
+	  some minor fixes
+
+2002-10-29  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* configure.m4: Remove files in ~/.lyx/xfonts if fonts.dir was erased.
+
+2002-10-28  John Levon  <levon@movementarian.org>
+
+	* CREDITS: fix Rob's entry
+
+2002-10-28  André Pönitz <poenitz@gmx.net>
+
+	* CREDITS: add Geoffroy Piroux
+
+	* reLyX/reLyX.man:
+	  reLyX/reLyX.pod:
+	  reLyX/syntax.default: to not change too much math stuff anymore
+
+2002-10-24  John Levon  <levon@movementarian.org>
+
+	* images/math/: use black for visibility (from Edwin)
+
+2002-10-24  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* layouts/llncs.layout: Fix the Bibliography layout
+
+2002-10-24  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* layouts/many layout files: add stdfloats and stdcounters
+
+2002-10-24  André Pönitz <poenitz@gmx.net>
+
+	* layout/scrclass.inc: use stdcounters.inc
+
+2002-10-23  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* kbd/koi8-u.kmap: Fix crash when using the map.
+
+2002-10-23  Gady Kozma  <gadykozma@yahoo.com>
+
+	* examples/he_example_raw.lyx:
+	* examples/he_he_example_lyxified.lyx:
+	* examples/he_he_example_raw.lyx: examples for the hebrew tutorial
+
+2002-10-22  André Pönitz <poenitz@gmx.net>
+
+	* ui/default.ui: use 'math-matrix' instead of 'math-insert matrix'
+
+2002-10-21  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* symbols: Handle \not using a macro.
+
+2002-10-21  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* layouts/foils.layout: add more layouts
+
+2002-10-18  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.sh: Use pnmcrop to crop the images
+	if so desired.
+
+2002-10-16  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* configure.m4: add mozilla as default previewer for html
+
+2002-10-14  André Pönitz <poenitz@gmx.net>
+
+	* ui/default.ui: support for flalign
+
+2002-10-11  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (remove_oldert): Fix bug.
+
+	* lyx2lyx/parser_tools.py (get_paragraph, get_next_paragraph):
+	Make the code more
+
+	* configure.m4: Use -dCompatibilityLevel=1.3 with ps2pdf
+	Add a check for kdeprintfax.
+
+2002-10-11  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* bind/emacs.bind: add bindings for M-< and M->
+
+2002-10-09  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py: Combine ert insets only when they are
+	in the Standard layout.
+
+2002-10-05  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (fix_oldfloatinset): Search for
+	"\begin_inset Float " to avoid matching "\begin_inset FloatList".
+
+2002-10-01  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py: Handle end_deeper "inside" ERT.
+	(remove_oldert): Fix for ERT inside tabulars.
+	(change_listof): New function. Convert LatexCommand inset to
+	FloatList inset.
+	(fix_oldfloatinset): New function. Add "wide false" to float insets.
+
+2002-09-25  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* Makefile.am: Patch from Georg Baum for installing lyx2lyx files.
+
+2002-09-17  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* layouts/lyxmacros.inc: Patch from Gady Kozma.
+
+2002-09-15  John Levon  <levon@movementarian.org>
+
+	* images/math/: add icons for delimiters
+
+2002-09-12  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (remove_oldfloat): Convert floatingfigure.
+	(remove_oldminipage): Simplified.
+
+2002-09-10  José Matos  <jamatos@fep.up.pt>
+
+	* scripts/*.py: changed all header to
+	#! /usr/bin/env python
+	so that python's path is no longer hardcoded.
+
+2002-09-08  John Levon  <levon@movementarian.org>
+
+	* images/math/: add dots XPMs
+
+2002-09-07  John Levon  <levon@movementarian.org>
+
+	* ui/default.ui: add depth-decrement too as discussed
+
+2002-09-06  Angus Leeming  <leeming@lyx.org>
+
+	* CREDITS: add Pablo De Napoli, formerly languishing in the
+	math panel headers.
+
+2002-09-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* layouts/stdcounters.inc: new file
+
+	* layouts/stdclass.inc: include standard counters
+
+2002-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.sh: augment the preliminary blurb, as
+	suggested by André.
+
+2002-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2bitmap.sh: rename lyxpreview2ppm.sh as this.
+	The new script takes an extra argument specifying the desired
+	output format, ppm or png.
+
+	* configure.m4: associated changes.
+
+2002-09-04  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2ppm.sh: output gs filenames as %d, not %Nd where N
+	is some input value.
+
+2002-09-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* layouts/stdclass.inc: include stdfloats.h
+
+	* layouts/stdfloats.inc: new file
+
+2002-09-03  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2ppm.sh: test expects integer arguments.
+	${RESOLUTION} may be a float. Truncate it.
+
+2002-09-03  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (update_tabular): Prevent changing
+	of non-tabular lines.
+
+2002-09-03  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2ppm.sh: fix crash reported by Norbert Koksch when
+	generating more than 999 preview snippets by passing and using the
+	number of digits needed by the filenames generated by gs.
+
+2002-09-03  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2ppm.sh: re-written to make use of the "lyx"
+	option parsed by preview.sty v 0.73.
+
+2002-08-31  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (update_tabular): Work with nested tabulars
+
+2002-08-29  John Levon  <levon@movementarian.org>
+
+	* images/math/: add AMS nrel
+
+2002-08-29  John Levon  <levon@movementarian.org>
+
+	* images/: add math sub/super script
+
+	* images/math/: add \brace, \vec etc.
+
+2002-08-29  John Levon  <levon@movementarian.org>
+
+	* Makefile.am: install mathed icons
+
+2002-08-29  John Levon  <levon@movementarian.org>
+
+	* images/math/: add all icons except AMS nrel
+
+2002-08-29  John Levon  <levon@movementarian.org>
+
+	* images/math/: add most of the normal XPMs
+
+2002-08-28  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* lyx2lyx/lyx2lyx: add new format number "221"
+
+2002-08-25  John Levon  <levon@movementarian.org>
+
+	* images/find-replace.xpm: add
+
+2002-08-23  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.m4: fix epsi->eps converter
+
+	* ui/default.ui: add menu entry for optional-insert
+
+	* CREDITS: update Martin's entry
+
+2002-08-20  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* layouts/stdlayouts.inc:
+	* layouts/stdsections.inc:
+	* layouts/stdstarsections.inc: aded OptionalArgs tags to the
+	relevant layouts
+
+2002-08-21  André Pönitz <poenitz@gmx.net>
+
+	* ui/default.ui: adjust to "tabular unification"
+
+2002-08-15  Juergen Spitzmueller <j.spitzmueller@gmx.de>
+
+	* bind/de_menus.bind: cleanup shortcuts for section layouts. Starred
+	versions are now obtained by prepending a * to the section number
+	(similar to the new behaviour in menus.bind); add binding for \part.
+
+2002-08-15  John Levon  <levon@movementarian.org>
+
+	* scripts/convertDefault.sh: use /bin/sh not /bin/bash
+
+2002-08-15  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* doc/LaTeXConfig.lyx.in: add description of cl2emult class
+
+	* bind/math.bind: add bindings to insert \Lambda and \Psi (bug #564)
+
+2002-08-15  André Pönitz <poenitz@gmx.net>
+
+	* layouts/cl2emult.layout: new file Springer's cl2emult textclass
+
+2002-08-10  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/parser_tools.py (get_paragraph): Fixed.
+
+	* lyx2lyx/lyxconvert_218.py (convert_ertinset): Remove font commands.
+
+2002-08-08  Herbert Voss  <voss@perce.de>
+
+	* ui/default.ui: put gather into math menu
+
+2002-08-07  John Levon  <levon@movementarian.org>
+
+	* images/layout_LaTeX.xpm: remove - obsolete
+
+2002-08-05  John Levon  <levon@movementarian.org>
+
+	* images/dialog-tabular-insert.xpm: remove unneeded xpm
+
+2002-08-05  John Levon  <levon@movementarian.org>
+
+	* ui/default.ui:
+	* bind/xemacs.bind: back to tabular-insert
+
+2002-08-03  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py (remove_oldert): Few fixes.
+
+	* lyx2lyx/lyx2lyx: Change the comment at the top of the lyx file
+
+2002-08-02  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* lyx2lyx/lyxconvert_218.py: Convert ERT and figinsets.
+
+2002-07-30  André Pönitz <poenitz@gmx.net>
+
+	* configure.m4:
+	* ui/default.ui: make math-extern a bit more visible in Edit->Math
+
+	* bind/math.bind: remove some strange bindings for Ø and Å
+
+2002-07-30  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2ppm.sh: rename bbox.sed so that multiple runs
+	don't get confused.
+
+2002-07-24  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* examples/fr_CV.lyx:               new file
+	* examples/fr_ExemplesTableaux.lyx:
+	* examples/fr_ListesPuces.lyx:
+	* examples/fr_mathed.lyx:           update
+
+2002-07-18  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2ppm.sh: more efficient RE and change to '' so that
+	the shell does not escape "\\".
+
+2002-07-22  Herbert Voss  <voss@lyx.org>
+
+	* scripts/convertDefault.sh: defines a converter which is used
+	when no userdefined was found
+
+2002-07-20  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ui/default.ui: cleanup after change of Menu syntax. the
+	foo_nobuffer menus are gone
+
+	* bind/sv_menus.bind:
+	* bind/sciword.bind: remove some cruft
+
+	* tex/iletter.cls:
+	* layout/iletter.layout:
+	* templates/iletter.lyx: removed all traces of the iletter bundle
+	and put it on the contrib/ area of our ftp site
+
+2002-07-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.m4: fix definition of the lyxpreview2ppm converter;
+	add ppm format. All should work out of the box now, even though
+	all may not be pretty
+
+2002-07-18  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2ppm.sh: clean-up. Get it to work with
+	scary_eqns.lyx.
+
+2002-07-17  André Pönitz <poenitz@gmx.net>
+
+	* configure.m4: fix typo in last change
+	* symbols: add \hbar
+
+2002-07-17  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* bind/menus.bind: fix bindings using asterisk to ignore shift
+	modifier
+
+2002-07-16  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.m4: add formats fig and epsi
+
+2002-07-16  Andrew Zabolotny  <zap@cobra.ru>
+
+	* bind/emacs.bind:
+	* bind/xemacs.bind:
+	* bind/sciword.bind:
+	* bind/cua.bind: include greekkeys and cyrkeys bindings
+
+	* bind/greekkeys.bind:
+	* bind/cyrkeys.bind: bindings to enter cyrillic and greek
+	characters directly from keyboard
+
+2002-07-16  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* bind/menus.bind: cleanup shortcuts for section layouts. Starred
+	versions are now obtained by prepending a * to the section number
+	(M-p asterisk 0 .. M-p asterisk 6)
+
+	* images/banner.xpm.orig: remove
+
+2002-07-15  Soeren Pietsch  <SPietsch@gmx.de>
+
+	* lib/configure.m4: fix the detection of cygwin when the shell is
+	not bash
+
+2002-07-12  Angus Leeming  <leeming@lyx.org>
+
+	* lyxpreview2ppm.sh: use the pnmraw device in preference to pnm.
+
+2002-07-12  André Pönitz <poenitz@gmx.net>
+
+	* ui/default.ui: add menu for font changes
+	* symbols: add textt
+
+2002-07-10  Andrew Zabolotny  <zap@cobra.ru>
+
+	* bind/emacs.bind:
+	* bind/xemacs.bind:
+	* bind/sciword.bind:
+	* bind/cua.bind: better support for selection from numeric keypad
+
+	* kbd/cp1251.cdef:
+	* kbd/ibm866.cdef:
+	* kbd/koi8-r.cdef:
+	* kbd/koi8-t.cdef:
+	* kbd/koi8-u.cdef: new encoding definitions
+
+2002-07-10  John Levon  <moz@compsoc.man.ac.uk>
+
+	* bind/sciword.bind: disable M-x c to allow M-x
+
+2002-07-09  Angus Leeming  <leeming@lyx.org>
+
+	* lyxpreview2ppm.sh: don't use latex option "-interaction=batchmode"
+	as it's not portable apparently.
+
+2002-07-09  André Pönitz <poenitz@gmx.net>
+
+	* symbols: use it to define insets, too
+	* configure.m4:
+	* symbols: wasy symbols added
+
+2002-07-08  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2ppm.sh: added blurb. Crop the images to the
+	left and right if so desired.
+
+2002-07-08  André Pönitz <poenitz@gmx.net>
+
+	* symbols: more stuff missing from the Porto changes
+
+2002-07-05  Angus Leeming  <leeming@lyx.org>
+
+	* scripts/lyxpreview2ppm.sh: added.
+	* scripts/lyxpreview2xpm: removed.
+
+2002-06-19 Herbert Voss  <voss@perce.de>
+
+	* configure.m4: add converters for epsi and (x)fig
+
+2002-07-03  Vitaly Lipatov  <LAV@VL3143.spb.edu>
+
+	* languages: add support for belarusian and kazakh
+
+	* encodings: add pt154
+
+2002-06-27  André Pönitz <poenitz@gmx.net>
+
+	* configure.m4: add support for lyxpreview "format"
+
+	* scripts/lyxpreview2xpm: add file
+
+2002-06-25  André Pönitz <poenitz@gmx.net>
+
+	* symbols: special characters
+
+2002-06-23  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* layouts/heb-article.layout: Fix due to \usepackage{babel}
+	position change in lyx 1.2.0.
+
+2002-06-21  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ui/default.ui: fix ellipses
+
+2002-06-20  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ui/default.ui: remove Index Entry of last word
+
+	* ui/old-default.ui: remove
+
+2002-06-19  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* examples/mathed.lyx: Remove obsolete part.
+
+2002-06-17 Herbert Voss  <voss@perce.de>
+
+	* configure.m4: install only those converters which are different
+	to convert, because this is taken as the default. SO we can get
+	rid of all problems when user do not have installed the right
+	converters.
+
+2002-06-16  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* examples/fr_ExemplesTableaux.lyx: update
+	* examples/fr_mathed.lyx: new file
+
+2002-06-10  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.m4: change tgif file extension to .obj, as it should
+	have been
+
+2002-06-06  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* examples/TableExamples.lyx: fix footnotes inside tables
+	(bug 442)
+
+2002-06-05  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* external_templates: change the requirements of the xfig and
+	rasterimage templates to "graphicx" instead of "graphics".
+
+2002-05-30  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* templates/IEEEtran.lyx: update to 1.2.0 format from Michael
+	Schmitt
+
+	* reLyX/reLyX.in: honor variable LYX_DIR_13x
+
+2002-05-29  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.m4: fix handling of --with-version-suffix, so that
+	reLyX is still found. (bug #357)
+
+2002-05-28  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* layouts/hollywood.layout: fix style "FADE_OUT:"
+
+2002-05-28  John Levon  <moz@compsoc.man.ac.uk>
+
+	* images/buffer-new.xpm: icon from Vitaly Lipatov
+
+2002-05-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* CREDITS: kill mention of KDE
+
+2002-05-23  André Pönitz <poenitz@gmx.net>
+
+	* autocorrect: new file
+
+2002-05-03  Claus Hindsgaul  <claus_h@image.dk>
+
+	* examples/da_splash.lyx: revised
+
+2002-04-26  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (DISTCLEANFILES): don't use -r
+	(distclean-local): new target
+
+2002-04-25  Rob Lahaye  <lahaye@users.sourceforge.net>
+
+	* configure.m4: use gracebat instead of xmgrace in the Grace converters
+	to make the conversion independent of the availability of an Xserver
+
+2002-04-25  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* doc/ExternalMaterial.lyx: remove, since it has been included in
+	Customization.lyx
+
+2002-04-24  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Makefile.am: do not set M4 explicitely
+
+2002-04-24  Rob Lahaye  <lahaye@users.sourceforge.net>
+
+	* configure.m4: add 'convert XPM to EPS', add more Grace conversions
+	and change tab to double space indentation in conversion section
+
+2002-04-23  Mike Ressler  <mike.ressler@alum.mit.edu>
+
+	* layouts/aastex.layout: add ProvidesNatbib
+
+	* templates/aastex.lyx: convert to format 220
+
+2002-04-23  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* examples/*.lyx: convert many files to format 220, _except_
+	aa_sample and aas_sample, for which I do not have the textclass
+
+	* templates/*.lyx: convert a few files to format 220
+
+2002-04-11  Rob Lahaye  <lahaye@users.sourceforge.net>
+
+	* layouts/revtex4.layout: fix tilde-output in URL and Email insets.
+
+2002-04-11  Guenter Milde  <g.milde@physik.tu-dresden.de>
+
+	* doc/LaTeXConfig.lyx.in: add description for spie class.
+
+	* spie.layout: new class
+
+2002-04-10 Herbert Voss  <voss@perce.de>
+
+	* configure.m4: correct entry for grace graphic format
+
+2002-04-10 Herbert Voss  <voss@perce.de>
+
+	* CREDITS: correct email
+
+2002-04-05  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* kbd/european.kmap: "euro" and "oe" used kmod instead of kmap
+	* examples/currency.lyx: rewritten
+
+2002-04-05  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* reLyX/acinclude.m4 (RELYX_CHECK_PERL): improve search for perl.
+
+2002-04-06  André Pönitz <poenitz@gmx.de>
+
+	* bind/math.bind: shortcut for \psi
+
+	* examples/de_beispiel_gelyxt.lyx: fix quotes
+
+2002-04-06  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (LYXLIBDIRS): xfonts should not be named here
+
+	* bind/sv_menus.bind: change RightAddress to Right_Address
+	* bind/de_menus.bind: ditto
+	* bind/fi_menus.bind: ditto
+	* bind/menus.bind: ditto
+	* bind/pt_menus.bind: ditto
+
+2002-04-05  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* examples/fr*.lyx: updated to 1.2.0 format
+
+2002-04-04  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* .cvsignore: add xfonts
+
+	* languages: add Basque
+
+2002-04-02  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* CREDITS: add Pauli Virtanen and Adrien Rebollo
+
+	* Makefile.am (install-xfonts): remove some debug output
+
+2002-04-01  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* reLyX/Makefile.am (install-data-local): fix variable usage
+	(uninstall-local): ditto
+
+	* CREDITS: add Claus Hindsgaul
+
+2002-03-28  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* layouts/kluwer.layout: remove TocDepth tag
+
+2002-03-27 Herbert Voss <voss@perce.de>
+
+	* layouts/ltugboat.layout:
+	* layouts/dtk.layout: new layouts.
+
+	* doc/LaTeXConfig.lyx.in: add description for layouts
+	dtk and ltugboat
+
+2002-03-27  Marco Morandini  <morandini@aero.polimi.it>
+
+	* configure.m4: fix grace to eps converter
+
+2002-03-19  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* examples/listerrors.lyx: Fixed to run with python-1.5 as well
+	as with latest python-2.2
+
+	* scripts/listerrors: Re-generated from listerrors.lyx
+
+2002-03-25  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Makefile.am (install-xfonts): fix the target when no X fonts
+	have been found.
+	General: do not use $$(foo) instead of $${foo} for shell variables!
+
+2002-03-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Minipage.lyx:
+	* TableExamples.lyx:
+	* amsart-test.lyx:
+	* amsbook-test.lyx:
+	* examples/ca_splash.lyx:
+	* examples/da_splash.lyx:
+	* examples/decimal.lyx:
+	* examples/mathed.lyx:
+	* examples/multicol.lyx:
+	* examples/splash.lyx: update to 220
+
+	* Makefile.am (install-xfonts): force link
+
+2002-03-20  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ui/default.ui: Change "What's this?" to "Tooltips".
+
+2002-03-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* create_fonts_dir:
+	* fonts-xlfd: removed
+
+	* configure.m4: add a replacement for the create_fonts_dir script.
+	This one checks for ttf fonts too. The font links are created in
+	the xfonts/ directory. If running outside libdir, the script
+	checks whether fonts.dir is different from the system-wide one and
+	removes it if it is not.
+
+	* Makefile.am (install-xfonts): new target to install the X font
+	directory
+
+	* layouts/svjour.inc: remove ProvidesAmsMath
+
+2002-03-19  Kayvan A. Sylvan <kayvan@sylvan.com>
+
+	* examples/listerrors.lyx:
+	* scripts/listerrors: new files
+
+	* Makefile.am: Removed build-listerrors cruft.
+
+2002-03-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ui/default.ui: small cleanup: move Tex info and childs to View,
+	remove Edit>Floats menu, fix a few shortcuts.
+
+2002-03-18  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* images/depth-increment.xpm:
+	* images/depth-decrement.xpm: new icons
+
+	* images/footnote-insert.xpm:
+	* images/marginalnote.xpm: small facelift
+
+	* images/depth-next.xpm:
+	* images/marginpar-insert.xpm: removed
+
+	* bind/sv_menus.bind:
+	* bind/sciword.bind:
+	* ui/old-default.ui:
+	* ui/default.ui: replace depth-next with depth-increment
+
+2002-03-14  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* examples/Literate.lyx: Small fix to make sure build-listerrors
+	still works.
+
+2002-03-14  Allan Rae  <rae@lyx.org>
+
+	* bind/sv_menus.bind:
+	* bind/xemacs.bind: figure inset replaced by graphics inset
+
+2002-03-12  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* examples/Literate.lyx: Fixed build-script section to work
+	with lyx tempdir. As it was, you could not build-program
+	when opening Literate.lyx from within LyX.
+
+2002-03-12  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* kbd/bg-bds-1251.kmap: new keyboard mapping for bulgarian
+
+	* languages: add bulgarian
+
+2002-03-05  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* Makefile.am: Fix bug with installing an empty listerrors.
+
+2002-03-08  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ui/default.ui: add a toggle-tooltips item to the Help menu.
+
+2002-03-08  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* tex/ejour2.cls:
+	* layouts/ejour2.layout: removed; this is superseded by svjour
+	and friends
+
+	* lib/doc/LaTeXConfig.lyx.in:
+	* lib/doc/LyXConfig.lyx.in: update
+
+2002-03-07  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Makefile.am: fix call to configure.
+
+2002-03-06  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* layouts/obsolete.inc: obsolete LaTeX
+	* layouts/g-brief-en.layout: add DefaultStyle
+
+2002-03-06  Herbert Voss  <voss@perce.de>
+
+	* layouts/g-brief-de.layout: add DefaultStyle
+
+2002-03-06  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure: removed from cvs
+
+	* .cvsignore: add configure
+
+	* Makefile.am: set up automatic creation and execution of
+	configure script.
+
+2002-03-05  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* CREDITS: document that Martin Vermeer is also a very good bug
+	hunter
+
+2002-03-05  Jose Abilio Oliveira Matos  <jamatos@novalis.fc.up.pt>
+
+	* layouts/db_stdclass.inc:
+	* layouts/linuxdoc.layout:
+	* layouts/manpage.layout: set DefaultStyle
+
+
+2002-03-04  Herbert Voss  <voss@perce.de>
+
+	* configure.m4: fix the problem with tgif's xpm export
+
+2002-03-03  Herbert Voss  <voss@perce.de>
+
+	* configure.m4: added more converter stuff for different formats
+
+2002-03-03  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* layouts/hollywood.layout: set DefaultStyle
+
+	* layouts/scrclass.inc: set DefaultStyle
+
+2002-03-02  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* layouts/stdclass.inc: add DefaultStyle
+
+2002-03-01  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* doc/LaTeXConfig.lyx.in: add entry for svprothb
+
+	* layouts/svprobth.layout: new layout file, for 'Probability
+	Theory and Related Fields'
+
+	* layouts/svjour.inc: change Keywords labelstring a bit.
+
+	* ui/default.ui: fix shortcut for Insert>Math>Inline formula.
+
+	* chkconfig.ltx: do not check for graphics anymore, only graphicx.
+
+	* doc/LaTeXConfig.lyx.in: remove info about graphics package, now
+	that figinset is dead.
+
+2002-02-19  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ui/default.ui: add a show-forks item to the two File menus.
+
+2002-02-21  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ui/default.ui: change Layout>LaTeX Preamble to Layout>Preamble.
+
+2002-02-23  Herbert Voss  <voss@perce.de>
+
+	* configure.m4: added converter stuff for different formats
+
+2002-02-13  José Matos  <jamatos@fep.up.pt>
+
+	* examples/linuxdoc_manpage.lyx: added
+
+2002-02-07  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ui/default.ui: add ... to math panel
+
+2002-02-04  Martin Vermeer <martin.vermeer@hut.fi>
+
+	* bind/math-bind: keybindings for umlauts and other special chars
+
+2002-01-31  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* images/figure-insert.xpm: renamed as images/graphics-insert.xpm.
+
+2002-01-30  Herbert Voss  <voss@lyx.org>
+
+	* configure.m4: add convert-support for ps-files
+
+2002-01-29  Herbert Voss  <voss@lyx.org>
+
+	* ui/default.ui: delete old figure entries
+
+	* help/TexInfo.hlp:
+	* help/Graphics.hlp: update
+
+2002-01-27  Herbert Voss  <voss@lyx.org>
+
+	* help/Graphics.hlp: added, but not finished
+
+2002-01-26  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* fonts-xlfd:
+	* create_fonts_dir: New files.
+
+2002-01-17  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* Makefile.am (EXTRA_DIST): add configure.m4
+
+	* languages: fix slovak entry
+
+2002-01-16  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* examples/fr_EtiquetteMath.lyx: removed
+
+2002-01-16  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/db_stdlayouts.inc: Fix name for caption.
+
+2002-01-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* examples/mathed.lyx: a bit of a clean-up. Corrected the contents
+	of fonts-xlfd in the light of Dekel's suggestions.
+	This file still doesn't run LaTeX successfully without bolting the
+	lyxcode definition into the preamble but is otherwise Ok.
+
+2002-01-14  Panayotis "PAP" Papasotiriou  <papasot@physics.upatras.gr>
+
+	* layouts/kluwer.layout: remove caption layout
+
+2002-01-14  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* examples/MathLabeling.lyx:
+	* examples/nl_MathLabeling.lyx: removed, since they are useless.
+
+2002-01-12  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.m4: try to fix problem with groff detection
+
+2002-01-10  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* lyxrc.example: change the names of some variables in line with lyxrc.C
+
+2002-01-10  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* reLyX/BasicLyX.pm: Add support for amsmath environments.
+
+2002-01-05 Kayvan A. Sylvan <kayvan@sylvan.com>
+
+	* examples/noweb2lyx.lyx: Updated for lyx-1.2.0. Also got rid of
+	a harmless noweb error.
+
+2002-01-04  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ui/default.ui: added dots "..." to insert->include file.
+
+2001-12-21  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* configure.m4: fix typo in \print_spool_command name.
+
+2001-12-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* doc/LaTeXConfig.lyx.in: more updates: checked and fixed all the
+	CTAN references.
+
+	* configure.m4: add new macros LYXRC_VAR and LYXRC_PROG. These are
+	used for checking for a program and add the corresponding entry in
+	lyxrc.defaults. Used this for various checks (not finished yet).
+
+	* doc/LaTeXConfig.lyx.in: general update: moved things around,
+	corrected some entries, collapsed some others, added graphicx.
+
+2001-12-18  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* chkconfig.ltx: check also for graphicx.sty
+
+2001-12-16  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ui/default.ui: fix shortcut clash in the insert menu.
+
+2001-12-15  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* symbols: Add glyph for \colon for the symbol font.
+
+2001-12-10  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* images/citation-insert.xpm:
+	* images/label-insert.xpm:
+	* images/index-insert.xpm: new icons from Elena Samsonova
+
+	* images/math-panel.xpm: new icon from Herbert Voss
+
+2001-11-30  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/de_splash.lyx: update from Hartmut Haase.
+
+2001-11-29  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/Math_macros.lyx:
+	* examples/fr_Macros_Math.lyx: removed, since this information
+	is in the UserGuide.
+
+	* reLyX/configure.in: do not use AC_PREFIX_PROGRAM, it is broken.
+
+2001-11-27  Garst R. Reese  <reese@isn.net>
+
+	* tex/hollywood.cls:
+	* layouts/hollywood.layout:
+	* examples/script_form.lyx: updated hollywood class and support
+	files.
+
+2001-11-27  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* CREDITS: add Ben Stanley
+
+2001-11-26  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* tex/lyxskak.sty: Added \commentstyle for typesetting of embedded
+	comments.
+
+2001-11-23  Panayotis "PAP" Papasotiriou  <papasot@physics.upatras.gr>
+
+	* templates/kluwer.lyx:
+	* layouts/kluwer.layout: new textclass for journals edited by
+	Kluwer.
+
+	* doc/LaTeXConfig.lyx.in: update
+
+2001-11-20  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* examples/chess-article.lyx: Fixed comments. Removed hacks
+	caused by my lack of understanding of TeX macros and LyX layouts.
+	This version is	immensely cleaner.
+
+	* examples/chessgame.lyx: Minimized ERT while still showing off
+	the external chess material insets.
+
+	* tex/lyxskak.sty: Added LyX supporting macros. Added better embedded
+	comment handling into skak framework. Fixed some bugs in skak.sty!
+
+	* layouts/chess.layout: Fixed up layout. Removed kludges in previous
+	version. Added Subvariation, Subsubvariation, etc.
+
+2001-11-13  André Pönitz  <poenitz@gmx.net>
+
+	* ui/default.ui: create a new Submenu Insert->Math, since placing
+	everything in the main insert menu seems not possible in the long
+	run...
+
+2001-11-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ui/default.ui: move math panel from Edit to Insert.
+
+2001-11-05  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* layouts/chess.layout:
+	* examples/chess-article.lyx: a new class and example for writing
+	articles about chess.
+
+2001-11-02  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* external_templates: Use UpdateResult
+
+	* scripts/*.py: Fix for python 1.5
+
+2001-10-31  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/iecc05.fen:
+	* examples/iecc07.fen:
+	* examples/iecc12.fen:
+	* lib/examples/chessgame.lyx: an example for the new chess support.
+
+2001-10-31  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* external_templates: Minor tweak. Changed $$FPath/$$Basename
+	to $$FPath$$Basename.
+
+2001-10-30  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* external_templates: Fix up the help message for ChessDiagram
+	again (referring to the new lyxskak.sty). Reworked the LaTeX
+	output to use skak.sty \loadgame{file} feature.
+
+2001-10-30  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am: remove BUGS.lyx mention
+
+2001-10-29  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ui/default.ui: remove Known Bugs entry
+
+2001-10-28  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* scripts/fen2latex.py: Simplified greatly. Now uses skak.
+
+	* scripts/fen2ascii.py: New file added. Makes a nice ascii
+	representation of the chess position.
+
+2001-10-28  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* external_templates: Changed comment to inform user to use skak
+	package instead of the very old chess.sty for external chess
+	material. Added the -mode EditPosition flag to the "xboard"
+	invocation. Fixed the invocation of fen2ascii (which did *not*
+	exist, even though it was referenced).
+
+2001-10-24  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/db_lyxmacros.inc:
+	* layouts/db_stdtitle.inc: moved docbook supported version to v4.1.
+
+2001-10-24  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/it_splash.lyx: update from Claudio Coco
+
+2001-10-24  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/db_stdtitle.inc: added align and alignpossible to date.
+	Now the default is left and center is still possible.
+
+2001-10-18  José Abílio Oliveira Matos  <jamatos@fep.up.pt>
+
+	* reLyX/MakePreamble.pm (translate_preamble): Cleaned the code for babel.
+	Now the last language in the document option is the document language.
+	Code clean, remove unused variables.
+
+	* reLyX/BasicLyx.pm: Added support for the lyx menu separator.
+
+2001-10-17  José Matos  <jamatos@fep.up.pt>
+
+	* reLyX/MakePreamble.pm: add support for \makeindex, added support
+	for optional arguments to babel, remove fontenc package. Don't
+	print the latex preamble if there isn't none to print.
+
+2001-10-15  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* scripts/TeXFiles.sh: rewrite to use kpsewhich --show-path.
+	Hopefully more precise and much faster.
+
+2001-10-15  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/db_stdtitle.inc: add AuthorGroup, RevisionHistory,
+	RevisionMark and Revision styles.
+
+2001-10-12  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* scripts/TeXFiles.sh: use -follow predicate in "find" to follow
+	symbolic links
+
+2001-10-11  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* CREDITS: add two unsung heroes
+
+2001-10-10  Herbert Voss  <voss@perce.de>
+
+	* scripts/TeXFiles.sh: new script for [cls,sty,bst]Files.lst
+
+2001-10-09  Herbert Voss  <voss@perce.de>
+
+	* default.ui: help-Texinfo
+	gives an info about the installed texfiles (cls,sty,bst)
+
+2001-10-07  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* kbd/iso8859-4.cdef:
+	* kbd/iso8859-9.cdef: new files
+
+2001-10-05  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* kbd/iso8859-3.cdef: new file
+
+	* kbd/iso8859-1.cdef:
+	* kbd/iso8859-15.cdef: update
+
+2001-10-03  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/linuxdoc.layout:
+	* layouts/manpage.layout:
+	* layouts/db_lyxmacros.inc:
+	* layouts/db_stdlayouts.inc: remove bogus use of the now defunct
+	Latex tag.
+
+2001-10-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* languages: change default encoding for estonian to latin1
+
+2001-10-01  Garst R. Reese  <reese@isn.net>
+
+	* tex/hollywood.cls:
+	* layouts/hollywood.layout:
+	* examples/script_form.lyx:
+	* templates/hollywood.lyx: updated hollywood class and support
+	files.
+
+2001-09-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* bind/menus.bind: changed from "M-s plus" to "M-s ~S-plus"
+
+2001-09-27  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* CREDITS: add Jürgen Spitzmüller
+
+2001-09-18  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ui/default.ui: remove layout-save-default from "Layout"
+	for it's in Layout -> Document now.
+
+2001-09-20  Michael Schmitt  <Michael.Schmitt@teststep.org>
+
+	* layouts/g-brief-en.layout:
+	* templates/g-brief-en.lyx: rename PostalCommend to PostalComment
+
+2001-09-17  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* CREDITS: update M. Schmitt entry
+
+	* ui/default.ui: remove trailing '...' for Insert>Note
+
+2001-09-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* layouts/heb-article.layout: fix labelfont of Proof layout
+
+2001-09-12  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/script_form.lyx: added
+	* examples/scriptone.lyx: deleted
+	* layouts/hollywood.layout:
+	* tex/hollywood.cls: update of the hollywood class
+
+2001-09-07  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* layouts/dinbrief.layout:
+	* layouts/egs.layout:
+	* layouts/iletter.layout:
+	* layouts/stdletter.inc: remove bogus use of the now defunct Latex
+	tag
+
+2001-09-06  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/da_splash.lyx: new translation from Claus Hindsgaul
+
+	* ui/default.ui: comment out reference manual from the help menu
+	(the reference manual is now obsolete).
+
+	* layouts/cv.layout: add ObsoletedBy version of SubSection
+
+2001-09-05  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* kbd/koi8-r.kmap: update from Vitaly Lipatov
+
+	* layouts/entcs.layout: renamed from encts.layout (stupid typo!);
+	restrict font size to `11pt'
+
+	* layouts/cv.layout: rename SubSection layout to Subsection
+
+2001-09-03  Yves Bastide  <stid@libd-pc11.univ-bpclermont.fr>
+
+	* reLyX/reLyX.in: fix initialization before BEGIN block.
+
+2001-09-02  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* Makefile.am (pkgdata_DATA): Add symbols file.
+
+2001-09-01  John Levon  <moz@compsoc.man.ac.uk>
+
+	* configure:
+	* configure.m4: add converters for XPM to allow inline display
+
+	* Makefile.am: add rule for configure
+
+2001-08-31  José Matos  <jamatos@fep.up.pt>
+	* reLyX/reLyX.in: added debug statement.
+	Moved the insertion in @maybe_dir to push.
+
+	* reLyX/MakePreamble.pm (translate_preamble): Fix syntax only understood
+	by recent versions of Perl. Allow compatability with perl 5.002.
+
+	* reLyX/reLyXmain.pl: Escape forgoten slash. Thanks to Yves Bastide.
+
+2001-08-28  José Matos  <jamatos@fep.up.pt>
+	* reLyX/reLyX.in: allow reLyX to be run from the source directory.
+
+2001-08-15  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ui/default.ui: sanitise math/tabular entries
+
+2001-07-25  André Pönitz <poenitz@gmx.net>
+
+	* bind/math.bind:
+	  bind/sciword.bind: use new syntax for 'math-insert'
+
+2001-08-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ui/default.ui: change 'toggle appendix' entry
+
+2001-07-30  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* configure.m4: Fix behaviur when latex is not found.
+	Fix SEARCH_PROG.
+
+2001-07-29  Baruch Even  <baruch@lyx.org>
+
+	* configure.m4: Added conversion from EPS to PDF using epstopdf.
+
+2001-07-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* bind/cua.bind:
+	* ui/default.ui: entries for thesaurus
+
+2001-07-25  André Pönitz <poenitz@gmx.net>
+
+	* bind/math.bind:  new LFUN 'math-space'
+
+2001-07-23  Baruch Even <baruch@lyx.org>
+
+	* configure.m4: Added conversion of images support, used when
+	exporting images in formats (PDF)Latex cannot handle directly.
+
+2001-07-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (dist-hook): only try to get lyxdoc if not already
+	present.
+
+2001-07-23  juergen.sp@t-online.de  <Jürgen Spitzmüller>
+
+	* bind/*.bind: add binding for ligature-break-insert
+
+2001-07-22  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ui/default.ui:
+	* bind/cua.bind:
+	* bind/emacs.bind:
+	* bind/xemacs.bind: fix binding for raw double quote
+
+2001-07-22  José Matos  <jamatos@fep.up.pt>
+
+	* reLyX/MakePreamble.pm (translate_preamble): add lots of options
+	to convert from latex to lyx preamble. That means support for language,
+	geometry, several \usepackages. Almost all the options that are present
+	in Layout->Document.
+
+2001-07-20  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ui/default.ui: change 'hyphenation break' to 'ligature break'.
+
+2001-07-19  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ui/default.ui: change a shortcut
+
+2001-07-19  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* chkconfig.ltx: test for the presence of natbib.
+
+	* doc/LaTeXConfig.lyx.in: add a subsection about natbib and whether it's
+	present.
+
+2001-07-19  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* bind/xemacs.bind:
+	* bind/sciword.bind:
+	* bind/emacs.bind:
+	* bind/cua.bind:
+	* ui/default.ui: use inset-toggle instead of open-stuff
+
+2001-07-12  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* layouts/literate-scrap.inc: Added PassThru tag
+
+2001-07-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* bind/*.bind: do the same correctly for all files :)
+
+2001-07-13  Edwin Leuven  <leuven@fee.uva.nl>
+
+	* ui/default.ui: remove credits/version/copyright add about lyx
+
+2001-07-12  Juergen Vigna  <jug@sad.it>
+
+	* bind/cua.bind: moved C-l from mode-tex to ert-insert
+
+2001-07-12  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* images/ert-insert.xpm: renamed from tex-mode.xpm
+
+2001-07-12  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ui/default.ui: add icon for ert-insert + entry in menu
+
+2001-07-09  Juergen Vigna  <jug@sad.it>
+
+	* images/banner.xpm: new development banner after a LyX-Meeting!
+
+2001-07-08  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ui/default.ui: comment out tex-mode
+
+	* layouts/stdlayouts.inc: comment out style LaTeX
+
+	* bind/menus.bind: comment out tex-mode
+
+2001-07-06  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* layouts/IEEEtran.layout: Add qed box at the end of proof.
+
+	* templates/IEEEtran.lyx: Use footnote instead of ERT in the
+	  author paragraph.
+
+2001-07-02  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/hu_splash.lyx: new file from László Zrubecz.
+
+2001-06-28  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* layouts/extletter.layout:
+	* layouts/extreport.layout:
+	* layouts/extbook.layout:
+	* layouts/extarticle.layout: new files from Herbert Voss.
+
+	* bind/hu_menus.bind: removed.
+
+	* bind/pt_menus.bind:
+	* bind/fi_menus.bind:
+	* bind/de_menus.bind:
+	* bind/menus.bind: fix M-s bindings to use LyX names for fonts and
+	not GUI names.
+
+2001-06-27  John Levon  <moz@compsoc.man.ac.uk>
+
+	* CREDITS: add Michael Schmitt
+
+2001-06-28  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/nl_MathLabeling.lyx:
+	* examples/nl_multicol.lyx: new translations from Tino meinen.
+
+2001-06-26  The LyX Project  <lyx@violet.home.sad.it>
+
+	* CREDITS: update a bit
+
+	* ui/default.ui: make math align entries non-optional, move
+	math-mutate stuff to Edit>Math.
+
+2001-06-26  The LyX Project  <lyx@rose.home.sad.it>
+
+	* ui/default.ui: add align options to edit_math menu.
+
+2001-06-23  The LyX Project  <jug@sad.it>
+
+	* templates/dinbrief.lyx: remove obsolete \cursor tag
+
+2001-06-18  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* tex/cv.cls:
+	* layouts/cv.layout:
+	* examples/cv.lyx: add class cv (version 1.5)
+
+2001-06-15  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* bind/fr_menus.bind: removed
+
+2001-06-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ui/default.ui: add a (commented out) entry for read-only
+
+2001-06-12  Peter Suetterlin  <P.Suetterlin@astro.uu.nl>
+
+	* examples/aa_head.lyx:
+	* examples/aa_paper.lyx: removed
+
+	* doc/LaTeXConfig.lyx.in:
+	* examples/aa_sample.lyx:
+	* layouts/aa.layout:
+	* layouts/aapaper.inc:
+	* layouts/aapaper.layout:
+	* templates/aa.lyx: aa.layout is for the new version of the
+	A&A document class, while aapaper.layout is for the older (and
+	slightly incompatible) version.
+
+2001-06-07  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* doc/LaTeXConfig.lyx.in:
+	* layouts/encts.layout: new textclass, from Reuben Thomas
+
+	* CREDITS: add Zvezdan Petkovic and Reuben Thomas
+
+2001-05-29  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* bind/xemacs.bind: allow asciitilde to be used with or without
+	shift key
+
+2001-05-29  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* bind/latinkeys.bind: add some bindings for KP_ keys.
+
+2001-05-23  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* bind/latinkeys.bind: set quotedbl to quote-insert, set
+	nobreakspace to protected-space-insert
+
+	* bind/emacs.bind: set C-j to break-paragraph, set C-t to
+	chars-transpose.
+
+2001-05-22  Adrien Rebollo <rebollo@iaf.cnrs-gif.fr>
+
+	* kbd/european.kmap:
+	* kbd/francais.kmap:
+	* kbd/iso8859-15.cdef:
+	* encodings: add iso8859-15 support.
+
+	* kbd/iso8859-1.cdef: cleanup
+
+2001-05-22  Peter Suetterlin  <P.Suetterlin@astro.uu.nl>
+
+	* templates/aa.lyx: rename from aapaper.lyx
+
+	* layouts/aa.layout: rename from aapaper.layout
+
+	* examples/aa_head.lyx:
+	* examples/aa_head.lyx: update
+
+2001-05-18  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* languages: change GUI name of portugues and brazil
+
+2001-05-18  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* bind/math.bind: add bindign for escape
+
+2001-05-16  Ruurd Reitsma  <r.a.reitsma@wbmt.tudelft.nl>
+
+	* configure.m4: detect cygwin, windvi and yap
+
+	* reLyX/acinclude.m4 :
+	* reLyX/configure.in : OS/2 fixes
+
+2001-05-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* bind/latinkeys.bind: fixup more bindings.
+
+2001-05-16  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* bind/latinkeys.bind: fix typo
+
+2001-05-11  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* bind/latinkeys.bind: new file. bindings for latin1, latin2,
+	latin3, latin4, latin8, latin9
+
+	* bind/emacs.bind: include latinkeys.bind
+
+	* bind/cua.bind: include latinkeys.bind
+
+2001-05-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ui/default.ui: add FloatInsert and FloatListInsert
+
+2001-04-18  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/eu_splash.lyx: update from Dooteo
+
+2001-04-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* layouts/revtex4.layout: make sure the PACS, keywords and
+	preprint come before \maketitle.
+
+2001-04-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ui/default.ui: comment out some nonexistant operations
+
+2001-04-06  John Levon  <moz@compsoc.man.ac.uk>
+
+	* CREDITS: add Michael for the Gnome port
+
+2001-03-24  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* ui/default.ui: add minipage item
+
+2001-03-27  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* fr_AlignementDecimal.lyx:
+	* fr_Macros_Math.lyx:
+	* fr_MultiColonnes.lyx: new files from Adrien Rebollo.
+
+2001-03-21  José Abílio Matos  <jamatos@fep.up.pt>
+
+	* layouts/linuxdoc.layout: add support for CDATA section in code.
+
+2001-03-19  Kayvan A. Sylvan  <kayvan@sylvan.com>
+
+	* ui/default.ui: cleanup the entries for the NEW_INSETS changes.
+
+2001-03-08  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* CREDITS: add Edwin Leuven
+
+2001-03-06  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ui/default.ui:
+	* bind/<various>: update for file dialog change
+
+2001-03-06  Chanop Silpa-Anan  <chanop@debian.org>
+
+	* encodings:
+	* languages: add preliminary Thai support
+
+	* kbd/tis620-0.cdef: dummy cdef file
+
+2001-03-06  Zvezdan Petkovic  <zvezdan@cs.wm.edu>
+
+	* encodings: add support for iso8859-5 and cp1251.
+
+	* languages: add serbian and serbocroatian.
+
+	* kbd/serbian.kmap:
+	* kbd/serbocroatian.kmap: new files.
+
+2001-03-02  John Levon  <moz@compsoc.man.ac.uk>
+
+	* reLyX/configure.in: become --with-version-suffix
+
+2001-03-05  Adrien Rebollo  <Adrien.Rebollo@wanadoo.fr>
+
+	* examples/fr_*: renamed french example files in french.
+
+2001-03-01  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* templates/g-brief-de.lyx: fix typo.
+
+2001-02-16  John Levon  <moz@compsoc.man.ac.uk>
+
+	* reLyX/Makefile.am: fix uninstall
+
+	* reLyX/configure.in: --with-lyx-version
+
+2001-02-26  José Matos  <jamatos@fep.up.pt>
+
+	* templates/docbook_template.lyx: removed.
+	* templates/docbook_article.lyx: updated file, to replace the previous.
+
+	* templates/linuxdoctemplate.lyx: removed.
+	* templates/linuxdoc_article.lyx: updated file, to replace the
+	previous.
+
+2001-02-11  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/docbook.layout: chapter and part insertion are forbiden in
+	article.
+
+2001-02-26  Juergen Vigna  <jug@sad.it>
+
+	* ui/default.ui: added Custom-Export to export menu.
+
+2001-02-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* bind/emacs.bind:
+	* bind/xemacs.bind: add bookmark commands.
+
+2001-02-07  Allan Rae  <rae@lyx.org>
+
+	* bind/emacs.bind:
+	* bind/xemacs.bind: Someone forgot to do the other bind files when they
+	changed the reference-back into a bookmark-goto. naughty naughty.
+
+2001-02-05  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* kbd/thai-kedmanee.kmap: new Thai keymap, contributed by Chanop
+	Silpa-Anan.
+
+2001-02-03  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* ui/default.ui: Add Edit->Math menu.
+
+2001-02-02  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am: fix permissions on configure and configure.cmd
+	(from Albert Chin)
+
+	* CREDITS: add Albert Chin
+
+2001-02-01  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* bind/cua.bind: change the bookmark bindings to C-[123] and
+	C-M-[123].
+
+2001-01-29  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/fr_MathLabeling.lyx:
+	* examples/fr_Minipage.lyx:
+	* examples/fr_TableExamples.lyx: new translations from Adrien
+	Rebollo.
+
+2001-01-29  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* ui/default.ui: Fix typos.
+
+2001-01-28  José Matos  <jamatos@fep.up.pt>
+
+	* layouts/db_lyxmacros.inc
+	* layouts/db_stdclass.inc
+	* layouts/db_stdlayouts.inc
+	* layouts/db_stdlists.inc
+	* layouts/db_stdsections.inc
+	* layouts/db_stdstarsections.inc
+	* layouts/db_stdstruct.inc
+	* layouts/db_stdtitle.inc: new files with modular support
+	for docbook.
+
+	* layouts/docbook-chapter.layout
+	* layouts/docbook-section.layout: new files, useful for
+	document inclusion.
+
+	* layouts/docbook.layout
+	* layouts/docbook-book.layout: updated to use the modular support.
+
+2001-01-28  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* bind/cua.bind: Add bindings for bookmarks.
+
+	* ui/default.ui: Move the Bookmarks submenu to the Navigate menu.
+
+2001-01-27  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* ui/default.ui: Add Edit->Bookmarks menu.
+
+2001-01-26  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ui/default.ui: change "Insert>Figure" to "Insert>Graphics",
+	shorten Insert>Floats>" entries.
+
+2001-01-26  Volodymyr M . Lisivka  <lvm_ukr@yahoo.com>
+
+	* kbd/koi8-u.kmap: new file.
+
+	* encodings: add koi-8u encoding.
+
+	* languages: update ukrainian entry
+
+2001-01-26  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* CREDITS: update Tino Meinen address.
+
+2001-01-25  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* examples/fr_ItemizeBullets.lyx: new translation.
+
+	* examples/fr_splash.lyx:
+	* examples/fr_exemple_lyxifie.lyx:
+	* examples/fr_exemple_brut.lyx: updated.
+
+	* bind/cua.bind: change C-k from font-noun to line-delete-forward.
+
+2001-01-24  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* configure.m4: Add a check for dvipdfm.
+
+2001-01-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am: make configure and configure.cmd installed
+	  by hand, to avoid name changes when --with-lyx-suffix
+	  is used.
+
+	* configure:
+	* configure.m4: support --with-lyx-suffix for the lyxrc.defaults
+	  reLyX and noweb2lyx scripts
+
+	* reLyX/configure.in: support --with-lyx-suffix
+
+2001-01-23  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* ui/default.ui: Add Navigate->Refs
+
+2001-01-22  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* images/banner.xpm: revert to the cucumberless banner.
+
+2001-01-20  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* languages: Add extra_options field. It is used to fix the ~n
+	problem with Spanish.

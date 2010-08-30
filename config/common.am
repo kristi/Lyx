@@ -1,0 +1,41 @@
+CLEANFILES = pch.h.gch
+
+DISTCLEANFILES= pch.h.gch.dep *.orig *.rej *~ *.bak core
+
+MAINTAINERCLEANFILES = $(srcdir)/Makefile.in
+
+AM_INSTALL_DATA_FLAGS = $(INSTALL) -m 644 -D
+
+AM_ETAGSFLAGS = --lang=c++
+
+if LYX_BUILD_PCH
+PCH_SOURCE = $(srcdir)/pch.h
+PCH_FLAGS = -Winvalid-pch --include=$(PCH_SOURCE)
+PCH_FILE = ./pch.h.gch
+sinclude ./pch.h.gch.dep
+
+*.o *.lo *.obj: $(PCH_FILE)
+
+$(PCH_FILE): $(PCH_SOURCE)
+	$(MAKE) PCH_FLAGS= pch-file
+
+pch-file:
+	$(CXXCOMPILE) -x c++-header -fPIC -DPIC $(PCH_SOURCE) -o $(PCH_FILE) \
+	-MT $(PCH_FILE)  -MD -MP -MF "./$(PCH_FILE).Tdep" \
+	&& mv "./$(PCH_FILE).Tdep" "./$(PCH_FILE).dep" \
+	|| rm "./$(PCH_FILE).Tdep"
+endif
+
+SUFFIXES = .gch
+
+if USE_INCLUDED_BOOST
+BOOST_INCLUDES = -I$(top_srcdir)/boost
+BOOST_LIBS = $(top_builddir)/boost/liblyxboost.a
+else
+BOOST_INCLUDES =
+BOOST_REGEX = -lboost_regex$(BOOST_MT)
+BOOST_SIGNALS = -lboost_signals$(BOOST_MT)
+BOOST_LIBS = $(BOOST_REGEX) $(BOOST_SIGNALS)
+endif
+
+LIBS =

@@ -1,0 +1,12 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[extbook]{book (more font sizes)}
+# Extended book textclass definition file.
+# Herbert Voss <voss@lyx.org>
+
+Format 27
+Input book.layout
+
+# change available fontsizes
+ClassOptions
+	FontSize              8|9|10|11|12|14|17|20
+end

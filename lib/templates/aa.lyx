@@ -1,0 +1,246 @@
+#LyX 1.6.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass aa
+\options structabstract
+\use_default_options false
+\language english
+\inputencoding auto
+\font_roman times
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 2
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author ""
+\author ""
+\end_header
+
+\begin_body
+
+\begin_layout Title
+This is your Title
+\end_layout
+
+\begin_layout Subtitle
+your subtitle
+\end_layout
+
+\begin_layout Author
+first author
+\begin_inset Flex institutemark
+status open
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+and 
+\end_layout
+
+\end_inset
+
+second author
+\begin_inset Flex institutemark
+status collapsed
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Address
+Address of first author 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex Email
+status open
+
+\begin_layout Plain Layout
+email of first author
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+and 
+\end_layout
+
+\end_inset
+
+Address of second author
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex Email
+status collapsed
+
+\begin_layout Plain Layout
+email of second author
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Offprint
+Me
+\end_layout
+
+\begin_layout Date
+Received ...; Accepted...
+\end_layout
+
+\begin_layout Date
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This template uses the structured abstract style.
+ If you want to use the traditional, unstructured abstract, you have to
+ add 
+\begin_inset Quotes eld
+\end_inset
+
+traditabstract
+\begin_inset Quotes erd
+\end_inset
+
+ to the document options in 
+\family sans
+Document\SpecialChar \menuseparator
+Settings\SpecialChar \menuseparator
+Document Class\SpecialChar \menuseparator
+Options
+\family default
+ and remove the red braces (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}{
+\end_layout
+
+\end_inset
+
+).
+ See the 
+\family sans
+aa_sample.lyx
+\family default
+ example file that comes with LyX.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+context (optional: leave void)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+} {
+\end_layout
+
+\end_inset
+
+aims
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+} {
+\end_layout
+
+\end_inset
+
+methods
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+} {
+\end_layout
+
+\end_inset
+
+results
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+} {
+\end_layout
+
+\end_inset
+
+conclusions (optional: leave void)
+\end_layout
+
+\begin_layout Keywords
+keywords
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\end_body
+\end_document

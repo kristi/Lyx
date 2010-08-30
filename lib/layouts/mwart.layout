@@ -1,0 +1,41 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[mwart]{article (Polish version by M.W.)}
+# mwart textclass definition file. Taken from initial LyX source code
+# Author : Matthias Ettrich <ettrich@informatik.uni-tuebingen.de>
+# Transposed by Tomasz Łuczak <tlu@technodat.com.pl>
+# Heavily modifed and enhanced by several developers.
+
+Format 27
+Input stdclass.inc
+
+NoStyle Chapter
+NoStyle Chapter*
+
+SecNumDepth             3
+TocDepth                3
+
+
+ClassOptions
+	PageStyle     empty|plain|outer|headings|myheadings|uheadings|myuheadings
+End
+
+
+Style Part
+	Align                 Left
+	TopSep                2
+	BottomSep             1.5
+	Font
+	  Size                Larger
+	EndFont
+	TocLevel 0
+End
+
+
+Style Part*
+	Align                 Left
+	TopSep                2
+	BottomSep             1.5
+	Font
+	  Size                Larger
+	EndFont
+End

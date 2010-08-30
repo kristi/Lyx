@@ -1,0 +1,252 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass{transparencies (slides)}
+# Slides textclass definition file.
+# Author : John Weiss <jpweiss@idsi.net>
+#
+# Based on the Article textclass "article.layout"
+#
+
+
+Format 27
+Columns        1
+Sides          1
+PageStyle      Plain
+
+
+DefaultFont
+	Family       Sans
+	Series       Medium
+	Shape        Up
+	Size         Largest
+	Color        None
+EndFont
+
+
+ClassOptions
+	FontSize   |
+	Pagestyle  plain|headings|empty
+	Other      "dvips"
+End
+
+
+Preamble
+	\newcounter{slidetype}
+	\setcounter{slidetype}{0}
+	\newif\ifLyXsNoCenter
+	\LyXsNoCenterfalse
+	\newcommand{\noslidecentering}{
+	   \LyXsNoCentertrue%
+	}
+	\newcommand{\slidecentering}{
+	   \LyXsNoCenterfalse%
+	}
+	\newcommand{\lyxendslide}[1]{
+	   \ifLyXsNoCenter%
+	        \vfill%
+	   \fi%
+	   \ifcase \value{slidetype}%
+	        \or % no action for 0
+	        \end{slide} \or%
+	        \end{overlay} \or%
+	        \end{note}%
+	   \fi%
+	   \setcounter{slidetype}{0}
+	      \visible
+	}
+	\AtEndDocument{\lyxendslide{.}}
+EndPreamble
+
+
+Style Standard
+	Margin            Static
+	LatexType         Paragraph
+	LatexName         dummy
+	ParIndent         M
+	ParSkip           0.4
+	Align             Block
+	AlignPossible     Block, Left, Right, Center
+	LabelType         No_Label
+End
+
+
+#  Note that the "Section" family of environments is missing, as is
+#  "Title" "Bibliograpy" "LaTeX-Title" "Author" "Abstract" and "Date".
+#  I may choose to reintroduce these and/or remove others at a later
+#  date.
+#  -jw 10/2/96
+
+Input stdinsets.inc
+Input stdlists.inc
+Input stdlayouts.inc
+Input lyxmacros.inc
+Input stdcounters.inc
+Input stdfloats.inc
+
+NoStyle Address
+NoStyle Right_Address
+
+
+Style Slide
+	TocLevel          1
+	LatexType         Command
+	LatexName         lyxnewslide
+	KeepEmpty         1
+	Margin            Static
+	NextNoIndent      1
+	ParSkip           0.4
+	TopSep            1.0
+	BottomSep         1.0
+	ParSep            0.5
+	Align             Left
+	LabelType         Static
+	LabelBottomSep    0.5
+	LabelSep          xx
+	LeftMargin        "New Slide:xx"
+	LabelString       "New Slide:"
+	Font
+	  Family          Typewriter
+	  Series          Bold
+	  Size            Large
+	  Color           Blue
+	EndFont
+	LabelFont
+	  Family          Typewriter
+	  Size            Large
+	  Color           Blue
+	EndFont
+	Preamble
+		\newcommand{\lyxnewslide}[1]{
+			 \lyxendslide{.}
+			 \setcounter{slidetype}{1}
+			 \begin{slide}
+		}
+	EndPreamble
+End
+
+
+Style Overlay
+	LatexType         Command
+	LatexName         lyxnewoverlay
+	KeepEmpty         1
+	Margin            Static
+	NextNoIndent      1
+	ParSkip           0.4
+	TopSep            1.0
+	BottomSep         1.0
+	ParSep            0.5
+	Align             Left
+	LabelType         Static
+	LabelBottomSep    0.5
+	LabelSep          xx
+	LeftMargin        "New Overlay:xx"
+	LabelString       "New Overlay:"
+	Font
+	  Family          Typewriter
+	  Series          Bold
+	  Size            Large
+	  Shape                       SmallCaps
+	  Color           Magenta
+	EndFont
+	LabelFont
+	  Family          Typewriter
+	  Series          Bold
+	  Size            Large
+	  Shape                       SmallCaps
+	  Color           Magenta
+	EndFont
+	Preamble
+		\newcommand{\lyxnewoverlay}[1]{
+			 \lyxendslide{.}
+			 \setcounter{slidetype}{2}
+			 \begin{overlay}
+		}
+	EndPreamble
+End
+
+
+Style Note
+	LatexType         Command
+	LatexName         lyxnewnote
+	KeepEmpty         1
+	Margin            Static
+	NextNoIndent      1
+	ParSkip           0.4
+	TopSep            1.0
+	BottomSep         1.0
+	ParSep            0.5
+	Align             Left
+	LabelType         Static
+	LabelBottomSep    0.5
+	LabelSep          xx
+	LeftMargin        "New Note:xx"
+	LabelString       "New Note:"
+	Font
+	  Family          Typewriter
+	  Series          Bold
+	  Size            Large
+	  Shape                       Italic
+	  Color           Magenta
+	EndFont
+	LabelFont
+	  Family          Typewriter
+	  Series          Bold
+	  Size            Large
+	  Shape                       Italic
+	  Color           Magenta
+	EndFont
+	Preamble
+		\newcommand{\lyxnewnote}[1]{
+			 \lyxendslide{.}
+			 \setcounter{slidetype}{3}
+			 \begin{note}
+		}
+	EndPreamble
+End
+
+
+Style InvisibleText
+	LatexType         Command
+	LatexName         lyxinvisible
+	KeepEmpty         1
+	Margin            Static
+	Align             Center
+	LabelType         Static
+	LabelString       "<Invisible Text Follows>"
+	Font
+	  Family          Roman
+	  Size            Normal
+	  Color           Cyan
+	EndFont
+	LabelFont
+	  Family          Roman
+	  Size            Normal
+	  Color           Cyan
+	EndFont
+	Preamble
+		\newcommand{\lyxinvisible}[1]{\invisible}
+	EndPreamble
+End
+
+
+Style VisibleText
+	LatexType         Command
+	LatexName         lyxvisible
+	KeepEmpty         1
+	Margin            Static
+	Align             Center
+	LabelType         Static
+	LabelString       "<Visible Text Follows>"
+	Font
+	  Family          Roman
+	  Size            Normal
+	  Color           Green
+	EndFont
+	LabelFont
+	  Family          Roman
+	  Size            Normal
+	  Color           Green
+	EndFont
+	Preamble
+		\newcommand{\lyxvisible}[1]{\visible}
+	EndPreamble
+End

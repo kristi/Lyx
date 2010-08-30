@@ -1,0 +1,17 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass{letter}
+# Letter textclass definition file.
+# Author : Matthias Ettrich <ettrich@informatik.uni-tuebingen.de>
+# Heavily modifed and enhanced by serveral developers.
+
+Format 27
+Input stdinsets.inc
+Input stdletter.inc
+Input stdlists.inc
+Input lyxmacros.inc
+Input stdfloats.inc
+Input stdcounters.inc
+
+NoStyle         Right_Address
+NoStyle         Address
+

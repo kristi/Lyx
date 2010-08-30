@@ -1,0 +1,619 @@
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\language french
+\inputencoding latin1
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+CECI EST LE TITRE DU DOCUMENT
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Informations de révision :
+\end_layout
+
+\begin_layout Plain Layout
+Traduction : Mise à jour, Date: 30/09/2009, JPChrétien
+\end_layout
+
+\begin_layout Plain Layout
+Original : Révision: 1.5, Date: 17/01/2002
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Le titre devrait ressembler un peu plus à un titre (
+\begin_inset Quotes fld
+\end_inset
+
+Titre
+\begin_inset Quotes frd
+\end_inset
+
+ dans le menu des styles)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+par Fée LyX 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Fée est l'auteur de ce document (
+\begin_inset Quotes fld
+\end_inset
+
+Auteur
+\begin_inset Quotes frd
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+12 Juin 1972 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Ceci est une 
+\begin_inset Quotes fld
+\end_inset
+
+Date
+\begin_inset Quotes frd
+\end_inset
+
+.(NdT: Si si !)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table des Matières 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Ce serait plus agréable de ne pas avoir à taper la
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Quotes fld
+\end_inset
+
+Table des Matières
+\begin_inset Quotes frd
+\end_inset
+
+ explicitement.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ Philosophie générale.................1
+\end_layout
+
+\begin_layout Standard
+1.1 Comment LyX procède..............1
+\end_layout
+
+\begin_layout Standard
+1.2 Pourquoi LyX est mieux....1
+\end_layout
+
+\begin_layout Standard
+2.
+ Fonctionnalités de LyX
+\end_layout
+
+\begin_layout Standard
+3.
+ Tentatives maladroites de mieux utiliser LyX
+\end_layout
+
+\begin_layout Standard
+4.
+ Les Maths
+\end_layout
+
+\begin_layout Standard
+---------------------------------------------------
+\end_layout
+
+\begin_layout Standard
+1.
+ Philosophie générale 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Les titres de 
+\begin_inset Quotes fld
+\end_inset
+
+Sections
+\begin_inset Quotes frd
+\end_inset
+
+ ne sont pas assez en valeur, et ne
+\end_layout
+
+\begin_layout Plain Layout
+devraient pas être numérotés manuellement.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La philosophie générale de LyX est de vous laisser vous concentrer sur le
+ contenu et non pas sur la forme de vos écrits.
+\end_layout
+
+\begin_layout Standard
+1.1 Comment LyX procède
+\end_layout
+
+\begin_layout Standard
+LyX utilise LaTeX, un système de préparation de documents conçu par Leslie
+ Lamport en 1985.
+ Il a été construit, à son tour, à partir d'un langage de composition typographi
+que, appelé TeX, créé par Donald Knuth en 1984.
+ LaTeX est conçu autour d'une philosophie similaire à celle de LyX.
+ Leslie Lamport disait lui-même (voir référence [1]) 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Cette 
+\begin_inset Quotes fld
+\end_inset
+
+Citation Bibliographique
+\begin_inset Quotes frd
+\end_inset
+
+ ne devrait probablement pas
+\end_layout
+
+\begin_layout Plain Layout
+être écrite en dur.
+ Que se passe-t-il si le livre de Leslie Lamport
+\end_layout
+
+\begin_layout Plain Layout
+passe en seconde position dans la bibliographie?
+\end_layout
+
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes fld
+\end_inset
+
+Le but de la typographie est d'aider le lecteur à comprendre l'idée de l'auteur.
+ Pour qu'un document soit facile à lire, sa structure visuelle doit refléter
+ sa structure logique.
+ Les citations et les sources de programmes, étant, logiquement parlant,
+ des éléments structurels différents, doivent être visuellement différents
+ les uns des autres...
+ Comme LaTeX ne peut pas comprendre votre prose, vous devez explicitement
+ définir sa structure logique en insérant des codes appropriés...
+ Lors de l'écriture de votre document, vous devez vous préoccuper de sa
+ structure logique, et non pas de son apparence.
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+C'est une citation (QUOTE).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.2 Pourquoi LyX est mieux
+\end_layout
+
+\begin_layout Standard
+LyX peut être profitable à un plus grand nombre d'utilisateurs que LaTeX.
+ Il est beaucoup plus facile à apprendre, car vous n'avez pas à connaître
+ LaTeX, qui est pratiquement un langage de programmation.
+ LyX est en bien des points comparable à d'autres traitements de texte 
+\begin_inset Quotes fld
+\end_inset
+
+What you see is what you get
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Cette phrase devrait être marquée en langue anglaise pour faciliter la correctio
+n orthographique.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes frd
+\end_inset
+
+ (WYSIWYG), excepté que LyX est plutôt 
+\begin_inset Quotes fld
+\end_inset
+
+What you see is what you mean
+\begin_inset Quotes frd
+\end_inset
+
+ (WYSIWYM).
+ LyX combine donc le confort des autres traitements de texte, et la puissance
+ de LaTeX.
+ C'est une bonne chose.
+ De plus, le format de fichier est indépendant du système.
+ Et pour finir, c'est un logiciel LIBRE ! 
+\end_layout
+
+\begin_layout Standard
+2.
+ Fonctionnalités de LyX
+\end_layout
+
+\begin_layout Standard
+LyX possède un bon nombre de fonctionnalités qui facilitent l'écriture.
+ ( Après tout, quelle autre raison pourrait vous le faire utiliser ? 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Cette parenthèse serait bien mieux en 
+\begin_inset Quotes fld
+\end_inset
+
+Note de bas de page
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+) Je NE RÉSISTE PLUS 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+A mettre en 
+\begin_inset Quotes fld
+\end_inset
+
+Italique
+\begin_inset Quotes frd
+\end_inset
+
+ (ou en 
+\begin_inset Quotes fld
+\end_inset
+
+Evidence
+\begin_inset Quotes frd
+\end_inset
+
+) plutôt qu'en majuscules!
+\end_layout
+
+\end_inset
+
+ à l'envie de vous les présenter.
+ En voici quelques-unes:
+\end_layout
+
+\begin_layout Standard
+* LyX gère les marges et la numérotation des notes de bas de page pour vous;
+\end_layout
+
+\begin_layout Standard
+* l'écriture de formules mathématiques est un jeu d'enfant avec LyX.
+\end_layout
+
+\begin_layout Standard
+Voir Section 1.2, page 1 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Cette 
+\begin_inset Quotes fld
+\end_inset
+
+Référence Croisée
+\begin_inset Quotes frd
+\end_inset
+
+ ne devrait pas être écrite en dur.
+\end_layout
+
+\begin_layout Plain Layout
+Que se passe-t-il si l'on change la numérotation des sections?
+\end_layout
+
+\end_inset
+
+ pour une discussion plus approfondie sur les avantages de LyX par rapport
+ aux autres traitements de texte.
+ 
+\end_layout
+
+\begin_layout Standard
+3.
+ Tentatives maladroites de mieux utiliser LyX
+\end_layout
+
+\begin_layout Standard
+J'ai écrit un programme ces derniers jours.
+ Le voici :
+\end_layout
+
+\begin_layout Standard
+5 REMARK MON SUPER PROGRAMME
+\end_layout
+
+\begin_layout Standard
+10 PRINT 
+\begin_inset Quotes eld
+\end_inset
+
+JE SUIS SUPER !
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+20 GOTO 10
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication: C'est du source de programme (
+\begin_inset Quotes fld
+\end_inset
+
+Lyx-Code
+\begin_inset Quotes frd
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Après cette pensée hautement scientifique, je me suis senti l'âme d'un poète.
+ J'ai donc écrit ceci :
+\end_layout
+
+\begin_layout Standard
+LyX est vraiment un extraordinaire
+\end_layout
+
+\begin_layout Standard
+Outil de composition et de traitement de texte
+\end_layout
+
+\begin_layout Standard
+Il fait gagner tellement de temps
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Pas terrible comme poésie! Mais ce sont quand m^eme
+\end_layout
+
+\begin_layout Plain Layout
+des vers (
+\begin_inset Quotes fld
+\end_inset
+
+Vers
+\begin_inset Quotes frd
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ Les maths 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Indication:
+\end_layout
+
+\begin_layout Plain Layout
+Les mathématiques qui suivent devraient être traitées
+\end_layout
+
+\begin_layout Plain Layout
+en 
+\begin_inset Quotes fld
+\end_inset
+
+Mode mathématique
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ma formule préférée est la résolution d'une équation du second degré.
+ Si ax^2+bx+c=0 (eq.1), alors x= -b + ou moins la racine carrée de b^2-4ac
+ le tout divisé par 2a (eq.
+ 2).
+\end_layout
+
+\begin_layout Standard
+Une autre formule favorite est la base du calcul différentiel : f'(x) est
+ définie comme la limite, quand deltax tend vers zéro, de l'expression f(x+delta
+x) - f(x) divisé par deltax (eq.
+ 3).
+\end_layout
+
+\begin_layout Standard
+------------------------------------------------
+\end_layout
+
+\begin_layout Standard
+REFERENCES
+\end_layout
+
+\begin_layout Standard
+[1] Lamport, Leslie.
+ LaTeX : A Document Preparation System.
+ Addison-Wesley, Reading, Massachusetts, deuxième édition, 1994.
+\end_layout
+
+\end_body
+\end_document

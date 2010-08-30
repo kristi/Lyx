@@ -1,0 +1,3282 @@
+2006-04-19  Bernhard Reiter <ockham@gmx.net>
+	* ControlExternal.[Ch]: Split browse(...) half, introducing
+	getTemplateFilters(...)
+
+2006-03-10  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ControlChanges.C: fix bug 2212: First change is skipped in
+	"Merge changes..." dialog
+
+2006-03-07  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* tests/pch.h: fix nullstream.hpp location for boost 1.33.0
+
+2006-03-06  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* biblio.C (escape_special_chars): Update for boost::regex v4
+	(RegexMatch): Update for bosot::regex v4
+	(searchKeys): Handle exception if it occurs.
+
+2005-12-12  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlPrefs.[Ch]: new helper functions toPaperSize and
+	fromPaperSize that prevent off-by-x errors in the papersize
+	combos (bug 2148).
+
+2005-11-28  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlErrorList.C (goTo): give a better error message when pid
+	is not found.
+
+2005-11-02  Angus Leeming  <leeming@lyx.org>
+
+	* helper_funcs.C: trivial fix to a MSVS warning.
+
+2005-10-05  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlSpellchecker.C (nextWord): do not return empty word
+	unless at the end of the document (bug 2062)
+
+2005-10-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlSpellchecker.C (check): make sure that word at cursor
+	position is checked too. (bug 2063)
+
+2005-10-03  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* Dialog.C (checkStatus): update dialog after checkReadOnly has
+	enabled all widgets (fixes bug 1894).
+
+2005-09-15  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlDocument.C (dispatchParams): update bufferview at the end
+	(fixes bug 2023).
+
+2005-09-08  Angus Leeming  <leeming@lyx.org>
+
+	* ControlSpellchecker.C: correct grammar describing invocation of the
+	spellchecker.
+
+2005-08-10  Angus Leeming  <leeming@lyx.org>
+
+	* tex_helpers.C (rescanTexStyles): Quote the path to TeXFiles.sh
+	to avoid problems with "paths with spaces".
+
+2005-08-07  Angus Leeming  <leeming@lyx.org>
+
+	* ControlExternal.C (origin_gui_str): ensure that the strings
+	are translated.
+
+2005-08-04  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlSpellchecker.C (checkAlive, initialiseParams): try to
+	give clearer error mesages.
+
+2005-08-03  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlTexinfo.C: compilation fix.
+
+2005-07-28  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	bug 1950.
+	
+	* Dialog.h (exitEarly): virtual function, returns false as a
+	default. 
+
+	* ControlSpellchecker.h (exitEarly): return exitEarly_
+
+	* ControlSpellchecker.C (check): set exitEarly_ to true when
+	spell-checking is finished, false otherwise.
+
+2005-07-27  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlBibtex.C: sort bst files (bug 1936)
+
+	* ControlTeXInfo.[Ch]: new member getFileType that returns the extension
+	of the supported files.
+	* ControlTeXInfo.[Ch] (getTeXFileList): takes bool withPath and sorts 
+	correctly when no path is requested (bug 1936)
+
+	* tex_helpers.C (getTeXFileList): remove empty items from the list 
+	(bug 1936); proper support the other file types than *cls.
+
+2005-07-27  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlToc.[Ch]: getGuiName takes a type argument now.
+	* ControlToc.C (getGuiName): Do all guiname translations here (bug 1870)
+
+2005-07-16  José Matos  <jamatos@fc.up.pt>
+
+	* ControlTabular.C (set): use a single papersize variable.
+
+2005-07-05  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlChanges.C (getChangeDate): use localized date (from 
+	support/lyxtime).
+
+2005-07-04  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlToc.[Ch]: new method getGuiName, which is used by the frontends 
+	to set the toc combo (fixes bug 1870).
+
+2005-06-30  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlPrint.C (browse): 
+	* ControlPrefs.C (browsebind, browseUI, browsekbmap, browsedict):
+	make FileFilterList label translatable.
+
+2005-06-02  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlErrorList.C (goTo): if pos_end is 0, assume it is the end
+	of the paragraph instead.
+
+2005-05-14  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* ControlLog.C: fix dialog title
+
+2005-05-13  Angus Leeming  <leeming@lyx.org>
+
+	* helper_funcs.C (browseFile, browseDir): remove the loop that tested
+	whether the returned file name is valid in order to break out of the
+	loop.
+
+2005-05-08  Angus Leeming  <leeming@lyx.org>
+
+	* Kernel.h (KernelDocType): wrapper class for the Kernel::DocTypes
+	enum.
+
+2005-05-07  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* ControlRef.C: rename LFUN_REF_GOTO to LFUN_LABEL_GOTO
+
+2005-05-03  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* ControlSpellchecker.C (check): increment 'start', the beginning
+	of the next word to spell check only if cur.pos() != 0.
+	This fixes bug 1876 in which LyX will not check the very first word
+	of the document if the cursor is placed at the beginning of that
+	paragraph (just before the first letter at position 0).
+
+2005-05-02  Angus Leeming  <leeming@lyx.org>
+
+	* ControlSpellchecker.C: clean-up the creation of the wrappers to
+	the different possible spelling engines.
+
+2005-04-29  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ControlCharacter.h (getLFun):Trivial bug fix
+
+2005-04-25  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* Dialog.h, ControlCharacter.h, ControlPrint.h, ControlSendto.h,
+	ControlTabular.h, ControlTabularCreate.h (getLfun): new, return the
+	lfun for applying the data
+	* Control*.C (dispatchParams): use getLfun where appropriate
+	* Dialog.[Ch], ControlChanges.h, ControlDocument.h (canApply): new,
+	check whether the dialog data may be applied
+
+2005-04-11  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlDocument.C (dispatchParams): update the counters if
+	necessary.
+
+2005-04-13  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* Dialog.[Ch] (checkStatus): new
+
+2005-03-27  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ControlDocument.C (dispatch_bufferparams): fix bug 1843
+
+2005-03-15  Eitan Frachtenberg  <sky8an@gmail.com>
+
+	* biblio.C (getInfo): Show BibTeX annotation in citation preview
+	(parseBibTex): Treat \% as percent, not comment
+
+2005-02-08  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlSpellchecker.C (nextWord): size() -> depth()
+	* ControlTabular.C(initializeParams): ditto
+
+2005-01-31  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlGraphics.C (browse): rewrite to use boost.filesystem
+
+2005-01-20  Angus Leeming  <leeming@lyx.org>
+
+	* ControlSpellchecker.C (check): s/IGNORE/IGNORED_WORD/.
+
+2005-01-17  Angus Leeming  <leeming@lyx.org>
+
+	* tex_helpers.C (rescanTexStyles): prepend the name of the
+	"TeXFiles" script with "sh ". Workaround for a brain-dead Windows.
+
+2005-01-10  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlErrorList.C (goTo): fix the commented-out code (bug
+	1760).
+
+2005-01-10  Angus Leeming  <leeming@lyx.org>
+
+	* ControlAboutlyx.C:
+	* ControlGraphics.C:
+	* helper_funcs.C:
+	* tex_helpers.C: use support/package.h to provide the paths to the
+	various directories used by LyX.
+
+2005-01-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlTabularCreate.C (dispatchParams):
+	* ControlSpellchekcer.C (showSummary):
+	* ControlPrint.C (dispatchParams):
+	* ControlGraphics.C (readBB):
+	* ControlExternal.C (readBB): tostr -> convert
+
+2004-12-17  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ControlMath.C: fixed Ångström, Ørsted.
+
+2004-12-02  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ControlTabular.[Ch], ControlTabularCreate.h: use size_t-like
+	types for cell, row and column indices
+
+2004-11-25  Angus Leeming  <leeming@lyx.org>
+
+	* ControlBibtex.C:
+	* ControlExternal.C:
+	* ControlGraphics.C:
+	* ControlInclude.C:
+	* ControlPrefs.C:
+	* ControlPrint.C: s/globbing.h/filefilterlist.h/ in #includes.
+
+	* helper_funcs.C: remove #include "globbing.h".
+
+2004-11-22  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlSpellchecker.C (check): update the view when setting the
+	selection
+
+2004-11-18  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlSpellchecker.C (nextWord): rewrite to skip words
+	containing digits.
+	(isLetter): honor lyxrc.isp_esc_chars
+
+2004-11-18  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ControlTabular.C (initialiseParams): Compute the active cell
+
+2004-11-11  Edwin Leuven
+
+	* ControlTabular.[Ch] (booktabs): new
+
+2004-11-09  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ControlInclude.C (browse): Use GetExtension() instead of
+	getFormatFromContents()
+
+2004-11-05  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlRef.C (gotoRef, gotoBookmark):
+	* Kernel.C (dispatch): remove verbose argument
+
+	* ControlCommandBuffer.C (dispatch): set origin of the lfun to
+	COMMANDBUFFER instead of using the old verbose argument to dispatch
+
+2004-10-29  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ControlInclude.C: s/getExtFromContents/getFormatFromContents/
+
+2004-10-26  Angus Leeming  <leeming@lyx.org>
+
+	* ControlPrefs.[Ch]: add code to interface with the Movers.
+
+2004-09-14  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlSpellchecker.C (check): do not set the selection
+	backwards, but translate it to the left instead.
+
+2004-09-15  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ControlInclude.C (load): open nonlyx files via formats.edit()
+
+2004-08-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* pch.h: new file
+
+	* Makefile.am: support pch
+
+2004-08-08  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* helper_funcs.C (browseLibFile): new function. Tries to do the
+	right thing to look for a file in lyxdir
+
+	* ControlPrefs.C (browsebind, browseUI, browsekbmap): use
+	browseLibFile
+
+2004-08-07  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlBibtex.C (browseBst): new method, specialized to lookup
+	bibtex style files
+	(browseBib): new method, specialized to lookup bibtex database files
+	(browse): removed
+
+2004-07-25  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlErrorList.C (goTo): shuffle code to avoid compiler warning.
+
+2004-07-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* biblio.C, ControlPrefs.C, ControlParagraph.C:
+	* ControlLog.C, ControlDocument.C, ControlAboutlyx.C: replace
+	"support/std_sstream.h" with <sstream>
+
+2004-05-19  Angus Leeming  <leeming@lyx.org>
+
+	* *.[Ch]: wrap all code up inside namespace lyx::frontend.
+	Move namespace biblio to lyx::biblio.
+
+2004-05-14  Angus Leeming  <leeming@lyx.org>
+
+	* biblio.[Ch] (asValidLatexCommand): new function which examines
+	the input string to return a latex citation command that is
+	valid for the current citation engine.
+
+2004-05-14  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCitation.[Ch]: small changes to use the CiteEngine_enum
+	wrapper class.
+
+	* biblio.[Ch]: move the CiteEngine enum into bufferparams.h to
+	minimize dependencies on this file.
+	(getCitationStyle, getCiteCommand): removed. Functionality moved
+	into the CitationStyle struct.
+
+2004-05-12  Angus Leeming  <leeming@lyx.org>
+
+	* biblio.C (getEngine): reduced to the trivial.
+
+2004-05-10  Angus Leeming  <leeming@lyx.org>
+
+	* biblio.[Ch]: create a new biblio::CiteEngine enum. Use it instead of
+	bools usingNatbib, usingJurabib.
+
+	* ControlCitation.[Ch]: simplified code to use the biblio::CiteEngine
+	enum rather than multiple bools, usingNatbib and using Jurabib.
+
+2004-04-12  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ControlGraphics.[Ch] (editGraphics): new method
+
+2004-04-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ControlDocument.C: 'assign' for opening/closing branch insets
+	according to selection
+
+2004-04-05  Angus Leeming  <leeming@lyx.org>
+
+	* ButtonPolicies.C (printState, printInput): human-readable output
+	of ButtonPolicy::State, ButtonPolicy::SMInput.
+	(PreferencesPolicy::input): change the behaviour of the Preferences
+	state machine on receipt of SMI_CANCEL/SMI_HIDE if the existing
+	state is APPLIED, then let this state persist. Next time that the
+	dialog is opened, the user will be able to press 'Save'.
+
+2004-04-05  Angus Leeming  <leeming@lyx.org>
+
+	* ControlPrefs.C (dispatchParams): ignore system_lyxrc when writing
+	the contents of rc_ to the stringstream.
+
+2004-04-05  Angus Leeming  <leeming@lyx.org>
+
+	* ControlErrorList.C: wrap #warning calls inside #ifdef
+	WITH_WARNINGS blocks.
+
+2004-04-01  Angus Leeming  <leeming@lyx.org>
+
+	* README: removed. It refered to the ancient and impossible to
+	understand scheme ;-)
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* ControlButtons.[Ch]:
+	* ControlConnections.[Ch]:
+	* ControlDialog.{h,tmpl}:
+	* ControlDialog_impl.[Ch]:
+	* GUI.h:
+	* ViewBase.[Ch]: all removed.
+
+	* Makefile.am: adjusted to suit.
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* ControlPreamble.[Ch]: converted to the dialog-based scheme.
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* ControlSpellchecker.C: converted to the dialog-based scheme.
+	Cleaned-up the program structure so that it behaves in similar manner
+	to all the other dialogs. There is still far too much of the core
+	in here though...
+
+	* Dialog.C (update): more generic error message.
+
+2004-03-31  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* ControlSpellchecker.C: s/DocumentIterator/DocIterator/g
+
+2004-03-31  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* ControlSpellchecker.C (isLetter, nextWord): check for inTextEd,
+	use forwardPos.
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* ControlPrefs.[Ch]: converted to the dialog-based scheme.
+
+	* Dialog.C (apply): bug fix. Enable the dispatch of dialogs
+	which aren't dependent on a buffer when no buffer is open.
+
+	Kernel.[Ch] (redrawGUI): new function.
+
+2004-03-31  Angus Leeming  <leeming@lyx.org>
+
+	* ControlPrefs.C: a bit of an overhaul, moving the local Converters
+	and Formats variables out of the various frontends to here,
+	and ensuring that nothing is actually dispatched to the core except
+	from apply().
+	Also use the new LFUN_LYXRC_APPLY lfun.
+
+2004-03-30  Angus Leeming  <leeming@lyx.org>
+
+	* ControlDocument.[Ch]: converted to the dialog-based scheme.
+
+2004-03-30  Angus Leeming  <leeming@lyx.org>
+
+	* ControlDocument.[Ch]: move all of the 'apply' code into the core
+	and access it by dispatching the appropriate lfuns.
+
+2004-03-30  Angus Leeming  <leeming@lyx.org>
+
+	* ControlDocument.C (apply): replace the loop over paragraphs
+	invoking insetsOpenCloseBranch with
+	LFUN_ALL_INSETS_TOGGLE, "toggle branch".
+
+2004-03-29  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlBibtex.[Ch]: add member usingBibtopic().
+
+2004-03-28  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* ControlDocument.C:
+	* ControlErrorList.C: adjust to ParIterator change
+
+2004-03-28  Angus Leeming  <leeming@lyx.org>
+
+	* ControlPrint.[Ch]: converted to the dialog-based scheme.
+
+2004-03-27  Angus Leeming  <leeming@lyx.org>
+
+	* ControlSendto.[Ch]: converted to the dialog-based scheme.
+
+2004-03-24  Angus Leeming  <leeming@lyx.org>
+
+	64-bit compile fixes.
+
+	* ControlErrorList.C (goTo): use lyx::pos_type as type of
+	temporary vars.
+
+	* ControlSpellchecker.C (nextWord): pass progress as a
+	PosIterator::difference_type, not an int.
+
+2004-03-17  Angus Leeming  <leeming@lyx.org>
+
+	* ControlForks.[Ch]: removed.
+
+	* Makefile.am: remove mention of ControlForks.[Ch].
+
+2004-03-07  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* biblio.[Ch]:
+	* ControlCitation.[Ch]: add jurabib support.
+
+2004-02-21  Georg Baum  <Georg.Baum@post.rwth-aachen.de>
+
+	* ControlPrint.C, ControlSendto.C: use always a temp dir
+	* ControlSendto.C: check return value of buffer()->writeFile()
+
+2004-02-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* biblio.C (parseBibTeX): "=" -> '='
+
+2004-01-31  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* biblio.C (RegexMatch): inherit from std::unary_function, make
+	operator() const and variable regex_ mutable.
+
+	* ControlSpellchecker.C (check): use correct types for the result
+	from distance.
+
+2004-01-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlSpellchecker.C: add using statements for std::advance and
+	std::distance
+
+	* ControlExternal.C: add using statement for std::advance
+
+2004-01-26  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlSpellchecker.C (check): use std::distance and
+	std::advance
+
+2004-01-25  Angus Leeming  <leeming@lyx.org>
+
+	* ControlSearch.[Ch]: derive from Controller rather than
+	the deprecated ControlDialogBD.
+
+2004-01-08  Alfredo Braunstein  <abraunst@lyx.org>
+
+	* Dialog.C (hide): disconnect dialog/inset on hide (partial fix
+	to bug 1251)
+
+2004-01-08  Angus Leeming  <leeming@lyx.org>
+
+	* ControlBibtex.[Ch] (browse):
+	* ControlExternal.[Ch] (browse):
+	* ControlGraphics.[Ch] (browse):
+	* ControlInclude.[Ch] (browse):
+	* ControlPrefs.[Ch] (browsebind, browseUI, browsekbmap,
+	browsedict, browse, browsedir):
+	* ControlPrint.[Ch] (browse):
+	FileFilterList change to the browseFile, browseRelFile functions.
+
+	* helper_funcs.[Ch] (browseFile, browseRelFile):
+	FileFilterList change to the FileDialog open and save functions.
+
+2004-01-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlSendto.C (allFormats): use the unique-erase idom and
+	simplify some code a bit.
+
+	* ControlMath.C: make CompareKey adaptable
+
+2004-01-07  Angus Leeming  <leeming@lyx.org>
+
+	* ControlSearch.C:
+	* ControlThesaurus.C (replace):
+	rewrite to use LFUN_WORD_(FIND|REPLACE).
+
+2003-12-14  Angus Leeming  <leeming@lyx.org>
+
+	* ControlBranch.[Ch] (branchlist): new member function.
+
+	* ControlDocument.C (setBranchColor): removed.
+	(apply): update Color to accommodate the new BranchList colors.
+
+2003-12-14  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlMinipage.[Ch]: remove.
+	* Makefile.am: remove minipage files.
+
+2003-12-12  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ControlMath.C (dispatchSubscript, dispatchSuperscript): enable
+	the math panel sub/superscript buttons once again.
+
+2003-12-11  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCommand.C (initialiseParams): changes due to the changed
+	interface to InsetCommandMailer::string2params.
+
+2003-12-10  Angus Leeming  <leeming@lyx.org>
+
+	* ControlNote.[Ch] (note_gui_tokens): removed; no longer needed.
+
+2003-12-10  Angus Leeming  <leeming@lyx.org>
+
+	* ControlBranch.C (dispatchParams): change to invocation of
+	InsetBranchMailer::params2string.
+
+	* ControlNote.C (dispatchParams): change to invocation of
+	InsetNoteMailer::params2string.
+
+2003-12-05  Angus Leeming  <leeming@lyx.org>
+
+	* ControlVCLog.[Ch]: removed.
+	* Makefile.am: remove ControlVCLog.[Ch]
+
+2003-12-05  Angus Leeming  <leeming@lyx.org>
+
+	* ControlLog.[Ch]: re-worked so that it is passed the logtype and
+	filename rather than extracting them from the kernel.
+
+2003-12-04  Angus Leeming  <leeming@lyx.org>
+
+	* ControlExternal.[Ch] (bbChanged): new accessor functions to a
+	boolean flag.
+	(readBB): attempt to read the BoundingBox from the graphics file.
+	If that fails, try the Graphics Cache.
+	(all_origins, origin_gui_str): helpers for the frontends.
+
+2003-12-01  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlVSpace.C: enable the buttons for new insets.
+
+2003-11-28  André Pönitz  <poenitz@gmx.net>
+
+	* ControlVSpace.[Ch]: new files
+	* Makefile.am: adjust
+
+2003-11-21  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* ControlDocument.C: Change call to insetsOpenCloseBranch
+
+2003-11-07  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ControlSpellchecker.C (isLetter): skip ert
+
+2003-11-06  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ControlErrorList.C (goTo): allow going to inner paragraphs
+
+2003-11-04  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ControlSearch.[Ch]:
+	* ControlThesaurus.C: adjust to spellcheck code changes
+
+2003-11-04  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ControlSpellchecker.C (nextWord): do not send ligature breaks
+	and other nasty insets to the spellchecker
+
+2003-11-04  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ControlSpellchecker.[Ch] (nextWord, check): rewrite of the text
+	handling parts
+
+2003-10-27  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* ControlDocument.[Ch]: add method setBranchColor().
+
+2003-10-13  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlCommandBuffer.C (dispatch): adjust for dispatch change
+
+2003-10-08  Angus Leeming  <leeming@lyx.org>
+
+	Fix doxygen warnings.
+
+	* frnt_lang.h: move comment so that doxygen is not confused.
+
+2003-10-07  Angus Leeming  <leeming@lyx.org>
+
+	* ControlExternal.[Ch]: InsetExternal::Params -> InsetExternalParams.
+	(getTemplatePtr): removed. Use function in ExternalSupport.
+
+2003-10-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ControlBox.C:
+	* ControlBox.h:
+	* Makefile.am: The Box patch. Fancybox support, minipage, parbox
+
+2003-10-07  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* BCView.h:
+	* ControlCommandBuffer.h:
+	* biblio.h:
+	* frnt_lang.h:
+	* tex_helpers.h: add <string> and other small fixes to make Lars'
+	std::string patch compile with STLport.
+
+2003-10-01  Angus Leeming  <leeming@lyx.org>
+
+	* ControlExternal.[Ch]: changes due to the introduction of
+	namespace lyx::external.
+
+2003-09-25  Angus Leeming  <leeming@lyx.org>
+
+	* ControlExternal.C (getTemplatePtr): simplify, due to change in
+	ExternalTemplateManager interface.
+
+2003-09-21  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlDocument.C (setParams): fix new bug
+
+2003-09-19  Angus Leeming  <leeming@lyx.org>
+
+	* ControlInclude.[Ch]: Store and access the params as an
+	InsetCommandParams, rather than access them as a InsetInclude::Params
+	and store 'em as a boost::scoped_ptr<InsetInclude>.
+	Other clean-ups due to the changes in InsetInclude.
+
+2003-09-18  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCommand.C (clearParams): simplify.
+
+2003-09-18  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCharacter.C:
+	* ControlCharacter.h:
+	* ControlPrefs.C:
+	* ControlPrefs.h:
+	* character.h: rename EnumColor as Color_color.
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCharacter.C: add #include "Color.h".
+
+2003-09-16  Angus Leeming  <leeming@lyx.org>
+
+	* character.C: add #include "Color.h".
+
+2003-09-15  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCharacter.C (setColor, getColor):
+	pass EnumColor args, rather than Color::color ones.
+
+	* ControlPrefs.C: add #include "Color.h".
+	* ControlPrefs.h:remove #include "Color.h".
+
+	* ControlPrefs.[Ch] (setColor): pass EnumColor arg, not than Color::color one.
+
+	* character.h:remove #include "Color.h".
+	typedef ColorPair as a std::pair<string, EnumColor>.
+
+2003-09-15  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlAboutlyx.C
+	* ControlParagraph.C
+	* biblio.C
+	* tex_helpers.C: remove usage of STRCONV
+
+2003-09-09  Lars Gullik Bjønnes  <larsbj@lyx.org>
+
+	* several files: change Assert to BOOST_ASSERT
+
+2003-09-08  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCommandBuffer.C:
+	* ControlDocument.C:
+	* ControlPrefs.C:
+	* helper_funcs.C:
+	* tex_helpers.C: remove redundant using directives.
+
+2003-09-07  Angus Leeming  <leeming@lyx.org>
+
+	* ButtonController.h:
+	* helper_funcs.h: remove #include "support/std_string.h".
+
+	* ControlBranch.h:
+	* ControlNote.h: remove #include "debug.h".
+
+	* ControlDocument.h: remove #include <vector>, "support/std_string.h".
+
+	* ControlErrorList.h:
+	* ControlThesaurus.h: remove #include <vector>.
+
+	* ControlPrefs.h: remove #include "funcrequest.h", <utility>.
+
+	* GUI.h: remove #include "BCView.h".
+
+	* tex_helpers.h: remove #include <utility>.
+
+2003-09-05  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* biblio.C:
+	* frnt_lang.C: re-add missing system headers, needed for 2.95.2.
+
+2003-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* GUI.h: ensure that the header file can be compiled stand-alone.
+	* *.C: strip out redundant #includes. (49 in total.)
+
+2003-08-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* most files: change to use const buffer refs.
+
+2003-08-16  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ControlBranch.[Ch]:
+	* ControlDocument.C:
+	* Makefile.am: implements the 'branch
+	inset' idea. This allows the output of various versions of a
+	document from a single source version, selectively outputing or
+	suppressing output of parts of the text.
+	This implementation contains a 'branch list editor' in a separate
+	tab of the document settings dialog. Branches are user definable
+	and have a "display colour" to distinguish them on-screen.
+
+	ColorHandler was somewhat cleaned up.
+	(1) make possible a dynamically growing Color list by allowing
+	the graphic context cache to grow along (vector);
+	(2) eliminate an IMHO unnecessary step in colour allocation.
+
+2003-08-15  André Pönitz  <poenitz@gmx.net>
+
+	* ControlErrorList.C:
+	* ControlSpellchecker.C: remove toggleSelection
+
+2003-08-12  Michael Schmitt  <michael.schmitt@teststep.org>
+
+	* ControlGraphics.C: rename "XXX baseline" to "Baseline XXX"
+	for consistency
+	* ControlTabular.h:
+	* ControlTabular.C: rename VALIGN_CENTER to VALIGN_MIDDLE;
+	rename M_VALIGN_CENTER to M_VALIGN_MIDDLE;
+	rename VCENTER to MIDDLE
+
+2003-08-04  André Pönitz  <poenitz@gmx.net>
+
+	* ControlErrorList.C:
+	* ControlSpellchecker.C: simpler BufferView::update() calls
+
+2003-07-30  Martin Vermeer  <martin.vermeer@hut.fi>
+
+	* ControlNote.[Ch]: add i18n support.
+
+2003-07-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlToc.C (goTo): adjust for lyx::toc
+	(getTypes): ditto
+	(getContents): ditto
+
+	* ControlThesaurus.C (replace): adjust for lyx::find
+
+	* ControlSearch.C (find): adjust for lyx::find
+	(replace): ditto
+
+	* ControlChanges.C (find): adjust for lyx::find
+	(accept): ditto
+	(reject): ditto
+
+2003-07-26  Jean-Marc Lasgouttes  <lasgouttes@lyx.org>
+
+	* ControlTabular.C (useMetricUnits): adapt PAPER_* enums
+
+2003-07-23  Angus Leeming  <leeming@lyx.org>
+
+	* ControlExternal.C: pass a Buffer const & rather than a Buffer const *
+	to the mailer's string2params, params2string functions.
+
+	* ControlGraphics.C pass a Buffer const & rather than a string const &
+	buffer_path to the mailer's string2params, params2string functions.
+
+2003-07-23  Angus Leeming  <leeming@lyx.org>
+
+	* Kernel.[Ch] (bufferFilepath): new wrapper for Buffer::filePath.
+
+	* ControlBibtex.C:
+	* ControlExternal.C:
+	* ControlGraphics.C: use it.
+
+2003-07-21  Angus Leeming  <leeming@lyx.org>
+
+	* ControlGraphics.C (initialiseParams, dispatchParams): no need
+	to modify the filename for reasons of 'good UI' anymore.
+
+2003-07-21  Angus Leeming  <leeming@lyx.org>
+
+	* ControlGraphics.C (initialiseParams, dispatchParams): pass a
+	buffer_path parameter to InsetGraphicsMailer's string2params,
+	params2string.
+
+2003-07-21  Angus Leeming  <leeming@lyx.org>
+
+	* ControlGraphics.C (readBB): use namespace lyx::graphics rather
+	than grfx shortcut.
+
+2003-07-18  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlGraphics.C (dispatchParams): avoid some variable/function
+	shadowing.
+
+	* ControlDialog.tmpl (show): follow C++ rules more closely
+	(update): ditto
+	(hide): ditto
+
+2003-07-17  Angus Leeming  <leeming@lyx.org>
+
+	* ControlChanges.h:
+	* ControlErrorList.h:
+	* ControlLog.h:
+	* ControlMath.h:
+	* ControlShowFile.h:
+	* ControlTexinfo.h:
+	* ControlVCLog.h:
+	* Dialog.h: fix some doxygen warnings.
+
+	* Dialog.C: shuffle a couple of functions around.
+
+2003-07-16  Angus Leeming  <leeming@lyx.org>
+
+	* ControlMath.C (find_xpm): rewrite to make Lars happy by using find_if.
+
+2003-07-16  Angus Leeming  <leeming@lyx.org>
+
+	Dialog.[Ch]: move a few methods out of line.
+
+	Dialog.h:
+	Kernel.h: improve doxygen documentation.
+
+2003-07-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* introduce namespace lyx::support
+
+2003-06-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Kernel.h: fix some \class issues
+
+	* Kernel.C: fix \file
+
+	* Dialog.h: fix some \class issues
+
+	* ControlErrorList.h: correct const type order, remove some
+	ControlErrorList:: from declarations.
+
+	* BCView.h: fix usage of \class to \c
+	* ControlAboutlyx.h: ditto
+	* ButtonController.h: ditto + remove misplaced end doxy group tag
+
+2003-06-24  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ControlDocument.C (classApply): removed the call to resetErrorList,
+	replaced setErrorList by parseErrors
+
+2003-06-21  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ControlError.[Ch]: removed
+	* Makefile.am: adjust
+
+2003-06-20  Angus Leeming  <leeming@lyx.org>
+
+	* tex_helpers.[Ch] (getTexFileList): changed to
+	void getTexFileList(string const & file, vector<string> & contents);
+
+	* ControlBibtex.[Ch] (getBibFiles, getBibStyles): now passed a
+	vector<string> to fill rather than returning a string.
+
+	* ControlTexinfo.[Ch] (rescanStyles, runTexhash): removed. No need
+	for an extra layer of indirection.
+	(getContents): moved out of class to getTexFileList.
+
+2003-06-19  Angus Leeming  <leeming@lyx.org>
+
+	* ControlTexinfo.[Ch]: rewritten to use the Dialog-based scheme.
+
+2003-06-17  Angus Leeming  <leeming@lyx.org>
+
+	* ControlMath.[Ch]:
+	* ControlMath2.[Ch]: rename ControlMath2 as ControlMath.
+	Move into ControlMath.[Ch]. Remove ControlMath2.[Ch].
+
+	* Makefile.am: remove ControlMath2.[Ch].
+
+2003-06-17  Angus Leeming  <leeming@lyx.org>
+
+	* ControlMath.[Ch] (showDialog):
+	* ControlMath2.[Ch] (showDialog, dispatchFunc): new member functions.
+
+	* ControlMath2.C: wrap all other calls to the kernel diapatcher into
+	dispatchFunc.
+
+2003-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* ControlMath2.[Ch]: new files. A work in progress towards a clean
+	implementation of the math panel.
+
+	* Makefile.am: add files.
+
+2003-06-11  Angus Leeming  <leeming@lyx.org>
+
+	* ControlExternal.[Ch]: changes due to InsetExternal::Params no longer
+	storing the ExternalTemplate but its name.
+
+2003-06-10  Angus Leeming  <leeming@lyx.org>
+
+	* ControlExternal.C (editExternal): invokes new LFUN_EXTERNAL_EDIT
+	rather than generate a new inset itself.
+
+2003-06-06  John Levon  <levon@movementarian.org>
+
+	* ControlDocument.C: make sure a language change
+	always gets propogated
+
+2003-06-03  Angus Leeming  <leeming@lyx.org>
+
+	* ControlExternal.[Ch]: remove viewExternal and updateExternal.
+	Change the internal store from an InsetExternal to its Param struct.
+
+2003-06-03  John Levon  <levon@movementarian.org>
+
+	* ControlGraphics.C: make file path relative for the GUI,
+	absolute for the backend
+
+2003-05-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlDocument.C (saveAsDefault): adjust
+
+2003-05-21  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ViewBase.h:
+	* Dialog.h (setTitle): added
+
+2003-05-20  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ControlErrorList.[Ch]: small bugs fixed, use ErrorList
+
+2003-05-13  André Pönitz  <poenitz@gmx.net>
+
+	* ControlForks.[Ch]: use vector<pid_t> instead of strings
+
+2003-05-14  Rob Lahaye <lahaye@users.sourceforge.net>
+
+	* ControlErrorList.C (clearParams): replace string::clear by
+	string::erase
+
+2003-05-14  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlErrorList.C (goTo): use lyxerr not cout.
+
+2003-05-13  Alfredo Braunstein <abraunst@libero.it>
+
+	* ControlErrorList.[Ch]: added
+	* Makefile.am: the above adittion
+
+2003-05-13 André Pönitz <poenitz@gmx.net>
+
+	* ControlDocument.C:
+	* ControlPrint.C:
+	* ControlSpellchecker.C:
+	* biblio.C: boost::format -> bformat  all over the place
+
+	* ControlForks.C:
+	* ControlGraphics.C:
+	* ControlPrint.C:
+	* ControlSearch.C:
+	* ControlSpellchecker.C:
+	* ControlTabularCreate.C: use tostr from new header
+
+
+2003-05-08  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am: better lib building
+
+2003-05-07  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlDocument.C (saveAsDefault): parlist cleanup
+
+2003-05-06  John Levon  <levon@movementarian.org>
+
+	* ControlDocument.C: fix buggy boost format
+
+2003-05-06  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlDocument.C (classApply): adjust call to
+	SwitchLayoutsBetweenClasses.
+
+2003-04-25  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlDocument.C (setLanguage): call updateDocLang when not
+	calling changeLanguage.
+
+2003-04-10  John Levon  <levon@movementarian.org>
+
+	* ControlTabular.h:
+	* ControlTabular.C: add longTabular() etc.
+
+2003-04-10  John Levon  <levon@movementarian.org>
+
+	* ControlMath.C (find_xpm): handle math_delim arguments
+
+2003-04-02  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCommandBuffer.[Ch] (c-tor): passed a LyXView & rather than
+	a LyXFunc &. Ensuing changes elsewhere.
+	(getCurrentState): new method, returning bufferview_func's
+	currentState (needs the currently active BufferView).
+
+2003-03-31  John Levon  <levon@movementarian.org>
+
+	* ControlPrint.C:
+	* ControlDocument.C: more Alert cleanups
+
+2003-03-29  John Levon  <levon@movementarian.org>
+
+	* ControlSpellchecker.C: Alert cleanup
+
+2003-03-29  John Levon  <levon@movementarian.org>
+
+	* helper_funcs.C: Alert cleanup
+
+2003-03-29  John Levon  <levon@movementarian.org>
+
+	* ControlDocument.C: comment out seemingly silly question
+
+2003-03-27  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlDialog.tmpl (show): qualify emergency_exit_ with this->
+	(update): ditto
+	(hide): ditto
+
+2003-03-26  Angus Leeming  <leeming@lyx.org>
+
+	* ControlThesaurus.[Ch]: rewrite to use the Dialog-based scheme.
+
+2003-03-25  John Levon  <levon@movementarian.org>
+
+	* ControlSpellchecker.C: support for new aspell
+
+2003-03-25  Angus Leeming  <leeming@lyx.org>
+
+	* ControlLog.[Ch]:
+	* ControlShowFile.[Ch]:
+	* ControlVCLog.[Ch]: rewrite to use the Dialog-based scheme.
+
+2003-03-24  John Levon  <levon@movementarian.org>
+
+	* ControlMath.C: include Pr function
+
+2003-03-23  John Levon  <levon@movementarian.org>
+
+	* ControlSpellchecker.C: make "words checked" translatable,
+	from Michael Schmitt
+
+2003-03-18  John Levon  <levon@movementarian.org>
+
+	* ControlParagraph.C: make reading of params succeed
+
+2003-03-13  Rob Lahaye  <lahaye@snu.ac.kr>
+
+        * ControlChanges.[Ch]: ControlChanges::find() returns the bool
+        from lyxfind::findNextChange(), instead of void.
+
+2003-03-13  Angus Leeming  <leeming@lyx.org>
+
+	* Dialog.h (initialiseParams): return a bool to indicate successful
+	translation of the string.
+
+	* Dialog.h:
+	* Kernel.h
+	* ControlAbout.h: a serious attempt at documenting the code.
+
+	* ButtonController.[Ch] (readWrite): it wasn't used, so remove it.
+	(invalid): ditto.
+
+	* ButtonController.[Ch]:
+	* BCView.[Ch], BCView.tmpl: make many methods const.
+
+2003-03-13  Angus Leeming  <leeming@lyx.org>
+
+	* ControlParagraph.[Ch]: rewrite to use the Dialog-based scheme and
+	the new dispatch lfuns.
+
+2003-03-12  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCharacter.[Ch]: rewrite to use the Dialog-based scheme and
+	the new dispatch lfuns.
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	Flatten the ButtonController tree by splitting it into a Controller
+	and a View.
+
+	* BCView.[Ch], BCView.tmpl: new files containing the View part of the
+	ButtonController.
+
+	* ButtonController.[Ch]: just the controller, which needs know only
+	two methods of the View, refresh and refreshReadOnly.
+
+	* lots of files: associated changes.
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	* ControlChanges.[Ch]: rewrite to use the Dialog-based scheme.
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	* ControlAboutlyx.[Ch]: rewrite to use the Dialog-based scheme.
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	* ControlTabularCreate.[Ch]: rewrite to use the Dialog-based scheme.
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	* ControlTabular.[Ch]: rewrite to use the Dialog-based scheme.
+
+2003-03-09  Angus Leeming  <leeming@lyx.org>
+
+	* ControlTabular.[Ch]: minimise the interface in preparation for
+	a move to the Dialog-based scheme.
+	(inset): removed; the views require only getActiveCell().
+	(tabular): return as a reference.
+
+2003-03-07  Angus Leeming  <leeming@lyx.org>
+
+	* ControlGraphics.[Ch]: rewrite to use the Dialog-based scheme.
+
+	* ControlInset.{h, tmpl}: remove.
+	* Makefile.am: remove files.
+
+2003-03-07  Angus Leeming  <leeming@lyx.org>
+
+	* ControlBibitem.[Ch]:
+	* ControlIndex.[Ch]:
+	* ControlLabel.[Ch]:
+	* ControlUrl.[Ch]: removed.
+
+	* Makefile.am: remove files.
+
+	* ControlERT.C (dispatchParams):
+	* ControlExternal.C (dispatchParams):
+	* ControlFloat.C (dispatchParams):
+	* ControlInclude.C (dispatchParams):
+	* ControlWrap.C (dispatchParams): no need to pass name to Mailer
+	anymore.
+
+	* ControlMinipage.[Ch]: rewrite to use the Dialog-based scheme.
+
+2003-03-05  Angus Leeming  <leeming@lyx.org>
+
+	* ControlWrap.[Ch]: rewrite to use the Dialog-based scheme.
+
+	* ControlFloat.[Ch]: move insetfloat.h into the .C file.
+
+	* ControlFloat.[Ch]: rewrite to use the Dialog-based scheme.
+	* ControlInclude.C: remove unneeded header files.
+
+	* ControlFloat.[Ch]: replace FloatParams with InsetFloatParams.
+
+	* ControlInclude.[Ch]: rewrite to use the Dialog-based scheme.
+
+	* ControlExternal.[Ch]: rewrite to use the Dialog-based scheme.
+
+	* Dialog.h: make view() public. Add dialog() methods.
+
+2003-02-28  Alfredo Braunstein  <abraunst@libero.it>
+
+	* ControlGraphics.C: removed #include "converter.h"
+	* ControlPrefs.C:
+	* ControlSendto.C: added #include "format.h"
+
+2003-02-27  Angus Leeming  <leeming@lyx.org>
+
+	* ControlLabel.[Ch]: new files. A controller for the Label dialog.
+
+	* Makefile.am: add the new files.
+
+2003-02-27  Angus Leeming  <leeming@lyx.org>
+
+	* ControlBibitem.C (c-tor):
+	* ControlBibtex.C (c-tor):
+	* ControlCitation.C (c-tor):
+	* ControlIndex.C (c-tor):
+	* ControlRef.C (c-tor):
+	* ControlToc.C (c-tor):
+	* ControlUrl.C (c-tor):
+	pass "name" to ControlCommand c-tor,
+	not an LFUN.
+
+	* ControlCommand.[Ch] (c-tor, dispatchParams): use "name" rather than a
+	specific LFUN.
+
+	* ControlERT.C (dispatchParams): use "name" rather than a
+	specific LFUN.
+
+2003-02-25  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* ControlDocument.C (apply): Call to setLanguage() after updating bp_;
+
+2003-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* Dialog.[Ch]:
+	* Kernel.[Ch]: a new, transparent MCV split of the dialogs code.
+
+	* ControlBibitem.[Ch]:
+	* ControlBibtex.[Ch]:
+	* ControlCitation.[Ch]:
+	* ControlCommand.[Ch]:
+	* ControlError.[Ch]:
+	* ControlIndex.[Ch]:
+	* ControlRef.[Ch]:
+	* ControlToc.[Ch]:
+	* ControlUrl.[Ch]: New MCV design leads to cleaner code for the
+	individual controllers too.
+	Move 'apply' code into the LyX kernel.
+
+	* ControlConnections.C: temporary renaming of Dialogs::signals.
+
+	* Makefile.am: add new files.
+
+2003-02-21  Angus Leeming  <leeming@lyx.org>
+
+	* ControlBibtex.C (Browse):
+	* ControlExternal.C (Browse):
+	* ControlGraphics.C (Browse):
+	* ControlInclude.C (Browse):
+	* ControlPrefs.C (browsebind, browseUI, browsekbmap, browsedict,
+	browse, browsedir):
+	* ControlPrint.C (Browse):
+	don't pass a LyXView & to browseFile et al.
+	* helper_funcs.[Ch] (browseFile, browseRelFile, browseDir):
+	don't pass a LyXView & to fileDlg.
+
+2003-02-17  John Levon  <levon@movementarian.org>
+
+	* ControlDialog.tmpl: build dialog before calling setParams
+	  for the benefit of ControlSpellchecker
+
+	* ControlSpellchecker.h:
+	* ControlSpellchecker.C: rework. Lots of bugs fixed and
+	  cleanups.
+
+2003-02-14  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* ControlBibtex.[Ch]: new function getBibFiles() (provides list
+	of available *.bib-files from bibFiles.lst).
+
+	* tex_helpers.C (getTexFileList): sort and dis-duplicate
+	listWithoutPath correctly.
+
+2003-02-08  John Levon  <levon@movementarian.org>
+
+	* ControlPrefs.h:
+	* ControlPrefs.C: call setCurrentAuthor explicitly on apply()
+
+2003-02-08  John Levon  <levon@movementarian.org>
+
+	* Makefile.am:
+	* ControlChanges.h:
+	* ControlChanges.C: add merge changes dialog
+
+	* ControlPrefs.h:
+	* ControlPrefs.C: add setCurrentAuthor()
+
+2003-01-31  Angus Leeming  <leeming@lyx.org>
+
+	* ViewBase.h: add an isVisible() pure virtual method.
+
+	* ControlTabular.C (updateInset): don't build the dialog here.
+	Instead, do nothing if the dialog is invisible.
+
+2003-01-15  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* ControlSpellchecker.[Ch]: Remove XForms RTL hacks.
+
+2003-01-11  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* helper_funcs.[Ch]: implement browseDir (browse directory) [bug 824]
+
+	* ControlPrefs.[Ch]: implement browsedir for the use of use browseDir.
+
+2002-12-02  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlDocument.C: use BoostFormat.h instead of boost/format.hpp
+
+2002-12-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* several files: ws changes
+
+2002-12-01  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlDocument.C (classApply): use boost.format
+
+2002-11-29  Angus Leeming  <leeming@lyx.org>
+
+	* ControlButtons.h (isClosing): make it public, so that the view can
+	see it too.
+	(OKButton): no longer virtual. ControlPrefs should use isClosing() from
+	within apply.
+
+	* ControlPrefs.[Ch] (OKButton): removed.
+
+	* ControlPrefs.C (apply): dispatch a LFUN_SAVEPREFERENCES if the
+	dialog isClosing(). (Ie, if the "save" button has been pressed.)
+
+2002-11-28  John Levon  <levon@movementarian.org>
+
+	* ControlSpellchecker.C: fix Lars' broken cleanup
+
+2002-11-27  Juergen Spitzmueller  <j.spitzmueller@gmx.de>
+
+	* ControlTabular.[Ch]: Add isMulticolumnCell
+
+2002-11-27  Angus Leeming  <leeming@lyx.org>
+
+	* ControlMath.C (ControlMath): initialise active_.
+
+2002-11-25  Angus Leeming  <leeming@lyx.org>
+
+	* ControlDialog.h (hide, update): move from protected to public.
+
+	* ControlMath.[Ch]: add controllers for the main math panel dialog and
+	for any daughter dialogs stored by the main panel.
+
+2002-11-21  Angus Leeming  <leeming@lyx.org>
+
+	* ControlDocument.[Ch] (classApply): no longer returns bool.
+	(loadTextclass): new method. Wrapper for textclasslist[tc].load().
+
+2002-11-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* biblio.C (getAbbreviatedAuthor): use boost::format
+
+	* ControlSpellchecker.C (clearParams): use boost::format
+
+2002-11-20  John Levon  <levon@movementarian.org>
+
+	* ControlMath.C: couple more manglings
+
+2002-11-20  John Levon  <levon@movementarian.org>
+
+	* ControlMath.h:
+	* ControlMath.C: add find_xpm mangler
+
+2002-11-17  John Levon  <levon@movementarian.org>
+
+	* helper_funcs.C and users: specify save/open in file dialog
+
+2002-11-15  John Levon  <levon@movementarian.org>
+
+	* ControlPrefs.h:
+	* ControlPrefs.C: use setParams()
+
+2002-11-15  John Levon  <levon@movementarian.org>
+
+	* ControlButtons.h: make OKButton() virtual for prefs
+
+	* ControlPrefs.h:
+	* ControlPrefs.C: updates for xforms port to MVC
+
+	* Makefile.am:
+	* ControlTabular.h:
+	* ControlTabular.C: add simple MVC port
+
+2002-11-14  Juergen Spitzmueller <j.spitzmueller@gmx.de>
+
+	* ControlInclude.C: fix file format masks for qt's use
+
+2002-11-13  John Levon  <levon@movementarian.org>
+
+	* Makefile.am:
+	* ControlPrefs.h:
+	* ControlPrefs.C: add skeleton controller
+
+2002-11-12  John Levon  <levon@movementarian.org>
+
+	* biblio.C: fix warnings
+
+2002-11-12  Angus Leeming  <leeming@lyx.org>
+
+	* ControlSpellchecker.C (check): fix crash
+	* biblio.C (escape_special_chars): simplify BRE.
+
+2002-11-07  Edwin Leuven  <leuven@fee.uva.nl>
+
+	* ControlDocument.[Ch]: Remove unused method
+
+2002-11-07  Angus Leeming  <leeming@lyx.org>
+
+	* ChangeLog, biblio.C: * Add RegEx to the compiled boost files.
+	* clean-up the search code in biblio.C.
+
+2002-11-07  John Levon  <levon@movementarian.org>
+
+	* ControlGraphics.C: QGraphics fixes
+
+2002-11-07  Juergen Spitzmueller <j.spitzmueller@gmx.de>
+
+	* ControlDocument.C: (SaveAsDefault) make it work.
+	fix buffer update on class change
+
+2002-11-06  Angus Leeming  <leeming@lyx.org>
+
+	* biblio.C (searchKeys and helper functions): rewritten entirely
+	using the STL. Boost::regex searching now works as the old 1.2 code
+	did.
+
+2002-11-06  Angus Leeming  <leeming@lyx.org>
+
+	* biblio.C: clean-up of the code. No change in functionality.
+
+2002-11-04  Angus Leeming  <leeming@lyx.org>
+
+	* ControlGraphics.[Ch] (getUnits): moved out of class and into
+	frnt::getBBUnits(). Code cleaned also.
+
+2002-11-04  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* biblio.C (regexSearch): STRCONV
+	(getInfo): ditto
+
+	* ControlAboutlyx.C (getVersion): STRCONV
+
+	* ControlMath.C: include config.h
+
+2002-10-31  John Levon  <levon@movementarian.org>
+
+	* ControlGraphics.h:
+	* ControlGraphics.C: bb units from Herbert
+
+2002-10-29  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* ControlParagraph.[Ch] (alignDefault): new method, returning the
+	default alignment (block, left, right, center) of this paragraph.
+
+2002-10-25  John Levon  <levon@movementarian.org>
+
+	* ControlPrint.C: using endl
+
+2002-10-24  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* ControlPrint.[Ch]: move code here from Liason.[Ch].
+
+	* ControlSpellchecker.h (getCount): new method.
+	* ControlSpellchecker.[Ch]: constify some accessor methods.
+
+2002-10-22  Angus Leeming  <leeming@lyx.org>
+
+	* Makefile.am (libcontrollers_la_SOURCES): arrange list into
+	alphabetical order once again.
+
+	* ButtonControllerBase.[Ch]: define an abstract base class CheckedWidget
+	Add a list of CheckedWidget ptrs to ButtonControllerBase
+	together with methods addCheckedWidget and checkWidgets to use it.
+
+	* ButtonController.tmpl (refresh): use the return value of
+	checkWidgets to control the activation state of the Ok, Apply, Restore
+	buttons.
+
+	* ControlDialog.tmpl (show, update):
+	* ControlInset.tmpl (showInset, update):
+	invoke ButtonController::refresh to ensure that the activation state of
+	the Ok, Apply buttons reflects the valid-state of the widgets.
+
+2002-10-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* tex_helpers.C (rescanTexStyles): don't pop p
+	(texhash): ditto
+
+	* ControlWrap.C (WrapParms): remove initialization of placement,
+	and move empty c-tor to .h class def.
+
+	* ControlVCLog.C (getVCLogFile): operator on std::ostream instead
+	of on stringsteam, return void. Get the file into the stream as
+	fast as possible.
+
+	* ControlPreamble.[Ch] (params): getter and setter for params_, make
+	params_ into a string, not just a pointer to string.
+
+	* ControlExternal.C (getTemplateNumber): put i into the for scope,
+	and use the sequence operator on the last for "parameter"
+	(getTemplate): use std::advance to advance the iterator.
+
+	* ControlAboutlyx.C (getCredits): Operate on s std::ostream
+	instead of on a stringstream, return void. Get the file into the
+	stream as fast as possible.
+	(getVersion): use ostringstream
+
+	* lots of files: ws changes, formatting fixes
+
+2002-10-20  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* ControlCharacter.C (apply): setMinibuffer change
+	* ControlDocument.C (apply): ditto
+	(classApply): ditto
+	* ControlThesaurus.C (replace): ditto
+	* ControlSearch.C (find): ditto
+	(replace): ditto
+	* ControlPreamble.C (apply): ditto
+	* ControlParagraph.C (apply): ditto
+
+2002-10-14  André Pönitz <poenitz@gmx.net>
+
+	* ControlDocument.C: somebody else's fix for a hard lockup
+
+2002-10-09  Edwin Leuven <leuven@fee.uva.nl>
+
+	* ControlDocument.h:
+	* ControlDocument.C:
+	* Makefile.am: New document parameters controller
+
+2002-09-24  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* Makefile.am (INCLUDES): loose SIGC_INCLUDES
+
+2002-09-24  Angus Leeming  <leeming@lyx.org>
+
+	* ControlConnections.h: remove trailing whitespace.
+
+	* biblio.h: #include "LString.h".
+
+2002-09-10  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* ControlGraphics.C: Change GUI origin strings into proper English.
+
+2002-09-09  John Levon  <levon@movementarian.org>
+
+	* ControlInclude.C: fix file masks. Get rid of noload,
+	remove stupid warning
+
+2002-09-09  John Levon  <levon@movementarian.org>
+
+	* ControlMath.h:
+	* ControlMath.C: add latex_deco
+
+2002-09-06  John Levon  <levon@movementarian.org>
+
+	* ControlMath.C: terminate dots
+
+2002-09-05  Angus Leeming  <leeming@lyx.org>
+
+	* all files: modify the headers as discussed on the list.
+
+2002-08-30  John Levon  <levon@movementarian.org>
+
+	* ControlMath.h:
+	* ControlMath.C: moved from MathsSymbols.C
+
+2002-08-27  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ControlFloat.C (applyParamsToInset): wide() now has two arguments
+
+2002-08-23  Rob Lahaye  <lahaye@snu.ac.kr>
+
+	* ControlGraphics.C: make rotationOrigin's default ("leftBaseline") the
+	first item in the list
+
+2002-08-15  Angus Leeming  <leeming@lyx.org>
+
+	* ControlConnections.C: Dialogs::redrawGUI is now a method not a signal.
+
+	* ControlParagraph.C: no longer bind to Dailogs::updateParagraph.
+
+2002-08-15  Angus Leeming  <leeming@lyx.org>
+
+	* lots: changed my email address to leeming@lyx.org.
+
+	* GUI.h: return it to private derivation from boost::noncopyable.
+
+2002-08-14  Angus Leeming  <leeming@lyx.org>
+
+	* GUI.h: public derivation from boost::noncopyable.
+
+2002-08-14  Angus Leeming  <leeming@lyx.org>
+
+	* GUI.h: class GUI deries from boost::noncopyable
+
+	* ControlButtons.h: no longer derives from DialogBase, but instead
+	derives directly from boost::noncopyable.
+
+	* ViewBase.h: derives from boost::noncopyable.
+
+	* ControlCharacter.C:
+	* ControlCommand.C:
+	* ControlConnections.C:
+	* ControlGraphics.C:
+	* ControlInclude.C:
+	* ControlParagraph.C:
+	* ControlPreamble.C:
+	* ControlPrint.C:
+	* ControlSearch.C:
+	* ControlSpellchecker.C:
+	* ControlTexinfo.C:
+	* ControlThesaurus.C:
+	rearrange #includes. Remove unnecessary ones.
+
+	* ControlError.h: add "insets/inseterror.h".
+
+	* helper_funcs.h: add necessary #includes.
+
+	* tex_helpers.[Ch]: add #pragma directives for g++.
+
+	* Makefile.am: remove src/frontends from -I list to compiler.
+
+2002-08-13  Angus Leeming  <leeming@lyx.org>
+
+	* ControlConnections.C:
+	* ControlTexinfo.C:
+	changes due to the changed LyXView interface that now returns references
+	to member variables not pointers.
+
+2002-08-12  Angus Leeming  <leeming@lyx.org>
+
+	* ControlConnections.[Ch]: (isReadonly): renamed as bufferIsReadonly.
+	(bufferIsAvailable, bufferview, buffer, lyxfunc): new methods. Wrappers
+	for the most commonly accessed core methods, to minimise code
+	dependiencies.
+
+	* many files: use these wrappers and remove associated #includes.
+
+2002-08-12  Angus Leeming  <leeming@lyx.org>
+
+	* ControlButtons.[Ch] (bc, view): no longer virtual.
+	(setView, setButtonController): new methods, invoked by GUI.
+
+	* ControlDialog.h (show):
+	* ControlInset.h (createInset, showInset): make public, so that GUI can
+	invoke them.
+
+	* GUI.h: GUI now contains a controller, rather than deriving from it.
+	remove all those friend functions since we can now access the show,
+	createInset, showInset controller methods.
+
+	* ViewBase.h: simplifiy, enabling ControlButtons to be forward-declared.
+	(ViewBC): scrapped.
+
+	* character.h: #include a couple of STL files.
+
+2002-08-08  John Levon  <levon@movementarian.org>
+
+	* ControlCommandBuffer.C: LyXAction cleanup
+
+2002-08-07  John Levon  <levon@movementarian.org>
+
+	* ControlSpellchecker.C: fix crash when spellchecker doesn't
+	  initialise
+
+2002-08-06  John Levon  <levon@movementarian.org>
+
+	* ControlSpellchecker.C:
+	* ControlSpellchecker.h: use WordLangTuple
+
+2002-08-06  John Levon  <levon@movementarian.org>
+
+	* ControlSpellchecker.C: show an alert with the
+	  error message on initialisation failure
+
+2002-08-04  John Levon  <levon@movementarian.org>
+
+	* ControlSpellchecker.h:
+	* ControlSpellchecker.C: some cleanups
+
+	* ControlTabularCreate.C: s/LFUN_INSET_TABULAR/LFUN_TABULAR_INSERT/
+ <
+2002-08-02  Edwin Leuven <leuven@fee.uva.nl>
+
+	* ControlParagraph.[Ch] (changedParagraph): new method invoked when
+	the Dialogs::updateParagraph signal is emitted.
+
+2002-08-02  Angus Leeming  <leeming@lyx.org>
+
+	* ControlCharacter.C (apply):
+	* ControlERT.C (applyParamsToInset):
+	* ControlParagraph.C (apply):
+	* ControlSearch.C (find, replace):
+	* ControlThesaurus.C (replace): changes due to LyXView::view() now
+	returning a boost::shared_ptr.
+
+2002-08-01  John Levon  <levon@movementarian.org>
+
+	* ControlSendto.C: writeFile() change
+
+2002-08-01  John Levon  <levon@movementarian.org>
+
+	* ControlSpellchecker.h:
+	* ControlSpellchecker.C: remove options
+
+2002-07-29  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* several files: strip,frontStrip -> trim,ltrim,rtrim
+
+2002-07-28  Lars Gullik Bjønnes  <larsbj@gullik.net>
+
+	* biblio.C (parseBibTeX): modify because of strip changes
+
+2002-07-24  Juergen Spitzmueller <j.spitzmueller@gmx.de>
+
+	* ControlFloat.[Ch]: Implement Wide Float toggle
+	Replace "allow_here_definitely" by "wide"
+
+2002-07-22  Herbert Voss  <voss@lyx.org>
+
+	* ControlGraphics.C: small changes
+
+2002-07-21  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ControlToc.C: remove getType
+
+2002-07-20  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlCommandBuffer.C: don't add "" to history
+
+2002-07-20  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlRef.C: fix dispatch call nicely
+
+2002-07-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* Makefile.am:
+	* ControlCommandBuffer.h:
+	* ControlCommandBuffer.C: add controller for command (mini) buffer
+	  handling
+
+2002-07-19  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlRef.C: fix dispatch call
+
+2002-07-17  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlCharacter.C: use view_state_changed not setState
+
+2002-07-15  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* biblio.C (parseBibTeX): use ascii_lowercase instead of lowercase
+
+2002-07-15  Mike Fabian  <mfabian@suse.de>
+
+	* biblio.C (compareNoCase): use the compare_ascii_no_case instead
+	of compare_no_case, because in turkish, 'i' is not the lowercase
+	version of 'I', and thus turkish locale breaks parsing of tags.
+
+2002-07-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ControlBibtex.C (applyParamsToInset): ws change
+
+2002-06-27  Juergen Spitzmueller <j.spitzmueller@gmx.de>
+
+	* ControlInclude.C: Add warning if absolute path name and
+	check_typeset is used together
+
+2002-06-28  Angus Leeming  <leeming@lyx.org>
+
+	* ControlGraphics.C: changes associated with the name changes
+	grfx::GCache -> grfx::Cache and grfx::GImage -> grfx::Image.
+
+2002-06-25  Angus Leeming  <leeming@lyx.org>
+
+	* ControlGraphics.C (readBB): Channges associated with the changed
+	interface to the graphics cache.
+
+2002-06-24  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ControlParagraph.C: layout as layout
+
+2002-06-21  Angus Leeming  <leeming@lyx.org>
+
+	* tex_helpers.C: Use <vector> not <vector.h>. Reorder header files.
+	* tex_helpers.h: #include "LString.h".
+
+2002-06-21  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlBibtex.C:
+	* ControlBibitem.C: use repaint()
+
+2002-06-21  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlTexinfo.C: do the same for Texinfo
+
+	* tex_helpers.C: don't try to read a file that isn't there
+
+2002-06-21  Herbert Voss  <voss@perce.de>
+
+	* ControlBibtex.C: do an automatic update, when no bst-list
+	exists
+
+2002-06-20  John Levon  <moz@compsoc.man.ac.uk>
+
+	* GUI.h: createIndex() changed
+
+2002-06-18  Herbert Voss  <voss@perce.de>
+
+	* tex_helpers.[Ch]: move functions from ControlTexinfo into this
+	helperstuff. Now the bibtex gui can use some of these functions
+
+2002-06-18  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlGraphics.C: just make the mask *.*
+
+2002-06-16  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* changes to simplify function setup, removal of a lot of includes.
+
+2002-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* ControlParagraph.[Ch]: forward declare ParagraphParameters.
+
+2002-06-12  Angus Leeming  <leeming@lyx.org>
+
+	* ControlInset.tmpl: add missing header file, ButtonControllerBase.h.
+
+2002-06-11  Edwin Leuven  <leuven@fee.uva.nl>
+
+	* ControlParagraph.[Ch]: new paragraph controller
+	* GUI.h: add new controller
+	* Makefile.am: ditto
+
+2002-06-10  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* GUI.h: do not include ButtonController.tmpl
+
+	* ControlInset.h: include ControlInset.tmpl
+
+	* ControlCitation.C: do not include ControlInset.tmpl
+	* ControlCommand.C: ditto
+	* ControlERT.C: ditto
+	* ControlError.C: ditto
+	* ControlExternal.C: ditto
+	* ControlFloat.C: ditto
+	* ControlGraphics.C: ditto
+	* ControlInclude.C: ditto
+	* ControlMinipage.C: ditto
+
+	* ControlDialog.tmpl: remove the Base:: prefix
+
+2002-06-07  Angus Leeming  <leeming@lyx.org>
+
+	Fixes needed to compile with Compaq cxx 6.5.
+	* ControlDialog.tmpl: I have had to prefix base class methods with
+	Base:: Wierd!
+
+	* ControlInset.tmpl: #include a couple of headers.
+
+2002-05-29  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* switch from SigC signals to boost::signals
+
+2002-05-25  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* biblio.h: include vector
+
+	* biblio.C: change include order
+	(regexSearch): use boost regex and get rid of LRegex
+
+2002-05-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlAboutlyx.C:
+	* ControlBibitem.C:
+	* ControlBibtex.C:
+	* ControlCharacter.C:
+	* ControlCitation.C:
+	* ControlCommand.C:
+	* ControlConnections.C:
+	* ControlERT.C:
+	* ControlError.C:
+	* ControlExternal.C:
+	* ControlFloat.C:
+	* ControlForks.C:
+	* ControlGraphics.C:
+	* ControlInclude.C:
+	* ControlIndex.C:
+	* ControlLog.C:
+	* ControlMinipage.C:
+	* ControlPreamble.C:
+	* ControlPrint.C:
+	* ControlRef.C:
+	* ControlSearch.C:
+	* ControlSendto.C:
+	* ControlShowFile.C:
+	* ControlSpellchecker.C:
+	* ControlTabularCreate.C:
+	* ControlTexinfo.C:
+	* ControlThesaurus.C:
+	* ControlToc.C:
+	* ControlUrl.C:
+	* ControlVCLog.C: LyXView moved into frontends
+
+2002-05-22  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ControlExternal.C: add scoped_ptr.hpp
+
+	* ControlCharacter.h: use more specific smart_ptr header.
+
+2002-05-21  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* frnt_lang.C (getLanguageData): change a couple of N_() to _().
+
+2002-05-13  Herbert Voss  <voss@perce.de>
+
+	* biblio.C (getAbbreviatedAuthor): fix bug with "and" for Authors
+	like "Odland, G. and ... "
+	(parseBibTeX): fix bug with title and booktitle
+	and replace a \n with a space when one entry has more than
+	one line
+
+2002-05-01  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCharacter.C: use "ignore" and "reset" as the identifiers, not
+	"No change" and "Reset".
+
+	* frnt_lang.C: ditto. Further, do not sort thes two entries. Ie, leave
+	them at the front of the list.
+
+2002-05-01  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlGraphics.C: add some comments to the char * arrays.
+	Make rorigin_size const.
+
+2002-04-30  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlGraphics.[Ch] (getRotationOriginData): new helper function.
+	Enables the gui's to internationalise these strings.
+
+2002-04-30  John Levon  <moz@compsoc.man.ac.uk>
+
+	* frnt_lang.C: fix build
+
+2002-04-30  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* frnt_lang.[Ch] (getLanguageData): passed a bool character_dlg.
+	If the the caller is the character dialog, add "No change" and "Reset"
+	to the vector, else don't.
+	Internationalise the GUI strings here rather than in the different
+	calling dialogs.
+	Sort the translated strings, albeit simply.
+
+2002-04-29  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* character.[Ch]: rename namespace character as namespace frnt.
+
+	* frnt_lang.[Ch]: new file. Move getLanguageData from character.[Ch]
+	as several dialogs will use this info. The function now returns a
+	vector<LanguagePair> where LanguagePair is a display string and an
+	identifying string. The display string is internationalised.
+
+	* ControlCharacter.C (getLanguage, setLanguage): Do not internationalise
+	the identifying strings, "No change" and "Reset".
+
+	* Makefile.am: add frnt_lang.[Ch].
+
+2002-04-25  Herbert Voss  <voss@lyx.org>
+
+	* ControlSendto.C (allFormats): don't add the graphics extensions to the
+	export menu
+
+2002-04-22  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* biblio.C (getAbbreviatedAuthor, getYear): Deal with sub-standard
+	BibTeX databases in a WYSIWYM way.
+
+2002-04-22  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* biblio.C (getAbbreviatedAuthor, getYear): Cæsar is dead. RIP; he was
+	way past his use-by date.
+	Make use of the improved info from Buffer::getBibkeyList when using
+	\bibliography. Enables us to provide natbib support in this case too.
+
+2002-04-19  Marco Morandini <morandini@aero.polimi.it>
+
+	* ControlGraphics.C: pass the browseFile dialog a string of only those
+	formats that can currently be loaded by LyX.
+
+2002-04-15  Herbert Voss  <voss@perce.de>
+
+	* biblio.[Ch] (parseBibTeX): fix bug while scanning bibtexentries
+	with something like ,,...blah...`` (two commas)
+
+2002-04-14  Herbert Voss  <voss@perce.de>
+
+	* helper_funcs.[Ch]: move the getVectorFromString and the vice versa
+	into the support/lstrings for better use in other programs.
+
+	* biblio.[Ch] (getYear, getAbbreviatedAuthor, familyName): move out of
+	namespace anon and make globally accessible.
+	(familyName): test for the presence of a LaTeX Space at the front of
+	of a name; strip it if it exists.
+
+2002-04-11  Herbert Voss  <voss@perce.de>
+
+	* ControlGraphics.C: expand "browse-string" to all available formats
+
+2002-04-11  Herbert Voss  <voss@perce.de>
+
+	* ControlGraphics.C: read BoundingBox also from non (e)ps files.
+
+2002-04-08  Adrien Rebollo  <adrien.rebollo@gmx.fr>
+
+	* ControlAboutlyx.C (getVersion): two _() forgotten
+
+2002-04-08  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlGraphics.C:
+	* ControlPrint.C:
+	* ControlBibtex.C: make N_() be _()
+
+2002-04-07  Herbert Voss  <voss@perce.de>
+
+	* ControlGraphics.[C]: move readBB as readBB_from_PSFile into filetools
+
+2002-04-05  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlGraphics.C (readBB): sigh. Make sure that the correct path is
+	used when reading the BB.
+
+2002-04-04  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlGraphics.C (readBB): Don't open the ifstrem and then
+	check the format from the contents (and open a second ifstream in the
+	process. One at a time please.
+
+2002-03-26  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlRef.C (getBufferNum): squash warning message.
+
+2002-03-22  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlBibtex.C (Browse):
+	* ControlGraphics.C (Browse):
+	* ControlPrint.C (Browse):  use Jean-Marc's browseRelFile.
+
+	* ControlGraphics.[Ch]: replace checkFilename with isFilenameValid.
+
+	* ControlGraphics.C (applyParamsToInset): pass filepath to
+	InsetGraphics::updateInset.
+
+2002-03-21  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* most files: ws cleanup
+
+2002-03-18  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* biblio.C (getInfo): string::c_str() never returns NULL. Don't test
+	for it.
+
+2002-03-18  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlGraphics.C:
+	* ControlInclude.C: better error messages
+
+2002-03-11  Herbert Voss  <voss@lyx.org>
+
+	* biblio.C (parseBibTeX): fix another minibug with an
+	ending comma
+
+2002-03-10  Herbert Voss  <voss@lyx.org>
+
+	* biblio.C (parseBibTeX): fix bug
+	(familyName): improve parsing
+
+2002-03-09  Herbert Voss  <voss@lyx.org>
+
+	* ControlGraphics.[Ch]: adding checkFilename() for testing
+	of non-existing files
+
+2002-03-07  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ControlSendto.C (allFormats): fix a iterators are not pointers
+	problem.
+
+2002-03-06  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlShowFile.h: add a #include "LString.h"
+
+2002-03-05  Herbert Voss  <voss@lyx.org>
+
+	* biblio.C (getInfo): simplify if using paragraph layout
+	"bibliography".
+
+2002-03-05  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* biblio.C (getInfo): return the info field correctly if the key
+	is not a BibTeX one.
+	(parseBibTeX): fix crash when data.find('=') returns string::npos.
+
+2002-02-20  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlForks.[Ch]: new files. A controller for the Forked Child
+	processes dialog, enabling the user to see what forked processes
+	are running, and, if he so desires, to kill them.
+
+	* GUI.h: add class GUIForks.
+
+	* Makefile.am: add ControlForks.[Ch].
+
+	* ControlGraphics.C (getParams): small change due to change in
+	insetgraphics.
+
+2002-02-21  Herbert Voss  <voss@lyx.org>
+
+	* biblio.C: fix bug with commentlines in a bibentry
+
+2002-02-20  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am: simpler obj. file compile
+
+2002-02-18  Herbert Voss  <voss@lyx.org>
+
+	* ControlGraphics.[Ch]: remove help-file call
+
+2002-02-18  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* helper_funcs.h: wrap the structs firster and seconder up in a
+	namespace to avoid clashes with those in lyxalgo,h.
+
+	* ControlTexinfo.C Changes due to the renaming of support/syscall.[Ch]
+	as support/systemcall.[Ch] and of class Systemcalls as class SystemCall.
+
+2002-02-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlGraphics.C: remove #include "support/syscall.h" as it's not
+	used.
+	* ControlTexinfo.C:
+	change Systemcalls::System to Systemcalls::Wait and
+	No change of functionality, just reflects the stripped down Systemcalls
+	class.
+
+2002-02-06  Herbert Voss  <voss@lyx.org>
+
+	* ControlGraphics.[C] (readBB): search also in
+	g'zipped files. If it is useful than PK and compress
+	should also be supported. use unzipFile() from
+	support/filetools
+
+2002-02-06  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ControlRef.C (getBufferName): new method to get a real buffer
+	name from an index.
+
+2002-02-05  Juergen Spitzmueller <j.spitzmueller@gmx.de>
+
+	* ControlTexInfo.[Ch]: Removed Help functions.
+
+2002-02-01  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlSpellchecker.C: clear any selection left
+	(bug #211)
+
+2002-02-01  Herbert Voss  <voss@lyx.org>
+
+	* ControlGraphics.[C] (readBB): search only, if it is a
+	".?ps" file and look for bb's at end of file
+
+2002-01-30  Herbert Voss  <voss@lyx.org>
+
+	* ControlGraphic.[C]: do not search the whole file, when
+	getting the bb
+
+2002-01-29  Herbert Voss  <voss@lyx.org>
+
+	* ControlGraphic.[C]: added a button for document path
+	when browsing -> bug 222
+
+2002-01-27  Herbert Voss  <voss@lyx.org>
+
+	* ControlGraphic.[Ch]: added support for Bounding Box, other
+	small changes
+
+2002-01-25  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlAboutlyx.h:
+	* ControlTexinfo.h: added #include "LString.h" where they belong.
+
+2002-01-25  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCitation.C:
+	* ControlDialog_impl.C: remove redundant // -*- C++ -*-
+
+2002-01-24  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlInclude.[Ch] (fileExists): remove const type qualifier from
+	bool return type.
+
+2002-01-20  Herbert Voss  <voss@perce.de>
+
+	* ControlInclude.[Ch]: better control of unexistings files
+	when entered without the browser
+
+	* ControlGraphic.C (Browse): add extension "ps" when browsing for
+	a filename
+
+2002-01-19  Herbert Voss  <voss@perce.de>
+
+	* biblio.C (getInfo): fix bug when no author is given
+
+	* biblio.C (parseBibTeX): change the parsing, so that
+	'#'-characters in a bibtex entry are no more a problem.
+
+2002-01-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ControlDialog_impl.h (ControlConnectBI>): make ControlDialogBI
+	derive from ControlDialog<ControlConnectBI> (fixes bug #196)
+
+	* helper_funcs.C (browseRelFile): forgot to pass dir2 to browseFile
+
+2002-01-17  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ControlMinipage.h: change MinipageParams::pageWidth to LyXLength
+
+	* ControlExternal.C (Browse): add a std:: qualifier
+
+2002-01-16  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ControlExternal.C (Browse): simplify to use browseRelFile
+
+2002-01-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonController.tmpl: added // -*- C++ -*-
+
+	* ControlCitation.C: #include "ControlInset.tmpl" to instantiate
+	ControlInset<InsetCommand, InsetCommandParams>::showInset, createInset.
+	Needed in _one_ of the ControlCommand-derived classes only.
+
+2002-01-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlInset.h:
+	* ControlSearch.h: #include LString.h
+
+2002-01-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonController.h: split into two. The definition remains in
+	ButtonController.h, the declaration is now in ButtonController.tmpl.
+	These template methods should be #included when the derived class is
+	instantiated, in this case in xforms/xformsBC.C and xforms/Dialogs.C
+	and in the qt2 and gnome equivalents.
+
+	* ControlDialogs.h: removed. The definition of class ControlDialog is
+	now to be found in ControlDialog.h and the declaration of the methods
+	is in ControlDialog.tmpl. The two template instantiations are performed
+	in ControlDialog_impl.[Ch], new files also.
+
+	* ControlInset.h: split into two. The definition remains in
+	ControlInset.h, the declaration is now in ControlInset.tmpl.
+	These template methods should be #included derived class is
+	instantiated, in this case in 8 other .C files in this directory.
+
+	* ControlAboutlyx.[Ch]:
+	* ControlCharacter.[Ch]:
+	* ControlCommand.C:
+	* ControlERT.C:
+	* ControlError.C:
+	* ControlExternal.C:
+	* ControlFloat.C:
+	* ControlGraphics.C:
+	* ControlInclude.C:
+	* ControlLog.[Ch]:
+	* ControlMinipage.C:
+	* ControlPreamble.[Ch]:
+	* ControlPrint.[Ch]:
+	* ControlSearch.[Ch]:
+	* ControlShowFile.[Ch]:
+	* ControlSpellchecker.[Ch]:
+	* ControlTabularCreate.[Ch]:
+	* ControlTexinfo.[Ch]:
+	* ControlThesaurus.[Ch]:
+	* ControlVCLog.[Ch]: small changes associated with the above ones.
+
+	* GUI.h: #include the ButtonController and dialog controller files
+	here, rather than forward declare them. This is the correct place
+	for these #includes.
+
+	* Makefile.am: add ControlDialog_impl.[Ch] to libcontrollers_la_SOURCES.
+	Rename ControlDialogs.h as ControlDialog.h.
+	Add ButtonController.tmpl ControlDialog.tmpl ControlInset.tmpl to
+	EXTRA_DIST.
+
+2002-01-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlInset.h (apply): fix bug unearthed by Michael Koziarski.
+
+2002-01-14  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ControlExternal.C (Browse): use Buffer::filePath; simplify (more
+	can be done)
+
+	* ControlGraphics.C (Browse): remove overzealous shortcut
+
+2002-01-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* FormMinipage.C (apply, update): MinipageParams::width renamed
+	as MinipageParams::pageWidth. InsetMinipage::width  renamed
+	as InsetMinipage::pageWidth.
+
+2002-01-13  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ButtonController.h (refreshReadOnly): use explicit typename
+
+2002-01-13  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* helper_funcs.h (browseFile): add default empty button descriptions.
+
+	* ControlGraphics.C (Browse):
+	* ControlBibtex.C (Browse):
+	* ControlInclude.C (Browse): add shortcuts to directory buttons
+
+2002-01-12  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlThesaurus.h:
+	* ControlThesaurus.C: update to Aiksaurus 0.14
+
+2002-01-07  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlSpellchecker.C (clearParams): show the closing message
+	only if some words have been checked, thereby fixing
+	bugzilla bug #52.
+
+2001-12-11  Michael A. Koziarski <michael@koziarski.org>
+
+	* ControlFloat.[Ch]: changes to prevent here definitely being used
+	with wide figures.
+
+2001-12-19  Jean-Marc Lasgouttes  <lasgouttes@freesurf.fr>
+
+	* ControlThesaurus.h: do not include <config.h> in header files
+
+2001-11-04  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlToc.C: changes for floatlist
+
+2001-11-04  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlVCLog.C: use _()
+
+2001-10-23  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ControlSpellchecker.C: include <sys/types.h> since FreeBSD needs
+	that for select.
+
+2001-10-22  Juergen Vigna  <jug@sad.it>
+
+	* ControlSpellchecker.C (clearParams): use the error_ message of the
+	speller_ if available when the spellchecker died.
+	(setParams): remove double error message display.
+
+2001-10-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlMinipage.[Ch] (getUnits): moved to helper_funcs.
+
+	* helper_funcs.[Ch] (getLatexUnits): see above.
+
+2001-10-12  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ControlTexinfo.C (getContents): use the right file for .sty files
+
+2001-10-10  Herbert Voss  <voss@perce.de>
+
+	* ControlTexinfo.C: new path for the shellscript TeXFiles.sh
+	and some more stuff from FormTexinfo.C
+
+	* ControlShowFile.C: hiding the update-button
+
+2001-10-09  Herbert Voss  <voss@perce.de>
+
+	* ControlTexinfo.[Ch]: new files. Display information about the
+	installed texfiles (cls,sty,bst).
+
+	* ControlShowFile.[Ch]: new files. Display the contents of a file.
+
+	* GUI.h: added classes GUIShowFile and GUITexinfo.
+
+	* Makefile.am: modified appropriately.
+
+2001-10-03  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ControlAboutlyx.C (getVersion): use lyx_version and
+	lyx_release_date instead of old macros
+
+2001-09-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlSpellchecker.C (check): Behaves well now when the spell
+	library doesn't know a replacement to an incorrect word.
+
+2001-09-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlSpellchecker.C (clearParams): place emergency_exit_ in
+	the correct place. Can now check spelling more than once!
+
+2001-09-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlSplash.[Ch]: removed.
+
+	* GUI.h: remove GUISplash class.
+
+	* ViewBase.h: remove ViewSplash class.
+
+	* Makefile.am: remove ControlSplash.[Ch].
+
+2001-09-25  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlButtons.h: add variable emergency_exit_. If set to true, the
+	view will be shut down.
+
+	* ControlDialogs.h:
+	* ControlInset.h: act on emergency_exit_.
+
+	* ControlSpellchecker.C (clearParams): set emergency_exit_ if the
+	speller fails to launch.
+
+2001-09-24  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlRef.C (getBufferList): use MakeDisplayPath on the list.
+	* (getLabelList): use MakeAbsPath on the buffer name passed to it.
+
+2001-09-21  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlRef.h (disconnectOnApply): new method. Set to true.
+	Perhaps make this user-modifiable?
+
+2001-09-14  Jürgen Spitzmüller  <j.spitzmueller@gmx.de>
+
+	* ControlGraphics.C (Browse): add "jpg" to list of recognized file
+	extensions.
+
+2001-09-07  Dekel Tsur  <dekelts@tau.ac.il>
+
+	* ControlRef.C (getBufferList, getBufferNum): New methods
+
+2001-09-12  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlInset.h (disconnectOnApply): new method. Defines the behaviour
+	of the dialog when the Apply button is pressed. Defaults to false,
+	but can be overridden in the daughter classes.
+
+	* ControlCitation.h (disconnectOnApply): new method. Set to true.
+	Perhaps make this user-modifiable?
+
+2001-09-11  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlDialogs.h (show): connect() the dialog on show. All of a sudden
+	we have dialogs that update their contents when the buffer changes.
+	Rather embarassing, really!
+
+2001-09-07  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlSearch (replace): change semantics of replace to NOT move on
+	to the next instance of a word once the present instance has been
+	replaced unless we are replacing ALL instances of the word.
+
+2001-09-07  Rob Lahaye  <lahaye@users.sourceforge.net>
+
+	* ControlButtons.[Ch]: added publicly accessible IconifyWithMain method.
+
+2001-09-04  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCharacter.C: fix Michael's bug: In the "Character layout"
+	dialog, set all options to "reset", close the dialog, re-open it ->
+	the options are set incorrectly.
+
+	* ControlButtons.[Ch]: add an is_closing_ variable and isClosing method.
+	When Applying it's useful to know whether the dialog is about to close
+	or not (no point refreshing the display for example).
+
+	* ControlInset.C (apply): use isClosing.
+
+2001-08-25  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlInset.h:
+	* ControlDialogs.h: remove bc() hack, now fixed in
+	  Qt2 frontend. use member dialog_built_ instead of shared
+	  static.
+
+	* ButtonController.h:
+	* ButtonPolicies.C: more debug info
+
+	* ButtonControllerBase.C: call refresh() when setting readOnly !
+
+	* GUI.h: External form has apply, use the right policy
+
+	* character.C: fix two off-by-one errors when latex font was removed
+
+2001-08-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlInset.h (apply): tentative fix for the press Apply multiple
+	times and get multiple new Insets problem.
+
+2001-08-24  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlCharacter.C: fix typo
+
+	* ViewBase.h:
+	* ControlDialogs.C:
+	* ControlInsets.C: make sure dialog is built before it is shown, so
+	  it works properly the very first time it is shown
+
+2001-08-20  Herbert Voss  <voss@perce.de>
+
+	* ControlBibtex.[Ch]: enhanced bibtex-data gui to browse for databases
+	and styles. Added an option for "bibliography into toc"
+
+2001-08-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* character.[Ch]: remove LATEX_TOGGLE from the FONT_STATE enum as
+	LaTeX is no longer a font property.
+
+2001-08-09  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* GUI.h: Button controller for Reference dialog changed to
+	NoRepeatedApplyReadOnlyPolicy.
+
+	* biblio.C (getInfo): output volume and number info. Move year to end
+	of string.
+
+2001-08-09  Allan Rae  <rae@lyx.org>
+
+	* Makefile.am (SUBDIRS, dist-hook): remove bogus entries.
+
+2001-08-07  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* helper_funcs.C (getVectorFromString): fixed small bug.
+
+	* helper_funcs.h (getFirst, getSecond): cleaned up and removed cruft.
+
+2001-08-07  Edwin Leuven  <leuven@fee.uva.nl>
+
+	* ControlSpellchecker.C: check next word after insert in personal dict
+
+2001-08-06  Juergen Vigna  <jug@sad.it>
+
+	* ControlERT.[Ch]: new file
+
+2001-08-01  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlInset.h: const and non-const forms of params().
+
+	* helper_funcs.C (getStringFromVector,getVectorFromString): remove
+	whitespace from either side of each item.
+
+2001-07-30  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlFloat.h: add a != operator for FloatParams.
+	Lars, how did you get this to compile!!!
+
+	* ControlMinipage.[Ch]: uncommented someone's commenting out of
+	operator != for MinipageParams. Who's changing stuff and not compiling?
+
+2001-07-30  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* Makefile.am (libcontrollers_la_SOURCES): add ControlFloat.h and
+	ControlFloat.C
+
+	* GUI.h: add class GUIFloat
+
+	* ControlFloat.[Ch]: new files
+
+2001-07-30  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ControlPrint.C: #include Lassert.h here.
+
+2001-07-26  Baruch Even  <baruch@lyx.org>
+
+	* ControlGraphics.C: changed file search string to cover eps, jpeg, gif
+	and png.
+
+2001-07-26  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlThesaurus.h:
+	* ControlThesaurus.C:
+	* GUI.h:
+	* Makefile.am: thesaurus support
+
+2001-07-23  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlInclude.h:
+	* ControlInclude.C: implement ability to load file
+
+2001-07-18  Juergen Vigna  <jug@sad.it>
+
+	* ControlSearch.C (replace): changes to lyxfind.h function calls.
+
+2001-07-19  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* biblio.C (getInfo): add a .c_str() to handle the usual
+	stringstream pain.
+
+2001-07-19  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCitation.[Ch]: changes associated with adding natbib support.
+	New public methods, usingNatbib, getCiteStrings and getCiteStyles.
+	New static variable citeStyles_.
+
+	* biblio.[Ch]: large internal rearrangement.
+	New public enum CiteStyle.
+	New public struct CitationStyle.
+	New public functions getCitationStyle, getCiteCommand, getCiteStyles,
+	getNumericalStrings, getAuthorYearStrings
+	(simpleSearch, regexSearch): no longer publicly accessible.
+
+	* helper_funcs.C (getStringFromVector): bug fix.
+
+2001-07-16  Baruch Even  <baruch@lyx.org>
+
+	* ControlVCLog.h: Added Lsstream.h to includes.
+
+2001-07-17  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlSpellchecker.[Ch]: remove d-tor.
+
+2001-07-17  Edwin Leuven  <leuven@fee.uva.nl>
+
+	* ControlSpellchecker.[Ch]: remove member quit() and some cleaning
+
+2001-07-16  Juergen Vigna  <jug@sad.it>
+
+	* ControlSpellchecker.C (show): use the lyxrc.use_pspell flag (if
+	compiled with USE_PSPELL) to be able to switch between ISpell and
+	PSpell classes.
+
+2001-07-13  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	Consistent use of Lsstream.h:
+	* ControlAboutlyx.[Ch] (getCredits):
+	* ControlVCLog.[Ch] (getVCLogFile): std::stringstream -> stringstream.
+
+2001-07-13  Edwin Leuven  <leuven@fee.uva.nl>
+
+	* ControlCredits.[Ch]: removed
+	* ControlCopyright.[Ch]: removed
+	* ControlAboutlyx.[Ch]: added (replaces previous)
+	* GUI.h: removed credits and copyright added about lyx stuff
+
+2001-07-13  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ControlSpellchecker.C (getSuggestion):
+	(getWord): add std:: qualifier
+
+2001-07-13  Edwin Leuven  <leuven@fee.uva.nl>
+
+	* ControlSpellchecker.[Ch]: added
+	* ViewBase.h: added partialUpdate(int) member
+	* GUI.h: added spell stuff
+
+2001-07-12  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ControlExternal.C: (*it). -> it->
+
+2001-06-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonController.h: move some included header files out of the
+	frontends and into here.
+
+2001-06-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCharacter.C (c-tor): cosmetic name change of signal.
+
+2001-06-13  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* *.[h]: added // -*- C++ -*-
+	* *.[C]: removed // -*- C++ -*-
+
+	* ControlCharacter.[Ch]: (setParams): Check contents of font_ to
+	activate Apply button.
+	(clearParams): removed.
+	font_ is now stored as a boost::scoped_ptr.
+	font_ is no longer deleted on hide(), so it's contents can now be used
+	by the Font button on the toolbar.
+	Lots of new methods so that the GUI can easily get the contents of
+	font_ when it update()s.
+
+2001-06-12  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCharacter.C (apply): test that font_ exists, thereby preventing
+	crash when the Font button on the Toolbar is pressed.
+
+	* GUI.h: change policy of Character button controller to
+	OkApplyCancelReadOnlyPolicy.
+
+2001-06-11  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ControlToc.C (getContents): don't add anything to the list if it
+	is supposed to be empty.
+
+2001-06-01  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* helper_funcs.C (getVectorFromString): bug fix.
+
+2001-05-30  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonController.h
+	* ButtonControllerBase.[Ch] (refreshReadOnly): new method, called direct
+	from ButtonControllerBase::readOnly. Updates the state of the widgets
+	in the read-only list only when the read-only status of the document
+	changes.
+	(refresh): moved this stuff into refreshReadOnly.
+
+2001-05-18  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlPrint.C (c-tor):
+	* ControlPreamble.C (c-tor): initialise params_ and thereby cure crash.
+
+2001-05-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* biblio.C:
+	* character.h: small clean-ups.
+
+2001-05-04  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ControlToc.C (getType): remove support for old float list.
+
+2001-04-26  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlButtons.h: no longer include ButtonControllerBase.h, ViewBase.h
+	* ControlGraphics.h: no longer include insetgraphicsParams.h
+	* ControlInset.h: no longer include LyXView.h
+
+	* ControlBibitem.C:
+	* ControlBibtex.C:
+	* ControlButtons.C:
+	* ControlCharacter.C:
+	* ControlCitation.C:
+	* ControlCommand.C:
+	* ControlConnections.C:
+	* ControlCopyright.C:
+	* ControlCredits.C:
+	* ControlError.C:
+	* ControlExternal.C:
+	* ControlGraphics.C:
+	* ControlInclude.C:
+	* ControlLog.C:
+	* ControlMinipage.C:
+	* ControlPreamble.C:
+	* ControlPrint.C:
+	* ControlRef.C:
+	* ControlSearch.C:
+	* ControlTabularCreate.C:
+	* ControlToc.C:
+	* ControlVCLog.C: they're now in here!
+
+2001-04-17  Lars Gullik Bjønnes  <larsbj@birdstep.com>
+
+	* ButtonControllerBase.h: C++ mode, inherit privately from
+	noncopyable
+	* ButtonPolicies.h: ditto
+
+	* ButtonController.h: C++ mode, swap init order of restore_ and
+	cancel_
+
+2001-04-06  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ControlTabularCreate.h:
+	* ControlTabularCreate.C: make dialogs use a pair of uints
+	  instead of a string
+
+	* ControlVCLog.h:
+	* ControlVCLog.C: fill a stringstream with the log contents
+	and then delete it
+
+	* ControlExternal.C: from Angus, clone the new InsetExternal
+	  before acting on it
+
+2001-04-09  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* helper_funcs.C (getStringFromVector, getVectorFromString): fixed bugs
+	and made more robust.
+
+2001-04-05  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ControlToc.C:
+	* ControlSearch.C:
+	* ControlPrint.C:
+	* ControlPreamble.C:
+	* ControlInclude.C:
+	* ControlGraphics.C:
+	* ControlExternal.C:
+	* ControlCopyright.C: include gettext.h
+
+	* ControlCharacter.C:
+	* character.C: include gettext.h and language.h
+
+2001-04-03  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ButtonController.h:
+	* ButtonControllerBase.h:
+	* ButtonControllerBase.C:
+	* ButtonPolicies.h:
+	* ButtonPolicies.C:
+	* ControlButton.h:
+	* ControlButton.C:
+	* ControlButtons.h:
+	* ControlButtons.C:
+	* ControlConnections.h:
+	* ControlDialogs.h:
+	* ControlInset.h:
+	* ControlExternal.C:
+	* Makefile.am:
+	* README:
+	* ViewBase.h: s/ControlButton/ControlButtons/
+	s/popup/dialog/
+	s/UndoAll/Restore/ + associated
+
+2001-03-30  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlToc.[Ch]: new files; a controller for the TOC popup.
+
+	* GUI.h:
+	* Makefile.am: associated changes with all of the above.
+
+2001-03-30  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlExternal.C: bug fixes. Can now apply changes to the inset
+	and edit, view, update the External Material correctly. I hope!
+
+2001-03-30  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonController.[Ch]: renamed as ButtonControllerBase.[Ch]
+
+	* BCTemplates.h: renamed as ButtonController.h
+
+	* ControlBase.[Ch]: renamed as ControlButton.[Ch]. Class named to match.
+
+	* ViewBase.h:
+	* ControlConnections.h: associated change in #include and class names.
+
+	* ControlExternal.[Ch]: new files; a controller for the External
+	Material popup.
+
+	* GUI.h:
+	* Makefile.am: associated changes with all of the above.
+
+	* ControlGraphics.[Ch]:
+	* ControlInclude.[Ch]:
+	* ControlPrint.[Ch]:
+	(lv): removed.
+	(Browse): new method. Returns the results of a FileDialog browse.
+
+	* helper_funcs.[Ch] (browseFile): moved from xforms_helpers.[Ch].
+	(getVectorFromString): fixed bug.
+
+	* biblio.C (simpleSearch): cleaned up.
+
+2001-03-29  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* A slight reworking of Baruch Even's ButtonController patch.
+
+	* BCTemplates.h: new file; all the templates for the ButtonController.
+	Including Baruch's new GuiBC class, with setCancelCloseButton() changed
+	to the more generic setButtonLabel().
+
+	* ButtonController.[Ch]: renamed cancel_label and close_label as
+	cancel_label_ and close_label_.
+
+	* Makefile.am: added BCTemplates.h
+
+2001-03-29  Juergen Vigna  <jug@sad.it>
+
+	* ControlMinipage.C: removed widthp_ and all it's functions and changed
+	to use new %-lengths of LyXLength.
+
+2001-03-29  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCitation.C (bibkeysInfo): removed Assert.
+
+	* ControlCopyright.h: moved GUICopyright into GUI.h
+
+	* GUI.h: see above.
+
+2001-03-28  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlInset.h (clearDaughterParams): is empty by default, not pure.
+	(setDaughterParams): a (by default empty) new method called in show().
+
+	* ControlBibitem.h:
+	* ControlBibtex.h:
+	* ControlError.h:
+	* ControlInclude.h:
+	* ControlMinipage.h:
+	* ControlRef.h:
+	* ControlSearch.h:
+	* ControlUrl.h (clearDaughterParams): removed
+
+	* ControlMinipage.C (applyParamsToInset): update the view.
+	Added namespace minipage containing a helper function getUnits.
+
+	* GUI.h: changed Minipage policy to NoRepeatedApplyReadOnlyPolicy.
+
+	* ControlCharacter.[Ch]: moved out all the helper functions and the
+	enum into their own file.
+	* character.[Ch]: new files; contain the character helper functions,
+	now inside namespace character.
+
+	* ControlCitation.[Ch]: moved out all the helper functions and the
+	enums into their own file. Simplified interface.
+	* biblio.[Ch]: new files; contain the citation helper functions,
+	now inside namespace biblio. Will be of use also to an improved
+	BibTeX popup.
+
+	* ControlGraphics.[Ch]:
+	* ControlIndex.[Ch]: new files; controllers for the Graphics and Index
+	popups, respectively.
+
+	* GUI.h:
+	* Makefile.am: associated changes.
+
+2001-03-27  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlMinipage.[Ch]:
+	* ControlPreamble.[Ch]:
+	* ControlPrint.[Ch]:
+	* ControlSplash.[Ch]: new files; controllers for the Minipage, Preamble
+	and Print popups and Splash screen, respectively.
+
+	* ViewBase.h (ViewSplash): new base class for GUI-specific Splash
+	screens.
+
+	* GUI.h:
+	* Makefile.am: associated changes.
+
+2001-03-26  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlConnections.[Ch]: (docType): new method; returns the type
+	of the buffer, LaTeX, Literate, LinuxDoc or DocBook.
+
+	* ControlRef.[Ch]:
+	* ControlSearch.[Ch]:
+	* ControlTabularCreate.[Ch]: new files; controller for the Ref,
+	Search and TabularCreate popups, respectively.
+
+	* GUI.h:
+	* Makefile.am: associated changes.
+
+2001-03-26  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCitation.C (getBibkeyInfo): get nasty and assert the info map
+	contains data.
+
+	* ControlInset.h (apply): fix bug. Can now create new insets again.
+
+	* README: describe program flow.
+
+2001-03-24  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* Makefile.am (libcontrollers_la_SOURCES): add ControlDialogs.h
+
+2001-03-23  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlDialogs.h: moved class ControlInset into its own file.
+
+	* ControlInset.h: new file. class ControlInset has been expanded to take
+	two template parameters, Inset and Params. Believe that all inset
+	controllers can be derived from this with the minimum of effort.
+
+	* ControlBibitem.[Ch]:
+	* ControlBibtex.[Ch]:
+	* ControlCitation.[Ch]:
+	* ControlCommand.[Ch]: moved most code into ControlInset.
+
+	* lots of files. Moved protected stuff into private where possible.
+
+	* ControlError.[Ch]:
+	* ControlInclude.[Ch]:
+	* ControlUrl.[Ch]: new files; controllers for the LaTeX error,
+	Include and Url popups, respectively.
+
+	* GUI.h:
+	* Makefile.am: associated changes.
+
+2001-03-23  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCredits.[Ch] (getCredits): returns a stringstream not a
+	vector<string>.
+
+2001-03-23  Jean-Marc Lasgouttes  <Jean-Marc.Lasgouttes@inria.fr>
+
+	* ControlCredits.C (getCredits): remove std:: qualifier for
+	getline().
+
+2001-03-23  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* ControlCredits.C (getCredits): add std:: on vector
+
+2001-03-22  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* ControlCredits.C: remove using that is only used once, use
+	std::ios instead of std::iosbase, add some annoying comments.
+
+2001-03-22  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* lots of header files: improved explanatory notes.
+
+	* ControlBase.[Ch]: removed LyXView & lv_ and methods using it.
+	ControlBase is now a class that only controls the interaction of the
+	View with the ButtonController.
+
+	* ControlConnections.[Ch]: added LyXView & lv_ and associated methods
+	to ControlConnectBase. The class controls the connection/disconnection
+	of signals from the LyX kernel and makes available the kernel (through
+	lv_) to daughter controller classes.
+	Moved out class ControlConnectInset to a new file ControlDialogs.h.
+
+	* ControlDialogs.h: new file. Contains the definition of two template
+	controller classes, ControlDialog and ControlInset (was
+	ControlConnectInset). ControlInset is a parent class for controllers
+	of inset-popups. ControlDialogs is the rather uninspired name for
+	the base class of all non-inset popups. (Eg, Document and Paragraph.)
+	ControlDialogs is reaching a state of maturity as several popups now use
+	it and its functionality becomes clear. ControlInset is still in a state
+	of flux. It is likely that functionality will be moved out of
+	ControlCommands and into it.
+
+	* GUI.h: new file. Moved all the template GUIXXX classes out of the
+	individual Controller header files and into one place. These classes
+	serve only as convenient wrappers to simplify code in the respective
+	frontends' Dialogs::c-tor. Now all derived from a templatised parent.
+
+	* ControlCharacter.[Ch] (show, update, hide):
+	* ControlLog.[Ch] (show, update, hide):
+	* ControlVCLog.[Ch] (show, update, hide): moved back into
+	the ControlDialogs base class.
+	(setParams, clearParams): new methods containing controller-specific
+	code to set/reset the parameters manipulated by the view.
+
+	* ControlCommand.[Ch] (clearParams): a new virtual method, by default
+	empty.
+	(hide): calls clearParams.
+
+	* ControlCitation.[Ch] (hide): renamed as clearParams, a method called
+	by ControlCommand::hide().
+
+	* ControlCopyright.[Ch]:
+	* ControlCredits.[Ch]: new files; controllers for the copyright and
+	credits popups, respectively.
+
+2001-03-21  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* ControlCharacter.C: fix typo
+
+2001-03-21  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCharacter.[Ch]: new files; controller for the character popup.
+
+	* ControlCitation.[Ch] (getStringFromVector, getVectorFromString):
+	moved to new files helper_funcs.[Ch].
+
+	* helper_funcs.[Ch]: new files. Some useful helper functions and
+	functors.
+
+	* Makefile.am: added new files.
+
+2001-03-20  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCitation.C (getBibkeyInfo): parse non-BibTeX entries correctly.
+
+2001-03-20  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlLog.[Ch]:
+	* ControlVCLog.[Ch]: new files; controllers for LaTeX and Version
+	Control log files, respectively.
+
+	* Makefile.am: added new files.
+
+2001-03-19  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlBibtex.[Ch]: new files; controller for an InsetBibtex popup.
+
+	* Makefile.am: added ControlBibtex.[Ch].
+
+2001-03-16  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlBibitem.C:
+	* ControlCitation.C: added "using SigC::slot" declaration.
+
+	* ControlCitation.C (getStringFromVector): re-apply Dekel's recent fix
+	to FormCitation.C prior to the merger: "Do not put space between
+	multiple keys".
+
+2001-03-15  Lars Gullik Bjønnes  <larsbj@trylle.birdstep.com>
+
+	* several files: remove CXX_WORKING_NAMESPACES
+
+	* ButtonController.h: noncopyable is in namespace boost
+	* ButtonPolicies.h: ditto
+
+2001-03-14  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Merging changes from BRANCH_MVC back into HEAD.
+
+2001-03-12  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* Makefile.am: add ControlBibitem.[Ch].
+
+	* ControlBibitem.[Ch]: new files that together define the Controller
+	for a Bibitem popup.
+
+	* ControlCommand.h (c-tor): give  kb_action a default value of
+	LFUN_NOACTION.
+
+	* ControlCommand.C (apply): do nothing if kb_action is LFUN_NOACTION.
+
+	* ControlCitation.[Ch]: moved search functions out of class.
+	(bibkeysInfo): new method. Returns const reference to private data.
+	(searchKeys): added case-sensitive switch. Used only by simpleSearch
+	for now.
+
+2001-03-09  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCitation.[Ch]: added Search functions to the class,
+	(shamelessly lifted from Marco's gnome code). I think that these would
+	be better as helper functions outside the class, but this is a first
+	stab at it.
+
+2001-03-07  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ControlCitation.[Ch]: (getBibkeyList): removed from class
+	ControlCitation.
+	(getBibkeys, getBibkeyInfo): added to class ControlCitation.
+	(getStringFromVector, getVectorFromString, parseBibTeX): new helper
+	funcs. parseBibTeX() is lifted staraight out of Marco's gnome
+	implementation of FormCitation.
+
+2001-03-05  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonPolicies.h: add SMI_NOOP to enum.
+
+	* ButtonPolicies.C (nextState): add if-statement for SMI_NOOP.
+
+	* ButtonController.C (input): add "optimising" if-statement. Actually,
+	things don't work correctly without it...
+
+2001-03-02  John Levon  <moz@compsoc.man.ac.uk>
+
+	* ViewBase.h: remove #pragma directive
+
+	* ControlConnection.[Ch] (ControlConnectBI c-tor): add explicit c-tor
+	to make g++ happy.
+
+2001-03-02  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonPolicies.[Ch]: moved from ../ButtonPolicies.[Ch]
+
+	* Makefile.am: added ButtonPolicies.[Ch]
+
+	* ButtonController.[Ch]: ButtonController is split into
+	ButtonControllerBase and a template ButtonController class. The base
+	class no longer stores a pointer to a ButtonPolicy, but instead
+	accesses the actual instantiation of the policy through a pure virtual
+	method bp(). This method and the ButtonPolicy itself are instantiated
+	in the templatised ButtonController class. This class is derived from
+	the GUI-specific GUIBC class, meaning that the frontends know
+	nothing about the actual policy decided upon by the controllers.
+
+	* ControlBase.[Ch]: No longer store the View or the ButtonController.
+	Instead the actual instantiations are accessed through pure virtual
+	methods view() and bc(). The daughter classes are responsible for the
+	actual View and ButtonController.
+
+	* ControlCitation.h: the templatised class GUICitation instantiates
+	the methods view() and bc(). It also stores the instances of the
+	View and ButtonController.
+
+2001-02-23  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonControllerBase.[Ch]: renamed as ButtonController.[Ch]. Class
+	also changed to ButtonController.
+
+	* ControlBase.[Ch]:
+	* ControlConnections.[Ch]:
+	* ControlCommand.[Ch]:
+	* ControlCitation.[Ch]:
+	* ViewBase.h: Changes associated with this.
+
+2001-01-15  Angus Leeming  <a.leeming@ic.ac.uk>
+
+	* ButtonControllerBase.[Ch]: new files. Split Allan's original
+	xforms/ButtonController class into a GUI-I class (here) and an
+	xforms-specific derived class, to be found in xforms/xformsBC.[Ch].
+
+	* ControlBase.[Ch]: new files. ControlBase is an abstract base class
+	from which all Dialog Controllers should be derived. the Controllers
+	are GUI-independent, but are designed to control the behaviour of
+	GUI-specific implementaions of each dialog.
+
+	* ControlConnections.[Ch]: new files. Classes controlling the
+	connections of buffer-independent, buffer-dependent and Inset dialogs
+	with the LyX kernel.
+
+	* ControlCommand.[Ch]: new files. A controller for all dialogs for the
+	InsetCommand subset of insets.
+
+	* ControlCitation.[Ch]: new files. The test specialisation! A
+	controller for the Citation dialog.
+
+	* ViewBase.h: new file. ViewBase is an abstract base class from which
+	GUI-specific dialogs should be derived. The functionality that the GUIs
+	must now implement is much reduced.

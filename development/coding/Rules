@@ -1,0 +1,409 @@
+Rules for the code in LyX
+-------------------------
+[updated from the C++STYLE distributed with the GNU C++ Standard]
+
+The aim of this file is to serve as a guide for the developers, to aid
+us to get clean and uniform code. This document is incomplete.
+
+We really like to have new developers joining the LyX Project. However,
+we have had problems in the past with developers leaving the
+project and their contributed code in a far from perfect state. Most
+of this happened before we really became aware of these issues,
+but still, we don't want it to happen again. So we have put together
+some guidelines and rules for the developers.
+
+
+General
+-------
+
+These guidelines should save us a lot of work while cleaning up the code and
+help us to have quality code. LyX has been haunted by problems coming from
+unfinished projects by people who have left the team. Those problems will
+hopefully disappear if the code is easy to hand over to somebody else.
+
+In general, if you want to contribute to the main source, we expect at least
+that you:
+
+- the most important rule first: kiss (keep it simple stupid), always
+  use a simple implementation in favor of a more complicated one.
+  This eases maintenance a lot.
+- write good C++ code: Readable, well commented and taking advantage of the
+  OO model. Follow the formatting guidelines. See Formatting.
+- adapt the code to the structures already existing in LyX, or in the case
+  that you have better ideas, discuss them on the developer's list before
+  writing the code.
+- take advantage of the C++ standard library. especially don't use
+  custom containers when a standard container is usable; learn to use
+  the algorithms and functors in the standard library.
+- be aware of exceptions and write exception safe code. See Exceptions.
+- document all variables, methods, functions, classes etc. We are
+  using the source documentation program doxygen, a program that handles
+  javadoc syntax, to document sources. You can download doxygen from :
+
+  http://www.stack.nl/~dimitri/doxygen/
+
+- we have certain code constructs that we try to follow. See Code
+  Constructs.
+
+
+Submitting Code
+---------------
+
+It is implicitly understood that all patches contributed to The LyX
+Project is under the Gnu General Public License, version 2 or later.
+If you have a problem with that, don't contribute code.
+
+Also please don't just pop up out of the blue with a huge patch (or
+small) that changes something substantial in LyX. Always discuss your
+ideas with the developers on the developer's mailing list.
+
+When you create the patch, please use "diff -up" since we find that a
+lot easier to read than the other diff formats. Also please do not
+send patches that implements or fixes several different things; several
+patches is a much better option.
+
+We also require you to provide a commit message entry with every patch,
+this describes in detail what the patch is doing.
+
+
+Code Constructs
+---------------
+
+We have several guidelines on code constructs, some of these exist to
+make the code faster, others to make the code clearer. Yet others
+exist to allow us to take advantage of the strong type checking
+in C++.
+
+- Declaration of variables should wait as long as possible. The rule
+  is: "Don't declare it until you need it." In C++ there are a lot of
+  user defined types, and these can very often be expensive to
+  initialize. This rule connects to the next rule too.
+
+- Declare the variable as const if you don't need to change it. This
+  applies to POD types like int as well as classes.
+
+- Make the scope of a variable as small as possible.
+
+- Make good use of namespaces. Prefer anonymous namespaces to declaring
+  "static" for file scope.
+
+- Prefer preincrement to postincrement whenever possible.
+  Preincrement has potential of being faster than postincrement. Just
+  think about the obvious implementations of pre/post-increment. This
+  rule applies to decrement too.
+
+	++T;
+	--U;
+	-NOT-
+	T++; // not used in LyX
+	U--; // not used in LyX
+
+- Try to minimize evaluation of the same code over and over. This is
+  aimed especially at loops.
+
+	Container::iterator end = large.end();
+	for (Container::iterator it = large.begin(); it != end; ++it) {
+		...;
+	}
+	-NOT-
+	for (Container::iterator it = large.begin();
+	     it != large.end(); ++it) {
+		...;
+	}
+
+- For functions and methods that return a non-POD type T, return T
+  const instead. This gives better type checking, and will give a
+  compiler warning when temporaries are used wrongly.
+
+	T const add(...);
+	-NOT-
+	T add(...);
+
+- Avoid using the default cases in switch statements unless you have
+  too. Use the correct type for the switch expression and let the
+  compiler ensure that all cases are exhausted.
+
+	enum Foo {
+		FOO_BAR1,
+		FOO_BAR2
+	};
+	Foo f = ...;
+	switch (f) {
+	case FOO_BAR1: ...; break;
+	case FOO_BAR2: ...; break;
+	default: ...; break; // not needed and would shadow a wrong use of Foo
+	}
+
+
+Exceptions
+----------
+
+Be aware of the presence of exceptions. One important thing to realize
+is that you often do not have to use throw, try or catch to be exception
+safe. Let's look at the different types of exceptions safety: (These are
+taken from Herb Sutter's book[ExC++]
+
+"
+1. Basic guarantee: Even in the presence of exceptions thrown by T or
+	other exceptions, Stack objects don't leak resources.
+	Note that this also implies that the container will be
+	destructible and usable even if an exception is thrown while
+	performing some container operation. However, if an exception
+	is thrown, the container will be in a consistent, but not
+	necessarily predictable, state. Containers that support the
+	basic guarantee can work safely in some settings.
+
+2. Strong guarantee: If an operation terminates because of an
+	exception, program state will remain unchanged.
+	This always implies commit-or-rollback semantics, including
+	that no references or iterators into the container be
+	invalidated if an operation fails. For example, if a Stack
+	client calls Top and then attempts a Push that fails because
+	of an exception, then the state of the Stack object must be
+	unchanged and the reference returned from the prior call to
+	Top must still be valid. For more information on these
+	guarantees, see Dave Abrahams's documentation of the SGI
+	exception-safe standard library adaption at:
+
+	http://www.stlport.org/doc/exception_safety.html
+
+	Probably the most interesting point here is that when you
+	implement the basic guarantee, the strong guarantee often
+	comes for free. For example, in our Stack implementation,
+	almost everything we did was needed to satisfy just the basic
+	guarantee -- and what's presented above very nearly satisfies
+	the strong guarantee, with little of no extra work. Not half
+	bad, considering all the trouble we went to.
+
+	In addition to these two guarantees, there is one more
+	guarantee that certain functions must provide in order to make
+	overall exception safety possible:
+
+3. Nothrow guarantee: The function will not emit an exception under any
+   	circumstances.
+	Overall exception safety isn't possible unless certain
+	functions are guaranteed not to throw. In particular, we've
+	seen that this is true for destructors; later in this
+	miniseries, we'll see that it's also needed in certain helper
+	functions, such as Swap().
+"
+
+For all cases where we might be able to write exception safe functions
+without using try, throw or catch we should do so. In particular we
+should look over all destructors to ensure that they are as exception
+safe as possible.
+
+
+Formatting
+----------
+
+* Only one declaration on each line.
+	int a;
+	int b;
+	-NOT-
+	int a, b; // not used in LyX
+  This is especially important when initialization is done at the same
+  time:
+	string a = "Lars";
+	string b = "Gullik";
+	-NOT-
+	string a = "Lars", b = "Gullik"; // not used in LyX
+
+	[Note that 'string a = "Lars"' is formally calling a copy constructor 
+	on a temporary constructed from a string literal and therefore has the
+	potential of being more expensive then direct construction by
+	'string a("Lars")'. However the compiler is allowed to elide the copy
+	(even if it had side effects), and modern compilers typically do so.
+	Given these equal costs, LyX code favours the '=' idiom as it is in
+	line with the traditional C-style initialization, _and_ cannot be
+	mistaken as function declaration, _and_ reduces the level of nested
+	parantheses in more initializations.]
+	
+
+* Pointers and references
+	char * p = "flop";
+	char & c = *p;
+	-NOT-
+	char *p = "flop"; // not used in LyX
+	char &c = *p;     // not used in LyX
+
+  Some time ago we had a huge discussion on this subject and after
+  convincing argumentation from Asger this is what we decided. Also note
+  that we will have:
+	char const * p;
+	-NOT-
+	const char * p; // not used in LyX
+
+* Operator names and parentheses
+	operator==(type)
+	-NOT-
+	operator == (type)  // not used in LyX
+
+  The == is part of the function name, separating it makes the
+  declaration look like an expression.
+
+* Function names and parentheses
+	void mangle()
+	-NOT-
+	void mangle ()  // not used in LyX
+
+* Enumerators
+	enum Foo {
+		FOO_ONE = 1,
+		FOO_TWO = 2,
+		FOO_THREE = 3
+	};
+	-NOT-
+	enum { one = 1, two = 2, three 3 }; // not used in LyX
+	-NOT-
+	enum {
+		One = 1,
+		Two = 2,
+		Three = 3
+	};
+
+* Null pointers
+
+	Using a plain 0 is always correct and least effort to type. So:
+
+	void * p = 0;
+	-NOT-
+	void * p = NULL; // not used in LyX
+	-NOT-
+	void * p = '\0'; // not used in LyX
+	-NOT-
+	void * p = 42 - 7 * 6; // not used in LyX
+
+	Note: As an exception, imported third party code as well as code
+	interfacing the "native" APIs (src/support/os_*) can use NULL.
+
+* Naming rules for classes
+
+  - Use descriptive but simple and short names. Do not abbreviate.
+
+  - Class names are usually capitalized, and function names lowercased.
+    Enums are named like Classes, values are usually in lower-case.
+
+  - Public API is camel-case ('void setAFlagToAValue(bool)')
+
+  - Members variables are underscored ('enable_this_feature_flag_') with a final '_'
+  
+  - private/protected functions are also camel-case
+
+
+  New types are capitalized, so this goes for typedefs, classes, structs
+  and enums.
+
+* Formatting
+
+  - Adapt the formatting of your code to the one used in the
+    other parts of LyX. In case there is different formatting for
+    the same construct, use the one used more often.
+
+* Use existing structures
+
+  - Use string wherever possible. LyX will someday move to Unicode, and
+    that will be easy if everybody uses string now. Unicode strings 
+    should prefer using docstring instead of UTF-8 encoded std::string.
+
+  - Check out the filename and path tools in filetools.h
+
+  - Check out the string tools in lstring.h.
+
+  - Use the LyXErr class to report errors and messages using
+    the lyxerr instantiation.
+
+  [add description of other existing structures]
+
+
+* Declarations
+
+  - Use this order for the access sections of your class: public,
+    protected, private. The public section is interesting for every
+    user of the class. The private section is only of interest for the
+    implementors of the class (you). [Obviously not true since this is
+    for developers, and we do not want one developer only to be able to
+    read and understand the implementation of class internals. Lgb]
+
+  - Avoid declaring global objects in the declaration file of the class.
+    If the same variable is used for all objects, use a static member.
+
+  - Avoid global or static variables.
+
+
+* File headers
+
+  - If you create a new file, the top of the file should look something
+    like this :
+
+  /**
+   * \file NewFile.cpp
+   * This file is part of LyX, the document processor.
+   * Licence details can be found in the file COPYING.
+   *
+   * \author Kaiser Sose
+   *
+   * Full author contact details are available in file CREDITS
+   */
+
+* Documentation
+
+  - The documentation is generated from the header files.
+  - You document for the other developers, not for yourself.
+  - You should document what the function does, not the implementation.
+  - in the .cpp files you document the implementation.
+  - Single line description (///), multiple lines description (/** ... */)
+  - see the doxygen webpage referenced above
+
+
+* NAMING RULES FOR USER-COMMANDS
+
+  Here's the set of rules to apply when a new command name is introduced:
+
+  1) Use the object.event order. That is, use `word-forward' instead of
+     `forward-word'.
+  2) Don't introduce an alias for an already named object. Same for events.
+  3) Forward movement or focus is called `forward' (not `right').
+  4) Backward movement or focus is called `backward' (not `left').
+  5) Upward movement of focus is called `up'.
+  6) Downward movement is called `down'.
+  7) The begin of an object is called `begin' (not `start').
+  8) The end of an object is called `end'.
+
+
+ *************************************************************
+
+ How to create class interfaces.
+ (a.k.a How Non-Member Functions Improve Encapsulation)
+ ======================================================
+
+	I recently read an article by Scott Meyers in C/C++ User's
+Journal (Vol.18,No.2), where he makes a strong case on how non-member
+functions makes classes more encapsulated, not less. Just skipping
+to the core of this provides us with the following algorithm for
+deciding what kind of function to add to a class interface:
+
+	- We need to add a function f to the class C's API.
+
+	if (f needs to be virtual)
+		make f a member function of C;
+	else if (f is operator>> or operator<<) {
+		make f a non-member function;
+		if (f needs access to non-public members of C)
+			make f a friend of C;
+	} else if (f needs type conversions on its left-most argument) {
+		make f a non-member function;
+		if (f needs access to non-public members of C)
+			make f a friend of C;
+	} else if (f can be implemented via C's public interface)
+		make f a non-member function;
+	else
+		make f a member function of C;
+
+(I'll fill in more from Scott Meyers article when time allows.)
+
+References
+----------
+
+[ExC++] Sutter, Herb. Exceptional C++: 47 engineering puzzles,
+	programming problems, and solutions. ISBN 0-201-61562-2

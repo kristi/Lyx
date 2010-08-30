@@ -1,0 +1,226 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[broadway,extramarks.sty,fancyhdr.sty,lastpage.sty]{broadway}
+
+# For theater plays
+
+Format 27
+Columns                 1
+Sides                   1
+SecNumDepth             2
+TocDepth                2
+
+ClassOptions
+FontSize                12
+End
+
+Input stdinsets.inc
+#Input stdtitle.inc
+Input stdstruct.inc
+Input stdfloats.inc
+Input stdcounters.inc
+# Input lyxmacros.inc
+
+Counter act
+End
+
+
+Counter scene
+End
+
+
+Style Dialogue
+	Margin                Static
+	LatexType             Command
+	LatexName             dialogue
+	LeftMargin            MMMMMMM
+	RightMargin           MMMMMMM
+	Align                 Left
+	LabelType             No_Label
+End
+
+
+Style Narrative
+	Margin                Static
+	LatexType             Command
+	LatexName             narrative
+	ParIndent             ""
+	ParSkip               0.8
+	TopSep                1.0
+	Align                 Left
+	LabelType             No_Label
+	Font
+	  Shape               Italic
+	  Color               Black
+	EndFont
+End
+
+
+Style ACT
+	Margin                Static
+	LatexType             Command
+	LatexName             act
+	ParIndent             ""
+	ParSkip               0.8
+	TopSep                1.0
+#  KeepEmpty            1
+	Align                 Center
+	LabelType             Counter
+	LabelCounter          act
+	LabelSep              M
+	LabelString           "ACT \arabic{act}"
+End
+
+
+Style SCENE
+	Margin                Dynamic
+	LatexType             Command
+	LatexName             scene
+	ParIndent             ""
+	ParSkip               0.8
+	TopSep                1.0
+#  KeepEmpty            1
+	Align                 Center
+	LabelType             Counter
+	LabelCounter          scene
+	LabelSep              M
+	LabelString           "SCENE \arabic{scene}"
+End
+
+
+Style SCENE*
+	Margin                Dynamic
+	LatexType             Command
+	LatexName             scenestar
+	ParIndent             ""
+	ParSkip               0.8
+	TopSep                1.0
+	KeepEmpty             1
+	Align                 Center
+	LabelType             Static
+	LabelSep              M
+	LabelString           "SCENE"
+End
+
+
+Style AT_RISE:
+	Margin                Dynamic
+	LatexType             Command
+	LatexName             atrise
+	ParIndent             ""
+	ParSkip               0.8
+	TopSep                1.0
+	Align                 Left
+	KeepEmpty             1
+	LabelType             Static
+	LabelSep              M
+	LabelString           "AT RISE:"
+End
+
+
+# Speaker style definition, identifies speaker  ALL CAPS
+Style Speaker
+	Margin                Static
+	LatexType             Command
+	LatexName             speaker
+	ParSkip               0.4
+	TopSep                0.4
+	Align                 Center
+	LabelType             No_Label
+End
+
+
+# Parenthetical instruction to speaker (in parenthises, l.c.)
+# The ( and ) will automatically appear on screen, so don't type any.
+Style Parenthetical
+	Margin                Static
+	LatexType             Command
+	LatexName             parenthetical
+	LeftMargin            MMMMMMMMMMMMM
+	RightMargin           MMMM
+	TopSep                0.0
+	BottomSep             0.0
+	ParSkip               0.0
+	Align                 Left
+	LabelType             Static
+	LabelString           "("
+	EndLabelType          Static
+	EndLabelString        ")"
+	Font
+	  Shape               Italic
+	  Color               Blue
+	EndFont
+	LabelFont
+	  Color               Blue
+	EndFont
+End
+
+
+Style CURTAIN
+	Margin                Static
+	LatexType             Command
+	LatexName             curtain
+	ParIndent             ""
+	ParSkip               0.8
+	TopSep                1.0
+	KeepEmpty             1
+	Align                 Center
+	LabelType             Static
+	LabelString           "CURTAIN"
+End
+
+
+# Standard style definition (I kept this one to provide a general case)
+Style Standard
+	Margin                Static
+	LatexType             Paragraph
+	LatexName             dummy
+	ParIndent             ""
+	ParSkip               0.4
+	Align                 Left
+	AlignPossible         Block, Left, Right, Center
+	Labeltype             No_Label
+End
+
+
+Style Title
+	Margin                Static
+	LatexType             Command
+	LatexName             title
+	InTitle               1
+	ParSkip               0.4
+	BottomSep             1.5
+	ParSep                1.5
+	Align                 Center
+	AlignPossible         Left, Right, Center
+	HTMLTitle             true
+End
+
+
+Style Author
+	Margin                Static
+	LatexType             Command
+	LatexName             author
+	InTitle               1
+	ParSkip               0.4
+	BottomSep             1.5
+	ParSep                1.5
+	Align                 Center
+	AlignPossible         Left, Right, Center
+End
+
+
+Style Right_Address
+	Margin                Right_Address_Box
+	LatexType             Command
+	LatexName             address
+	InTitle               1
+	ParSkip               0.4
+	BottomSep             1.5
+	ParSep                1.5
+	Align                 Left
+	AlignPossible         Left, Right
+End
+
+
+NoStyle Bibliography
+

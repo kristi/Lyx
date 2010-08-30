@@ -1,0 +1,147 @@
+# -*- text -*-
+
+# file de_menus.bind
+# This file is part of LyX, the document processor.
+# Licence details can be found in the file COPYING.
+
+# author Lars Gullik Bjønnes
+# author Jean-Marc Lasgouttes
+# author André Pönitz
+# author Michael Gerz
+# author Jürgen Spitzmüller
+# author Pit Sütterlin
+
+# Full author contact details are available in file CREDITS.
+
+# Key bindings for menus, both invisible and visible.
+# Adapted to the german internationalisation 98-1-31 pit@uni-sw.gwdg.de
+
+# Diese Datei ist die deutsche Version der systemweiten Datei
+# /usr/local/share/lyx/bind/menus.bind.  Sie ist für diejenigen
+# gedacht, die die Deutsche Internationalisierung verwenden und legt
+# Menuefunktionen konsistent zu den deutschen Namen der Menues
+# fest.
+#
+#   ACHTUNG!
+#
+# Die Belegung der Sequenz ALT-D für die Funktionen des Menues "Datei"
+# verträgt sich nicht mit einer Definition der Dateien (x)emacs.bind
+# Wer diese verwendet, muß entweder die Definitionen in dieser Datei
+# ändern, oder aber die entsprechende bind-datei ebenfalls in das
+# private Verzeichnis kopieren und dort die Definition veraendern.
+# Ich verwende z.B. in emacs.bind anstelle der normalen Definition
+# \bind "M-d" "word-delete-forward"  die leicht veränderte Variante
+# \bind "M-S-D" "word-delete-forward", wodurch die Funktion "Löschen
+# eines Wortes" auf die Tastenkombination ALT-SHIFT-D gelegt wird
+
+
+#
+# Menü Schriftgröße
+#
+\bind "M-s t"			"font-size tiny"
+\bind "M-s S-S"			"font-size footnotesize"
+\bind "M-s s"			"font-size small"
+\bind "M-s n"			"font-size normal"
+\bind "M-s l"			"font-size large"
+\bind "M-s S-L"			"font-size larger"
+\bind "M-s h"			"font-size huge"
+\bind "M-s S-H"			"font-size giant"
+
+\bind "M-s 1"			"font-size tiny"
+\bind "M-s 2"			"font-size scriptsize"
+\bind "M-s 3"			"font-size footnotesize"
+\bind "M-s 4"			"font-size small"
+\bind "M-s 5"			"font-size normal"
+\bind "M-s 6"			"font-size large"
+\bind "M-s 7"			"font-size larger"
+\bind "M-s 8"			"font-size largest"
+\bind "M-s 9"			"font-size huge"
+\bind "M-s 0"			"font-size giant"
+
+\bind "M-s plus"		"font-size increase"
+\bind "M-s minus"		"font-size decrease"
+
+#
+# Menü Absatztyp
+#
+\bind "M-a 0"			"layout Part"
+\bind "M-a 1"			"layout Chapter"
+\bind "M-a 2"			"layout Section"
+\bind "M-a 3"			"layout Subsection"
+\bind "M-a 4"			"layout Subsubsection"
+\bind "M-a 5"			"layout Paragraph"
+\bind "M-a 6"			"layout Subparagraph"
+\bind "M-a ~S-asterisk ~S-0"	"layout Part*"
+\bind "M-a ~S-asterisk ~S-1"	"layout Chapter*"
+\bind "M-a ~S-asterisk ~S-2"	"layout Section*"
+\bind "M-a ~S-asterisk ~S-3"	"layout Subsection*"
+\bind "M-a ~S-asterisk ~S-4"	"layout Subsubsection*"
+\bind "M-a ~S-asterisk ~S-5"	"layout Paragraph*"
+\bind "M-a ~S-asterisk ~S-6"	"layout Subparagraph*"
+\bind "M-a a"			"layout Abstract"
+\bind "M-a S-A"			"layout Author"
+\bind "M-a M-a"			"layout Address"
+\bind "M-a C-a"			"layout Right_Address"
+\bind "M-a b"			"layout Itemize"	# bulleted list
+\bind "M-a S-B"			"layout Bibliography"
+\bind "M-a c"			"layout LyX-Code"
+\bind "M-a S-C"			"layout Comment"
+\bind "M-a d"			"layout Description"
+\bind "M-a S-D"			"layout Date"
+\bind "M-a e"			"layout Enumerate"	# numbered list
+\bind "M-a f"			"layout ShortFoilhead"	# Foils!!
+\bind "M-a S-F"			"layout Foilhead"	# Foils!!
+\bind "M-a i"			"layout Itemize"	# bulleted list
+\bind "M-a l"			"layout List"
+\bind "M-a S-L"			"layout LaTeX"
+\bind "M-a n"			"layout Enumerate"	# numbered list
+\bind "M-a q"			"layout Quote"
+\bind "M-a S-Q"			"layout Quotation"
+\bind "M-a r"			"layout ShortRotatefoilhead"	# Foils!!
+\bind "M-a S-R"			"layout Rotatefoilhead"	# Foils!!
+\bind "M-a s"			"layout Standard"
+\bind "M-a t"			"layout Title"
+\bind "M-a x"			"layout LaTeX"
+\bind "M-a space"		"drop-layouts-choice"
+\bind "M-a v"			"layout Verse"
+
+\bind "M-a Left"		"outline-out"
+\bind "M-a Right"		"outline-in"
+\bind "M-a Up"			"outline-up"
+\bind "M-a Down"		"outline-down"
+
+# Obsolete Tastenbelegung: in die persönliche *.bind Datei kopieren und
+# auskommentieren wenn diese Tastenbelegung gewünscht ist.
+# \bind "M-a S-quotedbl"	"layout Section*"	# M-a S-2
+# \bind "M-a S-§"		"layout Subsection*"	# M-a S-3
+# \bind "M-a S-dollar"		"layout Subsubsection*"	# M-a S-4
+
+
+#
+# Menü Zeichensatz
+#
+\bind "M-z f"			"font-boldsymbol"
+\bind "M-z k"			"font-noun"
+\bind "M-z h"			"font-emph"
+\bind "M-z i"			"font-emph"
+\bind "M-z m"			"math-mode"
+\bind "M-z c"			"font-typewriter"
+\bind "M-z r"			"font-roman"
+\bind "M-z s"			"font-sans"
+\bind "M-z t"			"ert-insert"
+\bind "M-z u"			"font-underline"
+
+\bind "M-z Down"		"word-lowcase"
+\bind "M-z Up"			"word-upcase"
+\bind "M-z Right"		"word-capitalize"
+
+\bind "M-z space"		"font-default"
+
+#
+# Menü Tastatur
+#
+\bind "M-t 1"			"keymap-primary"
+\bind "M-t 2"			"keymap-secondary"
+\bind "M-t o"			"keymap-off"
+\bind "M-t t"			"keymap-toggle"
+\bind "M-t x"			"keymap-off"
