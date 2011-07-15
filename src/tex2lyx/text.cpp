@@ -901,6 +901,20 @@ void parse_environment(Parser & p, ostream & os, bool outer,
 		p.skip_spaces();
 	}
 
+	else if (name == "tikzpicture") {
+		parent_context.check_layout(os);
+		Context newcontext(true, parent_context.textclass);
+		begin_inset(os, "Preview ");
+		os << "\nstatus open\n";
+		newcontext.check_layout(os);
+		handle_ert(os, "\\begin{" + name + "}" +
+				p.verbatimEnvironment(name) + 
+				"\\end{" + name + "}",
+				newcontext);
+		newcontext.check_end_layout(os);
+		end_inset(os);
+	}
+
 	else if (known_environments.find(name) != known_environments.end()) {
 		vector<ArgumentType> arguments = known_environments[name];
 		// The last "argument" denotes wether we may translate the
